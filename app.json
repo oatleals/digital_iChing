@@ -1,0 +1,12 @@
+{
+  "name": "I-Ching",
+  "displayName": "I-Ching",
+  "expo": {
+    "name": "I-Ching",
+    "slug": "I-Ching",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
