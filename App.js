@@ -1,17 +1,55 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  Dimensions,
+  TextInput,
+  Alert,
+  SafeAreaView,
+  Button,
+  Platform,
+  StatusBar,
+  View,
+} from "react-native";
 
 export default function App() {
   console.log("App executed");
+  console.log(Dimensions.get("screen"));
 
-  //let x;
-  //x.toString();
   return (
-    <View style={styles.container}>
-      <Text>Grace you are a cool person</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <View
+        style={{
+          backgroundColor: "White",
+          width: "100%",
+          height: 75,
+        }}
+      ></View>
+      <Text> "I-Ching" </Text>
+      <Button
+        title="Consult"
+        style={{
+          backgroundColor: "cornflowerblue",
+          width: "100%",
+          height: 75,
+        }}
+        onPress={() =>
+          Alert.prompt("Book of change", "Ask a question", (text) =>
+            console.log(text)
+          )
+        }
+      />
+      <Button
+        title="Tutorial"
+        color="cornflowerblue"
+        onPress={() => alert("This will teach you the ways")}
+      />
+      <Button
+        title="Journal"
+        color="cornflowerblue"
+        onPress={() => alert("Saving consultation rolls")}
+      />
+    </SafeAreaView>
   );
 }
 
@@ -19,7 +57,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    paddingTop: Platform.OS == "android" ? StatusBar.currentHeight : 0,
   },
 });
