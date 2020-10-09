@@ -1,62 +1,37 @@
-import React from "react";
-import {
-  StyleSheet,
-  Text,
-  Dimensions,
-  TextInput,
-  Alert,
-  SafeAreaView,
-  Button,
-  Platform,
-  StatusBar,
-  View,
-} from "react-native";
+import * as React from "react";
+import { View, Text, Button } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import ConsultScreen from "./app/assets/screens/ConsultScreen";
+import TutorialScreen from "./app/assets/screens/TutorialScreen";
+import JournalScreen from "./app/assets/screens/JournalScreen";
 
-export default function App() {
-  console.log("App executed");
-  console.log(Dimensions.get("screen"));
-
+function HomeScreen({ navigation }) {
   return (
-    <SafeAreaView style={styles.container}>
-      <View
-        style={{
-          backgroundColor: "White",
-          width: "100%",
-          height: 75,
-        }}
-      ></View>
-      <Text> "I-Ching" </Text>
-      <Button
-        title="Consult"
-        style={{
-          backgroundColor: "cornflowerblue",
-          width: "100%",
-          height: 75,
-        }}
-        onPress={() =>
-          Alert.prompt("Book of change", "Ask a question", (text) =>
-            console.log(text)
-          )
-        }
-      />
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <Button title="Consult" onPress={() => navigation.navigate("Consult")} />
       <Button
         title="Tutorial"
-        color="cornflowerblue"
-        onPress={() => alert("This will teach you the ways")}
+        onPress={() => navigation.navigate("Tutorial")}
       />
-      <Button
-        title="Journal"
-        color="cornflowerblue"
-        onPress={() => alert("Saving consultation rolls")}
-      />
-    </SafeAreaView>
+      <Button title="Journal" onPress={() => navigation.navigate("Journal")} />
+    </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    paddingTop: Platform.OS == "android" ? StatusBar.currentHeight : 0,
-  },
-});
+const Stack = createStackNavigator();
+
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Consult" component={ConsultScreen} />
+        <Stack.Screen name="Tutorial" component={TutorialScreen} />
+        <Stack.Screen name="Journal" component={JournalScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+export default App;
