@@ -1,0 +1,26 @@
+#ChangeLog
+All notable changes to this project will be documented in this file.
+#Code written by: Jake Lam, Elena Coleman, Leala Othman
+#I-Ching project
+
+##First Deliverable
+
+## [1.1.0] 10-20-2020
+###Added
+- Easy navigation between different screens.
+- Buttons for each screens
+- Separated our screens into workable screens.js
+- Organized folders for our code and file paths
+
+###Fixes
+-Fixed the file path issue. Note: Whenever you import a file path, make sure it is in reference to the folder.
+-Clear your cache if you have any issues: https://stackoverflow.com/questions/40985027/unable-to-resolve-module-in-react-native-app
+
+
+
+
+
+
+
+
+##Second Deliverable [2.0.0]
