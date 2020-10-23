@@ -1,17 +1,18 @@
 import * as React from "react";
-import { View, Button } from "react-native";
+import {StyleSheet, View, Button,Image } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import {styles} from './app/assets/styles/styles';
 
-import JournalScreen from './app/screens/JournalScreen'
-import TutorialScreen from './app/screens/TutorialScreen'
+import JournalScreen from './app/screens/JournalScreen';
+import TutorialScreen from './app/screens/TutorialScreen';
 
-import ConsultScreen from './app/screens/ConsultScreen'
-import CoinFlipScreen from './app/screens/CoinFlipScreen'
-import AnalysisScreen from './app/screens/AnalysisScreen'
+import ConsultScreen from './app/screens/ConsultScreen';
+import CoinFlipScreen from './app/screens/CoinFlipScreen';
+import AnalysisScreen from './app/screens/AnalysisScreen';
+import { color } from "react-native-reanimated";
 
-
-const homeStack = createStackNavigator();
+const Stack = createStackNavigator();
 const consultStack = createStackNavigator();
 const tutorialStack = createStackNavigator();
 const journalStack = createStackNavigator();
@@ -19,7 +20,8 @@ const journalStack = createStackNavigator();
 
 function HomeScreen({navigation}) {
   return (
-    <View style={{ flex: 1,alignItems: "center", justifyContent: "center" }}>
+    <View style={homeStyle.home}>
+    <Image source = {require('./app/assets/IChingLogo.png')} style={styles.logo} />
     <Button title="Consult" 
       onPress={() => navigation.navigate("Consult")} />
     <Button
@@ -51,17 +53,30 @@ const createJournalStack = () =>  //Navigation for tutorial screens
   </journalStack.Navigator>
 
 
+
 function App() {
   return (
     <NavigationContainer>
-      <homeStack.Navigator>
-        <homeStack.Screen name="Home" component={HomeScreen} />
-        <homeStack.Screen name="Consult" children={createConsultStack} />
-        <homeStack.Screen name="Tutorial" children={createTutorialStack} />
-        <homeStack.Screen name="Journal" children={createJournalStack} />
-      </homeStack.Navigator>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Consult" children={createConsultStack} />
+        <Stack.Screen name="Tutorial" children={createTutorialStack} />
+        <Stack.Screen name="Journal" children={createJournalStack} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
+
+
+const homeStyle = StyleSheet.create({
+  home: {
+    flex: 1,
+    backgroundColor: "#f0f8ff",
+    justifyContent: "center",
+    alignItems: "center"
+  }
+});
+
+
 
 export default App;
