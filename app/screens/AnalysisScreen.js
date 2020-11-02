@@ -3,8 +3,22 @@ import { StyleSheet, SafeAreaView,Text, Alert, ImageBackground} from "react-nati
 
 import {styles} from '../assets/styles/styles'
 
+//hex writing code
+
+
+const hexRead () => {
+  const outcomes = [Yin, Yang]
+
+  let rand = Math.floor(Math.random() * outcomes.length) //pick from the list of outcomes
+}
+
 function AnalysisScreen() {
   return (
+
+
+    //pull from the hex dict to find background image
+
+
     <ImageBackground source={require('../assets/MockUpChienv02.jpg')} style={styles.image}>
     <SafeAreaView style={styles.container}>
       <Text>

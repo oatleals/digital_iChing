@@ -1,8 +1,7 @@
 import * as React from "react";
-import {StyleSheet, View, Button,Image } from "react-native";
+import {StyleSheet, View, Button,Image,ImageBackground } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import {styles} from './app/assets/styles/styles';
 
 import JournalScreen from './app/screens/JournalScreen';
 import TutorialScreen from './app/screens/TutorialScreen';
@@ -10,7 +9,7 @@ import TutorialScreen from './app/screens/TutorialScreen';
 import ConsultScreen from './app/screens/ConsultScreen';
 import CoinFlipScreen from './app/screens/CoinFlipScreen';
 import AnalysisScreen from './app/screens/AnalysisScreen';
-import { color } from "react-native-reanimated";
+
 
 const Stack = createStackNavigator();
 const consultStack = createStackNavigator();
@@ -20,16 +19,26 @@ const journalStack = createStackNavigator();
 
 function HomeScreen({navigation}) {
   return (
-    <View style={homeStyle.home}>
-    <Image source = {require('./app/assets/IChingLogo.png')} style={styles.logo} />
-    <Button title="Consult" 
-      onPress={() => navigation.navigate("Consult")} />
-    <Button
-      title="Tutorial"
-      onPress={() => navigation.navigate("Tutorial")}/>
-    <Button title="Journal" 
-      onPress={() => navigation.navigate("Journal")} />
-  </View>
+ 
+    <ImageBackground source={require('./app/assets/backgroundGradient.png')} style={styles.image}>
+      <View style = {styles.home}>
+        <Image source = {require('./app/assets/IchingKoiLogo.png')} style={styles.logo} />
+          <View>
+            <Button 
+            color = "#008080"
+            title="Consult" 
+            onPress={() => navigation.navigate("Consult")} />
+            <Button color = "#008080"
+            title="Tutorial"
+            onPress={() => navigation.navigate("Tutorial")}/>
+            <Button 
+            color = "#008080"
+            title="Journal" 
+            onPress={() => navigation.navigate("Journal")} />
+          </View>
+        </View>
+    </ImageBackground>
+   
   );
 }
 
@@ -68,13 +77,38 @@ function App() {
 }
 
 
-const homeStyle = StyleSheet.create({
+const styles = StyleSheet.create({
   home: {
     flex: 1,
-    backgroundColor: "#f0f8ff",
     justifyContent: "center",
     alignItems: "center"
+  },
+  
+  logo: {
+    width: 200,
+    height: 200,
+    flex: 0.5,
+    resizeMode: "contain",
+    alignItems: "center",
+    justifyContent: "flex-start"
+  },
+  container: {
+    flex: 1,
+    padding: 10,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  buttonContainer: {
+    flex: 1,
+    marginTop: 20
+  },
+  image: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center"
   }
+
+
 });
 
 
