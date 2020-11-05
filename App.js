@@ -19,7 +19,6 @@ const journalStack = createStackNavigator();
 
 function HomeScreen({navigation}) {
   return (
- 
     <ImageBackground source={require('./app/assets/backgroundGradient.png')} style={styles.image}>
       <View style = {styles.home}>
         <Image source = {require('./app/assets/IchingKoiLogo.png')} style={styles.logo} />

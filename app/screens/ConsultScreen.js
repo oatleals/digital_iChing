@@ -1,15 +1,41 @@
 import * as React from "react";
-import { View, Button, Alert } from "react-native";
+import { View, Button, Alert, ImageBackground, StyleSheet, Text } from "react-native";
+import { TextInput } from "react-native-gesture-handler";
 
 function ConsultScreen(props) {
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-    <View>
-      <Button title="Ask a question" onPress={() => Alert.alert("Ask a question")} />
-      <Button title="Find your Hexagram" onPress={() => props.navigation.navigate("CoinFlip")} />
-    </View>
-  </View>
+    <ImageBackground source={require('../assets/backgroundGradient.png')} style={styles.image}>
+      <View style={styles.container}>
+      <Text>Enter a question:</Text>
+        <TextInput style = {styles.input}/>
+        <Button title="Find your Hexagram" color = "#008080" onPress={() => props.navigation.navigate("CoinFlip")} />
+      </View>
+    </ImageBackground>
   );
 }
 
-export default ConsultScreen;
+const styles = StyleSheet.create({
+
+  container: {
+    flex: 1, 
+    alignItems: "center", 
+    justifyContent: "center"
+  },
+  buttonContainer: {
+    flex: 1,
+    marginTop: 20
+  },
+  image: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center"
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: '#777',
+    padding: 8,
+    margin: 10
+  }
+});
+
+export default ConsultScreen
