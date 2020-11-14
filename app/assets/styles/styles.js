@@ -1,36 +1,20 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-  center: {
-    flex: 1,
-    margin: 24,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  title: {
-    fontSize: 36,
-    marginBottom: 16
-  },
-  androidButtonText: {
-    color: 'blue',
-    fontSize: 20
-  },
   container: {
     flex: 1,
     padding: 10,
     justifyContent: "center",
     alignItems: "center",
-
- 
   },
-  backgroundImage: {
+  Image: {
     width: 200,
     height: 200,
     justifyContent: "center",
     alignItems: "center",
     resizeMode: 'cover', // or 'stretch'
   },
-  image: {
+  backgroundImage: {
     flex: 1,
     resizeMode: "cover",
     justifyContent: "center"
@@ -42,5 +26,38 @@ export const styles = StyleSheet.create({
     resizeMode: "contain",
     alignItems: "center",
     justifyContent: "flex-start"
-  }
+  },
+  hexLine: {
+    width: 150,
+    height: 25,
+    resizeMode: "contain",
+    justifyContent: "flex-start"
+  },
+  coinButton: {
+    width: 150,
+    height: 150,
+    marginTop: 20,
+    marginBottom: 20,
+    resizeMode: "contain",
+    alignItems: "center",
+    justifyContent: "flex-start"
+  },
+  home: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  buttonContainer: {
+    flex: 1,
+    marginTop: 20
+  },
+  item: {
+    backgroundColor: '#008080',
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
+  },
+  title: {
+    fontSize: 24,
+  },
 });

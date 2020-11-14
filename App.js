@@ -4,11 +4,17 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
 import JournalScreen from './app/screens/JournalScreen';
-import TutorialScreen from './app/screens/TutorialScreen';
+
+import TutorialScreen0 from './app/screens/TutorialScreen0';
+import TutorialScreen1 from './app/screens/TutorialScreen1';
+import TutorialScreen2 from './app/screens/TutorialScreen2';
+import TutorialScreen3 from './app/screens/TutorialScreen3';
 
 import ConsultScreen from './app/screens/ConsultScreen';
 import CoinFlipScreen from './app/screens/CoinFlipScreen';
 import AnalysisScreen from './app/screens/AnalysisScreen';
+
+import HexagramContextProvider from "./app/assets/contexts/HexagramContext";
 
 
 const Stack = createStackNavigator();
@@ -19,25 +25,24 @@ const journalStack = createStackNavigator();
 
 function HomeScreen({navigation}) {
   return (
-    <ImageBackground source={require('./app/assets/backgroundGradient.png')} style={styles.image}>
-      <View style = {styles.home}>
-        <Image source = {require('./app/assets/IchingKoiLogo.png')} style={styles.logo} />
-          <View>
-            <Button 
-            color = "#008080"
-            title="Consult" 
-            onPress={() => navigation.navigate("Consult")} />
-            <Button color = "#008080"
-            title="Tutorial"
-            onPress={() => navigation.navigate("Tutorial")}/>
-            <Button 
-            color = "#008080"
-            title="Journal" 
-            onPress={() => navigation.navigate("Journal")} />
-          </View>
+      <ImageBackground source={require('./app/assets/MainMenu.jpg')} style={styles.image}>
+        <View style = {styles.home}>
+          <Image source = {require('./app/assets/logo/IchingKoiLogo.png')} style={styles.logo} />
+            <View>
+              <Button 
+              color = "#008080"
+              title="Consult" 
+              onPress={() => navigation.navigate("Consult")} />
+              <Button color = "#008080"
+              title="Tutorial"
+              onPress={() => navigation.navigate("Tutorial")}/>
+              <Button 
+              color = "#008080"
+              title="Journal" 
+              onPress={() => navigation.navigate("Journal")} />
+            </View>
         </View>
-    </ImageBackground>
-   
+      </ImageBackground>   
   );
 }
 
@@ -51,7 +56,10 @@ const createConsultStack = () =>   //Navigation for the consulting screens
 
 const createTutorialStack = () =>  //Navigation for tutorial screens
   <tutorialStack.Navigator>
-    <consultStack.Screen name = "Tutorial" component = {TutorialScreen}/> 
+    <consultStack.Screen name = "Tutorial" component = {TutorialScreen0}/>
+    <consultStack.Screen name = "Tutorial1" component = {TutorialScreen1}/> 
+    <consultStack.Screen name = "Tutorial2" component = {TutorialScreen2}/>
+    <consultStack.Screen name = "Tutorial3" component = {TutorialScreen3}/>   
   </tutorialStack.Navigator>
 
 
@@ -64,14 +72,15 @@ const createJournalStack = () =>  //Navigation for tutorial screens
 
 function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Consult" children={createConsultStack} />
-        <Stack.Screen name="Tutorial" children={createTutorialStack} />
-        <Stack.Screen name="Journal" children={createJournalStack} />
-      </Stack.Navigator>
-    </NavigationContainer>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Consult" children={createConsultStack} />
+          <Stack.Screen name="Tutorial" children={createTutorialStack} />
+          <Stack.Screen name="Journal" children={createJournalStack} />
+        </Stack.Navigator>
+      </NavigationContainer>
+
   );
 }
 
@@ -90,16 +99,6 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
     alignItems: "center",
     justifyContent: "flex-start"
-  },
-  container: {
-    flex: 1,
-    padding: 10,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  buttonContainer: {
-    flex: 1,
-    marginTop: 20
   },
   image: {
     flex: 1,

@@ -1,14 +1,24 @@
-import * as React from "react";
+import React, {useState, useContext} from "react";
 import { View, Button, Alert, ImageBackground, StyleSheet, Text } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 
+
 function ConsultScreen(props) {
+
+  const [value, onChangeText] = useState()
+
   return (
-    <ImageBackground source={require('../assets/backgroundGradient.png')} style={styles.image}>
+    <ImageBackground source={require('../assets/background/backgroundGradient.png')} style={styles.image}>
       <View style={styles.container}>
-      <Text>Enter a question:</Text>
-        <TextInput style = {styles.input}/>
-        <Button title="Find your Hexagram" color = "#008080" onPress={() => props.navigation.navigate("CoinFlip")} />
+  
+
+        <Text>Enter a question:</Text>
+          <TextInput style = {styles.input}
+            onChangeText={question => onChangeText(question)}
+            value = {value}
+          />
+
+        <Button title="Find your Hexagram" color = "#008080" onPress={() => props.navigation.navigate("CoinFlip", value)} />
       </View>
     </ImageBackground>
   );
