@@ -2,9 +2,8 @@ import React, {useState} from "react";
 import { SafeAreaView, ImageBackground, Button, Text, StyleSheet, Image} from "react-native";
 
 import AsyncStorage from '@react-native-community/async-storage';
+import {hexData} from '../assets/dictionary/HexagramDatabase';
 
-
-//import HexagramDatabase from '../assets/dictionary/HexagramDatabase.txt'
 
 const saveData = async(hexagram,question) => {
   
@@ -19,13 +18,16 @@ const saveData = async(hexagram,question) => {
   }
 }
 
+console.log(hexData.One)
+
 
 function AnalysisScreen(props) {
 
   const {userInput} = props.route.params
-  const {hex} = props.route.params //receive the hexagram from coin flip
+  const {hex} = props.route.params //receive the hexagram from coin flip(comes from user)
   var strHex = JSON.stringify(hex) //turn the object into strings
   var strUserInput = JSON.stringify(userInput)
+
 
   return (
     //pull from the hex dict to find background image
@@ -38,15 +40,11 @@ function AnalysisScreen(props) {
       <Text style = {styles.hexTitle}>Cast hexagram: </Text>
       <Text style = {styles.item}>{strHex}</Text>
 
-      <Text style = {styles.hexText}>The rich, loamy Earth on the banks of the Marsh provides fertile soil for exceptional progress.
-        The Superior Person is inexhaustible in his willingness to teach, and without limit in his tolerance and support of others.
-        Supreme Success if you keep to your course.
-        But be aware that your time is limited; your power will wane, as Summer changes to Fall.
+      <Text>
+        {hexData}
       </Text>
 
-
-    
-        <Button style = {styles.buttonContainer} title="Save to Journal" color = "#008080" onPress = { 
+      <Button style = {styles.buttonContainer} title="Save to Journal" color = "#008080" onPress = { 
         () => (saveData(strHex, strUserInput), alert("Saved hex: " + strHex + " to Journal"))} />
 
         <Button style = {styles.buttonContainer} title="Go Home" color = "#008080" onPress = {() => props.navigation.navigate("Home")} />        
