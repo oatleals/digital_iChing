@@ -9,7 +9,7 @@ export const hexData = {
             image: "Thunder in heaven above:\nThe image of the Power of the Great.\nThus the superior person does not tread upon paths\nThat do not accord with established order.",
             lines: "Nine at the beginning means:\nPower in the toes. Continuing brings misfortune.\nThis is certainly true.\n\nNine in the second place means:\nPerseverance brings good fortune.\n\nNine in the third place means:\nThe inferior person works through power.\nThe superior person does not act thus.\nTo continue is dangerous.\nA goat butts against a hedge\nAnd gets its horns entangled.\n\nNine in the fourth place means:\nPerseverance brings good fortune. Remorse disappears.\nThe hedge opens; there is no entanglement.\nPower depends upon the axle of a big cart.\n\nSix in the fifth place means:\nLoosens the goat with ease. No remorse.\n\nSix at the top means:\nA goat butts against a hedge.\nIt cannot go backward, it cannot go forward.\nNothing serves to further.\nIf one notes the difficulty, this brings good fortune."
         },
-            
+
         five: {
             judgement: "Waiting\nIf you are sincere, You have light and success\n",
             image: "Clouds rise up to heaven: The image of waiting\nThus the superior person eats and drinks,\nIs joyous and of good cheer",
@@ -18,27 +18,27 @@ export const hexData = {
         twentySix: {
             judgement: "The Taming Power of the Great. Perseverance furthers.\nNot eating at home brings good fortune. It furthers one to cross the great water.",
             image: "Heaven within the mountain:\nThe image of the Taming Power of the Great.\nThus the superior person acquaints themselves with many sayings of antiquity\nAnd many deeds of the past,\nIn order to strengthen their character thereby.",
-            lines: "Nine at the beginning means:\nDanger is at hand. It furthers one to desist.\nNine in the second place means:\nThe axletrees are taken from the wagon.\nNine in the third place means:\nA good horse that follows others.\nAwareness of danger,\nWith perseverance, furthers.\nPractice chariot driving and armed defense daily.\nIt furthers one to have somewhere to go.\nSix in the fourth place means:\nThe headboard of a young bull. Great good fortune.\nSix in the fifth place means:\nThe tusk of a gelded boar.\nGood fortune.\nNine at the top means:\nOne attains the way of heaven. Success."
+            lines: "Nine at the beginning means:\nDanger is at hand. It furthers one to desist.\n\nNine in the second place means:\nThe axletrees are taken from the wagon.\n\nNine in the third place means:\nA good horse that follows others.\nAwareness of danger,\nWith perseverance, furthers.\nPractice chariot driving and armed defense daily.\nIt furthers one to have somewhere to go.\n\nSix in the fourth place means:\nThe headboard of a young bull. Great good fortune.\n\nSix in the fifth place means:\nThe tusk of a gelded boar.\nGood fortune.\nNine at the top means:\nOne attains the way of heaven. Success."
         },
         eleven: {
             judgement: "Peace. The small departs, The great approaches.\nGood fortune. Success.",
             image: "Heaven and earth unite: the image of Peace. Thus the ruler\nDivides and completes the course of heaven and earth;\nThey further and regulate the gifts of heaven and earth,\nAnd so aid the people.",
-            lines: "Nine at the beginning means:\nWhen ribbon grass is pulled up, the sod comes with it.\nEach according to their kind.\nUndertakings bring good fortune.\nNine in the second place means:\nBearing with the uncultured in gentleness,\nFording the river with resolution,\nNot neglecting what is distant, Not regarding one's companions:\nThus one may manage to walk in the middle.\nNine in the third place means:\nNo plain not followed by a slope. No going not followed by a return.\nThey who remain persevering in danger\nIs without blame.\nDo not complain about this truth;\nEnjoy the good fortune you still possess.\nSix in the fourth place means:\nThey flutter down, not boasting of their wealth,\nTogether with their neighbor,\nGuileless and sincere.\nSix in the fifth place means:\nThe sovereign\nGives their child in marriage. This brings blessing\nAnd supreme good fortune.\nSix at the top means:\nThe wall falls back into the moat. Use no army now.\nMake your commands known within your own town.\nPerseverance brings humiliation."
+            lines: "Nine at the beginning means:\nWhen ribbon grass is pulled up, the sod comes with it.\nEach according to their kind.\nUndertakings bring good fortune.\n\nNine in the second place means:\nBearing with the uncultured in gentleness,\nFording the river with resolution,\nNot neglecting what is distant, Not regarding one's companions:\nThus one may manage to walk in the middle.\n\nNine in the third place means:\nNo plain not followed by a slope. No going not followed by a return.\nThey who remain persevering in danger\nIs without blame.\nDo not complain about this truth;\nEnjoy the good fortune you still possess.\n\nSix in the fourth place means:\nThey flutter down, not boasting of their wealth,\nTogether with their neighbor,\nGuileless and sincere.\n\nSix in the fifth place means:\nThe sovereign\nGives their child in marriage. This brings blessing\nAnd supreme good fortune.\n\nSix at the top means:\nThe wall falls back into the moat. Use no army now.\nMake your commands known within your own town.\nPerseverance brings humiliation."
         },
         nine: {
             judgement: "The Taming Power of the Small\nHas success.\nDense clouds, no rain from our western region.",
             image: "The wind drives across heaven:\nThe image of The Taming Power of the Small.\nThus the superior person\nRefines the outward aspect of their nature.",
-            lines: "Nine at the beginning means:\nReturn to the way.\nHow could there be blame in this? Good fortune\nNine in the second place means:\nThey allow themselves to be drawn into returning. Good fortune.\nNine in the third place means:\nThe spokes burst out of the wagon wheels. A married couple rolls their eyes.\nSix in the fourth place means:\nIf you are sincere, blood vanishes and fear gives way. No blame.\nNine in the fifth place means:\nIf you are sincere and loyally attached,\nYou are rich in neighborliness.\nNine at the top means:\nThe rain comes, there is rest.\nThis is due to the lasting effect of character.\nPerseverance brings a person into danger. The moon is nearly full.\nIf the superior person persists, misfortune comes."
+            lines: "Nine at the beginning means:\nReturn to the way.\nHow could there be blame in this? Good fortune\n\nNine in the second place means:\nThey allow themselves to be drawn into returning. Good fortune.\n\nNine in the third place means:\nThe spokes burst out of the wagon wheels. A married couple rolls their eyes.\n\nSix in the fourth place means:\nIf you are sincere, blood vanishes and fear gives way. No blame.\n\nNine in the fifth place means:\nIf you are sincere and loyally attached,\nYou are rich in neighborliness.\n\nNine at the top means:\nThe rain comes, there is rest.\nThis is due to the lasting effect of character.\nPerseverance brings a person into danger. The moon is nearly full.\nIf the superior person persists, misfortune comes."
         },
         fourteen: {
             judgement: "Possession in Great Measure. Supreme success.",
             image: "Fire in heaven above:\nThe image of Possession in Great Measure.\nThus the superior person curbs evil\nAnd furthers good,\nAnd thereby obeys the benevolent will of heaven.",
-            lines: "Nine at the beginning means:\nNo relationship with what is harmful;\nThere is no blame in this.\nIf one remains conscious of difficulty,\nOne remains without blame.\nNine in the second place means:\nA big wagon for loading.\nOne may undertake something. No blame.\nNine in the third place means:\nA ruler offers it to the gods.\nA petty person cannot do this.\nNine in the fourth place means:\nThey makes a difference\nBetween themselves and their neighbor. No blame.\nSix in the fifth place means:\nThey whose truth is accessible, yet dignified,\nHas good fortune.\nNine at the top means:\nThey are blessed by heaven. Good fortune.\nNothing that does not further."
+            lines: "Nine at the beginning means:\nNo relationship with what is harmful;\nThere is no blame in this.\nIf one remains conscious of difficulty,\nOne remains without blame.\n\nNine in the second place means:\nA big wagon for loading.\nOne may undertake something. No blame.\n\nNine in the third place means:\nA ruler offers it to the gods.\nA petty person cannot do this.\n\nNine in the fourth place means:\nThey makes a difference\nBetween themselves and their neighbor. No blame.\n\nSix in the fifth place means:\nThey whose truth is accessible, yet dignified,\nHas good fortune.\n\nNine at the top means:\nThey are blessed by heaven. Good fortune.\nNothing that does not further."
         },
         fortyThree: {
             judgement: "Break-through. One must resolutely make the matter known At the court of the king.\nIt must be announced truthfully. Danger. It is necessary to notify one's own city.\nIt does not further to resort to arms.\nIt furthers one to undertake something.",
             image: "The lake has risen up to heaven: The image of Break-through.\nThus the superior person\nDispenses riches downward\nAnd refrains from resting on their virtue.",
-            lines: "Nine at the beginning means:\nMighty in the forward-striding toes.\nWhen one goes and is not equal to the task,\nOne makes a mistake.\nNine in the second place means:\nA cry of alarm.\nArms at evening and at night.\nFear nothing.\nNine in the third place means:\nTo be powerful in the cheekbones\nBrings misfortune.\nThe superior person is firmly resolved.\nThey walk alone and are caught in the rain.\nThey are bespattered,\nAnd people murmur against them. No blame.\nNine in the fourth place means:\nThere is no skin on their thighs,\nAnd walking comes hard.\nIf a person were to let themselves be led like a sheep,\nRemorse would disappear.\nBut if these words are heard\nThey will not be believed.\nNine in the fifth place means:\nIn dealing with weeds,\nFirm resolution is necessary. Walking in the middle\nRemains free of blame.\nSix at the top means: \nNo cry.\nIn the end misfortune comes."
+            lines: "Nine at the beginning means:\nMighty in the forward-striding toes.\nWhen one goes and is not equal to the task,\nOne makes a mistake.\n\nNine in the second place means:\nA cry of alarm.\nArms at evening and at night.\nFear nothing.\n\nNine in the third place means:\nTo be powerful in the cheekbones\nBrings misfortune.\nThe superior person is firmly resolved.\nThey walk alone and are caught in the rain.\nThey are bespattered,\nAnd people murmur against them. No blame.\n\nNine in the fourth place means:\nThere is no skin on their thighs,\nAnd walking comes hard.\nIf a person were to let themselves be led like a sheep,\nRemorse would disappear.\nBut if these words are heard\nThey will not be believed.\n\nNine in the fifth place means:\nIn dealing with weeds,\nFirm resolution is necessary. Walking in the middle\nRemains free of blame.\n\nSix at the top means: \nNo cry.\nIn the end misfortune comes."
         },
       
         twentyFive: {
@@ -120,7 +120,7 @@ export const hexData = {
         fortySeven: {
             judgement: "Oppression. Success. Perseverance.\nThe great person brings about good fortune. No blame.\nWhen one has something to say, It is not believed.",
             image: "There is no water in the lake: The image of Exhaustion.\nThus the superior person stakes their life \nOn following their will.",
-            lines: "Six at the beginning means:\nOne sits oppressed under a bare tree \nAnd strays into a gloomy valley.\nFor three years one sees nothing.\n\nNine in the second place means:\nOne is oppressed while at meat and drink.\nThe person with the scarlet knee bands is just coming. \nIt furthers one to offer sacrifice.\nTo set forth brings misfortune. No blame.\n\nSix in the third place means:\nA person permits themselves to be oppressed by stone,\nAnd leans on thorns and thistles.\nThey enter their house and do not see their beloved. Misfortune.\n\nNine in the fourth place means:\nThey come very quietly, oppressed in a golden carriage. \nHumiliation, but the end is reached.\n\nNine in the fifth place means:\nTheir nose and feet are cut off.\nOppression at the hands of the person with the purple knee bands.\nJoy comes softly.\nIt furthers one to make offerings and libations.\n\nSix at the top means:\nThey are oppressed by creeping vines.\nThey move uncertainly and say, "Movement brings remorse." \nIf one feels remorse over this and makes a start,\nGood fortune comes."
+            lines: "Six at the beginning means:\nOne sits oppressed under a bare tree \nAnd strays into a gloomy valley.\nFor three years one sees nothing.\n\nNine in the second place means:\nOne is oppressed while at meat and drink.\nThe person with the scarlet knee bands is just coming. \nIt furthers one to offer sacrifice.\nTo set forth brings misfortune. No blame.\n\nSix in the third place means:\nA person permits themselves to be oppressed by stone,\nAnd leans on thorns and thistles.\nThey enter their house and do not see their beloved. Misfortune.\n\nNine in the fourth place means:\nThey come very quietly, oppressed in a golden carriage. \nHumiliation, but the end is reached.\n\nNine in the fifth place means:\nTheir nose and feet are cut off.\nOppression at the hands of the person with the purple knee bands.\nJoy comes softly.\nIt furthers one to make offerings and libations.\n\nSix at the top means:\nThey are oppressed by creeping vines.\nThey move uncertainly and say, 'Movement brings remorse. \nIf one feels remorse over this and makes a start,\nGood fortune comes."
         },
     
         thirtyThree: {
@@ -165,166 +165,166 @@ export const hexData = {
         },
         
         twelve: {
-            judgement: "",
-            image: "",
-            lines: ""
+            judgement: "Standstill. Evil people do not further \nThe perseverance of the superior person.\nThe great departs; the small approaches.",
+            image: "Heaven and earth do not unite:\nThe image of Standstill.\nThus the superior person falls back upon their inner worth In order to escape the difficulties.\nThey do not permit themselves to be honored with revenue.",
+            lines: "Six at the beginning means:\nWhen ribbon grass is pulled up, the sod comes with it. \nEach according to their kind.\nPerseverance brings good fortune and success.\n\nSix in the second place means:\nThey bear and endure;\nThis means good fortune for inferior people.\nThe standstill serves to help the great person to attain success.\n\nSix in the third place means:\nThey bear shame.\n\nNine in the fourth place means:\nThey who act at the command of the highest \nRemains without blame.\nThose of like mind partake of the blessing.\n\nNine in the fifth place means:\nStandstill is giving way.\nGood fortune for the great person.\n'What if it should fail, what if it should fail?'\nIn this way \nThey tie it to a cluster of mulberry shoots.\n\nNine at the top means:\nThe standstill comes to an end. \nFirst standstill, then good fortune."
         }, //Kun row
         sixteen: {
-            judgement: "",
-            image: "",
-            lines: ""
+            judgement: "Enthusiasm. It furthers one to install helpers \nAnd to set armies marching.",
+            image: "Thunder comes resounding out of the earth: The image of Enthusiasm.\nThus the ancient rulers made Music \nIn order to honor merit,\nAnd offered it with splendor \nTo the Supreme Deity,\nInviting their ancestors to be present.",
+            lines: "Six at the beginning means: \nEnthusiasm that expresses itself \nBrings misfortune.\n\nSix in the second place means:\nFirm as a rock. Not a whole day. \nPerseverance brings good fortune.\n\nSix in the third place means:\nEnthusiasm that looks upward creates remorse. \nHesitation brings remorse.\n\nNine in the fourth place means: The source of enthusiasm.\nThey achieve great things. Doubt not.\nYou gather friends around you \nAs a hair clasp gathers the hair.\n\nSix in the fifth place means: \nPersistently ill, and still does not die.\n\nSix at the top means: \nDeluded enthusiasm.\nBut if after completion one changes, \nThere is no blame."
         },
         eight: {
-            judgement: "",
-            image: "",
-            lines: ""
+            judgement: "Holding Together brings good fortune. Inquire of the oracle once again\nWhether you possess sublimity, constancy, and perseverance; Then there is no blame.\nThose who are uncertain gradually join. Whoever comes too late\nMeets with misfortune.",
+            image: "On the earth is water:\nThe image of Holding Together. \nThus the rulers of antiquity\nBestowed the different states as fiefs \nAnd cultivated friendly relations \nWith the feudal leaders.",
+            lines: "Six at the beginning means:\nHold to them in truth and loyalty; This is without blame.\nTruth, like a full earthen bowl:\nThus in the end\nGood fortune comes from without.\n\nSix in the second place means:\nHold to them inwardly. Perseverance brings good fortune.\n\nSix in the third place means:\nYou hold together with the wrong people.\n\nSix in the fourth place means:\nHold to them outwardly also. Perseverance brings good fortune.\n\nNine in the fifth place means: Manifestation of holding together.\nIn the hunt the monarch uses beaters on three sides only \nAnd foregoes game that runs off in front.\nThe citizens need no warning. Good fortune.\n\nSix at the top means:\nThey find no head for holding together. \nMisfortune."
         },
         twentyThree: {
-            judgement: "",
-            image: "",
-            lines: ""
+            judgement: "Splitting Apart. It does not further one To go anywhere.",
+            image: "The mountain rests on the earth: The image of Splitting Apart.\nThus those above can ensure their position \nOnly by giving generously to those below.",
+            lines: "Six at the beginning means:\nThe leg of the bed is split.\nThose who persevere are destroyed. Misfortune.\n\nSix in the second place means:\nThe bed is split at the edge.\nThose who persevere are destroyed. Misfortune.\n\nSix in the third place means:\nThey are split. No blame.\n\nSix in the fourth place means:\nThe bed is split up to the skin. Misfortune.\n\nSix in the fifth place means:\nA shoal of fishes. Favor comes through people in high places. \nEverything acts to further.\n\nNine at the top means:\nThere is a large fruit still uneaten. \nThe superior person receives a carriage.\nThe house of the inferior person is split apart."
         },
         two: {
-            judgement: "",
-            image: "",
-            lines: ""
+            judgement: "Being receptive brings about sublime success, \nPersevere like a mare.\nIf the superior person undertakes something \nAnd tries to lead, they go astray;\nBut if they follow, they find guidance.\nIt is favorable to find friends in the west and south,\nTo forego friends in the east and north.\nQuiet perseverance brings good fortune.",
+            image: "The earth's condition is receptive devotion.\nThus the superior person who has breadth of character carries the outer world.",
+            lines: "Six at the beginning means:\nWhen there is hoarfrost underfoot, \nSolid ice is not far off.\n\nSix in the second place means:\nStraight, square, great. Without purpose,\nYet nothing remains unfurthered.\n\nSix in the third place means:\nHidden lines.\nOne is able to remain persevering.\nIf by chance you serve a ruler, seek not new work, but bring.\nthe current task to completion.\n\nSix in the fourth place means:\nA tied-up sack. No blame, no praise.\n\nSix in the fifth place means:\nA yellow lower garment brings supreme good fortune.\n\nSix at the top means:\nDragons fight in the meadow. Their blood is black and yellow. \n\nWhen all the lines are sixes, it means: \nLasting perseverance furthers."
         },
         twenty: {
-            judgement: "",
-            image: "",
-            lines: ""
+            judgement: "Contemplation. The ablution has been made, But not yet the offering.\nFull of trust they look up to them.",
+            image: "The wind blows over the earth:\nThe image of Contemplation.\nThus the rulers of old visited the regions of the world, \nContemplated the people,\nAnd gave them instruction.",
+            lines: "Six at the beginning means:\nChildlike contemplation.\nFor an inferior person, no blame.\nFor a superior person, humiliation.\n\nSix in the second place means: \nContemplation through the crack of the door. \nFurthering perseverance\n\nSix in the third place means: \nContemplation of my life \nDecides the choice\nBetween advance and retreat.\n\nSix in the fourth place means: \nContemplation of the light of the realm.\nIt furthers one to exert influence as the guest of a ruler.\n\nNine in the fifth place means: \nContemplation of my life.\nThe superior person is without blame.\n\nNine at the top means: \nContemplation of their life.\nThe superior person is without blame."
         },
         thirtyFive: {
-            judgement: "",
-            image: "",
-            lines: ""
+            judgement: "Progress. The powerful ruler\nIs honored with horses in large numbers.\nIn a single day \nThey are granted audience three times.",
+            image: "The sun rises over the earth: The image of Progress.\nThus the superior person themselves Brightens their bright virtue.",
+            lines: "Six at the beginning means:\nProgressing, but turned back. Perseverance brings good fortune.\nIf one meets with no confidence, one should remain calm. No mistake.\n\nSix in the second place means:\nProgressing, but in sorrow. Perseverance brings good fortune.\nThen one obtains great happiness from one's ancestress.\n\nSix in the third place means:\nAll are in accord. Remorse disappears.\n\nNine in the fourth place means:\nProgress like a hamster. Perseverance brings danger.\n\nSix in the fifth place means:\nRemorse disappears.\nTake not gain and loss to heart. Undertakings bring good fortune. \nEverything serves to further.\n\nNine at the top means:\nMaking progress with the horns is permissible \nOnly for the purpose of punishing one's own city. \nTo be conscious of danger brings good fortune. No blame.\nPerseverance brings humiliation."
         },
         fortyFive: {
-            judgement: "",
-            image: "",
-            lines: ""
+            judgement: "Gathering Together. Success. \nThe ruler approaches their temple.\nIt furthers one to see the great person.\nThis brings success. Perseverance furthers. \nTo bring great offerings creates good fortune. It furthers one to undertake something.",
+            image: "Over the earth, the lake:\nThe image of Gathering Together.\nThus the superior person renews their weapons In order to meet the unforeseen.\n",
+            lines: "Six at the beginning means:\nIf you are sincere, but not to the end,\nThere will sometimes be confusion, sometimes gathering together. If you call out,\nThen after one grasp of the hand you can laugh again. \nRegret not. Going is without blame.\n\nSix in the second place means:\nLetting oneself be drawn along\nBrings good fortune and remains blameless. If one is sincere,\nIt furthers one to bring even a small offering.\n\nSix in the third place means:\nGathering together amid sighs. Nothing that would further.\nGoing is without blame. Slight humiliation.\n\nNine in the fourth place means:\nGreat good fortune. No blame.\n\nNine in the fifth place means:\nIf in gathering together one has a position, \nThis brings no blame.\nIf there are some who are not yet sincerely in the work, \nSublime and enduring perseverance is needed.\nThen remorse disappears.\n\nSix at the top means:\nLamenting and sighing, floods of tears. No blame."
         },
         
         fortyFour: {
-            judgement: "",
-            image: "",
-            lines: ""
+            judgement: "Coming to Meet. The woman is powerful. One should not marry such a woman.",
+            image: "Under heaven, wind:\nThe image of Coming to Meet.\nThus does the ruler act when disseminating their commands \nAnd proclaiming them to the four quarters of heaven.",
+            lines: "Six at the beginning means:\nIt must be halted with a brake of bronze. \nPerseverance brings good fortune.\nIf one lets it take its course, one experiences misfortune. \nEven a lean pig rages.\n\nNine in the second place means: \nThere is a fish in the tank. No blame. Does not further guests.\n\nNine in the third place means: \nThere is no skin on their thighs, \nAnd walking comes hard.\nIf one is mindful of the danger, \nNo great mistake is made.\n\nNine in the fourth place means: \nNo fish in the tank.\nThis leads to misfortune.\n\nNine in the fifth place means:\nA melon covered with willow leaves. Hidden lines.\nThen it drops down to one from heaven.\n\nNine at the top means:\nThey come to meet with their horns. Humiliation. No blame."
         }, //sun row
         thirtyTwo: {
-            judgement: "",
-            image: "",
-            lines: ""
+            judgement: "Duration. Success. No blame. Perseverance furthers.\nIt furthers one to have somewhere to go.",
+            image: "Thunder and wind: the image of Duration. \nThus the superior person stands firm\nAnd does not change their direction.",
+            lines: "Six at the beginning means:\nSeeking duration too hastily brings misfortune persistently. \nNothing that would further.\n\nNine in the second place means:\nRemorse disappears.\n\nNine in the third place means:\nThey who do not give duration to their character Meet with disgrace. \nPersistent humiliation.\n\nNine in the fourth place means:\nNo game in the field.\n\nSix in the fifth place means:\nGiving duration to one's character through perseverance.\nThis is good fortune for a woman, misfortune for a man.\n\nSix at the top means:\nRestlessness as an enduring condition brings misfortune."
         },
         fortyEight: {
-            judgement: "",
-            image: "",
-            lines: ""
+            judgement: "The Well. The town may be changed, \nBut the well cannot be changed.\nIt neither decreases nor increases.\nThey come and go and draw from the well. If one gets down almost to the water\nAnd the rope does not go all the way, \nOr the jug breaks, it brings misfortune.",
+            image: "Water over wood: the image of the Well.\nThus the superior person encourages the people at their work, \nAnd exhorts them to help one another.",
+            lines: "Six at the beginning means:\nOne does not drink the mud of the well. \nNo animals come to an old well.\n\nNine in the second place means:\nAt the wellhole one shoots fishes. \nThe jug is broken and leaks.\n\nNine in the third place means:\nThe well is cleaned, but no one drinks from it. \nThis is my heart's sorrow,\nFor one might draw from it.\nIf the ruler of the land were clear-minded,\nGood fortune might be enjoyed in common.\n\nSix in the fourth place means:\nThe well is being lined. No blame.\n\nNine in the fifth place means:\nIn the well there is a clear, cold spring \nFrom which one can drink.\n\nSix at the top means: \nOne draws from the well \nWithout hindrance.\nIt is dependable. Supreme good fortune."
         },
         eighteen: {
-            judgement: "",
-            image: "",
-            lines: ""
+            judgement: "Work on What Has Been Spoiled Brings supreme success.\nIt furthers one to cross the great water. Before the starting point, three days.\nAfter the starting point, three days.",
+            image: "The wind blows low on the mountain: The image of Decay.\nThus the superior person stirs up the people \nAnd strengthens their spirit.",
+            lines: "Six at the beginning means:\nSetting right what has been spoiled by the father. If there is a child,\nNo blame rests upon the departed father. \nDanger. In the end, good fortune.\n\nNine in the second place means:\nSetting right what has been spoiled by the mother. \nOne must not be too persevering.\n\nNine in the third place means:\nSetting right what has been spoiled by the father. \nThere will be little remorse. No great blame.\n\nSix in the fourth place means:\nTolerating what has been spoiled by the father. \nIn continuing one sees humiliation.\n\nSix in the fifth place means:\nSetting right what has been spoiled by the father.\nOne meets with praise.\n\nNine at the top means:\nThey do not serve royals, \nSets themselves higher goals."
         },
         fortySix: {
-            judgement: "",
-            image: "",
-            lines: ""
+            judgement: "Pushing Upward has supreme success. \nOne must see the great person.\nFear not.\nDeparture toward the south \nBrings good fortune.",
+            image: "Within the earth, wood grows:\nThe image of Pushing Upward.\nThus the superior person of devoted character Heaps up small things\nIn order to achieve something high and great.",
+            lines: "Six at the beginning means:\nPushing upward that meets with confidence \nBrings great good fortune.\n\nNine in the second place means: \nIf one is sincere,\nIt furthers one to bring even a small offering. No blame.\n\nNine in the third place means:\nOne pushes upward into an empty city.\n\nSix in the fourth place means: \nThe ruler offers a sacrifice. Good fortune. No blame.\n\nSix in the fifth place means: \nPerseverance brings good fortune. One pushes upward by steps.\n\nSix at the top means: \nPushing upward in darkness. It furthers one\nTo be unremittingly persevering."
         },
         fiftySeven: {
-            judgement: "",
-            image: "",
-            lines: ""
+            judgement: "The Gentle. Success through what is small. It furthers one to have somewhere to go. It furthers one to see the great person.",
+            image: "Winds following one upon the other: \nThe image of the Gently Penetrating. \nThus the superior person\nSpreads their commands abroad \nAnd carries out their undertakings.",
+            lines: "Six at the beginning means:\nIn advancing and in retreating,\nThe perseverance of a warrior furthers.\n\nNine in the second place means: \nPenetration under the bed.\nPriests and magicians are used in great number. \nGood fortune. No blame.\n\nNine in the third place means: \nRepeated penetration. Humiliation.\n\nSix in the fourth place means: \nRemorse vanishes.\nDuring the hunt\nThree kinds of game are caught.\n\nNine in the fifth place means: \nPerseverance brings good fortune. Remorse vanishes.\nNothing that does not further. No beginning, but an end.\nBefore the change, three days. After the change, three days. Good fortune.\n\nNine at the top means: \nPenetration under the bed.\nThey lose their property and their ax. \nPerseverance brings misfortune."
         },
         fifty: {
-            judgement: "",
-            image: "",
-            lines: ""
+            judgement: "The Caldron. Supreme good fortune. Success.",
+            image: "Fire over wood:\nThe image of the Caldron.\nThus the superior person consolidates their fate \nBy making their position correct.",
+            lines: "Six at the beginning means:\nA cauldron with legs upturned.\nFurthers removal of stagnating stuff.\nOne shelters a lover and their son. No blame.\n\nNine in the second place means:\nThere is food in the cauldron.\nMy comrades are envious, But they cannot harm me. Good fortune.\n\nNine in the third place means:\nThe handle of the cauldron is altered. \nOne is impeded in their way of life. The fat of the pheasant is not eaten. \nOnce rain falls, remorse is spent.\nGood fortune comes in the end.\n\nNine in the fourth place means:\nThe legs of the cauldron are broken. \nThe ruler's meal is spilled\nAnd their person is soiled. Misfortune.\n\nSix in the fifth place means:\nThe cauldron has yellow handles, golden carrying rings. \nPerseverance furthers.\n\nNine at the top means:\nThe cauldron has rings of jade. Great good fortune."
         },
         twentyEight: {
-            judgement: "",
-            image: "",
-            lines: ""
+            judgement: "Preponderance of the Great.\nThe ridgepole sags to the breaking point. It furthers one to have somewhere to go. Success.",
+            image: "The lake rises above the trees:\nThe image of Preponderance of the Great. \nThus the superior person, when \nThey stand alone, \nIs unconcerned,\nAnd if they have to renounce the world, \nThey are undaunted.\n",
+            lines: "Six at the beginning means:\nTo spread white rushes underneath. No blame.\n\nNine in the second place means: \nA dry poplar sprouts at the root.\nAn older person finds a young mate. \nEverything furthers.\n\nNine in the third place means:\nThe ridgepole sags to the breaking point. \nMisfortune.\n\nNine in the fourth place means:\nThe ridgepole is braced. Good fortune.\nIf there are ulterior motives, it is humiliating.\n\nNine in the fifth place means:\nA withered poplar puts forth flowers. \nAn older woman takes a husband.\nNo blame. No praise.\n\nSix at the top means:\nOne must go through the water. \nIt goes over one's head.\nMisfortune. No blame."
         },
         
         thirteen: {
-            judgement: "",
-            image: "",
-            lines: ""
+            judgement: "Fellowship with People in the open. Success.\nIt furthers one to cross the great water.\nThe perseverance of the superior person furthers.",
+            image: "Heaven together with fire:\nThe image of Fellowship with People.\nThus the superior person organizes the clans \nAnd makes distinctions between things.",
+            lines: "Nine at the beginning means: \nFellowship with people at the gate. No blame.\n\nSix in the second place means: \nFellowship with people in the clan. Humiliation.\n\nNine in the third place means:\nThey hide weapons in the thicket;\nThey climb the high hill in front of it. For three years \nThey do not rise up.\n\nNine in the fourth place means:\nThey climb up on their wall; \nThey cannot attack. Good fortune.\n\nNine in the fifth place means:\nPeople bound in fellowship first \nWeep and lament, \nBut afterward they laugh.\nAfter great struggles, they succeed in meeting.\n\nNine at the top means:\nFellowship with people in the meadow. No remorse."
         }, //Li row
         fiftyFive: {
-            judgement: "",
-            image: "",
-            lines: ""
+            judgement: "Abundance has success.\nThe ruler attains abundance. Be not sad.\nBe like the sun at midday.",
+            image: "Both thunder and lightning come: The image of Abundance.\nThus the superior person decides lawsuits \nAnd carries out punishments.",
+            lines: "Nine at the beginning means:\nWhen a person meets their destined ruler, \nThey can be together ten days,\nAnd it is not a mistake.\nGoing meets with recognition.\n\nSix in the second place means:\nThe curtain is of such fullness\nThat the polestars can be seen at noon.\nThrough going one meets with mistrust and hate. \nIf one rouses them through truth,\nGood fortune comes.\n\nNine in the third place means:\nThe underbrush is of such abundance \nThat the small stars can be seen at noon. \nA person breaks their right arm. No blame.\n\nNine in the fourth place means: \nThe curtain is of such fullness\nThat the polestars can be seen at noon. \nA person meets their ruler, who is of like kind. Good fortune.\n\nSix in the fifth place means: \nLines are coming,\nBlessing and fame draw near. Good fortune.\n\nSix at the top means:\nTheir house is in a state of abundance. \nThey screen off their family.\nThey peer through the gate\nAnd no longer perceive anyone.\nFor three years they see nothing. Misfortune."
         },
         sixtyThree: {
-            judgement: "",
-            image: "",
-            lines: ""
+            judgement: "After Completion. Success in small matters. Perseverance furthers.\nAt the beginning, good fortune, At the end disorder.",
+            image: "Water over fire: the image of the condition In After Completion.\nThus the superior person \nTakes thought of misfortune\nAnd arms themselves against it in advance.",
+            lines: "Nine at the beginning means:\nA person brakes their wheels.\nThey get their tail in the water. No blame.\nSix in the second place means:\nThe woman loses the curtain of her carriage. Do not run after it;\nOn the seventh day you will get it.\n\nNine in the third place means:\nThe Illustrious Ancestor Disciplines the Demon Region. \nAfter three years they conquer it.\nInferior people must not be employed.\n\nSix in the fourth place means:\nThe finest clothes turn to rags. Be careful all day long.\n\nNine in the fifth place means:\nThe neighbor in the east who slaughters an ox \nDoes not attain as much real happiness\nAs the neighbor in the west \nWith their small offering.\n\nSix at the top means:\nA person gets their head in the water. Danger"
         },
         twentyTwo: {
-            judgement: "",
-            image: "",
-            lines: ""
+            judgement: "Grace has success.\nIn small matters\nIt is favorable to undertake something.",
+            image: "Fire at the foot of the mountain:\nThe image of Grace.\nThus does the superior person proceed \nWhen clearing up current affairs.\nBut they dare not decide controversial issues in this way.",
+            lines: "Nine at the beginning means:\nThey lend grace to their toes, leave the carriage, and walk.\n\nSix in the second place means:\nLends grace to the beard on their chin.\n\nNine in the third place means: \nGraceful and moist.\nConstant perseverance brings good fortune.\n\nSix in the fourth place means: \nGrace or simplicity?\nA white horse comes as if on wings. \nThey are not a robber,\nThey will  seek love at the right time.\n\nSix in the fifth place means:\nGrace in hills and gardens.\nThe roll of silk is meager and small. \nHumiliation, but in the end, good fortune.\n\nNine at the top means: \nSimple grace. No blame."
         },
         thirtySix: {
-            judgement: "",
-            image: "",
-            lines: ""
+            judgement: "Darkening of the Light.\nIn adversity \nIt furthers one to be persevering.",
+            image: "The light has sunk into the earth:\nThe image of Darkening of the Light.\nThus does the superior person live with the great void: \nThey veil their light, yet still shine.",
+            lines: "Nine at the beginning means:\nDarkening of the light during flight. They lower their wings.\nThe superior person does not eat for three days \nOn their wanderings.\nBut they have somewhere to go.\nThe host has occasion to gossip about them.\n\nSix in the second place means:\nDarkening of the light injures them in the left thigh.\nThey give aid with the strength of a horse.\nGood fortune.\n\nNine in the third place means:\nDarkening of the light during the hunt in the south. \nTheir great leader is captured.\nOne must not expect perseverance too soon.\n\nSix in the fourth place means:\nThey penetrate the left side of the belly.\nOne gets at the very heart of the darkening of the light, \nAnd leaves the gate and courtyard.\n\nSix in the fifth place means: \nDarkening of the light as with the supreme ruler. \nPerseverance furthers.\n\nSix at the top means:\nNot light but darkness.\nFirst they climbed up to heaven,\nThen they plunged into the depths of the earth."
         },
         thirtySeven: {
-            judgement: "",
-            image: "",
-            lines: ""
+            judgement: "The Family. The perseverance of the woman furthers.",
+            image: "Wind comes forth from fire:\nThe image of the Family.\nThus the superior person has substance in their words \nAnd duration in their way of life.",
+            lines: "Nine at the beginning means: \nFirm seclusion within the family. Remorse disappears.\n\nSix in the second place means: \nA parent should not follow their whims. \nThey must attend to the food. \nPerseverance brings good fortune.\n\nNine in the third place means:\nWhen tempers flare up in the family, \nToo great severity brings remorse.\nGood fortune nonetheless.\nWhen Parent and child dally and laugh, \nIt leads in the end to humiliation.\n\nSix in the fourth place means: \nThey are the treasure of the house. Great good fortune.\n\nNine in the fifth place means: \nAs a ruler they approach their family. Fear not.\nGood fortune.\n\nNine at the top means:\nTheir work commands respect.\nIn the end good fortune comes."
         },
         thirty: {
-            judgement: "",
-            image: "",
-            lines: ""
+            judgement: "The Clinging. Perseverance furthers. It brings success.\nCare of the cow brings good fortune.",
+            image: "That which is bright rises twice:\nThe image of Fire.\nThus the great person, by perpetuating this brightness, \nIlluminates the four quarters of the world.",
+            lines: "Nine at the beginning means:\nThe footprints run crisscross.\nIf one is seriously intent, no blame.\n\nSix in the second place means: \nYellow light. Supreme good fortune.\n\nNine in the third place means:\nIn the light of the setting sun, People either beat the pot and sing\nOr loudly bewail the approach of old age. Misfortune.\n\nNine in the fourth place means:\nIts coming is sudden;\nIt flames up, dies down, is thrown away.\n\nSix in the fifth place means:\nTears in floods, sighing and lamenting. Good fortune.\n\nNine at the top means:\nThe commander uses them to march forth and chastise. \nThen it is best to kill the leaders\nAnd take captive the followers. No blame."
         },
         fortyNine: {
-            judgement: "",
-            image: "",
-            lines: ""
+            judgement: "Revolution. \nOn your own day \nYou are believed.\nSupreme success,\nFurthering through perseverance. \nRemorse disappears.",
+            image: "Fire in the lake: the image of Revolution. \nThus the superior person\nSets the calendar in order \nAnd makes the seasons clear.",
+            lines: "Nine at the beginning means:\nWrapped in the hide of a yellow cow.\n\nSix in the second place means:\nWhen one's own day comes, one may create revolution.\nStarting brings good fortune. No blame.\n\nNine in the third place means:\nStarting brings misfortune. Perseverance brings danger.\nWhen talk of revolution has gone the rounds three times, \nOne may commit themselves,\nAnd people will believe them.\n\nNine in the fourth place means:\nRemorse disappears. People believe them.\nChanging the form of government brings good fortune.\n\nNine in the fifth place means: \nThe great person changes like a tiger. \nEven before they question the oracle They are believed.\n\nSix at the top means:\nThe superior person changes like a panther. \nThe inferior person molts in the face.\nStarting brings misfortune.\nTo remain persevering brings good fortune."
         },
     
         ten: {
-            judgement: "",
-            image: "",
-            lines: ""
+            judgement: "Treading. Treading upon the tail of the tiger. It does not bite the person. Success.",
+            image: "Heaven above, the lake below:\nThe image of Treading.\nThus the superior person discriminates between high and low, \nAnd thereby fortifies the thinking of the people.",
+            lines: "Nine at the beginning means:\nSimple conduct. Progress without blame.\n\nNine in the second place means:\nTreading a smooth, level course. \nThe perseverance of an occult person \nBrings good fortune.\n\nSix in the third place means:\nA one-eyed person is able to see, \nA lame person is able to tread.\nThey tread on the tail of the tiger. \nThe tiger bites the person. Misfortune.\nThus does a warrior act on behalf of their great commander.\n\nNine in the fourth place means:\nThey tread on the tail of the tiger. Caution and circumspection\nLead ultimately to good fortune.\n\nNine in the fifth place means:\nResolute conduct.\nPerseverance with awareness of danger.\n\nNine at the top means:\nLook to your conduct and weigh the favorable signs. \nWhen everything is fulfilled, supreme good fortune comes."
         }, //Tui row
         fiftyFour: {
-            judgement: "",
-            image: "",
-            lines: ""
+            judgement: "The Marrying Woman. Undertakings bring misfortune. Nothing that would further.",
+            image: "Thunder over the lake:\nThe image of the Marrying Woman. Thus the superior person\nUnderstands the transitory\nIn the light of the eternity of the end.",
+            lines: "Nine at the beginning means:\nThe marrying woman as a concubine. A lame person who is able to tread.\nUndertakings bring good fortune.\n\nNine in the second place means:\nA one-eyed person who is able to see.\nThe perseverance of a solitary person furthers.\n\nSix in the third place means:\nThe marrying woman as a slave. \nShe marries as a concubine.\n\nNine in the fourth place means:\nThe marrying woman draws out the allotted time. \nA late marriage comes in due course.\n\nSix in the fifth place means:\nThe great ruler gave their daughter in marriage. \nThe embroidered garments of the princess \nWere not as gorgeous\nAs those of the slave. \nThe moon that is nearly full \nBrings good fortune.\n\nSix at the top means:\nThe woman holds the basket, but there are no fruits in it. \nThe person stabs the sheep, but no blood flows.\nNothing acts to further."
         },
         sixty: {
-            judgement: "",
-            image: "",
-            lines: ""
+            judgement: "Limitation. Success.\nGalling limitation must not be persevered in.",
+            image: "Water over lake: the image of Limitation. Thus the superior person\nCreates number and measure,\nAnd examines the nature of virtue and correct conduct.",
+            lines: "Nine at the beginning means:\nNot going out of the door and not into the courtyard \nIs without blame.\n\nNine in the second place means:\nNot going out of the gate and not into the courtyard \nBrings misfortune.\n\nSix in the third place means: \nThe person who knows no limitation \nWill have cause to lament.\nNo blame.\n\nSix in the fourth place means: \nContented limitation. Success.\n\nNine in the fifth place means: \nSweet limitation brings good fortune. \nGoing brings esteem.\n\nSix at the top means: \nGalling limitation.\nPerseverance brings misfortune. \nRemorse disappears."
         },
         fortyOne: {
-            judgement: "",
-            image: "",
-            lines: ""
+            judgement: "Decrease combined with sincerity Brings about supreme good fortune Without blame.\nOne may be persevering in this.\nIt furthers one to undertake something. How is this to be carried out?\nOne may use two small bowls for the sacrifice.",
+            image: "At the foot of the mountain, the lake: The image of Decrease.\nThus the superior person controls their anger \nAnd restrains their instincts.",
+            lines: "Nine at the beginning means:\nGoing quickly when one's tasks are finished \nIs without blame.\nBut one must reflect on how much one may decrease others.\n\nNine in the second place means: \nPerseverance furthers.\nTo undertake something brings misfortune. \nWithout decreasing oneself,\nOne is able to bring an increase to others.\n\nSix in the third place means:\nWhen three people journey together, \nTheir number decreases by one.\nWhen one person journeys alone, they find a companion.\n\nSix in the fourth place means:\nIf a person decreases their faults,\nIt makes the other hasten to come and rejoice. No blame.\n\nSix in the fifth place means: \nSomeone does indeed increase them. \nTen pairs of tortoises cannot oppose it. \nSupreme good fortune.\n\nNine at the top means:\nIf one is increased without depriving others, \nThere is no blame.\nPerseverance brings good fortune.\nIt furthers one to undertake something. \nOne hires workers\nBut no longer has their own home."
         },
         nineteen: {
-            judgement: "",
-            image: "",
-            lines: ""
+            judgement: "Approach has supreme success. Perseverance furthers.\nWhen the eighth month comes, There will be misfortune.",
+            image: "The earth above the lake:\nThe image of Approach.\nThus the superior person is inexhaustible \nIn their will to teach,\nAnd without limits\nIn their tolerance and protection of the people.",
+            lines: "Nine at the beginning means: \nJoint approach.\nPerseverance brings good fortune.\n\nNine in the second place means: \nJoint approach.\nGood fortune. Everything furthers.\n\nSix in the third place means: \nComfortable approach.\nNothing that would further.\nIf one is induced to grieve over it, \nOne becomes free of blame.\n\nSix in the fourth place means: \nComplete approach.\nNo blame.\n\nSix in the fifth place means: \nWise approach.\nThis is right for a great ruler. Good fortune.\n\nSix at the top means: \nGreathearted approach. Good fortune. No blame."
         },
         sixtyOne: {
-            judgement: "",
-            image: "",
-            lines: ""
+            judgement: "Inner Truth. Pigs and fishes. Good fortune.\nIt furthers one to cross the great water. Perseverance furthers.",
+            image: "Wind over lake: the image of Inner Truth.\nThus the superior person discusses criminal cases In order to delay executions.",
+            lines: "Nine at the beginning means:\nBeing prepared brings good fortune.\nIf there are secret designs, it is disquieting.\n\nNine in the second place means: \nA crane calling in the shade.\nIts young answer it. \nI have a good goblet.\nI will share it with you.\n\nSix in the third place means: \nThey find a comrade.\nNow they beat the drum, now they stop. \nNow they sob, now they sing.\n\nSix in the fourth place means: \nThe moon nearly full.\nThe team horse goes astray. No blame.\n\nNine in the fifth place means:\nThey possess truth, which links together. \nNo blame.\n\nNine at the top means: \nCockcrow penetrating to heaven. \nPerseverance brings misfortune."
         }, 
         thirtyEight: {
-            judgement: "",
-            image: "",
-            lines: ""
+            judgement: "Opposition. In small matters, good fortune.",
+            image: "Above, fire; below, the lake:\nThe image of Opposition. Thus amid all fellowship\nThe superior person retains their individuality.",
+            lines: "Nine at the beginning means:\nRemorse disappears.\nIf you lose your horse, do not run after it; \nIt will come back of its own accord.\nWhen you see evil people, \nGuard yourself against mistakes.\n\nNine in the second place means:\nOne meets their ruler in a narrow street. No blame.\n\nSix in the third place means:\nOne sees the wagon dragged back, \nThe oxen halted,\nA person's hair and nose cut off.\nNot a good beginning, but a good end.\n\nNine in the fourth place means:\nIsolated through opposition, \nOne meets a like-minded person\nWith whom one can associate in good faith. \nDespite the danger, no blame.\n\nSix in the fifth place means:\nRemorse disappears.\nThe companion bites their way through the wrappings. \nIf one goes to them,\nHow could it be a mistake?\n\nNine at the top means:\nIsolated through opposition,\nOne sees one's companion as a pig covered with dirt, \nAs a wagon full of devils.\nFirst one draws a bow against them, \nThen one lays the bow aside.\nThey are not a robber; they will  seek love at the right time. \nAs one goes, rain falls; then good fortune comes."
         },
         fiftyEight: {
-            judgement: "",
-            image: "",
-            lines: ""
+            judgement: "The Joyous. Success. Perseverance is favorable.",
+            image: "Lakes resting one on the other: The image of the Joyous.\nThus the superior person joins with their friends \nFor discussion and practice.",
+            lines: "Nine at the beginning means:\nContented joyousness.  Good fortune.\n\nNine in the second place means:\nSincere joyousness.  Good fortune. Remorse disappears.\n\nSix in the third place means:\nComing joyousness.  Misfortune.\n\nNine in the fourth place means:\nJoyousness that is weighed is not at peace. \nAfter ridding themselves of mistakes a person has joy.\n\nNine in the fifth place means:\nSincerity toward disintegrating influences is dangerous.\n\nSix at the top means: Seductive joyousness."
         },   
 }
