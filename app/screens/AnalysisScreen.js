@@ -1,51 +1,66 @@
-import React, {useState} from "react";
-import { SafeAreaView, ImageBackground, Button, Text, StyleSheet, Image} from "react-native";
+import React, {useState, useEffect} from "react";
+import { SafeAreaView, ImageBackground, Button, Text, StyleSheet, Image, View} from "react-native";
 
 import AsyncStorage from '@react-native-community/async-storage';
-import {hexData} from '../assets/dictionary/HexagramDatabase';
-
-
-const saveData = async(hexagram,question) => {
-  
-  try {  
-    
-    console.log("Saving " + hexagram +  " to journal")
-    await AsyncStorage.setItem("hexKey", hexagram)
-    await AsyncStorage.setItem("questionKey", question)
-
-  } catch (error) {
-    console.log(error)
-  }
-}
-
-console.log(hexData.One)
 
 
 function AnalysisScreen(props) {
 
-  const {userInput} = props.route.params
-  const {hex} = props.route.params //receive the hexagram from coin flip(comes from user)
-  var strHex = JSON.stringify(hex) //turn the object into strings
-  var strUserInput = JSON.stringify(userInput)
+  
+  const [hexagram, setHexagram] = useState()
+  const [hexagramLines, setHexagramLines] = useState()
+  const [question, setQuestion] = useState()
+
+    const saveData = async(hexagram,hexagramLines,question) => {
+    try {  
+      let hexData = {hexagram, hexagramLines, question}
+
+      await AsyncStorage.setItem("key1", JSON.stringify(hexData))
+
+      
+
+      console.log("Saving " + hexagram +  " to journal")
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  var {hexObj} = props.route.params
+  const eventHandler = () => {
+
+    setHexagram(hexObj.Hexagram)
+    setQuestion(hexObj.question)
+    setHexagramLines(hexObj.HexagramText) 
+  }
 
 
+  useEffect(() => {
+    eventHandler()
+  }, [])
+  
+  
   return (
     //pull from the hex dict to find background image
     <ImageBackground source={require('../assets/background/background.png')} style={styles.backgroundImage}>
     <SafeAreaView style={styles.container}>
 
-    <Text style = {styles.questionTitle}> {strUserInput} </Text>
+    <Text style = {styles.questionTitle}> {question} </Text>
       <Image source = {require("../assets/hex/Hex01_Character.png")} style = {styles.hexChar} />
 
       <Text style = {styles.hexTitle}>Cast hexagram: </Text>
-      <Text style = {styles.item}>{strHex}</Text>
+      <Text style = {styles.item}>{hexagram}</Text>
 
-      <Text>
-        {hexData}
+
+
+      <Text style = {styles.container}>
+        {hexagramLines}
       </Text>
+     
+     
 
       <Button style = {styles.buttonContainer} title="Save to Journal" color = "#008080" onPress = { 
-        () => (saveData(strHex, strUserInput), alert("Saved hex: " + strHex + " to Journal"))} />
+        () => (saveData(hexagram,hexagramLines,question), alert("Saved hex: " + hexagram + " to Journal"))} />
 
         <Button style = {styles.buttonContainer} title="Go Home" color = "#008080" onPress = {() => props.navigation.navigate("Home")} />        
     
@@ -93,9 +108,9 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   hexChar: {
-    width: 150,
-    height: 150,
-    flex: 0.5,
+    width: 125,
+    height: 125,
+    flex: 0.25,
     resizeMode: "contain",
     alignItems: "center",
     justifyContent: "flex-start"

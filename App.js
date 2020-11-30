@@ -4,6 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
 import JournalScreen from './app/screens/JournalScreen';
+import loadHexagram from './app//screens/HexagramLoad';
 
 import TutorialScreen0 from './app/screens/TutorialScreen0';
 import TutorialScreen1 from './app/screens/TutorialScreen1';
@@ -13,9 +14,6 @@ import TutorialScreen3 from './app/screens/TutorialScreen3';
 import ConsultScreen from './app/screens/ConsultScreen';
 import CoinFlipScreen from './app/screens/CoinFlipScreen';
 import AnalysisScreen from './app/screens/AnalysisScreen';
-
-import HexagramContextProvider from "./app/assets/contexts/HexagramContext";
-
 
 const Stack = createStackNavigator();
 const consultStack = createStackNavigator();
@@ -65,7 +63,8 @@ const createTutorialStack = () =>  //Navigation for tutorial screens
 
 const createJournalStack = () =>  //Navigation for tutorial screens
   <journalStack.Navigator>
-    <journalStack.Screen name = "Journal" component = {JournalScreen}/> 
+    <journalStack.Screen name = "Journal" component = {JournalScreen}/>
+    <journalStack.Screen name = "LoadHexagram" component = {loadHexagram}/>  
   </journalStack.Navigator>
 
 

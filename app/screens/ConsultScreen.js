@@ -1,6 +1,7 @@
 import React, {useState, useContext} from "react";
 import { View, Button, Alert, ImageBackground, StyleSheet, Text } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
+import {hexData} from '../assets/dictionary/HexagramDatabase'
 
 
 function ConsultScreen(props) {

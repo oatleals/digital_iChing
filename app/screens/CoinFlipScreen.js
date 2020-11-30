@@ -23,16 +23,20 @@ import Tui from '../assets/trigrams/Tui.png'
 import one from '../assets/hex/1.png'
 
 import { Image, ImageBackground, 
-        SafeAreaView, Button,StyleSheet, View} from 'react-native';
+        SafeAreaView, Button,StyleSheet, View} from 'react-native'
+
 
 import {styles} from '../assets/styles/styles'
-import {hexagramDict} from '../assets/dictionary/HexagramDict'
+import {hexData} from '../assets/dictionary/HexagramDatabase';
+
 
 //global variables
 const coins = [Yang_heads,Yin_tails];
 
   
 var Hexagram = null
+var HexagramText = ""
+
 var UpperTrigram = null
 var LowerTrigram = null
 
@@ -64,17 +68,21 @@ function CoinFlipScreen(props) {
     //console.log(hexagramDict)
   
     let result = one
+    let resultText = ""
 
-    for(var item in hexagramDict) { //search the hexagram dictionary
-      console.log("...searching for hexagram " + item)
-      if(hex == hexagramDict[item]){
+    for(var item in hexData) { //search the hexagram dictionary
+      //console.log("...searching for hexagram " + hex)
+      if(hex == hexData[item].id){
+        console.log("Match!")
         result = item
-        console.log("Match! Your hexagram is " + item)
+        resultText = hexData[item].lines
         break
       }
     }
-    
-    Hexagram = result
+    console.log("Your result was " + result)
+
+    Hexagram = result //assign hexagram
+    HexagramText = resultText //assign global text
 
     return result
   }
@@ -158,6 +166,7 @@ function CoinFlipScreen(props) {
 
 
   var question = props.route.params; //question from ConsultScreen
+  var hexObj = {Hexagram, HexagramText, question}
 
   const showComponent = (props) => { //send data to Analysis
     if(numFlip > 6) {
@@ -167,7 +176,7 @@ function CoinFlipScreen(props) {
       genHex = ""
 
       return <Button title="Read your hexagram" color = "#008080" onPress =
-      {() => props.navigation.navigate("Analysis", {hex: Hexagram, userInput: question})} />
+      {() => props.navigation.navigate("Analysis", {hexObj})} /> //pass in the results
     }
 
   }

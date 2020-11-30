@@ -20,8 +20,8 @@ export const hexagramDict = { //extract to a .js file
       six: '434333', //kan row
       forty: '434344',
       twentyNine: '434434',
-      four: '434344',
-      seven: '434344',
+      four: '434443',
+      seven: '434444',
       fiftyNine: '434433',
       sixtyFour: '434343',
       fortySeven: '434334',
