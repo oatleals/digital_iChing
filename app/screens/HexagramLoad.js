@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from "react";
-import { SafeAreaView, ImageBackground, Button, Text, StyleSheet, Image} from "react-native";
+import { SafeAreaView, ImageBackground, Button, Text, StyleSheet, Image, View, ScrollView} from "react-native";
 
 function HexagramLoad(props) {
 
     const [strHex, setStrHex] = useState()
     const [strUserInput, setStrUserInput] = useState()
-    const [strHexLines, setStrHexLines] = useState()
+    const [hexagramLines, setHexLines] = useState()
 
     var {hexData} = props.route.params
 
@@ -15,7 +15,8 @@ function HexagramLoad(props) {
 
         setStrHex(hexData.hexagram)
         setStrUserInput(hexData.question)
-        setStrHexLines(hexData.hexagramLines) 
+        setHexLines(hexData.hexagramLines) 
+        
         
     }
     
@@ -33,9 +34,14 @@ function HexagramLoad(props) {
       <Text style = {styles.hexTitle}>Cast hexagram: </Text>
       <Text style = {styles.item}>{strHex}</Text>
 
-      <Text>
-        {strHexLines}
-      </Text>
+      <View style = {styles.container}>
+        <ScrollView>
+          <Text style = {styles.container}>
+            {hexagramLines}
+          </Text>
+        </ScrollView>
+      </View>
+
 
       <Button style = {styles.buttonContainer} title="Go Home" color = "#008080" onPress = {() => props.navigation.navigate("Home")} />        
     
@@ -83,9 +89,9 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   hexChar: {
-    width: 150,
-    height: 150,
-    flex: 0.5,
+    width: 125,
+    height: 125,
+    flex: 0.25,
     resizeMode: "contain",
     alignItems: "center",
     justifyContent: "flex-start"

@@ -13,6 +13,7 @@ function JournalScreen(props) {
   const load = async () => {
     try {
       hexData = await AsyncStorage.getItem("key") 
+      console.log(hexData)
 
     }
     catch(error) {

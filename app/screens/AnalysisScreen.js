@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { SafeAreaView, ImageBackground, Button, Text, StyleSheet, Image, View} from "react-native";
+import { SafeAreaView, ImageBackground, Button, Text, StyleSheet, Image, View, ScrollView} from "react-native";
 
 import AsyncStorage from '@react-native-community/async-storage';
 
@@ -11,15 +11,13 @@ function AnalysisScreen(props) {
   const [hexagramLines, setHexagramLines] = useState()
   const [question, setQuestion] = useState()
 
-    const saveData = async(hexagram,hexagramLines,question) => {
+    const saveData = async(hexagram,question, hexagramLines) => {
     try {  
-      let hexData = {hexagram, hexagramLines, question}
 
-      await AsyncStorage.setItem("key1", JSON.stringify(hexData))
+      var hexData = {hexagram, question, hexagramLines}
+      await AsyncStorage.setItem("key1", JSON.stringify(hexData))  
 
-      
-
-      console.log("Saving " + hexagram +  " to journal")
+      console.log("Saving hexagram to journal")
 
     } catch (error) {
       console.log(error)
@@ -27,13 +25,12 @@ function AnalysisScreen(props) {
   }
 
   var {hexObj} = props.route.params
-  const eventHandler = () => {
 
+  const eventHandler = () => {
     setHexagram(hexObj.Hexagram)
     setQuestion(hexObj.question)
     setHexagramLines(hexObj.HexagramText) 
   }
-
 
   useEffect(() => {
     eventHandler()
@@ -53,14 +50,16 @@ function AnalysisScreen(props) {
 
 
 
-      <Text style = {styles.container}>
-        {hexagramLines}
-      </Text>
-     
-     
+      <View style = {styles.container}>
+        <ScrollView>
+          <Text style = {styles.container}>
+            {hexagramLines}
+          </Text>
+        </ScrollView>
+      </View>
 
       <Button style = {styles.buttonContainer} title="Save to Journal" color = "#008080" onPress = { 
-        () => (saveData(hexagram,hexagramLines,question), alert("Saved hex: " + hexagram + " to Journal"))} />
+        () => (saveData(hexagram,question,hexagramLines), alert("Saved hex: " + hexagram + " to Journal"))} />
 
         <Button style = {styles.buttonContainer} title="Go Home" color = "#008080" onPress = {() => props.navigation.navigate("Home")} />        
     
@@ -79,7 +78,7 @@ const styles = StyleSheet.create({
   hexTitle: {
     fontSize: 25,
     marginBottom: 5,
-    marginTop: 5
+    marginTop: 3
   },
   questionTitle: {
     fontSize: 20,
