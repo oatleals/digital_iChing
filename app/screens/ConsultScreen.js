@@ -19,7 +19,7 @@ function ConsultScreen(props) {
             value = {value}
           />
 
-        <Button title="Find your Hexagram" color = "#008080" onPress={() => props.navigation.navigate("CoinFlip", value)} />
+        <Button title="Throw coins" color = "#008080" onPress={() => props.navigation.navigate("CoinFlip", value)} />
       </View>
     </ImageBackground>
   );

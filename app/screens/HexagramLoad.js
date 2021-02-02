@@ -13,9 +13,11 @@ function HexagramLoad(props) {
 
         hexData = JSON.parse(hexData)
 
-        setStrHex(hexData.hexagram)
-        setStrUserInput(hexData.question)
-        setHexLines(hexData.hexagramLines) 
+        console.log(hexData)
+
+        setStrHex(hexData[0].hexagram)
+        setStrUserInput(hexData[0].question)
+        setHexLines(hexData[0].hexagramLines) 
         
         
     }

@@ -7,9 +7,6 @@ import JournalScreen from './app/screens/JournalScreen';
 import loadHexagram from './app//screens/HexagramLoad';
 
 import TutorialScreen0 from './app/screens/TutorialScreen0';
-import TutorialScreen1 from './app/screens/TutorialScreen1';
-import TutorialScreen2 from './app/screens/TutorialScreen2';
-import TutorialScreen3 from './app/screens/TutorialScreen3';
 
 import ConsultScreen from './app/screens/ConsultScreen';
 import CoinFlipScreen from './app/screens/CoinFlipScreen';
@@ -54,10 +51,7 @@ const createConsultStack = () =>   //Navigation for the consulting screens
 
 const createTutorialStack = () =>  //Navigation for tutorial screens
   <tutorialStack.Navigator>
-    <consultStack.Screen name = "Tutorial" component = {TutorialScreen0}/>
-    <consultStack.Screen name = "Tutorial1" component = {TutorialScreen1}/> 
-    <consultStack.Screen name = "Tutorial2" component = {TutorialScreen2}/>
-    <consultStack.Screen name = "Tutorial3" component = {TutorialScreen3}/>   
+    <consultStack.Screen name = "Tutorial" component = {TutorialScreen0}/>   
   </tutorialStack.Navigator>
 
 

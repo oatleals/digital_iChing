@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import { SafeAreaView, ImageBackground, Button, Text, StyleSheet, Image, View, ScrollView} from "react-native";
 
 import AsyncStorage from '@react-native-community/async-storage';
+//import uuid from 'uuid/v4'
 
 
 function AnalysisScreen(props) {
@@ -11,12 +12,26 @@ function AnalysisScreen(props) {
   const [hexagramLines, setHexagramLines] = useState()
   const [question, setQuestion] = useState()
 
+
     const saveData = async(hexagram,question, hexagramLines) => {
     try {  
+      
+      let id = Math.floor(Math.random() * 1000000)
+      
+      let hexData = {hexagram, question, hexagramLines, id}
+      let hexArray = []
 
-      var hexData = {hexagram, question, hexagramLines}
-      await AsyncStorage.setItem("key1", JSON.stringify(hexData))  
+      let storedData = await AsyncStorage.getItem('hexList')
+      if(storedData !== null)
+      {
+        hexArray = JSON.parse(storedData)
+      } 
 
+      hexArray.push(hexData)
+
+      await AsyncStorage.setItem('hexList', JSON.stringify(hexArray))
+
+      
       console.log("Saving hexagram to journal")
 
     } catch (error) {
@@ -27,9 +42,11 @@ function AnalysisScreen(props) {
   var {hexObj} = props.route.params
 
   const eventHandler = () => {
+
     setHexagram(hexObj.Hexagram)
     setQuestion(hexObj.question)
-    setHexagramLines(hexObj.HexagramText) 
+    setHexagramLines(hexObj.HexagramText)
+
   }
 
   useEffect(() => {
@@ -39,8 +56,11 @@ function AnalysisScreen(props) {
   
   return (
     //pull from the hex dict to find background image
+
+
     <ImageBackground source={require('../assets/background/background.png')} style={styles.backgroundImage}>
     <SafeAreaView style={styles.container}>
+
 
     <Text style = {styles.questionTitle}> {question} </Text>
       <Image source = {require("../assets/hex/Hex01_Character.png")} style = {styles.hexChar} />
@@ -61,8 +81,9 @@ function AnalysisScreen(props) {
       <Button style = {styles.buttonContainer} title="Save to Journal" color = "#008080" onPress = { 
         () => (saveData(hexagram,question,hexagramLines), alert("Saved hex: " + hexagram + " to Journal"))} />
 
-        <Button style = {styles.buttonContainer} title="Go Home" color = "#008080" onPress = {() => props.navigation.navigate("Home")} />        
+      <Button style = {styles.buttonContainer} title="Go Home" color = "#008080" onPress = {() => props.navigation.navigate("Home")} />        
     
+   
     </SafeAreaView>
   </ImageBackground>
   )

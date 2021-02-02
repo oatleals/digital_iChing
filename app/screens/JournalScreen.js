@@ -1,19 +1,44 @@
 import React, {useState, useEffect} from "react";
-import { StyleSheet, Text, View, ImageBackground,SafeAreaView, Button, StatusBar, Alert } from "react-native";
+import { StyleSheet, Text, View, ImageBackground,SafeAreaView, Button, StatusBar, FlatList, Alert } from "react-native";
 //import {styles} from '../assets/styles/styles'
 
 import AsyncStorage from '@react-native-community/async-storage';
-import { FlatList } from "react-native-gesture-handler";
 
 
 var hexData = null
+var hexButton = null
+
+var hexArray = []
 
 function JournalScreen(props) {
 
+  const [hex, setHexArray] = useState([])
+  
+  const addHex = () => {
+    setHexArray(hex => [...hex, hexArray])
+  }
+
   const load = async () => {
     try {
-      hexData = await AsyncStorage.getItem("key") 
-      console.log(hexData)
+      hexData = await AsyncStorage.getItem("hexList")
+      hexButton = JSON.parse(hexData)
+
+
+      
+
+      for(var item in hexButton) {
+
+        let hexObj = {title: hexButton[item].hexagram, id: hexButton[item].id}
+        hexArray.push(hexObj)
+
+
+        //return <Button title = "hexagram" color = "#008080" onPress = 
+        //{() =>props.navigation.navigate("LoadHexagram", {hexData})} />
+      }
+
+      console.log(hexArray)
+
+      //addHex(hexArray)
 
     }
     catch(error) {
@@ -21,20 +46,48 @@ function JournalScreen(props) {
     }
   }
 
+  const remove = async () => {
+    try {  
+      AsyncStorage.clear();
+      /*let hexArray = []
+
+      let storedData = await AsyncStorage.getItem('hexList')
+      if(storedData !== null)
+      {
+        hexArray = JSON.parse(storedData)
+      } 
+
+      hexArray.pop()
+      await AsyncStorage.setItem('hexList', JSON.stringify(hexArray))
+
+      Alert.alert("Removed all items")
+    */
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   useEffect(() => {
     load()
+   
   }, [])
-
 
   
   return(
     <ImageBackground source={require('../assets//background/backgroundGradient.png')} style={styles.backgroundImage}>
       <SafeAreaView style= {styles.container}>
 
-        <View style = {styles.buttonContainer} >
-          <Button title="Hexagram 1" color = "#008080" onPress = {() =>props.navigation.navigate("LoadHexagram", {hexData})} />
- 
+      
+        {hex.map( hexagram => {
+            return (<Text key = {hexagram.id}>{hexagram.title}</Text>)
+          }
+        )}
+        <View style = {styles.container}>
+          <Button title = "View Hexagram" color = "#008080" onPress = 
+          {() =>props.navigation.navigate("LoadHexagram", {hexData})} />
         </View>
+        
+        <Button title = "Remove all" color = "#008080" onPress = {remove}/>
 
       </SafeAreaView>
     </ImageBackground>
@@ -50,7 +103,7 @@ const styles = StyleSheet.create({
   },
   item: {
     backgroundColor: '#008080',
-    padding: 20,
+    padding: 10,
     marginVertical: 8,
     marginHorizontal: 16,
   },

@@ -20,7 +20,7 @@ import Sun from '../assets/trigrams/Sun.png'
 import Tui from '../assets/trigrams/Tui.png'
 
 //hexagrams
-import one from '../assets/hex/1.png'
+import one from '../assets/hex/01.png'
 
 import { Image, ImageBackground, 
         SafeAreaView, Button,StyleSheet, View} from 'react-native'
