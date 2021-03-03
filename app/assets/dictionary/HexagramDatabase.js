@@ -3,7 +3,8 @@ export const hexData = {
             id:'333333',
             judgement:"Creativity brings sublime success, furthering through perseverance.", 
             image: "The movement of heaven is full of power \n Thus the superior person is strong and untiring.",
-            lines:"Nine at the beginning means:\n Hidden dragon. Do not act.\n Nine in the second place means:\n Dragon appears in the field.\n It furthers one to visit the great person.\n Nine in the third place means:\n All day long the superior person is creatively active. \n At nightfall their mind is still beset with cares. \n Danger. No blame. \n Nine in the fourth place means: \n Wavering flight over the depths. No blame.\n Nine in the fifth place means: \n Flying dragon in the heavens. \n It furthers one to visit the great person. \n Nine at the top means: \n An arrogant dragon will have cause to repent. \n When all the lines are nines, it means: \n There appears a flight of dragons without heads. \n Good fortune." 
+            lines:"Nine at the beginning means:\n Hidden dragon. Do not act.\n Nine in the second place means:\n Dragon appears in the field.\n It furthers one to visit the great person.\n Nine in the third place means:\n All day long the superior person is creatively active. \n At nightfall their mind is still beset with cares. \n Danger. No blame. \n Nine in the fourth place means: \n Wavering flight over the depths. No blame.\n Nine in the fifth place means: \n Flying dragon in the heavens. \n It furthers one to visit the great person. \n Nine at the top means: \n An arrogant dragon will have cause to repent. \n When all the lines are nines, it means: \n There appears a flight of dragons without heads. \n Good fortune."
+            
         },
         thirtyFour: {
             id:'333344',

@@ -13,7 +13,7 @@ function ConsultScreen(props) {
       <View style={styles.container}>
   
 
-        <Text>Enter a question:</Text>
+        <Text style = {{fontFamily: 'futura-bold', fontSize: 30}}>Enter a question:</Text>
           <TextInput style = {styles.input}
             onChangeText={question => onChangeText(question)}
             value = {value}
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flex: 1,
-    marginTop: 20
+    marginTop: 20,
   },
   image: {
     flex: 1,

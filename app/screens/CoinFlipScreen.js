@@ -7,9 +7,7 @@ import Yin from '../assets/trigrams/Yin_Six_Line.png' //6
 import Yang_heads from '../assets/coins/Yang_heads.png';
 import Yin_tails from '../assets/coins/Yin_Tails.png';
 
-//trigrams
-//import { trigrams } from '../assets/trigrams/trigrams'
-
+//trigrams pictures
 import Chien from '../assets/trigrams/chien.png'
 import Chen from '../assets/trigrams/chen.png'
 import Kan from '../assets/trigrams/Kan.png'
@@ -19,23 +17,41 @@ import Li from '../assets/trigrams/Li.png'
 import Sun from '../assets/trigrams/Sun.png'
 import Tui from '../assets/trigrams/Tui.png'
 
-//hexagrams
-import one from '../assets/hex/01.png'
+//bg for trigrams
+import chien_Heaven from '../assets/trigrams/chien_Heaven.jpg'
+import chen_Thunder from '../assets/trigrams/chen_Thunder.jpg'
+import kan_Water from '../assets/trigrams/Kan_Water.jpg'
+import ken_Mountain from '../assets/trigrams/Ken_Mountain.jpg'
+import kun_Earth from '../assets/trigrams/Kun_Earth.jpg'
+import li_Fire from '../assets/trigrams/Li_Fire.jpg'
+import sun_Wind from '../assets/trigrams/Sun_Wind.jpg'
+import tui_Lake from '../assets/trigrams/Tui_Lake.jpg'
 
 import { Image, ImageBackground, 
-        SafeAreaView, Button,StyleSheet, View} from 'react-native'
+        SafeAreaView, Button,StyleSheet, View,Text} from 'react-native'
 
 
 import {styles} from '../assets/styles/styles'
-import {hexData} from '../assets/dictionary/HexagramDatabase';
+import {hexData} from '../assets/dictionary/HexagramDatabase'
+import {hexChar} from '../assets/hex/hex'
 
+//animations
+import h2h from '../assets/animations/CoinSpin/H2H.png'
+import h2t from '../assets/animations/CoinSpin/H2T.png'
+import t2h from '../assets/animations/CoinSpin/T2H.png'
+import t2t from '../assets/animations/CoinSpin/T2T.png'
 
 //global variables
 const coins = [Yang_heads,Yin_tails];
 
+var coinHandler = 0 //changes state of coin
   
-var Hexagram = null
+var Hexagram = null 
+
+//pulled from data base
 var HexagramText = ""
+var HexagramIMG = ""
+var HexagramJudgment = ""
 
 var UpperTrigram = null
 var LowerTrigram = null
@@ -43,6 +59,18 @@ var LowerTrigram = null
 var genHex = ""
 var genLowerTri = ""
 var genUpperTri = ""
+
+ //Pull the labels out of Trigram database
+ var UpperTriName = null
+ var LowerTriName = null
+ var UpperTriMeaning = null
+ var LowerTriMeaning = null
+
+//labels that will be passed to the next screen
+var trigramBg = chien_Heaven
+var trigramName = ""
+var hexagramName = ""
+
 
 
 function CoinFlipScreen(props) {
@@ -52,7 +80,7 @@ function CoinFlipScreen(props) {
   const[upperTrigramState, setUpperTrigram] = useState()
   const[hexagramState, setHexagram] = useState()
 
-
+  //useState hooks for lines
   const [line1, setLine1] = useState()  
   const [line2, setLine2] = useState()
   const [line3, setLine3] = useState()
@@ -64,11 +92,14 @@ function CoinFlipScreen(props) {
   //Event handler variables
   const [numFlip, setNumFlip] = useState(1)
 
+  //=====================Hexagram Generator=====================
+
   const hexagramGenerator = (hex) => {
-    //console.log(hexagramDict)
-  
-    let result = one
+    
+    let result = hexChar.one //placeholder
     let resultText = ""
+    let resultTextIMG = ""
+    let resultTextJudgement = ""
 
     for(var item in hexData) { //search the hexagram dictionary
       //console.log("...searching for hexagram " + hex)
@@ -76,6 +107,9 @@ function CoinFlipScreen(props) {
         console.log("Match!")
         result = item
         resultText = hexData[item].lines
+        resultTextIMG = hexData[item].image
+        resultTextJudgement = hexData[item].judgement
+
         break
       }
     }
@@ -83,10 +117,15 @@ function CoinFlipScreen(props) {
 
     Hexagram = result //assign hexagram
     HexagramText = resultText //assign global text
+    HexagramIMG = resultTextIMG
+    HexagramJudgment = resultTextJudgement
 
     return result
   }
 
+
+//=====================Trigram Generator=====================
+  
   const trigramGenerator = (Trigram) => { 
     
     var trigramDict = { //is it worth it to use a dictionary?
@@ -100,65 +139,140 @@ function CoinFlipScreen(props) {
       Tui: '334',
     }
 
-    let result = Chien //chien is a placeholder
+    let result = {png: Chien, name: 'chien', meaning: 'heaven'} //chien is a placeholder
+    let resultBg = ""
 
+    //code can be simplified
     if(Trigram == trigramDict.Chien) //chien
-      result = Chien
-    else if(Trigram == trigramDict.Chen) //chen
-      result = Chen
+    { 
+
+      result.png = Chien
+      resultBg = "chien_Heaven"
+      result.name = "Chien"
+      result.meaning = "Heaven"
+      
+    }
+    else if(Trigram == trigramDict.Chen){ //chen
+      result.png = Chen
+      resultBg = "chen_Thunder"
+      result.name = "Chen"
+      result.meaning = "Thunder"
+      
+
+    }
     else if(Trigram == trigramDict.Kan) //Kan
-      result = Kan
+    {
+      result.png = Kan
+      resultBg = "kan_Water"
+      result.name = "Kan"
+      result.meaning = "Water"
+      
+    }  
     else if(Trigram == trigramDict.Ken) //Ken
-      result = Ken
+    {
+      result.png = Ken
+      resultBg = "ken_Mountain"
+      result.name = "Ken"
+      result.meaning = "Mountain"
+      
+
+    }
     else if(Trigram == trigramDict.Kun) //Kun
-      result = Kun
+    {
+      result.png = Kun
+      resultBg = "kun_Earth"
+      result.name = "Kun"
+      result.meaning = "Earth"
+      
+    }  
     else if(Trigram == trigramDict.Li) //Li
-      result = Li
+    {
+      result.png = Li
+      resultBg = "li_Fire"
+      result.name = "Li"
+      result.meaning = "Fire"
+      
+    }
     else if(Trigram == trigramDict.Sun) //Sun
-      result = Sun
+    {  
+      result.png = Sun
+      resultBg = "sun_Wind"
+      result.name = "Sun"
+      result.meaning = "Wind"
+      
+    }
     else if(Trigram == trigramDict.Tui) //Tui
-      result = Tui 
+    {   
+      result.png = Tui 
+      resultBg = "tui_Lake"
+      result.name = "Tui"
+      result.meaning = "Lake"
+      
+    }
+
+    trigramBg = resultBg
     return result
 
   }
 
   const eventHandler = () => {
-    
+    coinAnimator()
     const outcomes = [Yin, Yang] //yin = 4 & yang = 3 this is due to the math.floor function
 
     let result = Math.floor(Math.random() * outcomes.length) //pick from the list of outcomes
 
+
+
     if(numFlip == 1) {//building the lower trigram
       setLine1(outcomes[result])
       genLowerTri += outcomes[result].toString()
+      coinHandler = result
     }
     else if(numFlip == 2) {
       setLine2(outcomes[result])
       genLowerTri += outcomes[result].toString()
+      coinHandler = result
     }
     else if(numFlip == 3) {
-      setLine3(outcomes[result])
-      genLowerTri += outcomes[result].toString()
-      LowerTrigram = trigramGenerator(genLowerTri)
+      setLine3(outcomes[result]) //set line
+      genLowerTri += outcomes[result].toString() //give id #
+
+      LowerTrigram = trigramGenerator(genLowerTri).png //generate png 
+      LowerTriName = trigramGenerator(genLowerTri).name //set name
+      LowerTriMeaning = trigramGenerator(genLowerTri).meaning //set meaning
+
+
       setLowerTrigram(LowerTrigram) 
       console.log("Finished Building Lower Trigram" + LowerTrigram)
+      coinHandler = result
+
     }
     else if(numFlip == 4) { //building the upper trigram
       setLine4(outcomes[result])
       genUpperTri += outcomes[result].toString()
+      coinHandler = result
+
     }
     else if(numFlip == 5){
       setLine5(outcomes[result])
       genUpperTri += outcomes[result].toString()
+      coinHandler = result
+
     }
-    else if(numFlip == 6) { 
+    else if(numFlip == 6) { //finish and now set the hexagram
       setLine6(outcomes[result])
       genUpperTri += outcomes[result].toString()  
-      UpperTrigram = trigramGenerator(genUpperTri)
-      setUpperTrigram(UpperTrigram)
+   
+      setUpperTrigram(UpperTrigram) //update png image state
       console.log("Finished Building Upper Trigram" + UpperTrigram) 
       setHexagram(hexagramGenerator(genHex.concat(genLowerTri + genUpperTri)))
       
+      console.log(UpperTrigram)
+      UpperTrigram = trigramGenerator(genUpperTri).png //generate png 
+      UpperTriName = trigramGenerator(genUpperTri).name //set name
+      UpperTriMeaning = trigramGenerator(genUpperTri).meaning //set meaning
+      coinHandler = result
+
     }
 
     setNumFlip(numFlip + 1) // make sure we only flip the coin 6 times
@@ -166,20 +280,49 @@ function CoinFlipScreen(props) {
 
 
   var question = props.route.params; //question from ConsultScreen
-  var hexObj = {Hexagram, HexagramText, question}
+  var hexObj = {Hexagram, HexagramText,HexagramIMG,HexagramJudgment, question, trigramBg, UpperTriMeaning, UpperTriName, LowerTriMeaning, LowerTriName}
 
   const showComponent = (props) => { //send data to Analysis
     if(numFlip > 6) {
 
       genLowerTri = "" //reinit values
-      genUpperTri = ""
+      genUpperTri = ""  
       genHex = ""
+
+      console.log(hexObj)
 
       return <Button title="Read your hexagram" color = "#008080" onPress =
       {() => props.navigation.navigate("Analysis", {hexObj})} /> //pass in the results
     }
 
   }
+
+  //Sprite sheet animation
+  const [currentFrameIndex, setCurrentFrameIndex] = useState(0)
+  const [isAnimating, setAnimating] = useState(false)
+
+
+  const coinAnimator = () => {
+
+    if(isAnimating == false) {
+      
+      setAnimating(true) //bool for showing animation
+      let x = 0
+      const frame = setInterval(() => {
+      setCurrentFrameIndex(x)
+      if (x++ == 19) {
+        window.clearInterval(frame);
+        setCurrentFrameIndex(0)
+        setAnimating(false)
+        } else {
+        setCurrentFrameIndex(x)
+      }
+    },0.1)
+  
+
+      }
+    }
+
 
   
   //JSX 
@@ -195,14 +338,37 @@ function CoinFlipScreen(props) {
             <Image source = {line3} style={styles.hexLine} />
             <Image source = {line2} style={styles.hexLine} />
             <Image source = {line1} style={styles.hexLine} />
-            <Image source = {upperTrigramState} style={styles.hexLine} />
-            <Image source = {lowerTrigramState} style={styles.hexLine} />
           </View>
-        
-          <Image source = {coins[0]} style={styles.coinButton} />
+
+          <View style = {{flex: 0.3, flexDirection: 'row',alignItems: 'center'}}>
+            <View style = {{paddingBottom: 40, width: 100, height: 90, overflow: "hidden", flexDirection: 'row'}}>
+              <Image source = {h2h} style = {{
+                width: 2000, 
+                height: 90, 
+                transform: [{translateX: -100 * currentFrameIndex}] }}/>
+            </View>
+            <View style = {{paddingBottom: 40, width: 100, height: 90, overflow: "hidden", flexDirection: 'row'}}>
+              <Image source = {h2t} style = {{
+                width: 2000, 
+                height: 90, 
+                transform: [{translateX: -100 * currentFrameIndex}] }}/>
+            </View>
+            <View style = {{paddingBottom: 40, width: 100, height: 90, overflow: "hidden", flexDirection: 'row'}}>
+              <Image source = {h2h} style = {{
+                width: 2000, 
+                height: 90, 
+                transform: [{translateX: -100 * currentFrameIndex}] }}/>
+            </View>
+  
+          </View>
+          
           <Button title = "Flip coin" color = "#008080" onPress = {eventHandler}/>
+
+         
+         
           
           <View style = {styles.analysisButton}>
+              
             {showComponent(props)}
             
           </View>
