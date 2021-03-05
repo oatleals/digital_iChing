@@ -71,6 +71,14 @@ var trigramBg = chien_Heaven
 var trigramName = ""
 var hexagramName = ""
 
+//Line Variables
+var line6 = Yin
+var line5 = Yin
+var line4 = Yin
+var line3 = Yin
+var line2 = Yin
+var line1 = Yin
+
 
 
 function CoinFlipScreen(props) {
@@ -81,12 +89,12 @@ function CoinFlipScreen(props) {
   const[hexagramState, setHexagram] = useState()
 
   //useState hooks for lines
-  const [line1, setLine1] = useState()  
-  const [line2, setLine2] = useState()
-  const [line3, setLine3] = useState()
-  const [line4, setLine4] = useState()
-  const [line5, setLine5] = useState()
-  const [line6, setLine6] = useState()
+  const [line1State, setLine1] = useState()  
+  const [line2State, setLine2] = useState()
+  const [line3State, setLine3] = useState()
+  const [line4State, setLine4] = useState()
+  const [line5State, setLine5] = useState()
+  const [line6State, setLine6] = useState()
 
 
   //Event handler variables
@@ -142,7 +150,7 @@ function CoinFlipScreen(props) {
     let result = {png: Chien, name: 'chien', meaning: 'heaven'} //chien is a placeholder
     let resultBg = ""
 
-    //code can be simplified
+    //code can be simplified into a For Loop
     if(Trigram == trigramDict.Chien) //chien
     { 
 
@@ -225,16 +233,19 @@ function CoinFlipScreen(props) {
 
     if(numFlip == 1) {//building the lower trigram
       setLine1(outcomes[result])
+      line1 = (outcomes[result])
       genLowerTri += outcomes[result].toString()
       coinHandler = result
     }
     else if(numFlip == 2) {
       setLine2(outcomes[result])
+      line2 = (outcomes[result])
       genLowerTri += outcomes[result].toString()
       coinHandler = result
     }
     else if(numFlip == 3) {
       setLine3(outcomes[result]) //set line
+      line3 = (outcomes[result])
       genLowerTri += outcomes[result].toString() //give id #
 
       LowerTrigram = trigramGenerator(genLowerTri).png //generate png 
@@ -249,18 +260,21 @@ function CoinFlipScreen(props) {
     }
     else if(numFlip == 4) { //building the upper trigram
       setLine4(outcomes[result])
+      line4 = (outcomes[result])
       genUpperTri += outcomes[result].toString()
       coinHandler = result
 
     }
     else if(numFlip == 5){
       setLine5(outcomes[result])
+      line5 = (outcomes[result])
       genUpperTri += outcomes[result].toString()
       coinHandler = result
 
     }
     else if(numFlip == 6) { //finish and now set the hexagram
       setLine6(outcomes[result])
+      line6 = (outcomes[result])
       genUpperTri += outcomes[result].toString()  
    
       setUpperTrigram(UpperTrigram) //update png image state
@@ -281,7 +295,7 @@ function CoinFlipScreen(props) {
 
   var question = props.route.params; //question from ConsultScreen
   var hexObj = {Hexagram, HexagramText,HexagramIMG,HexagramJudgment, question, trigramBg, UpperTriMeaning, UpperTriName, LowerTriMeaning, LowerTriName}
-
+  var lineObj = {line1,line2,line3,line4,line5,line6}
   const showComponent = (props) => { //send data to Analysis
     if(numFlip > 6) {
 
@@ -289,10 +303,8 @@ function CoinFlipScreen(props) {
       genUpperTri = ""  
       genHex = ""
 
-      console.log(hexObj)
-
       return <Button title="Read your hexagram" color = "#008080" onPress =
-      {() => props.navigation.navigate("Analysis", {hexObj})} /> //pass in the results
+      {() => props.navigation.navigate("Analysis", {hexObj, lineObj})} /> //pass in the results
     }
 
   }
@@ -332,12 +344,12 @@ function CoinFlipScreen(props) {
         <SafeAreaView style={styles.container}>
         
           <View>    
-            <Image source = {line6} style={styles.hexLine} /> 
-            <Image source = {line5} style={styles.hexLine} />
-            <Image source = {line4} style={styles.hexLine} />
-            <Image source = {line3} style={styles.hexLine} />
-            <Image source = {line2} style={styles.hexLine} />
-            <Image source = {line1} style={styles.hexLine} />
+            <Image source = {line6State} style={styles.hexLine} /> 
+            <Image source = {line5State} style={styles.hexLine} />
+            <Image source = {line4State} style={styles.hexLine} />
+            <Image source = {line3State} style={styles.hexLine} />
+            <Image source = {line2State} style={styles.hexLine} />
+            <Image source = {line1State} style={styles.hexLine} />
           </View>
 
           <View style = {{flex: 0.3, flexDirection: 'row',alignItems: 'center'}}>

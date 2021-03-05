@@ -13,13 +13,15 @@ function ConsultScreen(props) {
       <View style={styles.container}>
   
 
-        <Text style = {{fontFamily: 'futura-bold', fontSize: 30}}>Enter a question:</Text>
-          <TextInput style = {styles.input}
+        <Text style = {{fontFamily: 'futura-bold', fontSize: 30,textAlign: "center", alignContent: 'center'}}>What would you like to ask the I-Ching?</Text>
+            <TextInput style = {styles.input}
+            placeholder = "Enter a question here"
+
             onChangeText={question => onChangeText(question)}
             value = {value}
           />
 
-        <Button title="Throw coins" color = "#008080" onPress={() => props.navigation.navigate("CoinFlip", value)} />
+        <Button title="Throw coins" color = "#008b8b" onPress={() => props.navigation.navigate("CoinFlip", value)} />
       </View>
     </ImageBackground>
   );

@@ -15,27 +15,43 @@ import sun_Wind from '../assets/trigrams/Sun_Wind.jpg'
 import tui_Lake from '../assets/trigrams/Tui_Lake.jpg'
 
 import {hexChar} from '../assets/hex/hex' //hexagram character images
-import tricolors from '../assets/trigrams/Asset_ColoredTrigrams.png'
+import tricolors from '../assets/trigrams/Asset_ColoredTrigrams.png' //trigram bar
+
+import Yang from '../assets/trigrams/Yang_Nine_Line.png' //9
+import Yin from '../assets/trigrams/Yin_Six_Line.png' //6
 
 function AnalysisScreen(props) {
 
   
+  //create the hexagram text
   const [hexagram, setHexagram] = useState()
   const [hexagramLines, setHexagramLines] = useState()
   const [hexagramIMG, setHexagramIMG] = useState()
   const [hexagramJudgement, setHexagramJudgement] = useState()
-
-
+  
   const [question, setQuestion] = useState()
+
+  //background generated from the trigrams
   const [trigramBg, setTrigramBg] = useState(chien_Heaven)
   
+  //generate Trigram texts and meaning
   const [LowerTriName, setLowerTriName] = useState('Chien')
   const [LowerTriMeaning, setLowerTriMeaning] = useState('heaven')
   const [UpperTriMeaning, setUpperTriMeaning] = useState('heaven')
   const [UpperTriName, setUpperTriName] = useState('Chien')
 
+  //character png at the top
   const [hexCharacter, setHexCharacter] =  useState()
 
+  //hooks for lines
+  const [line1State, setLine1] = useState()  
+  const [line2State, setLine2] = useState()
+  const [line3State, setLine3] = useState()
+  const [line4State, setLine4] = useState()
+  const [line5State, setLine5] = useState()
+  const [line6State, setLine6] = useState()
+
+  const outcomes = [Yin, Yang]
 
     const saveData = async(hexagram,question, hexagramLines) => {
     try {  
@@ -64,8 +80,12 @@ function AnalysisScreen(props) {
   }
 
   var {hexObj} = props.route.params
+  var {lineObj} = props.route.params
 
   const eventHandler = () => {
+
+    console.log(lineObj)
+    
 
     setHexagram(hexObj.Hexagram)
     setQuestion(hexObj.question)
@@ -79,6 +99,13 @@ function AnalysisScreen(props) {
     setUpperTriName(hexObj.UpperTriName)
     setUpperTriMeaning(hexObj.UpperTriMeaning)
 
+    setLine1(lineObj.line1)
+    setLine2(lineObj.line2)
+    setLine3(lineObj.line3)
+    setLine4(lineObj.line4)
+    setLine5(lineObj.line5)
+    setLine6(lineObj.line6)
+    
     if(hexObj.trigramBg == "chien_Heaven")
       setTrigramBg(chien_Heaven)
     else if(hexObj.trigramBg == "chen_Thunder")
@@ -111,26 +138,41 @@ function AnalysisScreen(props) {
     eventHandler()
   }, [])
   
-  
+  /*
+  <View style = {{flex: 0.2}}>    
+          <Image source = {line6State} style={styles.hexLine} /> 
+          <Image source = {line5State} style={styles.hexLine} />
+          <Image source = {line4State} style={styles.hexLine} />
+          <Image source = {line3State} style={styles.hexLine} />
+          <Image source = {line2State} style={styles.hexLine} />
+          <Image source = {line1State} style={styles.hexLine} />
+      </View>
+  */
   return (
     //pull from the hex dict to find background image
 
 
     <ImageBackground source = {trigramBg}  style = {styles.backgroundImage}>
-    <SafeAreaView style={styles.container}>
 
-      
-      <View style = {{flex: 0.4}}>
-        <Text style = {styles.questionTitle}> {question} </Text>
-        <Image source = {hexCharacter} style = {styles.hexChar} /> 
-        <Text style = {{color: "#e0ffff"}}>{hexagram}</Text>
-        <Text style = {{color: "#e0ffff"}}> {UpperTriName + UpperTriMeaning}</Text>
-        <Text style = {{color: "#e0ffff"}}> {LowerTriName + LowerTriMeaning}</Text>  
-      </View>
+      <View style = {{flex: 0.4, paddingLeft: 20}}>
+          <Text style = {styles.questionTitle}> {question} </Text>
+          <Image source = {hexCharacter} style = {styles.hexChar} /> 
+
+          <Image source = {tricolors} style = {{height: 20, width: 175, paddingBottom: 10, paddingTop: 10, paddingLeft: 10}}/>
+
+          <Text style = {{color: "#000000",  fontFamily: 'futura-bold', fontSize: 20, paddingLeft: 5, paddingTop:10}}>{'1.  ' + hexagram + '  -  ' + UpperTriMeaning}</Text>
+          <Text style = {{color: "#000000", fontFamily: 'futura-bold', fontSize: 20}}> {'Above:  '+ UpperTriName + '  -  ' + UpperTriMeaning}</Text>
+          <Text style = {{color: "#000000", fontFamily: 'futura-bold', fontSize: 20}}> {'Below:  '+LowerTriName +  '  -  ' + LowerTriMeaning}</Text>  
+      </View>  
+
+  
+    <SafeAreaView style = {styles.container}>
+
+   
 
 
       <View style = {{
-        flex: 1,
+        flex: 0.9,
         padding: 15,
         justifyContent: "center",
         alignItems: "center",
@@ -204,8 +246,11 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   hexChar: {
-    width: 30,
-    height: 30,
+    paddingLeft: 5,
+    paddingTop: 10,
+    paddingBottom: 40,
+    width: 40,
+    height: 40,
     resizeMode: "contain",
     justifyContent: "flex-start"
   },
@@ -220,6 +265,11 @@ const styles = StyleSheet.create({
 
   buttonContainer: {
     padding: 10
+  },
+  hexLine: {
+    width: 130,
+    height: 25,
+    justifyContent: "flex-end",
   }
 })
 
