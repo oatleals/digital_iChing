@@ -24,10 +24,12 @@ function AnalysisScreen(props) {
 
   
   //create the hexagram text
+
   const [hexagram, setHexagram] = useState()
   const [hexagramLines, setHexagramLines] = useState()
   const [hexagramIMG, setHexagramIMG] = useState()
   const [hexagramJudgement, setHexagramJudgement] = useState()
+  const [chinaHexagram, setChinaHexagram] = useState("1. Creativity")
   
   const [question, setQuestion] = useState()
 
@@ -84,14 +86,15 @@ function AnalysisScreen(props) {
 
   const eventHandler = () => {
 
-    console.log(lineObj)
+    console.log(hexObj)
     
 
-    setHexagram(hexObj.Hexagram)
+    setHexagram(hexObj.hexName)
     setQuestion(hexObj.question)
     setHexagramLines(hexObj.HexagramText)
     setHexagramIMG(hexObj.HexagramIMG)
     setHexagramJudgement(hexObj.HexagramJudgment)
+    setChinaHexagram(hexObj.ChinaName)
 
     //trigram
     setLowerTriName(hexObj.LowerTriName)
@@ -149,33 +152,40 @@ function AnalysisScreen(props) {
       </View>
   */
   return (
-    //pull from the hex dict to find background image
 
-
+    <SafeAreaView style = {{flex: 1, justifyContent: "center", alignItems: "center", fontFamily: 'futura-regular'}}>
     <ImageBackground source = {trigramBg}  style = {styles.backgroundImage}>
 
-      <View style = {{flex: 0.4, paddingLeft: 20}}>
-          <Text style = {styles.questionTitle}> {question} </Text>
-          <Image source = {hexCharacter} style = {styles.hexChar} /> 
+      <View style = {{flex: 0.5, paddingHorizontal: 10}}>
+          <View style = {{flex:1, alignItems: "flex-start"}}>
+            <Text style = {styles.questionTitle}> {question} </Text>
+            <Image source = {hexCharacter} style = {styles.hexChar} /> 
 
-          <Image source = {tricolors} style = {{height: 20, width: 175, paddingBottom: 10, paddingTop: 10, paddingLeft: 10}}/>
+            <Image source = {tricolors} style = {{height: 20, width: 175, paddingBottom: 10, paddingTop: 10, paddingLeft: 10}}/>
 
-          <Text style = {{color: "#000000",  fontFamily: 'futura-bold', fontSize: 20, paddingLeft: 5, paddingTop:10}}>{'1.  ' + hexagram + '  -  ' + UpperTriMeaning}</Text>
-          <Text style = {{color: "#000000", fontFamily: 'futura-bold', fontSize: 20}}> {'Above:  '+ UpperTriName + '  -  ' + UpperTriMeaning}</Text>
-          <Text style = {{color: "#000000", fontFamily: 'futura-bold', fontSize: 20}}> {'Below:  '+LowerTriName +  '  -  ' + LowerTriMeaning}</Text>  
-      </View>  
+            <Text style = {{color: "#000000",  fontFamily: 'futura-bold', fontSize: 20, paddingLeft: 5, paddingTop:10}}>{chinaHexagram + ' - ' + hexagram + '  -  ' + UpperTriMeaning}</Text>
+            <Text style = {{color: "#000000", fontFamily: 'futura-bold', fontSize: 20}}> {'Above:  '+ UpperTriName + '  -  ' + UpperTriMeaning}</Text>
+            <Text style = {{color: "#000000", fontFamily: 'futura-bold', fontSize: 20}}> {'Below:  '+LowerTriName +  '  -  ' + LowerTriMeaning}</Text>  
+          </View>
+          <View style = {{flex:1, alignItems: "flex-end", paddingRight: 10}}>    
+            <Image source = {line6State} style={styles.hexLine} /> 
+            <Image source = {line5State} style={styles.hexLine} />
+            <Image source = {line4State} style={styles.hexLine} />
+            <Image source = {line3State} style={styles.hexLine} />
+            <Image source = {line2State} style={styles.hexLine} />
+            <Image source = {line1State} style={styles.hexLine} />
+          </View> 
+      </View>
 
   
     <SafeAreaView style = {styles.container}>
 
-   
-
-
       <View style = {{
         flex: 0.9,
-        padding: 15,
+        padding: 10,
+        paddingBottom: 30,
         justifyContent: "center",
-        alignItems: "center",
+        alignItems: "baseline",
         fontFamily: 'futura-regular'
         }}>
         <ScrollView>
@@ -199,6 +209,8 @@ function AnalysisScreen(props) {
      
     </SafeAreaView>
   </ImageBackground>
+  </SafeAreaView>
+    
   )
 }
 
@@ -242,15 +254,15 @@ const styles = StyleSheet.create({
   backgroundImage: {
     paddingBottom: 100,
     flex: 1,
-    resizeMode: "cover",
+    resizeMode: "contain",
     justifyContent: "center"
   },
   hexChar: {
     paddingLeft: 5,
     paddingTop: 10,
     paddingBottom: 40,
-    width: 40,
-    height: 40,
+    width: 50,
+    height: 50,
     resizeMode: "contain",
     justifyContent: "flex-start"
   },
@@ -267,9 +279,8 @@ const styles = StyleSheet.create({
     padding: 10
   },
   hexLine: {
-    width: 130,
-    height: 25,
-    justifyContent: "flex-end",
+    width: 100,
+    height: 18,
   }
 })
 

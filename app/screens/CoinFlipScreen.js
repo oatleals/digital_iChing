@@ -65,6 +65,8 @@ var genUpperTri = ""
  var LowerTriName = null
  var UpperTriMeaning = null
  var LowerTriMeaning = null
+ var hexName = ""
+ var ChinaName = ""
 
 //labels that will be passed to the next screen
 var trigramBg = chien_Heaven
@@ -117,6 +119,8 @@ function CoinFlipScreen(props) {
         resultText = hexData[item].lines
         resultTextIMG = hexData[item].image
         resultTextJudgement = hexData[item].judgement
+        hexName = hexData[item].name
+        ChinaName = hexData[item].ChinaName
 
         break
       }
@@ -294,7 +298,7 @@ function CoinFlipScreen(props) {
 
 
   var question = props.route.params; //question from ConsultScreen
-  var hexObj = {Hexagram, HexagramText,HexagramIMG,HexagramJudgment, question, trigramBg, UpperTriMeaning, UpperTriName, LowerTriMeaning, LowerTriName}
+  var hexObj = {ChinaName,hexName,Hexagram, HexagramText,HexagramIMG,HexagramJudgment, question, trigramBg, UpperTriMeaning, UpperTriName, LowerTriMeaning, LowerTriName}
   var lineObj = {line1,line2,line3,line4,line5,line6}
   const showComponent = (props) => { //send data to Analysis
     if(numFlip > 6) {
@@ -303,10 +307,21 @@ function CoinFlipScreen(props) {
       genUpperTri = ""  
       genHex = ""
 
+      //HexagramJudgment = ""
+      //HexagramText = ""
+      //HexagramIMG = ""
+
+
       return <Button title="Read your hexagram" color = "#008080" onPress =
       {() => props.navigation.navigate("Analysis", {hexObj, lineObj})} /> //pass in the results
     }
 
+  }
+
+  const showFlipCoin = (props) => { //after 6 flips turn off the button
+    if(numFlip <= 6) {
+      return <Button title = "Flip coin" color = "#008080" onPress = {eventHandler}/>
+    }
   }
 
   //Sprite sheet animation
@@ -353,29 +368,31 @@ function CoinFlipScreen(props) {
           </View>
 
           <View style = {{flex: 0.3, flexDirection: 'row',alignItems: 'center'}}>
-            <View style = {{paddingBottom: 40, width: 100, height: 90, overflow: "hidden", flexDirection: 'row'}}>
+            <View style = {{paddingBottom: 40, width: 100, height: 100, overflow: "hidden", flexDirection: 'row'}}>
               <Image source = {h2h} style = {{
                 width: 2000, 
-                height: 90, 
+                height: 100, 
                 transform: [{translateX: -100 * currentFrameIndex}] }}/>
             </View>
-            <View style = {{paddingBottom: 40, width: 100, height: 90, overflow: "hidden", flexDirection: 'row'}}>
+            <View style = {{paddingBottom: 40, width: 100, height: 100, overflow: "hidden", flexDirection: 'row'}}>
               <Image source = {h2t} style = {{
                 width: 2000, 
-                height: 90, 
+                height:100, 
                 transform: [{translateX: -100 * currentFrameIndex}] }}/>
             </View>
-            <View style = {{paddingBottom: 40, width: 100, height: 90, overflow: "hidden", flexDirection: 'row'}}>
+            <View style = {{paddingBottom: 40, width: 100, height: 100, overflow: "hidden", flexDirection: 'row'}}>
               <Image source = {h2h} style = {{
                 width: 2000, 
-                height: 90, 
+                height: 100, 
                 transform: [{translateX: -100 * currentFrameIndex}] }}/>
             </View>
   
           </View>
           
-          <Button title = "Flip coin" color = "#008080" onPress = {eventHandler}/>
-
+          <View>
+            {showFlipCoin(props)}
+          </View>
+          
          
          
           
