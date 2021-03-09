@@ -102,6 +102,7 @@ function AnalysisScreen(props) {
     setUpperTriName(hexObj.UpperTriName)
     setUpperTriMeaning(hexObj.UpperTriMeaning)
 
+    //set the lines from the previous screen
     setLine1(lineObj.line1)
     setLine2(lineObj.line2)
     setLine3(lineObj.line3)
@@ -109,6 +110,7 @@ function AnalysisScreen(props) {
     setLine5(lineObj.line5)
     setLine6(lineObj.line6)
     
+    //Determine which background to use
     if(hexObj.trigramBg == "chien_Heaven")
       setTrigramBg(chien_Heaven)
     else if(hexObj.trigramBg == "chen_Thunder")
@@ -138,19 +140,10 @@ function AnalysisScreen(props) {
   }
 
   useEffect(() => {
-    eventHandler()
+    eventHandler() //Place everything on the screen before it loads
   }, [])
   
-  /*
-  <View style = {{flex: 0.2}}>    
-          <Image source = {line6State} style={styles.hexLine} /> 
-          <Image source = {line5State} style={styles.hexLine} />
-          <Image source = {line4State} style={styles.hexLine} />
-          <Image source = {line3State} style={styles.hexLine} />
-          <Image source = {line2State} style={styles.hexLine} />
-          <Image source = {line1State} style={styles.hexLine} />
-      </View>
-  */
+
   return (
 
     <SafeAreaView style = {{flex: 1, justifyContent: "center", alignItems: "center", fontFamily: 'futura-regular'}}>
