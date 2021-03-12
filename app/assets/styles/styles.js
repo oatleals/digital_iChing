@@ -6,6 +6,7 @@ export const styles = StyleSheet.create({
     padding: 10,
     justifyContent: "center",
     alignItems: "center",
+    fontFamily: 'futura-bold'
   },
   Image: {
     width: 200,
@@ -34,10 +35,12 @@ export const styles = StyleSheet.create({
     justifyContent: "flex-start"
   },
   coinButton: {
-    width: 150,
-    height: 150,
+    width: 75,
+    height: 75,
     marginTop: 20,
     marginBottom: 20,
+    marginLeft: 5,
+    marginRight: 5,
     resizeMode: "contain",
     alignItems: "center",
     justifyContent: "flex-start"
@@ -49,7 +52,8 @@ export const styles = StyleSheet.create({
   },
   buttonContainer: {
     flex: 1,
-    marginTop: 20
+    marginTop: 20,
+    fontFamily: 'futura-regular'
   },
   item: {
     backgroundColor: '#008080',

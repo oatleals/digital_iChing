@@ -7,10 +7,18 @@ import JournalScreen from './app/screens/JournalScreen';
 import loadHexagram from './app//screens/HexagramLoad';
 
 import TutorialScreen0 from './app/screens/TutorialScreen0';
+import Page1 from './app/screens/tutorialScreens/Page1';
+import Page2 from './app/screens/tutorialScreens/Page2';
+import Page3 from './app/screens/tutorialScreens/Page3';
+import Page4 from './app/screens/tutorialScreens/Page4';
 
 import ConsultScreen from './app/screens/ConsultScreen';
 import CoinFlipScreen from './app/screens/CoinFlipScreen';
 import AnalysisScreen from './app/screens/AnalysisScreen';
+
+
+
+
 
 const Stack = createStackNavigator();
 const consultStack = createStackNavigator();
@@ -20,7 +28,7 @@ const journalStack = createStackNavigator();
 
 function HomeScreen({navigation}) {
   return (
-      <ImageBackground source={require('./app/assets/MainMenu.jpg')} style={styles.image}>
+      <ImageBackground source={require('./app/assets/MainMenu.jpg')} style={styles.image} >
         <View style = {styles.home}>
           <Image source = {require('./app/assets/logo/IchingKoiLogo.png')} style={styles.logo} />
             <View>
@@ -51,7 +59,12 @@ const createConsultStack = () =>   //Navigation for the consulting screens
 
 const createTutorialStack = () =>  //Navigation for tutorial screens
   <tutorialStack.Navigator>
-    <consultStack.Screen name = "Tutorial" component = {TutorialScreen0}/>   
+    <consultStack.Screen name = "Tutorial" component = {TutorialScreen0} options={{ headerShown: false }}/>
+    <consultStack.Screen name = "Page1" component = {Page1} options={{ headerShown: false }}/> 
+    <consultStack.Screen name = "Page2" component = {Page2} options={{ headerShown: false }}/> 
+    <consultStack.Screen name = "Page3" component = {Page3} options={{ headerShown: false }}/> 
+    <consultStack.Screen name = "Page4" component = {Page4} options={{ headerShown: false }}/> 
+
   </tutorialStack.Navigator>
 
 
@@ -67,10 +80,10 @@ function App() {
   return (
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Consult" children={createConsultStack} />
-          <Stack.Screen name="Tutorial" children={createTutorialStack} />
-          <Stack.Screen name="Journal" children={createJournalStack} />
+          <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="Consult" children={createConsultStack} options={{ headerShown: false }}/>
+          <Stack.Screen name="Tutorial" children={createTutorialStack} options={{ headerShown: false }} />
+          <Stack.Screen name="Journal" children={createJournalStack} options={{ headerShown: false }} />
         </Stack.Navigator>
       </NavigationContainer>
 
@@ -80,7 +93,7 @@ function App() {
 
 const styles = StyleSheet.create({
   home: {
-    flex: 1,
+    flex: 5,
     justifyContent: "center",
     alignItems: "center"
   },
