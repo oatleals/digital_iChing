@@ -17,7 +17,12 @@ import CoinFlipScreen from './app/screens/CoinFlipScreen';
 import AnalysisScreen from './app/screens/AnalysisScreen';
 
 
-
+const getFont = () => {
+  return Font.loadAsync({
+    'futura-regular' : require('./app/assets/fonts/futura.ttf'),
+    'futura-bold' : require('./app/assets/fonts/Futura-Bold.ttf')
+  })
+}
 
 
 const Stack = createStackNavigator();
