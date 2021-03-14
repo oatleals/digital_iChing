@@ -40,6 +40,7 @@ import h2h from '../assets/animations/CoinSpin/H2H.png'
 import h2t from '../assets/animations/CoinSpin/H2T.png'
 import t2h from '../assets/animations/CoinSpin/T2H.png'
 import t2t from '../assets/animations/CoinSpin/T2T.png'
+import test from '../assets/animations/CoinSpin/test.png'
 
 //global variables
 const coins = [Yang_heads,Yin_tails];
@@ -374,25 +375,13 @@ function CoinFlipScreen(props) {
                 height: 100, 
                 transform: [{translateX: -100 * currentFrameIndex}] }}/>
             </View>
-            <View style = {{paddingBottom: 40, width: 100, height: 100, overflow: "hidden", flexDirection: 'row'}}>
-              <Image source = {h2t} style = {{
-                width: 2000, 
-                height:100, 
-                transform: [{translateX: -100 * currentFrameIndex}] }}/>
-            </View>
-            <View style = {{paddingBottom: 40, width: 100, height: 100, overflow: "hidden", flexDirection: 'row'}}>
-              <Image source = {h2h} style = {{
-                width: 2000, 
-                height: 100, 
-                transform: [{translateX: -100 * currentFrameIndex}] }}/>
-            </View>
-  
+
           </View>
           
           <View>
             {showFlipCoin(props)}
           </View>
-          
+        
          
          
           

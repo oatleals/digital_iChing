@@ -1,0 +1,30 @@
+{
+  "expo": {
+    "name": "I-Ching",
+    "slug": "I-Ching",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./app/assets/logo/icon.png",
+    "splash": {
+      "image": "./app/assets/logo/IchingKoiLogo.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#008080"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.lamjq.IChing"
+    },
+    "web": {
+      "favicon": "./app/assets/logo/favicon.png"
+    },
+    "android": {
+      "package": "com.lamjq.IChing"
+    }
+  }
+}
