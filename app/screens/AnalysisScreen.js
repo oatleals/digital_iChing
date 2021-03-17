@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { SafeAreaView, ImageBackground, Button, Text, StyleSheet, Image, View, ScrollView} from "react-native";
 
-import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 //import uuid from 'uuid/v4'
 
 //trigrams
@@ -55,7 +55,15 @@ function AnalysisScreen(props) {
 
   const outcomes = [Yin, Yang]
 
-    const saveData = async(hexagram,question, hexagramLines) => {
+  const saveTitle = async() =>{
+    try{
+      await AsyncStorage.setItem("question", question)   
+    } catch (err){
+      alert(err)
+    }
+  }
+
+  const saveData = async(hexagram, question, hexagramLines) => {
     try {  
       
       let id = Math.floor(Math.random() * 1000000)
@@ -197,6 +205,9 @@ function AnalysisScreen(props) {
             {hexagramLines}
           </Text>
         </ScrollView>
+        <Button style = {styles.buttonContainer} title = "Save to Journal" color = "#008080" onPress = { 
+        () => (props.navigation.navigate("AddEntry"), saveData(hexagram,question,hexagramLines))
+        } />
       </View>
 
      
@@ -207,8 +218,12 @@ function AnalysisScreen(props) {
   )
 }
 
-// <Button style = {styles.buttonContainer} title="Save to Journal" color = "#008080" onPress = { 
-//  () => (saveData(hexagram,question,hexagramLines), alert("Saved hex: " + hexagram + " to Journal"))} />
+/*<Button title = "Save to Journal" color = "#008080" onPress = { 
+  () => props.navigation.navigate("AddEntry")
+} />
+
+<Button style = {styles.buttonContainer} title="Save to Journal" color = "#008080" onPress = { 
+  () => (saveData(hexagram,question,hexagramLines), alert("Saved hex: " + hexagram + " to Journal"))} />*/
    
 
 const styles = StyleSheet.create({
@@ -271,6 +286,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     padding: 10
   },
+
   hexLine: {
     width: 100,
     height: 18,

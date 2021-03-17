@@ -1,0 +1,48 @@
+{
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "eject": "expo eject"
+  },
+  "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.13.4",
+    "@react-native-community/async-storage": "^1.12.1",
+    "@react-native-community/masked-view": "^0.1.10",
+    "@react-navigation/native": "^5.8.9",
+    "@react-navigation/stack": "^5.12.6",
+    "aws-amplify": "^3.3.20",
+    "aws-amplify-react": "^4.2.24",
+    "expo": "^40.0.1",
+    "expo-status-bar": "~1.0.2",
+    "react": "^16.14.0",
+    "react-dom": "16.13.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.3.tar.gz",
+    "react-native-fs": "^2.16.6",
+    "react-native-gesture-handler": "^1.7.0",
+    "react-native-paper": "^4.7.2",
+    "react-native-reanimated": "^2.0.0",
+    "react-native-safe-area-context": "^3.1.9",
+    "react-native-screens": "^2.14.0",
+    "react-native-vector-icons": "^8.1.0",
+    "react-native-web": "^0.15.0",
+    "react-native-webview": "11.0.0",
+    "react-navigation": "^4.4.2",
+    "react-navigator": "0.0.0-0",
+    "semver": "^7.3.2"
+  },
+  "devDependencies": {
+    "@babel/core": "~7.9.0"
+  },
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "ClientApp/*": [
+        "./I-Ching/*"
+      ]
+    }
+  },
+  "private": true
+}

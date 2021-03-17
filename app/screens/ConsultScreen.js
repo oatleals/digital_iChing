@@ -1,7 +1,7 @@
 import React, {useState, useContext} from "react";
 import { View, Button, Alert, ImageBackground, StyleSheet, Text } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
-import {hexData} from '../assets/dictionary/HexagramDatabase'
+//import {hexData} from '../assets/dictionary/HexagramDatabase'
 
 
 function ConsultScreen(props) {
@@ -11,7 +11,6 @@ function ConsultScreen(props) {
   return (
     <ImageBackground source={require('../assets/background/backgroundGradient.png')} style={styles.image}>
       <View style={styles.container}>
-  
 
         <Text style = {{fontFamily: 'futura-bold', fontSize: 30,textAlign: "center", alignContent: 'center'}}>What would you like to ask the I-Ching?</Text>
             <TextInput style = {styles.input}

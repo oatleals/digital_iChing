@@ -11,6 +11,7 @@ import TutorialScreen0 from './app/screens/TutorialScreen0';
 import ConsultScreen from './app/screens/ConsultScreen';
 import CoinFlipScreen from './app/screens/CoinFlipScreen';
 import AnalysisScreen from './app/screens/AnalysisScreen';
+import AddEntry from "./app/screens/AddEntry";
 
 const Stack = createStackNavigator();
 const consultStack = createStackNavigator();
@@ -43,15 +44,20 @@ function HomeScreen({navigation}) {
 
 const createConsultStack = () =>   //Navigation for the consulting screens
   <consultStack.Navigator>
-    <consultStack.Screen name = "Consult" component = {ConsultScreen}/> 
-    <consultStack.Screen name = "CoinFlip" component = {CoinFlipScreen}/> 
-    <consultStack.Screen name = "Analysis" component = {AnalysisScreen}/> 
+    <consultStack.Screen name = "Consult" component = {ConsultScreen} options={{ headerShown: false }} /> 
+    <consultStack.Screen name = "CoinFlip" component = {CoinFlipScreen} options={{ headerShown: false }} /> 
+    <consultStack.Screen name = "Analysis" component = {AnalysisScreen} options={{ headerShown: false }} /> 
+    <consultStack.Screen name = "AddEntry" component = {AddEntry} options={{ headerShown: false }} />
   </consultStack.Navigator>
 
 
 const createTutorialStack = () =>  //Navigation for tutorial screens
   <tutorialStack.Navigator>
-    <consultStack.Screen name = "Tutorial" component = {TutorialScreen0}/>   
+    <consultStack.Screen name = "Tutorial" component = {TutorialScreen0} options={{ headerShown: false }}/>
+    <consultStack.Screen name = "Page1" component = {Page1} options={{ headerShown: false }}/> 
+    <consultStack.Screen name = "Page2" component = {Page2} options={{ headerShown: false }}/> 
+    <consultStack.Screen name = "Page3" component = {Page3} options={{ headerShown: false }}/> 
+    <consultStack.Screen name = "Page4" component = {Page4} options={{ headerShown: false }}/> 
   </tutorialStack.Navigator>
 
 
@@ -67,10 +73,10 @@ function App() {
   return (
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Consult" children={createConsultStack} />
-          <Stack.Screen name="Tutorial" children={createTutorialStack} />
-          <Stack.Screen name="Journal" children={createJournalStack} />
+          <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }}  />
+          <Stack.Screen name="Consult" children={createConsultStack} options={{ headerShown: false }}  />
+          <Stack.Screen name="Tutorial" children={createTutorialStack} options={{ headerShown: false }}  />
+          <Stack.Screen name="Journal" children={createJournalStack} options={{ headerShown: false }}  />
         </Stack.Navigator>
       </NavigationContainer>
 
