@@ -34,14 +34,16 @@ function AnalysisScreen(props) {
 
   const [question, setQuestion] = useState()
 
-  //background generated from the trigrams
-  const [trigramBg, setTrigramBg] = useState(chien_Heaven)
 
   //generate Trigram texts and meaning
   const [LowerTriName, setLowerTriName] = useState('Chien')
   const [LowerTriMeaning, setLowerTriMeaning] = useState('heaven')
   const [UpperTriMeaning, setUpperTriMeaning] = useState('heaven')
   const [UpperTriName, setUpperTriName] = useState('Chien')
+  //background generated from the trigrams
+  const [trigramBg, setTrigramBg] = useState(chien_Heaven)
+
+
 
   //character png at the top
   const [hexCharacter, setHexCharacter] = useState()
