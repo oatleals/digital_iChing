@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { SafeAreaView, ImageBackground, Button, Text, StyleSheet, Image, View, ScrollView} from "react-native";
+import { IconButton, Colors } from 'react-native-paper';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 //import uuid from 'uuid/v4'
@@ -52,42 +53,6 @@ function AnalysisScreen(props) {
   const [line4State, setLine4] = useState()
   const [line5State, setLine5] = useState()
   const [line6State, setLine6] = useState()
-
-  const outcomes = [Yin, Yang]
-
-  const saveTitle = async() =>{
-    try{
-      await AsyncStorage.setItem("question", question)   
-    } catch (err){
-      alert(err)
-    }
-  }
-
-  const saveData = async(hexagram, question, hexagramLines) => {
-    try {  
-      
-      let id = Math.floor(Math.random() * 1000000)
-      
-      let hexData = {hexagram, question, hexagramLines, id}
-      let hexArray = []
-
-      let storedData = await AsyncStorage.getItem('hexList')
-      if(storedData !== null)
-      {
-        hexArray = JSON.parse(storedData)
-      } 
-
-      hexArray.push(hexData)
-
-      await AsyncStorage.setItem('hexList', JSON.stringify(hexArray))
-
-      
-      console.log("Saving hexagram to journal")
-
-    } catch (error) {
-      console.log(error)
-    }
-  }
 
   var {hexObj} = props.route.params
   var {lineObj} = props.route.params
@@ -205,9 +170,7 @@ function AnalysisScreen(props) {
             {hexagramLines}
           </Text>
         </ScrollView>
-        <Button style = {styles.buttonContainer} title = "Save to Journal" color = "#008080" onPress = { 
-        () => (props.navigation.navigate("AddEntry"), saveData(hexagram,question,hexagramLines))
-        } />
+        <IconButton icon="home-circle" color = "#008b8b" onPress={() => (props.navigation.navigate("Home"))} />
       </View>
 
      
@@ -218,7 +181,11 @@ function AnalysisScreen(props) {
   )
 }
 
-/*<Button title = "Save to Journal" color = "#008080" onPress = { 
+/*<Button style = {styles.buttonContainer} title = "Save to Journal" color = "#008080" onPress = { 
+        () => (props.navigation.navigate("AddEntry"), saveData(hexagram,question,hexagramLines))
+        } />
+
+<Button title = "Save to Journal" color = "#008080" onPress = { 
   () => props.navigation.navigate("AddEntry")
 } />
 

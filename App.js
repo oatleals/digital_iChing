@@ -12,11 +12,13 @@ import ConsultScreen from './app/screens/ConsultScreen';
 import CoinFlipScreen from './app/screens/CoinFlipScreen';
 import AnalysisScreen from './app/screens/AnalysisScreen';
 import AddEntry from "./app/screens/AddEntry";
+import { Searchbar } from "react-native-paper";
 
 const Stack = createStackNavigator();
 const consultStack = createStackNavigator();
 const tutorialStack = createStackNavigator();
-const journalStack = createStackNavigator();
+//const journalStack = createStackNavigator();
+const searchStack = createStackNavigator();
 
 
 function HomeScreen({navigation}) {
@@ -34,8 +36,8 @@ function HomeScreen({navigation}) {
               onPress={() => navigation.navigate("Tutorial")}/>
               <Button 
               color = "#008080"
-              title="Journal" 
-              onPress={() => navigation.navigate("Journal")} />
+              title="Search" 
+              onPress={() => navigation.navigate("Search")} />
             </View>
         </View>
       </ImageBackground>   
@@ -47,7 +49,6 @@ const createConsultStack = () =>   //Navigation for the consulting screens
     <consultStack.Screen name = "Consult" component = {ConsultScreen} options={{ headerShown: false }} /> 
     <consultStack.Screen name = "CoinFlip" component = {CoinFlipScreen} options={{ headerShown: false }} /> 
     <consultStack.Screen name = "Analysis" component = {AnalysisScreen} options={{ headerShown: false }} /> 
-    <consultStack.Screen name = "AddEntry" component = {AddEntry} options={{ headerShown: false }} />
   </consultStack.Navigator>
 
 
@@ -61,11 +62,17 @@ const createTutorialStack = () =>  //Navigation for tutorial screens
   </tutorialStack.Navigator>
 
 
-const createJournalStack = () =>  //Navigation for tutorial screens
+/*const createJournalStack = () =>  //Navigation for tutorial screens
   <journalStack.Navigator>
     <journalStack.Screen name = "Journal" component = {JournalScreen}/>
     <journalStack.Screen name = "LoadHexagram" component = {loadHexagram}/>  
-  </journalStack.Navigator>
+  </journalStack.Navigator>*/
+
+  const createSearchStack = () => // Navigation for Search screen
+  <searchStack.Navigator>
+    <searchStack.Screen name = "Search" component = {SearchScreen} options={{ headerShown: false }}/>
+    <searchStack.Screen name = "Hexagram" component = {HexagramScreen} options={{ headerShown: false }}/>
+  </searchStack.Navigator>
 
 
 
@@ -76,7 +83,7 @@ function App() {
           <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }}  />
           <Stack.Screen name="Consult" children={createConsultStack} options={{ headerShown: false }}  />
           <Stack.Screen name="Tutorial" children={createTutorialStack} options={{ headerShown: false }}  />
-          <Stack.Screen name="Journal" children={createJournalStack} options={{ headerShown: false }}  />
+          <Stack.Screen name="Search" children={createSearchStack} options={{ headerShown: false }}  />
         </Stack.Navigator>
       </NavigationContainer>
 
