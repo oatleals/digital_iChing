@@ -21,7 +21,7 @@ import tricolors from '../assets/trigrams/Asset_ColoredTrigrams.png' //trigram b
 import Yang from '../assets/trigrams/Yang_Nine_Line.png' //9
 import Yin from '../assets/trigrams/Yin_Six_Line.png' //6
 
-function AnalysisScreen(props) {
+function HexagramScreen(props) {
 
   
   //create the hexagram text
@@ -215,19 +215,7 @@ function AnalysisScreen(props) {
   </SafeAreaView>
     
   )
-}
-
-/*<Button style = {styles.buttonContainer} title = "Save to Journal" color = "#008080" onPress = { 
-        () => (props.navigation.navigate("AddEntry"), saveData(hexagram,question,hexagramLines))
-        } />
-
-<Button title = "Save to Journal" color = "#008080" onPress = { 
-  () => props.navigation.navigate("AddEntry")
-} />
-
-<Button style = {styles.buttonContainer} title="Save to Journal" color = "#008080" onPress = { 
-  () => (saveData(hexagram,question,hexagramLines), alert("Saved hex: " + hexagram + " to Journal"))} />*/
-   
+}   
 
 const styles = StyleSheet.create({
   container: {
@@ -297,4 +285,4 @@ const styles = StyleSheet.create({
 })
 
 
-export default HexagramScreen.js
+export default HexagramScreen

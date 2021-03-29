@@ -1,8 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { SafeAreaView, ImageBackground, Button, Text, StyleSheet, Image, View, ScrollView} from "react-native";
 import { IconButton, Colors } from 'react-native-paper';
-
-import AsyncStorage from '@react-native-async-storage/async-storage';
 //import uuid from 'uuid/v4'
 
 //trigrams
@@ -17,9 +15,6 @@ import tui_Lake from '../assets/trigrams/Tui_Lake.jpg'
 
 import {hexChar} from '../assets/hex/hex' //hexagram character images
 import tricolors from '../assets/trigrams/Asset_ColoredTrigrams.png' //trigram bar
-
-import Yang from '../assets/trigrams/Yang_Nine_Line.png' //9
-import Yin from '../assets/trigrams/Yin_Six_Line.png' //6
 
 function AnalysisScreen(props) {
 
@@ -180,19 +175,7 @@ function AnalysisScreen(props) {
     
   )
 }
-
-/*<Button style = {styles.buttonContainer} title = "Save to Journal" color = "#008080" onPress = { 
-        () => (props.navigation.navigate("AddEntry"), saveData(hexagram,question,hexagramLines))
-        } />
-
-<Button title = "Save to Journal" color = "#008080" onPress = { 
-  () => props.navigation.navigate("AddEntry")
-} />
-
-<Button style = {styles.buttonContainer} title="Save to Journal" color = "#008080" onPress = { 
-  () => (saveData(hexagram,question,hexagramLines), alert("Saved hex: " + hexagram + " to Journal"))} />*/
    
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,

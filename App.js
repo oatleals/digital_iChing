@@ -3,21 +3,17 @@ import {StyleSheet, View, Button,Image,ImageBackground } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import JournalScreen from './app/screens/JournalScreen';
-import loadHexagram from './app//screens/HexagramLoad';
-
 import TutorialScreen0 from './app/screens/TutorialScreen0';
 
 import ConsultScreen from './app/screens/ConsultScreen';
 import CoinFlipScreen from './app/screens/CoinFlipScreen';
 import AnalysisScreen from './app/screens/AnalysisScreen';
-import AddEntry from "./app/screens/AddEntry";
-import { Searchbar } from "react-native-paper";
+import SearchScreen from './app/screens/SearchScreen';
+import HexagramScreen from './app/screens/HexagramScreen';
 
 const Stack = createStackNavigator();
 const consultStack = createStackNavigator();
 const tutorialStack = createStackNavigator();
-//const journalStack = createStackNavigator();
 const searchStack = createStackNavigator();
 
 
@@ -61,12 +57,6 @@ const createTutorialStack = () =>  //Navigation for tutorial screens
     <consultStack.Screen name = "Page4" component = {Page4} options={{ headerShown: false }}/> 
   </tutorialStack.Navigator>
 
-
-/*const createJournalStack = () =>  //Navigation for tutorial screens
-  <journalStack.Navigator>
-    <journalStack.Screen name = "Journal" component = {JournalScreen}/>
-    <journalStack.Screen name = "LoadHexagram" component = {loadHexagram}/>  
-  </journalStack.Navigator>*/
 
   const createSearchStack = () => // Navigation for Search screen
   <searchStack.Navigator>

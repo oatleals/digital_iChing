@@ -60,14 +60,6 @@ var genHex = ""
 var genLowerTri = ""
 var genUpperTri = ""
 
- //Pull the labels out of Trigram database
- var UpperTriName = null
- var LowerTriName = null
- var UpperTriMeaning = null
- var LowerTriMeaning = null
- var hexName = ""
- var ChinaName = ""
-
 //labels that will be passed to the next screen
 var trigramBg = chien_Heaven
 var trigramName = ""
