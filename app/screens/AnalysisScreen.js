@@ -155,13 +155,13 @@ function AnalysisScreen(props) {
             <Text style={styles.questionTitle}> {question} </Text>
             <Image source={hexCharacter} style={styles.hexChar} />
 
-            <Image source={tricolors} style={{ height: 20, width: 350, paddingBottom: 10, paddingTop: 10, paddingLeft: 10 }} />
+            <Image source={tricolors} style={{ height: 10, width: 350, paddingBottom: 10, paddingTop: 10, paddingLeft: 10 }} />
 
-            <Text style={{ color: "#000000", fontFamily: 'futura-med', fontSize: 20, paddingLeft: 5, paddingTop: 10 }}>{chinaHexagram + ' - ' + hexagram + '  -  ' + UpperTriMeaning}</Text>
+            <Text style={{ color: "#000000", fontFamily: 'futura-med', fontSize: 20, paddingLeft: 3, paddingTop: 10 }}>{chinaHexagram + ' - ' + hexagram + '  -  ' + UpperTriMeaning}</Text>
             <Text style={{ color: "#000000", fontFamily: 'futura-med', fontSize: 20 }}> {'Above:  ' + UpperTriName + '  -  ' + UpperTriMeaning}</Text>
             <Text style={{ color: "#000000", fontFamily: 'futura-med', fontSize: 20 }}> {'Below:  ' + LowerTriName + '  -  ' + LowerTriMeaning}</Text>
           </View>
-          <View style={{ flex: 0.5, alignItems: "flex-end", paddingRight: 10 }}>
+          <View style={{ flex: 0.6, alignItems: "flex-end", paddingRight: 22 }}>
             <Image source={line6State} style={styles.hexLine} />
             <Image source={line5State} style={styles.hexLine} />
             <Image source={line4State} style={styles.hexLine} />
@@ -171,39 +171,37 @@ function AnalysisScreen(props) {
           </View>
         </View>
 
+        <View style={{
+          flex: 0.6,
+          paddingTop: 20,
+          padding: 10,
+          paddingBottom: 30,
+          justifyContent: "center",
+          alignItems: "baseline",
+          fontFamily: 'futura-regular'
+        }}>
+          <ScrollView>
+            <Text style={styles.hexTitle}>The Judgement</Text>
+            <Text style={styles.hexBody}>
+              {hexagramJudgement}
+            </Text>
 
+            <Text style={styles.hexTitle}>The Image</Text>
+            <Text style={styles.hexBody}>
+              {hexagramIMG}
+            </Text>
 
+            <Text style={styles.hexTitle}>The Lines</Text>
+            <Text style={styles.hexBody}>
+              {hexagramLines}
+            </Text>
+          </ScrollView>
+        </View>
+        <View style={{ flex: 0.2, paddingHorizontal: 10 }}>
+          <Image source={tricolors} style={{ height: 10, width: 350, paddingBottom: 10, paddingTop: 10, paddingLeft: 10 }} />
 
-        <SafeAreaView style={styles.container}>
+        </View>
 
-          <View style={{
-            flex: 0.9,
-            padding: 10,
-            paddingBottom: 30,
-            justifyContent: "center",
-            alignItems: "baseline",
-            fontFamily: 'futura-regular'
-          }}>
-            <ScrollView>
-              <Text style={styles.hexTitle}>The Judgement</Text>
-              <Text style={styles.hexBody}>
-                {hexagramJudgement}
-              </Text>
-
-              <Text style={styles.hexTitle}>The Image</Text>
-              <Text style={styles.hexBody}>
-                {hexagramIMG}
-              </Text>
-
-              <Text style={styles.hexTitle}>The Lines</Text>
-              <Text style={styles.hexBody}>
-                {hexagramLines}
-              </Text>
-            </ScrollView>
-
-            <Image source={tricolors} style={{ height: 20, width: 360, justifyContent: 'flex-end' }} />
-          </View>
-        </SafeAreaView>
       </ImageBackground>
     </SafeAreaView>
 
@@ -284,7 +282,7 @@ const styles = StyleSheet.create({
   },
   hexLine: {
     width: 100,
-    height: 18,
+    height: 15,
   }
 })
 
