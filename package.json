@@ -20,6 +20,7 @@
     "react": "^16.14.0",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.3.tar.gz",
+    "react-native-elements": "^3.3.2",
     "react-native-fs": "^2.16.6",
     "react-native-gesture-handler": "^1.7.0",
     "react-native-paper": "^4.7.2",

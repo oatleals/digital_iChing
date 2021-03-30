@@ -2,9 +2,6 @@ import React, {useState, useEffect} from "react";
 import { SafeAreaView, ImageBackground, Button, Text, StyleSheet, Image, View, ScrollView} from "react-native";
 import { IconButton, Colors } from 'react-native-paper';
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
-//import uuid from 'uuid/v4'
-
 //trigrams
 import chien_Heaven from '../assets/trigrams/chien_Heaven.jpg'
 import chen_Thunder from '../assets/trigrams/chen_Thunder.jpg'
@@ -55,40 +52,6 @@ function HexagramScreen(props) {
   const [line6State, setLine6] = useState()
 
   const outcomes = [Yin, Yang]
-
-  const saveTitle = async() =>{
-    try{
-      await AsyncStorage.setItem("question", question)   
-    } catch (err){
-      alert(err)
-    }
-  }
-
-  const saveData = async(hexagram, question, hexagramLines) => {
-    try {  
-      
-      let id = Math.floor(Math.random() * 1000000)
-      
-      let hexData = {hexagram, question, hexagramLines, id}
-      let hexArray = []
-
-      let storedData = await AsyncStorage.getItem('hexList')
-      if(storedData !== null)
-      {
-        hexArray = JSON.parse(storedData)
-      } 
-
-      hexArray.push(hexData)
-
-      await AsyncStorage.setItem('hexList', JSON.stringify(hexArray))
-
-      
-      console.log("Saving hexagram to journal")
-
-    } catch (error) {
-      console.log(error)
-    }
-  }
 
   var {hexObj} = props.route.params
   var {lineObj} = props.route.params

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { SafeAreaView, ImageBackground, Button, Text, StyleSheet, Image, View, ScrollView} from "react-native";
-import { IconButton, Colors } from 'react-native-paper';
+import { IconButton } from 'react-native-paper';
 //import uuid from 'uuid/v4'
 
 //trigrams
@@ -165,10 +165,10 @@ function AnalysisScreen(props) {
             {hexagramLines}
           </Text>
         </ScrollView>
-        <IconButton icon="home-circle" color = "#008b8b" onPress={() => (props.navigation.navigate("Home"))} />
       </View>
-
-     
+      <View style={styles.buttonContainer}>
+          <IconButton icon="home" color="#008b8b" onPress={() => (props.navigation.navigate("Home"))} />
+      </View>
     </SafeAreaView>
   </ImageBackground>
   </SafeAreaView>
@@ -234,7 +234,9 @@ const styles = StyleSheet.create({
   },
 
   buttonContainer: {
-    padding: 10
+    padding: 20,
+    alignItems: "center",
+    width: 100
   },
 
   hexLine: {

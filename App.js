@@ -1,15 +1,15 @@
 import * as React from "react";
 import {StyleSheet, View, Button,Image,ImageBackground } from "react-native";
+import { Provider as PaperProvider } from 'react-native-paper';
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
 import TutorialScreen0 from './app/screens/TutorialScreen0';
-
 import ConsultScreen from './app/screens/ConsultScreen';
 import CoinFlipScreen from './app/screens/CoinFlipScreen';
 import AnalysisScreen from './app/screens/AnalysisScreen';
 import SearchScreen from './app/screens/SearchScreen';
-import HexagramScreen from './app/screens/HexagramScreen';
+//import HexagramScreen from './app/screens/HexagramScreen';
 
 const Stack = createStackNavigator();
 const consultStack = createStackNavigator();
@@ -19,6 +19,7 @@ const searchStack = createStackNavigator();
 
 function HomeScreen({navigation}) {
   return (
+    <PaperProvider>
       <ImageBackground source={require('./app/assets/MainMenu.jpg')} style={styles.image}>
         <View style = {styles.home}>
           <Image source = {require('./app/assets/logo/IchingKoiLogo.png')} style={styles.logo} />
@@ -37,6 +38,7 @@ function HomeScreen({navigation}) {
             </View>
         </View>
       </ImageBackground>   
+    </PaperProvider>
   );
 }
 
@@ -58,10 +60,10 @@ const createTutorialStack = () =>  //Navigation for tutorial screens
   </tutorialStack.Navigator>
 
 
-  const createSearchStack = () => // Navigation for Search screen
+const createSearchStack = () => // Navigation for Search screen
   <searchStack.Navigator>
     <searchStack.Screen name = "Search" component = {SearchScreen} options={{ headerShown: false }}/>
-    <searchStack.Screen name = "Hexagram" component = {HexagramScreen} options={{ headerShown: false }}/>
+    {/* <searchStack.Screen name = "Hexagram" component = {HexagramScreen} options={{ headerShown: false }}/> */}
   </searchStack.Navigator>
 
 
