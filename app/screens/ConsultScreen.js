@@ -1,7 +1,7 @@
-import React, {useState, useContext} from "react";
+import React, { useState, useContext } from "react";
 import { View, Button, Alert, ImageBackground, StyleSheet, Text } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
-import {hexData} from '../assets/dictionary/HexagramDatabase'
+import { hexData } from '../assets/dictionary/HexagramDatabase'
 
 
 function ConsultScreen(props) {
@@ -11,17 +11,17 @@ function ConsultScreen(props) {
   return (
     <ImageBackground source={require('../assets/background/backgroundGradient.png')} style={styles.image}>
       <View style={styles.container}>
-  
 
-        <Text style = {{fontFamily: 'futura-bold', fontSize: 30,textAlign: "center", alignContent: 'center'}}>What would you like to ask the I-Ching?</Text>
-            <TextInput style = {styles.input}
-            placeholder = "Enter a question here"
 
-            onChangeText={question => onChangeText(question)}
-            value = {value}
-          />
+        <Text style={{ fontFamily: 'futura-bold', fontSize: 25, textAlign: "center", alignContent: 'center' }}>What would you like to ask the IChing?</Text>
+        <TextInput style={styles.input}
+          placeholder="Enter a question here"
 
-        <Button title="Throw coins" color = "#008b8b" onPress={() => props.navigation.navigate("CoinFlip", value)} />
+          onChangeText={question => onChangeText(question)}
+          value={value}
+        />
+
+        <Button title="Throw coins" color="#008b8b" onPress={() => props.navigation.navigate("CoinFlip", value)} />
       </View>
     </ImageBackground>
   );
@@ -30,8 +30,8 @@ function ConsultScreen(props) {
 const styles = StyleSheet.create({
 
   container: {
-    flex: 1, 
-    alignItems: "center", 
+    flex: 1,
+    alignItems: "center",
     justifyContent: "center"
   },
   buttonContainer: {

@@ -16,6 +16,7 @@ import tui_Lake from '../assets/trigrams/Tui_Lake.jpg'
 
 import { hexChar } from '../assets/hex/hex' //hexagram character images
 import tricolors from '../assets/trigrams/Asset_ColoredTrigrams.png' //trigram bar
+import triHexRow from '../assets/trigrams/Bottom_hex_row.jpg' //trigram bar
 
 import Yang from '../assets/trigrams/Yang_Nine_Line.png' //9
 import Yin from '../assets/trigrams/Yin_Six_Line.png' //6
@@ -150,18 +151,18 @@ function AnalysisScreen(props) {
     <SafeAreaView style={{ flex: 1, justifyContent: "center", alignItems: "center", fontFamily: 'futura-regular' }}>
       <ImageBackground source={trigramBg} style={styles.backgroundImage}>
 
-        <View style={{ flex: 0.5, paddingHorizontal: 10 }}>
+        <View style={{ flex: 0.5, paddingHorizontal: 20 }}>
           <View style={{ flex: 1, alignItems: "flex-start" }}>
             <Text style={styles.questionTitle}> {question} </Text>
             <Image source={hexCharacter} style={styles.hexChar} />
 
-            <Image source={tricolors} style={{ height: 10, width: 350, paddingBottom: 10, paddingTop: 10, paddingLeft: 10 }} />
+            <Image source={tricolors} style={{ height: 20, width: 390, paddingBottom: 10, paddingTop: 15 }} />
 
             <Text style={{ color: "#000000", fontFamily: 'futura-med', fontSize: 20, paddingLeft: 3, paddingTop: 10 }}>{chinaHexagram + ' - ' + hexagram + '  -  ' + UpperTriMeaning}</Text>
             <Text style={{ color: "#000000", fontFamily: 'futura-med', fontSize: 20 }}> {'Above:  ' + UpperTriName + '  -  ' + UpperTriMeaning}</Text>
             <Text style={{ color: "#000000", fontFamily: 'futura-med', fontSize: 20 }}> {'Below:  ' + LowerTriName + '  -  ' + LowerTriMeaning}</Text>
           </View>
-          <View style={{ flex: 0.6, alignItems: "flex-end", paddingRight: 22 }}>
+          <View style={{ flex: 0.5, alignItems: "flex-end", paddingRight: 22 }}>
             <Image source={line6State} style={styles.hexLine} />
             <Image source={line5State} style={styles.hexLine} />
             <Image source={line4State} style={styles.hexLine} />
@@ -172,10 +173,10 @@ function AnalysisScreen(props) {
         </View>
 
         <View style={{
-          flex: 0.6,
+          flex: 0.7,
           paddingTop: 20,
-          padding: 10,
-          paddingBottom: 30,
+          padding: 25,
+          paddingBottom: 20,
           justifyContent: "center",
           alignItems: "baseline",
           fontFamily: 'futura-regular'
@@ -197,13 +198,14 @@ function AnalysisScreen(props) {
             </Text>
           </ScrollView>
         </View>
-        <View style={{ flex: 0.2, paddingHorizontal: 10 }}>
-          <Image source={tricolors} style={{ height: 10, width: 350, paddingBottom: 10, paddingTop: 10, paddingLeft: 10 }} />
-
-        </View>
-
       </ImageBackground>
+
+      <Image source={triHexRow} style={{ height: 30, width: 400, paddingBottom: 10, paddingTop: 10 }} />
+
     </SafeAreaView>
+
+
+
 
   )
 }
