@@ -28,8 +28,6 @@ function HexagramScreen(props) {
   const [hexagramIMG, setHexagramIMG] = useState()
   const [hexagramJudgement, setHexagramJudgement] = useState()
   const [chinaHexagram, setChinaHexagram] = useState("1. Creativity")
-  
-  const [question, setQuestion] = useState()
 
   //background generated from the trigrams
   const [trigramBg, setTrigramBg] = useState(chien_Heaven)
@@ -62,7 +60,6 @@ function HexagramScreen(props) {
     
 
     setHexagram(hexObj.hexName)
-    setQuestion(hexObj.question)
     setHexagramLines(hexObj.HexagramText)
     setHexagramIMG(hexObj.HexagramIMG)
     setHexagramJudgement(hexObj.HexagramJudgment)
@@ -123,7 +120,6 @@ function HexagramScreen(props) {
 
       <View style = {{flex: 0.5, paddingHorizontal: 10}}>
           <View style = {{flex:1, alignItems: "flex-start"}}>
-            <Text style = {styles.questionTitle}> {question} </Text>
             <Image source = {hexCharacter} style = {styles.hexChar} /> 
 
             <Image source = {tricolors} style = {{height: 20, width: 175, paddingBottom: 10, paddingTop: 10, paddingLeft: 10}}/>
@@ -194,11 +190,6 @@ const styles = StyleSheet.create({
     marginBottom: 1,
     marginTop: 1,
     color: "#e0ffff"
-  },
-  questionTitle: {
-    fontFamily: 'futura-bold',
-    fontSize: 20,
-    marginBottom: 15
   },
   hexText: {
     flex: 1,

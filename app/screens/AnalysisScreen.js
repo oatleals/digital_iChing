@@ -113,8 +113,6 @@ function AnalysisScreen(props) {
   
 
   return (
-
-    <SafeAreaView style = {{flex: 1, justifyContent: "center", alignItems: "center", fontFamily: 'futura-regular'}}>
     <ImageBackground source = {trigramBg}  style = {styles.backgroundImage}>
 
       <View style = {{flex: 0.5, paddingHorizontal: 10}}>
@@ -137,14 +135,10 @@ function AnalysisScreen(props) {
             <Image source = {line1State} style={styles.hexLine} />
           </View> 
       </View>
-
-  
-    <SafeAreaView style = {styles.container}>
-
       <View style = {{
         flex: 0.9,
         padding: 10,
-        paddingBottom: 30,
+        paddingBottom: 5,
         justifyContent: "center",
         alignItems: "baseline",
         fontFamily: 'futura-regular'
@@ -169,9 +163,7 @@ function AnalysisScreen(props) {
       <View style={styles.buttonContainer}>
           <IconButton icon="home" color="#008b8b" onPress={() => (props.navigation.navigate("Home"))} />
       </View>
-    </SafeAreaView>
   </ImageBackground>
-  </SafeAreaView>
     
   )
 }
@@ -210,9 +202,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
   },
   backgroundImage: {
-    paddingBottom: 100,
     flex: 1,
-    resizeMode: "contain",
+    resizeMode: "cover",
     justifyContent: "center"
   },
   hexChar: {

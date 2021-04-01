@@ -75,7 +75,7 @@ function App() {
           <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }}  />
           <Stack.Screen name="Consult" children={createConsultStack} options={{ headerShown: false }}  />
           <Stack.Screen name="Tutorial" children={createTutorialStack} options={{ headerShown: false }}  />
-          <Stack.Screen name="Search" children={createSearchStack} options={{ headerShown: false }}  />
+          <Stack.Screen name="Library" children={createSearchStack} options={{ headerShown: false }}  />
         </Stack.Navigator>
       </NavigationContainer>
 

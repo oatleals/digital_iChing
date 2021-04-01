@@ -50,6 +50,8 @@ import h2h from "../assets/animations/CoinSpin/H2H.png";
 import h2t from "../assets/animations/CoinSpin/H2T.png";
 import t2h from "../assets/animations/CoinSpin/T2H.png";
 import t2t from "../assets/animations/CoinSpin/T2T.png";
+import { styles } from "../assets/styles/styles";
+import { LongPressGestureHandler, TouchableOpacity } from "react-native-gesture-handler";
 
 //pulled from data base
 var HexagramText = "";
@@ -73,168 +75,212 @@ var ChinaName = "";
 
 function SearchScreen(props) {
   const [hexName, setHex] = useState([
-    { name: "chienchien", id: '1' },
-    { name: "kunkun", id: '2' },
-    { name: "kanchen", id: "3" },
-    { name: "kenkan", id: "4" },
-    { name: "kanchien", id: "5" },
-    { name: "chienkan", id: "6" },
-    { name: "kunkan", id: "7" },
-    { name: "kankun", id: "8" },
-    { name: "sunchien", id: "9" },
-    { name: "chiensun", id: "10" },
-    { name: "kunchien", id: "11" },
-    { name: "chienkun", id: "12" },
-    { name: "chienli", id: "13" },
-    { name: "lichien", id: "14" },
-    { name: "kunken", id: "15" },
-    { name: "chenkun", id: "16" },
-    { name: "tuichen", id: "17" },
-    { name: "kensun ", id: "18" },
-    { name: "kuntui", id: "19" },
-    { name: "sunkun", id: "20" },
-    { name: "lichen", id: "21" },
-    { name: "kenli", id: "22" },
-    { name: "kenkun", id: "23" },
-    { name: "kunchen", id: "24" },
-    { name: "chienchen", id: "25" },
-    { name: "kenchien", id: "26" },
-    { name: "kenchen", id: "27" },
+    { name: "chienchien", png: hexChar.one, id: '1', line1: Yin, line2: Yin, line3: Yin, line4: Yin, line5: Yin, line6: Yin},
+    { name: "kunkun", png: hexChar.two, id: '2', line1: Yang, line2: Yang, line3: Yang, line4: Yang, line5: Yang, line6: Yang},
+    { name: "kanchen", png: hexChar.three, id: "3", line1: Yang, line2: Yin, line3: Yang, line4: Yang, line5: Yang, line6: Yin },
+    { name: "kenkan", png: hexChar.four, id: "4", line1: Yin, line2: Yang, line3: Yang, line4: Yang, line5: Yin, line6: Yang },
+    { name: "kanchien", png: hexChar.five, id: "5", line1: Yang, line2: Yin, line3: Yang, line4: Yin, line5: Yin, line6: Yin },
+    { name: "chienkan", png: hexChar.six, id: "6", line1: Yin, line2: Yin, line3: Yin, line4: Yang, line5: Yin, line6: Yang },
+    { name: "kunkan", png: hexChar.seven, id: "7", line1: Yang, line2: Yang, line3: Yang, line4: Yang, line5: Yin, line6: Yang },
+    { name: "kankun", png: hexChar.eight, id: "8", line1: Yang, line2: Yin, line3: Yang, line4: Yang, line5: Yang, line6: Yang },
+    { name: "sunchien", png: hexChar.nine, id: "9", line1: Yin, line2: Yin, line3: Yang, line4: Yin, line5: Yin, line6: Yin },
+    { name: "chiensun", png: hexChar.ten, id: "10", line1: Yin, line2: Yin, line3: Yin, line4: Yang, line5: Yin, line6: Yin },
+    { name: "kunchien", png: hexChar.eleven, id: "11", line1: Yang, line2: Yang, line3: Yang, line4: Yin, line5: Yin, line6: Yin },
+    { name: "chienkun", png: hexChar.twelve, id: "12", line1: Yin, line2: Yin, line3: Yin, line4: Yang, line5: Yang, line6: Yang },
+    { name: "chienli", png: hexChar.thirteen, id: "13", line1: Yin, line2: Yin, line3: Yin, line4: Yin, line5: Yang, line6: Yin },
+    { name: "lichien", png: hexChar.fourteen, id: "14", line1: Yin, line2: Yang, line3: Yin, line4: Yin, line5: Yin, line6: Yin },
+    { name: "kunken", png: hexChar.fifteen, id: "15", line1: Yang, line2: Yang, line3: Yang, line4: Yin, line5: Yang, line6: Yang },
+    { name: "chenkun", png: hexChar.sixteen, id: "16", line1: Yang, line2: Yang, line3: Yin, line4: Yang, line5: Yang, line6: Yang },
+    { name: "tuichen", png: hexChar.seventeen, id: "17", line1: Yang, line2: Yin, line3: Yin, line4: Yang, line5: Yang, line6: Yin },
+    { name: "kensun ", png: hexChar.eighteen, id: "18", line1: Yin, line2: Yang, line3: Yang, line4: Yin, line5: Yin, line6: Yang },
+    { name: "kuntui", png: hexChar.nineteen, id: "19", line1: Yang, line2: Yang, line3: Yang, line4: Yang, line5: Yin, line6: Yin },
+    { name: "sunkun", png: hexChar.twenty, id: "20", line1: Yin, line2: Yin, line3: Yang, line4: Yang, line5: Yang, line6: Yang },
+    { name: "lichen", png: hexChar.twentyOne, id: "21", line1: Yin, line2: Yang, line3: Yin, line4: Yang, line5: Yang, line6: Yin },
+    { name: "kenli", png: hexChar.twentyTwo, id: "22", line1: Yin, line2: Yang, line3: Yang, line4: Yin, line5: Yang, line6: Yin },
+    { name: "kenkun", png: hexChar.twentyThree, id: "23", line1: Yin, line2: Yang, line3: Yang, line4: Yang, line5: Yang, line6: Yang },
+    { name: "kunchen", png: hexChar.twentyFour, id: "24", line1: Yang, line2: Yang, line3: Yang, line4: Yang, line5: Yang, line6: Yin },
+    { name: "chienchen", png: hexChar.twentyFive, id: "25", line1: Yin, line2: Yin, line3: Yin, line4: Yang, line5: Yang, line6: Yin },
+    { name: "kenchien", png: hexChar.twentySix, id: "26", line1: Yin, line2: Yang, line3: Yang, line4: Yin, line5: Yin, line6: Yin },
+    { name: "kenchen",  png: hexChar.twentySeven, id: "27", line1: Yin, line2: Yang, line3: Yang, line4: Yang, line5: Yang, line6: Yin },
   ]);
 
-  //=====================Hexagram Generator=====================
+  const [hexCharacter, setHexCharacter] =  useState()
 
-  // const hexagramGenerator = (hex) => {
-  //   let result = hexChar.one; //placeholder
-  //   let resultText = "";
-  //   let resultTextIMG = "";
-  //   let resultTextJudgement = "";
+  // const [lowerTrigramState, setLowerTrigram] = useState();
+  // const [upperTrigramState, setUpperTrigram] = useState();
+  // const [hexagramState, setHexagram] = useState();
 
-  //   for (var item in hexData) {
-  //     //search the hexagram dictionary
-  //     //console.log("...searching for hexagram " + hex)
-  //     if (hex == hexData[item].id) {
-  //       console.log("Match!");
-  //       result = item;
-  //       resultText = hexData[item].lines;
-  //       resultTextIMG = hexData[item].image;
-  //       resultTextJudgement = hexData[item].judgement;
-  //       hexName = hexData[item].name;
-  //       ChinaName = hexData[item].ChinaName;
+  //useState hooks for lines
+  // const [line1State, setLine1] = useState();
+  // const [line2State, setLine2] = useState();
+  // const [line3State, setLine3] = useState();
+  // const [line4State, setLine4] = useState();
+  // const [line5State, setLine5] = useState();
+  // const [line6State, setLine6] = useState();
 
-  //       break;
-  //     }
-  //   }
+    //=====================Hexagram Generator=====================
 
-  //   Hexagram = result; //assign hexagram
-  //   HexagramText = resultText; //assign global text
-  //   HexagramIMG = resultTextIMG;
-  //   HexagramJudgment = resultTextJudgement;
+  const hexagramGenerator = (hex) => {
+    let result = hexChar.one; //placeholder
+    let resultText = "";
+    let resultTextIMG = "";
+    let resultTextJudgement = "";
 
-  //   return result;
-  // };
+    for (var item in hexData) {
+      //search the hexagram dictionary
+      //console.log("...searching for hexagram " + hex)
+      if (hex == hexData[item].id) {
+        console.log("Match!");
+        result = item;
+        resultText = hexData[item].lines;
+        resultTextIMG = hexData[item].image;
+        resultTextJudgement = hexData[item].judgement;
+        hexName = hexData[item].name;
+        ChinaName = hexData[item].ChinaName;
 
-  // //=====================Trigram Generator=====================
+        break;
+      }
+    }
+    console.log("Your result was " + result);
 
-  // const trigramGenerator = (Trigram) => {
-  //   var trigramDict = {
-  //     //is it worth it to use a dictionary?
-  //     Chien: "333",
-  //     Chen: "344",
-  //     Kan: "434",
-  //     Ken: "443",
-  //     Kun: "444",
-  //     Li: "343",
-  //     Sun: "433",
-  //     Tui: "334",
-  //   };
+    Hexagram = result; //assign hexagram
+    HexagramText = resultText; //assign global text
+    HexagramIMG = resultTextIMG;
+    HexagramJudgment = resultTextJudgement;
 
-  //   let result = { png: Chien, name: "chien", meaning: "heaven" }; //chien is a placeholder
-  //   let resultBg = "";
+    return result;
+  };
 
-  //   //code can be simplified into a For Loop
-  //   if (Trigram == trigramDict.Chien) {
-  //     //chien
-  //     result.png = Chien;
-  //     resultBg = "chien_Heaven";
-  //     result.name = "Chien";
-  //     result.meaning = "Heaven";
-  //   } else if (Trigram == trigramDict.Chen) {
-  //     //chen
-  //     result.png = Chen;
-  //     resultBg = "chen_Thunder";
-  //     result.name = "Chen";
-  //     result.meaning = "Thunder";
-  //   } else if (Trigram == trigramDict.Kan) {
-  //     //Kan
-  //     result.png = Kan;
-  //     resultBg = "kan_Water";
-  //     result.name = "Kan";
-  //     result.meaning = "Water";
-  //   } else if (Trigram == trigramDict.Ken) {
-  //     //Ken
-  //     result.png = Ken;
-  //     resultBg = "ken_Mountain";
-  //     result.name = "Ken";
-  //     result.meaning = "Mountain";
-  //   } else if (Trigram == trigramDict.Kun) {
-  //     //Kun
-  //     result.png = Kun;
-  //     resultBg = "kun_Earth";
-  //     result.name = "Kun";
-  //     result.meaning = "Earth";
-  //   } else if (Trigram == trigramDict.Li) {
-  //     //Li
-  //     result.png = Li;
-  //     resultBg = "li_Fire";
-  //     result.name = "Li";
-  //     result.meaning = "Fire";
-  //   } else if (Trigram == trigramDict.Sun) {
-  //     //Sun
-  //     result.png = Sun;
-  //     resultBg = "sun_Wind";
-  //     result.name = "Sun";
-  //     result.meaning = "Wind";
-  //   } else if (Trigram == trigramDict.Tui) {
-  //     //Tui
-  //     result.png = Tui;
-  //     resultBg = "tui_Lake";
-  //     result.name = "Tui";
-  //     result.meaning = "Lake";
-  //   }
+  //=====================Trigram Generator=====================
 
-  //   trigramBg = resultBg;
-  //   return result;
-  // };
+  const trigramGenerator = (Trigram) => {
+    var trigramDict = {
+      //is it worth it to use a dictionary?
+      Chien: "333",
+      Chen: "344",
+      Kan: "434",
+      Ken: "443",
+      Kun: "444",
+      Li: "343",
+      Sun: "433",
+      Tui: "334",
+    };
 
-  // var hexObj = {
-  //   ChinaName,
-  //   hexName,
-  //   Hexagram,
-  //   HexagramText,
-  //   HexagramIMG,
-  //   HexagramJudgment,
-  //   question,
-  //   trigramBg,
-  //   UpperTriMeaning,
-  //   UpperTriName,
-  //   LowerTriMeaning,
-  //   LowerTriName,
-  // };
-  // var lineObj = { line1, line2, line3, line4, line5, line6 };
-  // <Button title="Read your hexagram" color = "#008080" onPress =
-  //     {() => props.navigation.navigate("HexagramScreen", {hexObj, lineObj})} /> //pass in the results
+    let result = { png: Chien, name: "chien", meaning: "heaven" }; //chien is a placeholder
+    let resultBg = "";
 
+    //code can be simplified into a For Loop
+    if (Trigram == trigramDict.Chien) {
+      //chien
+      result.png = Chien;
+      resultBg = "chien_Heaven";
+      result.name = "Chien";
+      result.meaning = "Heaven";
+    } else if (Trigram == trigramDict.Chen) {
+      //chen
+      result.png = Chen;
+      resultBg = "chen_Thunder";
+      result.name = "Chen";
+      result.meaning = "Thunder";
+    } else if (Trigram == trigramDict.Kan) {
+      //Kan
+      result.png = Kan;
+      resultBg = "kan_Water";
+      result.name = "Kan";
+      result.meaning = "Water";
+    } else if (Trigram == trigramDict.Ken) {
+      //Ken
+      result.png = Ken;
+      resultBg = "ken_Mountain";
+      result.name = "Ken";
+      result.meaning = "Mountain";
+    } else if (Trigram == trigramDict.Kun) {
+      //Kun
+      result.png = Kun;
+      resultBg = "kun_Earth";
+      result.name = "Kun";
+      result.meaning = "Earth";
+    } else if (Trigram == trigramDict.Li) {
+      //Li
+      result.png = Li;
+      resultBg = "li_Fire";
+      result.name = "Li";
+      result.meaning = "Fire";
+    } else if (Trigram == trigramDict.Sun) {
+      //Sun
+      result.png = Sun;
+      resultBg = "sun_Wind";
+      result.name = "Sun";
+      result.meaning = "Wind";
+    } else if (Trigram == trigramDict.Tui) {
+      //Tui
+      result.png = Tui;
+      resultBg = "tui_Lake";
+      result.name = "Tui";
+      result.meaning = "Lake";
+    }
+
+    trigramBg = resultBg;
+    return result;
+  };
+
+  var hexObj = {
+    ChinaName,
+    hexName,
+    Hexagram,
+    HexagramText,
+    HexagramIMG,
+    HexagramJudgment,
+    question,
+    trigramBg,
+    UpperTriMeaning,
+    UpperTriName,
+    LowerTriMeaning,
+    LowerTriName,
+  };
+  var lineObj = { line1, line2, line3, line4, line5, line6 };
+
+  const pressHandler = (item) => {
+    genLowerTri;
+    genUpperTri;
+    genHex;
+
+    console.log(item.id);
+    genLowerTri += item.line1.toString();
+    genLowerTri += item.line2.toString();
+    genLowerTri += item.line3.toString();
+    genUpperTri += item.line4.toString();
+    genUpperTri += item.line5.toString();
+    genUpperTri += item.line6.toString();
+
+    LowerTrigram = trigramGenerator(genLowerTri).png;
+    LowerTriName = trigramGenerator(genLowerTri).name;
+    LowerTriMeaning = trigramGenerator(genLowerTri).meaning;
+
+    UpperTrigram = trigramGenerator(genUpperTri).png;
+    UpperTriName = trigramGenerator(genUpperTri).name;
+    UpperTriMeaning = trigramGenerator(genUpperTri).meaning;
+
+    setHexagram(hexagramGenerator(genHex.concat(genLowerTri + genUpperTri)));
+
+    props.navigation.navigate("HexagramScreen", { hexObj, lineObj })
+  }
   return (
     <ImageBackground
       source={require("../assets/background/backgroundGradient.png")}
       style={styles.image}
     >
       <View style={styles.container}>
+      <View style={styles.item}>
         <FlatList
           keyExtractor={(item) => item.id}
           data={hexName}
-          renderItem={({ item }) => <Text>{item.name}</Text>}
+          renderItem={({ item }) => (
+            <TouchableOpacity onPress={() => pressHandler(item)}>
+              <Image source = {hexCharacter} style = {styles.hexChar} /> 
+              <Text>{item.name}</Text>
+            </TouchableOpacity>
+          )}
         />
       </View>
       <View style={styles.buttonContainer}>
@@ -243,6 +289,7 @@ function SearchScreen(props) {
           color="#008b8b"
           onPress={() => props.navigation.navigate("Home")}
         />
+      </View>
       </View>
     </ImageBackground>
   );
@@ -254,10 +301,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  buttonContainer: {
-    flex: 1,
-    marginTop: 20,
-  },
   image: {
     flex: 1,
     resizeMode: "cover",
@@ -268,12 +311,22 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: 100,
   },
-  input: {
-    borderWidth: 1,
-    borderColor: "#777",
-    padding: 8,
-    margin: 10,
+  hexChar: {
+    paddingLeft: 5,
+    paddingTop: 10,
+    paddingBottom: 40,
+    width: 50,
+    height: 50,
+    resizeMode: "contain",
+    justifyContent: "flex-start"
   },
+  item: {
+    marginTop: 24,
+    padding: 10,
+    backgroundColor: '#008080',
+    fontSize: 20,
+    fontFamily: 'futura-regular'
+  }
 });
 
 export default SearchScreen;
