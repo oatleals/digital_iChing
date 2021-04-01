@@ -50,8 +50,10 @@ import h2h from "../assets/animations/CoinSpin/H2H.png";
 import h2t from "../assets/animations/CoinSpin/H2T.png";
 import t2h from "../assets/animations/CoinSpin/T2H.png";
 import t2t from "../assets/animations/CoinSpin/T2T.png";
-import { styles } from "../assets/styles/styles";
+//import { styles } from "../assets/styles/styles";
 import { LongPressGestureHandler, TouchableOpacity } from "react-native-gesture-handler";
+
+var Hexagram = null;
 
 //pulled from data base
 var HexagramText = "";
@@ -65,6 +67,8 @@ var genHex = "";
 var genLowerTri = "";
 var genUpperTri = "";
 
+var trigramBg = chien_Heaven;
+
 //Pull the labels out of Trigram database
 var UpperTriName = null;
 var LowerTriName = null;
@@ -72,6 +76,13 @@ var UpperTriMeaning = null;
 var LowerTriMeaning = null;
 var hexName = "";
 var ChinaName = "";
+
+var line6 = Yin;
+var line5 = Yin;
+var line4 = Yin;
+var line3 = Yin;
+var line2 = Yin;
+var line1 = Yin;
 
 function SearchScreen(props) {
   const [hexName, setHex] = useState([
@@ -231,7 +242,6 @@ function SearchScreen(props) {
     HexagramText,
     HexagramIMG,
     HexagramJudgment,
-    question,
     trigramBg,
     UpperTriMeaning,
     UpperTriName,
@@ -241,6 +251,13 @@ function SearchScreen(props) {
   var lineObj = { line1, line2, line3, line4, line5, line6 };
 
   const pressHandler = (item) => {
+    line1 = item.line1
+    line2 = item.line2
+    line3 = item.line3
+    line4 = item.line4
+    line5 = item.line5
+    line6 = item.line6
+
     genLowerTri;
     genUpperTri;
     genHex;

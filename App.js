@@ -9,7 +9,7 @@ import ConsultScreen from './app/screens/ConsultScreen';
 import CoinFlipScreen from './app/screens/CoinFlipScreen';
 import AnalysisScreen from './app/screens/AnalysisScreen';
 import SearchScreen from './app/screens/SearchScreen';
-//import HexagramScreen from './app/screens/HexagramScreen';
+import HexagramScreen from './app/screens/HexagramScreen';
 
 const Stack = createStackNavigator();
 const consultStack = createStackNavigator();
@@ -63,7 +63,7 @@ const createTutorialStack = () =>  //Navigation for tutorial screens
 const createSearchStack = () => // Navigation for Search screen
   <searchStack.Navigator>
     <searchStack.Screen name = "Search" component = {SearchScreen} options={{ headerShown: false }}/>
-    {/* <searchStack.Screen name = "Hexagram" component = {HexagramScreen} options={{ headerShown: false }}/> */}
+    <searchStack.Screen name = "Hexagram" component = {HexagramScreen} options={{ headerShown: false }}/>
   </searchStack.Navigator>
 
 
@@ -75,7 +75,7 @@ function App() {
           <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }}  />
           <Stack.Screen name="Consult" children={createConsultStack} options={{ headerShown: false }}  />
           <Stack.Screen name="Tutorial" children={createTutorialStack} options={{ headerShown: false }}  />
-          <Stack.Screen name="Library" children={createSearchStack} options={{ headerShown: false }}  />
+          <Stack.Screen name="Search" children={createSearchStack} options={{ headerShown: false }}  />
         </Stack.Navigator>
       </NavigationContainer>
 
