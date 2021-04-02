@@ -3,7 +3,7 @@ import * as Font from 'expo-font'
 import { AppLoading } from 'expo'
 
 
-import { StyleSheet, View, Button, Image, ImageBackground } from "react-native";
+import { StyleSheet, View, Button, Image, ImageBackground, Text } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
@@ -21,7 +21,10 @@ import { useState } from "react/cjs/react.development";
 const getFonts = () => {
   return Font.loadAsync({
     'futura-regular': require('./app/assets/fonts/futura.ttf'),
-    'futura-bold': require('./app/assets/fonts/Futura-Bold.ttf')
+    'futura-bold': require('./app/assets/fonts/Futura-Bold.ttf'),
+    'futura-light': require('./app/assets/fonts/Futura_Light_font.ttf'),
+    'futura-med': require('./app/assets/fonts/futura_medium_condensed.ttf'),
+    'futura-book': require('./app/assets/fonts/Futura_book_font.ttf')
   })
 }
 
@@ -35,7 +38,8 @@ const journalStack = createStackNavigator();
 function HomeScreen({ navigation }) {
 
   return (
-    <ImageBackground source={require('./app/assets/MainMenu.jpg')} style={styles.image}>
+    <ImageBackground source={require('./app/assets/background/Alternate_screen.jpg')} style={styles.image}>
+      <Text style={{ fontSize: 40, fontFamily: 'futura-bold', color: "#e0ffff", alignSelf: "center", padding: 40 }}>I Ching</Text>
       <View style={styles.home}>
         <Image source={require('./app/assets/logo/IchingKoiLogo.png')} style={styles.logo} />
         <View>
@@ -48,7 +52,7 @@ function HomeScreen({ navigation }) {
             onPress={() => navigation.navigate("Tutorial")} />
           <Button
             color="#008b8b"
-            title="Journal"
+            title="Library"
             onPress={() => navigation.navigate("Journal")} />
         </View>
       </View>
@@ -67,9 +71,6 @@ const createConsultStack = () =>   //Navigation for the consulting screens
 const createTutorialStack = () =>  //Navigation for tutorial screens
   <tutorialStack.Navigator>
     <consultStack.Screen name="Tutorial" component={TutorialScreen0} options={{ headerShown: false }} />
-    <consultStack.Screen name="Page1" component={Page1} options={{ headerShown: false }} />
-    <consultStack.Screen name="Page2" component={Page2} options={{ headerShown: false }} />
-    <consultStack.Screen name="Page3" component={Page3} options={{ headerShown: false }} />
   </tutorialStack.Navigator>
 
 
