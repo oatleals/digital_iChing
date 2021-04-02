@@ -165,7 +165,7 @@ function HexagramScreen(props) {
             {hexagramLines}
           </Text>
         </ScrollView>
-        <Button icon="home" color = "#008b8b" onPress={() => (props.navigation.navigate("Home"))} />
+        <Button icon="home" color = "#008b8b" onPress={() => (props.navigation.navigate("Search"))} />
       </View>
 
      

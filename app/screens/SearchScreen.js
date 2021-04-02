@@ -45,13 +45,8 @@ import {
 import { hexData } from "../assets/dictionary/HexagramDatabase";
 import { hexChar } from "../assets/hex/hex";
 
-//animations
-import h2h from "../assets/animations/CoinSpin/H2H.png";
-import h2t from "../assets/animations/CoinSpin/H2T.png";
-import t2h from "../assets/animations/CoinSpin/T2H.png";
-import t2t from "../assets/animations/CoinSpin/T2T.png";
 //import { styles } from "../assets/styles/styles";
-import { LongPressGestureHandler, TouchableOpacity } from "react-native-gesture-handler";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 var Hexagram = null;
 
@@ -74,7 +69,6 @@ var UpperTriName = null;
 var LowerTriName = null;
 var UpperTriMeaning = null;
 var LowerTriMeaning = null;
-var hexName = "";
 var ChinaName = "";
 
 var line6 = Yin;
@@ -116,18 +110,7 @@ function SearchScreen(props) {
   ]);
 
   const [hexCharacter, setHexCharacter] =  useState()
-
-  // const [lowerTrigramState, setLowerTrigram] = useState();
-  // const [upperTrigramState, setUpperTrigram] = useState();
   const [hexagramState, setHexagram] = useState();
-
-  //useState hooks for lines
-  // const [line1State, setLine1] = useState();
-  // const [line2State, setLine2] = useState();
-  // const [line3State, setLine3] = useState();
-  // const [line4State, setLine4] = useState();
-  // const [line5State, setLine5] = useState();
-  // const [line6State, setLine6] = useState();
 
     //=====================Hexagram Generator=====================
 
@@ -139,7 +122,6 @@ function SearchScreen(props) {
 
     for (var item in hexData) {
       //search the hexagram dictionary
-      //console.log("...searching for hexagram " + hex)
       if (hex == hexData[item].id) {
         console.log("Match!");
         result = item;
@@ -250,7 +232,7 @@ function SearchScreen(props) {
   };
   var lineObj = { line1, line2, line3, line4, line5, line6 };
 
-  const pressHandler = (item) => {
+  const create = (item) => {
     line1 = item.line1
     line2 = item.line2
     line3 = item.line3
@@ -279,8 +261,11 @@ function SearchScreen(props) {
     UpperTriMeaning = trigramGenerator(genUpperTri).meaning;
 
     setHexagram(hexagramGenerator(genHex.concat(genLowerTri + genUpperTri)));
+  }
 
-    props.navigation.navigate("HexagramScreen", { hexObj, lineObj })
+  const pressHandler = (item) => {
+    create(item);
+    props.navigation.navigate("Hexagram", { hexObj, lineObj })
   }
   return (
     <ImageBackground
