@@ -11,9 +11,6 @@ import JournalScreen from './app/screens/JournalScreen';
 import loadHexagram from './app//screens/HexagramLoad';
 
 import TutorialScreen0 from './app/screens/TutorialScreen0';
-import Page1 from './app/screens/tutorialScreens/Page1';
-import Page2 from './app/screens/tutorialScreens/Page2';
-import Page3 from './app/screens/tutorialScreens/Page3';
 
 
 import ConsultScreen from './app/screens/ConsultScreen';
@@ -74,9 +71,6 @@ const createConsultStack = () =>   //Navigation for the consulting screens
 const createTutorialStack = () =>  //Navigation for tutorial screens
   <tutorialStack.Navigator>
     <consultStack.Screen name="Tutorial" component={TutorialScreen0} options={{ headerShown: false }} />
-    <consultStack.Screen name="Page1" component={Page1} options={{ headerShown: false }} />
-    <consultStack.Screen name="Page2" component={Page2} options={{ headerShown: false }} />
-    <consultStack.Screen name="Page3" component={Page3} options={{ headerShown: false }} />
   </tutorialStack.Navigator>
 
 
