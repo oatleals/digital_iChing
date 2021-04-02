@@ -25,11 +25,7 @@ import Yin from '../assets/trigrams/Yin_Six_Line.png' //6
 function AnalysisScreen(props) {
 
 
-<<<<<<< HEAD
-  //create the hexagram text hooks
-=======
   //create the hexagram text
->>>>>>> jakes_work
 
   const [hexagram, setHexagram] = useState()
   const [hexagramLines, setHexagramLines] = useState()
@@ -49,10 +45,6 @@ function AnalysisScreen(props) {
   const [trigramBg, setTrigramBg] = useState(chien_Heaven)
 
 
-
-  //background generated from the trigrams
-  const [trigramBg, setTrigramBg] = useState(chien_Heaven)
-
   //character png at the top
   const [hexCharacter, setHexCharacter] = useState()
 
@@ -66,11 +58,7 @@ function AnalysisScreen(props) {
 
   const outcomes = [Yin, Yang]
 
-<<<<<<< HEAD
-  const saveData = async (hexagram, question, hexagramLines) => {
-=======
   /*const saveData = async (hexagram, question, hexagramLines) => {
->>>>>>> jakes_work
     try {
 
       let id = Math.floor(Math.random() * 1000000)
@@ -94,7 +82,7 @@ function AnalysisScreen(props) {
       console.log(error)
     }
   }
-  * /
+  */
 
   var { hexObj } = props.route.params
   var { lineObj } = props.route.params
@@ -156,96 +144,29 @@ function AnalysisScreen(props) {
     eventHandler()
   }, [])
 
-<<<<<<< HEAD
-  /*
-  <View style = {{flex: 0.2}}>    
-          <Image source = {line6State} style={styles.hexLine} /> 
-          <Image source = {line5State} style={styles.hexLine} />
-          <Image source = {line4State} style={styles.hexLine} />
-          <Image source = {line3State} style={styles.hexLine} />
-          <Image source = {line2State} style={styles.hexLine} />
-          <Image source = {line1State} style={styles.hexLine} />
-      </View>
-  */
-=======
-
->>>>>>> jakes_work
   return (
 
     <SafeAreaView style={{ flex: 1, justifyContent: "center", alignItems: "center", fontFamily: 'futura-regular' }}>
       <ImageBackground source={trigramBg} style={styles.backgroundImage}>
 
-<<<<<<< HEAD
-        <View style={{ flex: 0.5, paddingHorizontal: 10 }}>
-=======
         <View style={{ flex: 0.5, paddingHorizontal: 20 }}>
->>>>>>> jakes_work
           <View style={{ flex: 1, alignItems: "flex-start" }}>
             <Text style={styles.questionTitle}> {question} </Text>
             <Image source={hexCharacter} style={styles.hexChar} />
 
-<<<<<<< HEAD
-          <Image source={tricolors} style={{ height: 20, width: 175, paddingBottom: 10, paddingTop: 10, paddingLeft: 10 }} />
-
-          <Text style={{ color: "#000000", fontFamily: 'futura-bold', fontSize: 20, paddingLeft: 5, paddingTop: 10 }}>{chinaHexagram + ' - ' + hexagram + '  -  ' + UpperTriMeaning}</Text>
-          <Text style={{ color: "#000000", fontFamily: 'futura-bold', fontSize: 20 }}> {'Above:  ' + UpperTriName + '  -  ' + UpperTriMeaning}</Text>
-          <Text style={{ color: "#000000", fontFamily: 'futura-bold', fontSize: 20 }}> {'Below:  ' + LowerTriName + '  -  ' + LowerTriMeaning}</Text>
-        </View>
-        <View style={{ flex: 1, alignItems: "flex-end", paddingRight: 10 }}>
-=======
             <Image source={tricolors} style={{ height: 20, width: 390, paddingBottom: 10, paddingTop: 15 }} />
 
-          <Text style={{ color: "#000000", fontFamily: 'futura-med', fontSize: 20, paddingLeft: 3, paddingTop: 10 }}>{chinaHexagram + ' - ' + hexagram + '  -  ' + UpperTriMeaning}</Text>
-          <Text style={{ color: "#000000", fontFamily: 'futura-med', fontSize: 20 }}> {'Above:  ' + UpperTriName + '  -  ' + UpperTriMeaning}</Text>
-          <Text style={{ color: "#000000", fontFamily: 'futura-med', fontSize: 20 }}> {'Below:  ' + LowerTriName + '  -  ' + LowerTriMeaning}</Text>
-        </View>
-        <View style={{ flex: 0.5, alignItems: "flex-end", paddingRight: 22 }}>
->>>>>>> jakes_work
-          <Image source={line6State} style={styles.hexLine} />
-          <Image source={line5State} style={styles.hexLine} />
-          <Image source={line4State} style={styles.hexLine} />
-          <Image source={line3State} style={styles.hexLine} />
-          <Image source={line2State} style={styles.hexLine} />
-          <Image source={line1State} style={styles.hexLine} />
-<<<<<<< HEAD
-      </View>
-        </View>
-
-
-    <SafeAreaView style={styles.container}>
-
-      <View style={{
-        flex: 0.9,
-        padding: 10,
-        paddingBottom: 30,
-        justifyContent: "center",
-        alignItems: "baseline",
-        fontFamily: 'futura-regular'
-      }}>
-        <ScrollView>
-          <Text style={styles.hexTitle}>The Judgement</Text>
-          <Text style={styles.container}>
-            {hexagramJudgement}
-          </Text>
-
-          <Text style={styles.hexTitle}>The Image</Text>
-          <Text style={styles.container}>
-            {hexagramIMG}
-          </Text>
-
-          <Text style={styles.hexTitle}>The Lines</Text>
-          <Text style={styles.container}>
-            {hexagramLines}
-          </Text>
-        </ScrollView>
-      </View>
-
-
-    </SafeAreaView>
-      </ImageBackground >
-    </SafeAreaView >
-
-=======
+            <Text style={{ color: "#000000", fontFamily: 'futura-med', fontSize: 20, paddingLeft: 3, paddingTop: 10 }}>{chinaHexagram + ' - ' + hexagram + '  -  ' + UpperTriMeaning}</Text>
+            <Text style={{ color: "#000000", fontFamily: 'futura-med', fontSize: 20 }}> {'Above:  ' + UpperTriName + '  -  ' + UpperTriMeaning}</Text>
+            <Text style={{ color: "#000000", fontFamily: 'futura-med', fontSize: 20 }}> {'Below:  ' + LowerTriName + '  -  ' + LowerTriMeaning}</Text>
+          </View>
+          <View style={{ flex: 0.5, alignItems: "flex-end", paddingRight: 22 }}>
+            <Image source={line6State} style={styles.hexLine} />
+            <Image source={line5State} style={styles.hexLine} />
+            <Image source={line4State} style={styles.hexLine} />
+            <Image source={line3State} style={styles.hexLine} />
+            <Image source={line2State} style={styles.hexLine} />
+            <Image source={line1State} style={styles.hexLine} />
           </View>
         </View>
 
@@ -284,7 +205,6 @@ function AnalysisScreen(props) {
 
 
 
->>>>>>> jakes_work
   )
 }
 
