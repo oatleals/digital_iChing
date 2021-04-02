@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "I-Ching",
-    "slug": "I-Ching",
+    "name": "I Ching",
+    "slug": "iching",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./app/assets/logo/icon.png",
@@ -25,6 +25,7 @@
     },
     "android": {
       "package": "com.lamjq.IChing"
-    }
+    },
+    "description": ""
   }
 }

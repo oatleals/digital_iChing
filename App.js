@@ -55,7 +55,7 @@ function HomeScreen({ navigation }) {
             onPress={() => navigation.navigate("Tutorial")} />
           <Button
             color="#008b8b"
-            title="Journal"
+            title="Library"
             onPress={() => navigation.navigate("Journal")} />
         </View>
       </View>
