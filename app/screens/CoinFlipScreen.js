@@ -113,8 +113,11 @@ function CoinFlipScreen(props) {
     let resultTextIMG = ""
     let resultTextJudgement = ""
 
+
     for (var item in hexData) { //search the hexagram dictionary
       //console.log("...searching for hexagram " + hex)
+
+
       if (hex == hexData[item].id) {
         console.log("Match!")
         result = item
@@ -124,9 +127,13 @@ function CoinFlipScreen(props) {
         hexName = hexData[item].name
         ChinaName = hexData[item].ChinaName
 
+
         break
       }
     }
+
+
+
     console.log("Your result was " + result)
 
     Hexagram = result //assign hexagram

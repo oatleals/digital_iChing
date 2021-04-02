@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { SafeAreaView, ImageBackground, Button, Text, StyleSheet, Image, View, ScrollView } from "react-native";
-
+import { IconButton } from "react-native-paper";
 import AsyncStorage from '@react-native-community/async-storage';
 //import uuid from 'uuid/v4'
 
@@ -146,8 +146,10 @@ function AnalysisScreen(props) {
 
   return (
 
+
     <SafeAreaView style={{ flex: 1, justifyContent: "center", alignItems: "center", fontFamily: 'futura-regular' }}>
       <ImageBackground source={trigramBg} style={styles.backgroundImage}>
+
 
         <View style={{ flex: 0.5, paddingHorizontal: 20 }}>
           <View style={{ flex: 1, alignItems: "flex-start" }}>
@@ -196,6 +198,15 @@ function AnalysisScreen(props) {
             </Text>
           </ScrollView>
         </View>
+
+        <View style={styles.buttonContainer}>
+          <IconButton
+            icon="home"
+            color="#008b8b"
+            size={50}
+            onPress={() => props.navigation.navigate("Home")}
+          />
+        </View>
       </ImageBackground>
 
       <Image source={triHexRow} style={{ height: 30, width: 400, paddingBottom: 10, paddingTop: 10 }} />
@@ -226,6 +237,12 @@ const styles = StyleSheet.create({
     marginBottom: 1,
     marginTop: 1,
     color: "#e0ffff"
+  },
+  buttonContainer: {
+    padding: 20,
+    paddingBottom: 100,
+    alignItems: "center",
+    width: 150,
   },
   hexBody: {
     flex: 1,
