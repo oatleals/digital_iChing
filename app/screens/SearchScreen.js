@@ -119,7 +119,7 @@ function SearchScreen(props) {
 
   // const [lowerTrigramState, setLowerTrigram] = useState();
   // const [upperTrigramState, setUpperTrigram] = useState();
-  // const [hexagramState, setHexagram] = useState();
+  const [hexagramState, setHexagram] = useState();
 
   //useState hooks for lines
   // const [line1State, setLine1] = useState();
