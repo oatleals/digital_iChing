@@ -7,13 +7,17 @@ import { hexData } from '../assets/dictionary/HexagramDatabase'
 function ConsultScreen(props) {
 
   const [value, onChangeText] = useState()
+  const [bg, setbgImage] = useState(require('../assets/background/Opening.jpg'))
 
+  eventhandler = () => {
+
+  }
   return (
-    <ImageBackground source={require('../assets/background/backgroundGradient.png')} style={styles.image}>
+    <ImageBackground source={bg} style={styles.image}>
       <View style={styles.container}>
 
 
-        <Text style={{ fontFamily: 'futura-bold', fontSize: 25, textAlign: "center", alignContent: 'center' }}>What would you like to ask the IChing?</Text>
+        <Text style={{ color: "#e0ffff", fontFamily: 'futura-bold', fontSize: 25, textAlign: "center", alignContent: 'center' }}>What would you like to ask the IChing?</Text>
         <TextInput style={styles.input}
           placeholder="Enter a question here"
 

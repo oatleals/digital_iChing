@@ -3,7 +3,7 @@ import * as Font from 'expo-font'
 import { AppLoading } from 'expo'
 
 
-import { StyleSheet, View, Button, Image, ImageBackground } from "react-native";
+import { StyleSheet, View, Button, Image, ImageBackground, Text } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
@@ -41,7 +41,8 @@ const journalStack = createStackNavigator();
 function HomeScreen({ navigation }) {
 
   return (
-    <ImageBackground source={require('./app/assets/MainMenu.jpg')} style={styles.image}>
+    <ImageBackground source={require('./app/assets/background/Alternate_screen.jpg')} style={styles.image}>
+      <Text style={{ fontSize: 40, fontFamily: 'futura-bold', color: "#e0ffff", alignSelf: "center", padding: 40 }}>I Ching</Text>
       <View style={styles.home}>
         <Image source={require('./app/assets/logo/IchingKoiLogo.png')} style={styles.logo} />
         <View>

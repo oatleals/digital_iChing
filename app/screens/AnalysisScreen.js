@@ -174,7 +174,7 @@ function AnalysisScreen(props) {
 
         <View style={{
           flex: 0.7,
-          paddingTop: 20,
+          paddingTop: 40,
           padding: 25,
           paddingBottom: 20,
           justifyContent: "center",
@@ -238,9 +238,10 @@ const styles = StyleSheet.create({
     fontFamily: 'futura-book'
   },
   questionTitle: {
-    fontFamily: 'futura-bold',
-    fontSize: 20,
+    fontFamily: 'futura-book',
+    fontSize: 15,
     marginBottom: 15
+
   },
   hexText: {
     flex: 1,
@@ -256,7 +257,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
   },
   backgroundImage: {
-    paddingBottom: 100,
+    paddingBottom: 125,
     flex: 1,
     resizeMode: "contain",
     justifyContent: "center"
