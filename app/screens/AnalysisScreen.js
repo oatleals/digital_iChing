@@ -16,6 +16,7 @@ import tui_Lake from '../assets/trigrams/Tui_Lake.jpg'
 
 import { hexChar } from '../assets/hex/hex' //hexagram character images
 import tricolors from '../assets/trigrams/Asset_ColoredTrigrams.png' //trigram bar
+import triHexRow from '../assets/trigrams/Bottom_hex_row.jpg' //trigram bar
 
 import Yang from '../assets/trigrams/Yang_Nine_Line.png' //9
 import Yin from '../assets/trigrams/Yin_Six_Line.png' //6
@@ -24,7 +25,7 @@ import Yin from '../assets/trigrams/Yin_Six_Line.png' //6
 function AnalysisScreen(props) {
 
 
-  //create the hexagram text hooks
+  //create the hexagram text
 
   const [hexagram, setHexagram] = useState()
   const [hexagramLines, setHexagramLines] = useState()
@@ -40,9 +41,9 @@ function AnalysisScreen(props) {
   const [LowerTriMeaning, setLowerTriMeaning] = useState('heaven')
   const [UpperTriMeaning, setUpperTriMeaning] = useState('heaven')
   const [UpperTriName, setUpperTriName] = useState('Chien')
-
   //background generated from the trigrams
   const [trigramBg, setTrigramBg] = useState(chien_Heaven)
+
 
   //character png at the top
   const [hexCharacter, setHexCharacter] = useState()
@@ -57,7 +58,7 @@ function AnalysisScreen(props) {
 
   const outcomes = [Yin, Yang]
 
-  const saveData = async (hexagram, question, hexagramLines) => {
+  /*const saveData = async (hexagram, question, hexagramLines) => {
     try {
 
       let id = Math.floor(Math.random() * 1000000)
@@ -81,6 +82,7 @@ function AnalysisScreen(props) {
       console.log(error)
     }
   }
+  */
 
   var { hexObj } = props.route.params
   var { lineObj } = props.route.params
@@ -142,33 +144,23 @@ function AnalysisScreen(props) {
     eventHandler()
   }, [])
 
-  /*
-  <View style = {{flex: 0.2}}>    
-          <Image source = {line6State} style={styles.hexLine} /> 
-          <Image source = {line5State} style={styles.hexLine} />
-          <Image source = {line4State} style={styles.hexLine} />
-          <Image source = {line3State} style={styles.hexLine} />
-          <Image source = {line2State} style={styles.hexLine} />
-          <Image source = {line1State} style={styles.hexLine} />
-      </View>
-  */
   return (
 
     <SafeAreaView style={{ flex: 1, justifyContent: "center", alignItems: "center", fontFamily: 'futura-regular' }}>
       <ImageBackground source={trigramBg} style={styles.backgroundImage}>
 
-        <View style={{ flex: 0.5, paddingHorizontal: 10 }}>
+        <View style={{ flex: 0.5, paddingHorizontal: 20 }}>
           <View style={{ flex: 1, alignItems: "flex-start" }}>
             <Text style={styles.questionTitle}> {question} </Text>
             <Image source={hexCharacter} style={styles.hexChar} />
 
-            <Image source={tricolors} style={{ height: 20, width: 175, paddingBottom: 10, paddingTop: 10, paddingLeft: 10 }} />
+            <Image source={tricolors} style={{ height: 20, width: 390, paddingBottom: 10, paddingTop: 15 }} />
 
-            <Text style={{ color: "#000000", fontFamily: 'futura-bold', fontSize: 20, paddingLeft: 5, paddingTop: 10 }}>{chinaHexagram + ' - ' + hexagram + '  -  ' + UpperTriMeaning}</Text>
-            <Text style={{ color: "#000000", fontFamily: 'futura-bold', fontSize: 20 }}> {'Above:  ' + UpperTriName + '  -  ' + UpperTriMeaning}</Text>
-            <Text style={{ color: "#000000", fontFamily: 'futura-bold', fontSize: 20 }}> {'Below:  ' + LowerTriName + '  -  ' + LowerTriMeaning}</Text>
+            <Text style={{ color: "#000000", fontFamily: 'futura-med', fontSize: 20, paddingLeft: 3, paddingTop: 10 }}>{chinaHexagram + ' - ' + hexagram + '  -  ' + UpperTriMeaning}</Text>
+            <Text style={{ color: "#000000", fontFamily: 'futura-med', fontSize: 20 }}> {'Above:  ' + UpperTriName + '  -  ' + UpperTriMeaning}</Text>
+            <Text style={{ color: "#000000", fontFamily: 'futura-med', fontSize: 20 }}> {'Below:  ' + LowerTriName + '  -  ' + LowerTriMeaning}</Text>
           </View>
-          <View style={{ flex: 1, alignItems: "flex-end", paddingRight: 10 }}>
+          <View style={{ flex: 0.5, alignItems: "flex-end", paddingRight: 22 }}>
             <Image source={line6State} style={styles.hexLine} />
             <Image source={line5State} style={styles.hexLine} />
             <Image source={line4State} style={styles.hexLine} />
@@ -178,39 +170,40 @@ function AnalysisScreen(props) {
           </View>
         </View>
 
+        <View style={{
+          flex: 0.7,
+          paddingTop: 40,
+          padding: 25,
+          paddingBottom: 20,
+          justifyContent: "center",
+          alignItems: "baseline",
+          fontFamily: 'futura-regular'
+        }}>
+          <ScrollView>
+            <Text style={styles.hexTitle}>The Judgement</Text>
+            <Text style={styles.hexBody}>
+              {hexagramJudgement}
+            </Text>
 
-        <SafeAreaView style={styles.container}>
+            <Text style={styles.hexTitle}>The Image</Text>
+            <Text style={styles.hexBody}>
+              {hexagramIMG}
+            </Text>
 
-          <View style={{
-            flex: 0.9,
-            padding: 10,
-            paddingBottom: 30,
-            justifyContent: "center",
-            alignItems: "baseline",
-            fontFamily: 'futura-regular'
-          }}>
-            <ScrollView>
-              <Text style={styles.hexTitle}>The Judgement</Text>
-              <Text style={styles.container}>
-                {hexagramJudgement}
-              </Text>
-
-              <Text style={styles.hexTitle}>The Image</Text>
-              <Text style={styles.container}>
-                {hexagramIMG}
-              </Text>
-
-              <Text style={styles.hexTitle}>The Lines</Text>
-              <Text style={styles.container}>
-                {hexagramLines}
-              </Text>
-            </ScrollView>
-          </View>
-
-
-        </SafeAreaView>
+            <Text style={styles.hexTitle}>The Lines</Text>
+            <Text style={styles.hexBody}>
+              {hexagramLines}
+            </Text>
+          </ScrollView>
+        </View>
       </ImageBackground>
+
+      <Image source={triHexRow} style={{ height: 30, width: 400, paddingBottom: 10, paddingTop: 10 }} />
+
     </SafeAreaView>
+
+
+
 
   )
 }
@@ -234,10 +227,19 @@ const styles = StyleSheet.create({
     marginTop: 1,
     color: "#e0ffff"
   },
+  hexBody: {
+    flex: 1,
+    padding: 10,
+    fontSize: 15,
+    justifyContent: "center",
+    alignItems: "center",
+    fontFamily: 'futura-book'
+  },
   questionTitle: {
-    fontFamily: 'futura-bold',
-    fontSize: 20,
+    fontFamily: 'futura-book',
+    fontSize: 15,
     marginBottom: 15
+
   },
   hexText: {
     flex: 1,
@@ -253,7 +255,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
   },
   backgroundImage: {
-    paddingBottom: 100,
+    paddingBottom: 125,
     flex: 1,
     resizeMode: "contain",
     justifyContent: "center"
@@ -281,7 +283,7 @@ const styles = StyleSheet.create({
   },
   hexLine: {
     width: 100,
-    height: 18,
+    height: 15,
   }
 })
 
