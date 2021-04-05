@@ -173,10 +173,10 @@ function AnalysisScreen(props) {
         </View>
 
         <View style={{
-          flex: 0.7,
+          flex: 0.8,
           paddingTop: 40,
           padding: 25,
-          paddingBottom: 20,
+          paddingBottom: 70,
           justifyContent: "center",
           alignItems: "baseline",
           fontFamily: 'futura-regular'
@@ -198,8 +198,15 @@ function AnalysisScreen(props) {
             </Text>
           </ScrollView>
         </View>
-      </ImageBackground>
 
+        <View style={styles.buttonContainer}>
+          <Button
+            color="#008b8b"
+            title="Home"
+            onPress={() => props.navigation.navigate("Home")} />
+
+        </View>
+      </ImageBackground>
       <Image source={triHexRow} style={{ height: 30, width: 400, paddingBottom: 10, paddingTop: 10 }} />
 
     </SafeAreaView>
@@ -257,7 +264,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
   },
   backgroundImage: {
-    paddingBottom: 125,
     flex: 1,
     resizeMode: "contain",
     justifyContent: "center"
@@ -281,9 +287,13 @@ const styles = StyleSheet.create({
   },
 
   buttonContainer: {
+    justifyContent: 'center',
+    alignSelf: 'center',
+    width: 100,
     padding: 10
   },
   hexLine: {
+
     width: 100,
     height: 15,
   }

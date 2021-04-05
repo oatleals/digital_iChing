@@ -46,14 +46,14 @@ function HomeScreen({ navigation }) {
           <Button
             color="#008b8b"
             title="Consult"
-            onPress={() => navigation.navigate("Consult")} />
+            onPress={() => navigation.navigate("Consult")} options={{ headerShown: false }} />
           <Button color="#008b8b"
             title="Tutorial"
-            onPress={() => navigation.navigate("Tutorial")} />
+            onPress={() => navigation.navigate("Tutorial")} options={{ headerShown: false }} />
           <Button
             color="#008b8b"
             title="Library"
-            onPress={() => navigation.navigate("Journal")} />
+            onPress={() => navigation.navigate("Journal")} options={{ headerShown: false }} />
         </View>
       </View>
     </ImageBackground>
@@ -62,9 +62,9 @@ function HomeScreen({ navigation }) {
 
 const createConsultStack = () =>   //Navigation for the consulting screens
   <consultStack.Navigator>
-    <consultStack.Screen name="Consult" component={ConsultScreen} />
-    <consultStack.Screen name="CoinFlip" component={CoinFlipScreen} />
-    <consultStack.Screen name="Analysis" component={AnalysisScreen} />
+    <consultStack.Screen name="Consult" component={ConsultScreen} options={{ headerShown: false }} />
+    <consultStack.Screen name="CoinFlip" component={CoinFlipScreen} options={{ headerShown: false }} />
+    <consultStack.Screen name="Analysis" component={AnalysisScreen} options={{ headerShown: false }} />
   </consultStack.Navigator>
 
 
@@ -76,8 +76,8 @@ const createTutorialStack = () =>  //Navigation for tutorial screens
 
 const createJournalStack = () =>  //Navigation for tutorial screens
   <journalStack.Navigator>
-    <journalStack.Screen name="Journal" component={JournalScreen} />
-    <journalStack.Screen name="LoadHexagram" component={loadHexagram} />
+    <journalStack.Screen name="Journal" component={JournalScreen} options={{ headerShown: false }} />
+    <journalStack.Screen name="LoadHexagram" component={loadHexagram} options={{ headerShown: false }} />
   </journalStack.Navigator>
 
 
@@ -89,10 +89,10 @@ function App() {
     return (
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Consult" children={createConsultStack} />
-          <Stack.Screen name="Tutorial" children={createTutorialStack} />
-          <Stack.Screen name="Journal" children={createJournalStack} />
+          <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="Consult" children={createConsultStack} options={{ headerShown: false }} />
+          <Stack.Screen name="Tutorial" children={createTutorialStack} options={{ headerShown: false }} />
+          <Stack.Screen name="Journal" children={createJournalStack} options={{ headerShown: false }} />
         </Stack.Navigator>
       </NavigationContainer>
 

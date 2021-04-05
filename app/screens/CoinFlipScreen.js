@@ -225,8 +225,8 @@ function CoinFlipScreen(props) {
     }
 
     trigramBg = resultBg
+    console.log(result)
     return result
-
   }
 
   const eventHandler = () => {
@@ -260,7 +260,7 @@ function CoinFlipScreen(props) {
 
 
       setLowerTrigram(LowerTrigram)
-      console.log("Finished Building Lower Trigram" + LowerTrigram)
+      console.log("Finished Building Lower Trigram" + LowerTriName)
       coinHandler = result
 
     }
@@ -284,7 +284,7 @@ function CoinFlipScreen(props) {
       genUpperTri += outcomes[result].toString()
 
       setUpperTrigram(UpperTrigram) //update png image state
-      console.log("Finished Building Upper Trigram" + UpperTrigram)
+
       setHexagram(hexagramGenerator(genHex.concat(genLowerTri + genUpperTri)))
 
       console.log(UpperTrigram)
@@ -293,9 +293,13 @@ function CoinFlipScreen(props) {
       UpperTriMeaning = trigramGenerator(genUpperTri).meaning //set meaning
       coinHandler = result
 
+      console.log("Finished Building Upper Trigram" + UpperTriName)
+      console.log("Finished Building Hexagram " + hexagramName)
     }
 
-    setNumFlip(numFlip + 1) // make sure we only flip the coin 6 times
+    console.log(numFlip)
+
+
   }
 
 
@@ -322,6 +326,7 @@ function CoinFlipScreen(props) {
 
   const showFlipCoin = (props) => { //after 6 flips turn off the button
     if (numFlip <= 6) {
+
       return <Button title="Flip coin" color="#008080" onPress={eventHandler} />
     }
   }
@@ -332,7 +337,7 @@ function CoinFlipScreen(props) {
 
 
   const coinAnimator = () => {
-
+    setNumFlip(numFlip + 1) // make sure we only flip the coin 6 times
     if (isAnimating == false) {
 
       setAnimating(true) //bool for showing animation
