@@ -196,18 +196,12 @@ function AnalysisScreen(props) {
             </Text>
           </ScrollView>
         </View>
-        <View style={{
-          padding: 20,
-          paddingBottom: 100,
-          alignItems: "center",
-          width: 150,
-        }}>
+        <View style={{ flex: 0.2, justifyContent: "center", alignContent: "center" }}>
           <IconButton
             icon="home"
             color="#008b8b"
             size={35}
             onPress={() => props.navigation.navigate("Home")}
-            alignItems='center'
           />
         </View>
 

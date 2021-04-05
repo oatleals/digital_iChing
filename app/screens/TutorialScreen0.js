@@ -1,16 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useRef, useEffect } from 'react';
 
+
+
 import {
   StyleSheet, Text, Animated, View,
   Image, ImageBackground, Button,
   ScrollView, SafeAreaView,
   TouchableOpacity
 } from 'react-native';
+import { color } from 'react-native-reanimated';
 
-
-
-
+import tricolors from '../assets/trigrams/Asset_ColoredTrigrams.png' //trigram bar
+import triHexRow from '../assets/trigrams/Bottom_hex_row.jpg' //trigram bar
 
 const Anime = (props) => {
   const position = new Animated.ValueXY({ x: 0, y: 700 })
@@ -169,35 +171,89 @@ const FadeInOut = (props) => {
 
 function TutorialScreen(props) {
   return (
-    <ImageBackground source={require('../assets/background/background.png')} style={styles.image}>
-      <Text style={{ fontFamily: 'futura-book' }}>
-        The I Ching is a divination text and one of the oldest classics of Chinese literature, written between 1000 and 750 BCE.The I Ching was the subject of scholarly commentary and basis for divination practice that informed Confucianism, Taoism and Buddhism, eventually expanding its influence throughout human culture.
-
-        The I Ching is composed of sixty-four hexagrams, each evoking a concept and interpretation. Tossing three coins --with a value of two for tails and three for heads-- randomly generates odd sums (nine, yang, unbroken line) or even (six, yin, broken line), to identify one hexagram.
-
-        With an open, almost dreaming consciousness, ask the I Ching a question. Use your own three coins or use the three digital coins in this app to draw a hexagram: Each coin toss generates either an unbroken or broken line, that form, from the bottom up, a hexagram.
-
-        Even if the answer to your question is not immediately evident, take a moment to reflect on the hexagram you find and how its story and image may guide you on the way.
-
-      </Text>
 
 
+    <SafeAreaView styles={{ flex: 1 }}>
+      <ImageBackground source={require('../assets/trigrams/Ken_Mountain.jpg')} style={{
+        paddingBottom: 125,
+        resizeMode: "contain",
+        justifyContent: "center",
+
+      }}>
+        <Image source={tricolors} style={{ flex: 1, height: 20, width: 390, paddingBottom: 10, paddingTop: 15 }} />
 
 
-    </ImageBackground>
+        <View>
+          <Text style={{
+            paddingHorizontal: 30,
+            padding: 10,
+            fontFamily: 'futura-book',
+            fontSize: 20,
+            color: "#e0ffff"
+          }}>
+            Using the I Ching
+          </Text>
+
+          <Text style={styles.tutorialBody}>
+            The I Ching is a divination text and one of the oldest classics of Chinese literature, written between 1000 and 750 BCE.The I Ching was the subject of scholarly commentary and basis for divination practice that informed Confucianism, Taoism and Buddhism, eventually expanding its influence throughout human culture.
+          </Text>
+
+          <Text style={styles.tutorialBody}>
+            The I Ching is composed of sixty-four hexagrams, each evoking a concept and interpretation. Tossing three coins --with a value of two for tails and three for heads-- randomly generates odd sums (nine, yang, unbroken line) or even (six, yin, broken line), to identify one hexagram.
+
+          </Text>
+
+          <Text style={styles.tutorialBody}>
+            With an open, almost dreaming consciousness, ask the I Ching a question. Use your own three coins or use the three digital coins in this app to draw a hexagram: Each coin toss generates either an unbroken or broken line, that form, from the bottom up, a hexagram.
+          </Text>
+
+          <Text style={styles.tutorialBody}>
+            Even if the answer to your question is not immediately evident, take a moment to reflect on the hexagram you find and how its story and image may guide you on the way.
+          </Text>
+
+        </View>
+
+        <View styles={styles.container}>
+
+          <Button
+            fontColor="#000000"
+            color="#008b8b"
+            title="Library"
+            onPress={() => props.navigation.navigate("Search")} />
+
+
+          <Button
+            fontColor="#000000"
+            color="#008b8b"
+            title="Flip Coins"
+            onPress={() => props.navigation.navigate("Consult")} />
+
+        </View>
+
+        <Image source={tricolors} style={{ flex: 1, height: 20, width: 390, paddingBottom: 10, paddingTop: 15 }} />
+
+      </ImageBackground>
+    </SafeAreaView>
+
+
 
   );
 }
 
 const styles = StyleSheet.create({
+
+  tutorialBody: {
+    paddingHorizontal: 30,
+    padding: 10,
+    justifyContent: "center",
+    alignItems: "center",
+    fontFamily: 'futura-book'
+
+  },
   container: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    justifyContent: 'center',
-    alignItems: 'center'
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
   },
 
   wordsCont: {

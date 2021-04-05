@@ -76,6 +76,8 @@ const createConsultStack = () =>   //Navigation for the consulting screens
 const createTutorialStack = () =>  //Navigation for tutorial screens
   <tutorialStack.Navigator>
     <consultStack.Screen name="Tutorial" component={TutorialScreen0} options={{ headerShown: false }} />
+
+
   </tutorialStack.Navigator>
 
 

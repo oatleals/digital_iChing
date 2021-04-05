@@ -316,7 +316,6 @@ function CoinFlipScreen(props) {
       genUpperTri = ""
       genHex = ""
 
-      console.log(hexObj)
       //HexagramJudgment = ""
       //HexagramText = ""
       //HexagramIMG = ""
