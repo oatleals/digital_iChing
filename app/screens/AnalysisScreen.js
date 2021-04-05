@@ -89,9 +89,6 @@ function AnalysisScreen(props) {
 
   const eventHandler = () => {
 
-    console.log(hexObj)
-
-
     setHexagram(hexObj.hexName)
     setQuestion(hexObj.question)
     setHexagramLines(hexObj.HexagramText)
