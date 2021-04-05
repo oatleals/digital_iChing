@@ -89,7 +89,7 @@ function AnalysisScreen(props) {
 
   const eventHandler = () => {
 
-    console.log(hexObj)
+
 
 
     setHexagram(hexObj.hexName)
@@ -137,7 +137,6 @@ function AnalysisScreen(props) {
       }
     }
 
-    console.log(hexCharacter)
   }
 
   useEffect(() => {
@@ -149,7 +148,6 @@ function AnalysisScreen(props) {
 
     <SafeAreaView style={{ flex: 1, justifyContent: "center", alignItems: "center", fontFamily: 'futura-regular' }}>
       <ImageBackground source={trigramBg} style={styles.backgroundImage}>
-
 
         <View style={{ flex: 0.5, paddingHorizontal: 20 }}>
           <View style={{ flex: 1, alignItems: "flex-start" }}>
@@ -198,15 +196,21 @@ function AnalysisScreen(props) {
             </Text>
           </ScrollView>
         </View>
-
-        <View style={styles.buttonContainer}>
+        <View style={{
+          padding: 20,
+          paddingBottom: 100,
+          alignItems: "center",
+          width: 150,
+        }}>
           <IconButton
             icon="home"
             color="#008b8b"
-            size={50}
+            size={35}
             onPress={() => props.navigation.navigate("Home")}
+            alignItems='center'
           />
         </View>
+
       </ImageBackground>
 
       <Image source={triHexRow} style={{ height: 30, width: 400, paddingBottom: 10, paddingTop: 10 }} />
@@ -299,8 +303,8 @@ const styles = StyleSheet.create({
     padding: 10
   },
   hexLine: {
-    width: 100,
-    height: 15,
+    width: 80,
+    height: 12,
   }
 })
 

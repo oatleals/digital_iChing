@@ -1,22 +1,24 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useRef, useEffect }  from 'react';
+import React, { useRef, useEffect } from 'react';
 
-import { StyleSheet, Text, Animated, View, 
-        Image, ImageBackground, Button,
-        ScrollView, SafeAreaView,
-        TouchableOpacity} from 'react-native';
+import {
+  StyleSheet, Text, Animated, View,
+  Image, ImageBackground, Button,
+  ScrollView, SafeAreaView,
+  TouchableOpacity
+} from 'react-native';
 
 
 
 
 
 const Anime = (props) => {
-  const position = new Animated.ValueXY({x:0, y:700})
+  const position = new Animated.ValueXY({ x: 0, y: 700 })
   React.useEffect(() => {
     Animated.timing(
       position,
       {
-        toValue:{x:-208,y:0},
+        toValue: { x: -208, y: 0 },
         duration: props.time,
         useNativeDriver: true
       }
@@ -24,57 +26,57 @@ const Anime = (props) => {
   }, [position])
 
   return (
-    <Animated.View               
+    <Animated.View
       style={{
-      ...props.style,
-      transform: [
-        {translateX:position.x},
-        {translateY:position.y}
-      ],  
+        ...props.style,
+        transform: [
+          { translateX: position.x },
+          { translateY: position.y }
+        ],
       }}
-      >
+    >
       {props.children}
     </Animated.View>
-    );
+  );
 }
 
 const FadeInView = (props) => {
   const fadeAnim = useRef(new Animated.Value(0)).current
   const shadow = useRef(new Animated.Value(0)).current
-        
+
   React.useEffect(() => {
-  Animated.sequence([
-    Animated.timing(
-    fadeAnim,
-      {
-        toValue: props.op,
-        duration: props.time,
-        useNativeDriver: true
-      }
-    ),
-    Animated.loop(
+    Animated.sequence([
       Animated.timing(
-        shadow,
+        fadeAnim,
         {
-          toValue: props.sh,
-          duration: 1000,
+          toValue: props.op,
+          duration: props.time,
           useNativeDriver: true
         }
+      ),
+      Animated.loop(
+        Animated.timing(
+          shadow,
+          {
+            toValue: props.sh,
+            duration: 1000,
+            useNativeDriver: true
+          }
 
+        )
       )
-    )
     ]).start();
   }, [fadeAnim])
   return (
-  <Animated.View                 
-    style={{
-    ...props.style,
-    opacity: fadeAnim,
+    <Animated.View
+      style={{
+        ...props.style,
+        opacity: fadeAnim,
 
-    }}
+      }}
     >
-    {props.children}
-  </Animated.View>
+      {props.children}
+    </Animated.View>
   );
 }
 
@@ -84,12 +86,12 @@ const FadeInOut = (props) => {
     Animated.loop(
       Animated.sequence([
         Animated.timing(
-        fadeAnim,
-        {
-          toValue: 1,
-          duration: props.time,
-          useNativeDriver: true
-        }
+          fadeAnim,
+          {
+            toValue: 1,
+            duration: props.time,
+            useNativeDriver: true
+          }
         ),
         Animated.timing(
           fadeAnim,
@@ -100,25 +102,22 @@ const FadeInOut = (props) => {
           }
         )
       ])
-      ).start();
-    }, [fadeAnim])
+    ).start();
+  }, [fadeAnim])
   return (
-  <Animated.View                
-    style={{
-    ...props.style,
-    opacity: fadeAnim,        
-    }}
+    <Animated.View
+      style={{
+        ...props.style,
+        opacity: fadeAnim,
+      }}
     >
-    {props.children}
-  </Animated.View>
+      {props.children}
+    </Animated.View>
   );
 }
 
-function TutorialScreen(props) {
-  return (
-    <ImageBackground source={require('../assets/background/background.png')} style={styles.image}>
-
-      <SafeAreaView style={styles.backBtn} >
+/*
+<SafeAreaView style={styles.backBtn} >
           <Button title="←" color = "#008080" onPress={() => props.navigation.navigate("Home")}/>
       </SafeAreaView>
         
@@ -166,6 +165,23 @@ function TutorialScreen(props) {
         
       </SafeAreaView>
 </FadeInView>
+*/
+
+function TutorialScreen(props) {
+  return (
+    <ImageBackground source={require('../assets/background/background.png')} style={styles.image}>
+      <Text style={{ fontFamily: 'futura-book' }}>
+        The I Ching is a divination text and one of the oldest classics of Chinese literature, written between 1000 and 750 BCE.The I Ching was the subject of scholarly commentary and basis for divination practice that informed Confucianism, Taoism and Buddhism, eventually expanding its influence throughout human culture.
+
+        The I Ching is composed of sixty-four hexagrams, each evoking a concept and interpretation. Tossing three coins --with a value of two for tails and three for heads-- randomly generates odd sums (nine, yang, unbroken line) or even (six, yin, broken line), to identify one hexagram.
+
+        With an open, almost dreaming consciousness, ask the I Ching a question. Use your own three coins or use the three digital coins in this app to draw a hexagram: Each coin toss generates either an unbroken or broken line, that form, from the bottom up, a hexagram.
+
+        Even if the answer to your question is not immediately evident, take a moment to reflect on the hexagram you find and how its story and image may guide you on the way.
+
+      </Text>
+
+
 
 
     </ImageBackground>
@@ -175,19 +191,19 @@ function TutorialScreen(props) {
 
 const styles = StyleSheet.create({
   container: {
-    position: 'absolute', 
-    top: 0, 
-    left: 0, 
-    right: 0, 
-    bottom: 0, 
-    justifyContent: 'center', 
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    justifyContent: 'center',
     alignItems: 'center'
   },
 
-  wordsCont:{
+  wordsCont: {
     top: 100,
     position: 'absolute',
-    justifyContent: 'center', 
+    justifyContent: 'center',
     alignItems: 'center'
   },
 
@@ -197,7 +213,7 @@ const styles = StyleSheet.create({
     color: "#a5943c",
     fontSize: 40,
     marginBottom: 40,
-    left:'25%',
+    left: '25%',
     fontWeight: '900'
   },
 
@@ -208,11 +224,11 @@ const styles = StyleSheet.create({
     position: 'absolute'
   },
 
-  backBtn:{
-    zIndex:  4,
+  backBtn: {
+    zIndex: 4,
     flexDirection: 'row',
     marginLeft: 10
-    
+
   },
 
   mount: {
@@ -222,12 +238,12 @@ const styles = StyleSheet.create({
     position: 'absolute'
   },
 
-  fwrdBtn:{
+  fwrdBtn: {
     justifyContent: 'center',
     textAlign: 'center',
     width: 44,
     height: 44,
-    borderRadius: 44/2,
+    borderRadius: 44 / 2,
     borderWidth: 4,
     alignSelf: 'center',
     borderColor: '#c8eae4',
@@ -239,7 +255,7 @@ const styles = StyleSheet.create({
   image: {
     flex: 1
   }
-  
+
 });
 
 
