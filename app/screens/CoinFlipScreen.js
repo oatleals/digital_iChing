@@ -114,7 +114,7 @@ function CoinFlipScreen(props) {
     let resultTextJudgement = ""
 
     for (var item in hexData) { //search the hexagram dictionary
-      //console.log("...searching for hexagram " + hex)
+      console.log("...searching for hexagram " + hex)
       if (hex == hexData[item].id) {
         console.log("Match!")
         result = item
@@ -225,7 +225,6 @@ function CoinFlipScreen(props) {
     }
 
     trigramBg = resultBg
-    console.log(result)
     return result
   }
 
@@ -260,7 +259,7 @@ function CoinFlipScreen(props) {
 
 
       setLowerTrigram(LowerTrigram)
-      console.log("Finished Building Lower Trigram" + LowerTriName)
+      console.log("Finished Building Lower Trigram " + LowerTrigram)
       coinHandler = result
 
     }
@@ -293,13 +292,7 @@ function CoinFlipScreen(props) {
       UpperTriMeaning = trigramGenerator(genUpperTri).meaning //set meaning
       coinHandler = result
 
-      console.log("Finished Building Upper Trigram" + UpperTriName)
-      console.log("Finished Building Hexagram " + hexagramName)
     }
-
-    console.log(numFlip)
-
-
   }
 
 

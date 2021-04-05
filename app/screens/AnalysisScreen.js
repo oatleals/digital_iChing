@@ -90,8 +90,6 @@ function AnalysisScreen(props) {
 
   const eventHandler = () => {
 
-    console.log(hexObj)
-
 
     setHexagram(hexObj.hexName)
     setQuestion(hexObj.question)
@@ -138,7 +136,6 @@ function AnalysisScreen(props) {
       }
     }
 
-    console.log(hexCharacter)
   }
 
   useEffect(() => {
