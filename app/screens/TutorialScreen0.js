@@ -320,7 +320,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignSelf: 'center',
     width: 200,
-    padding: 10
+    padding: 5
   },
 
 });
