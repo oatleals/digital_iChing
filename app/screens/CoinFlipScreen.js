@@ -114,7 +114,7 @@ function CoinFlipScreen(props) {
     let resultTextJudgement = ""
 
     for (var item in hexData) { //search the hexagram dictionary
-      //console.log("...searching for hexagram " + hex)
+      console.log("...searching for hexagram " + hex)
       if (hex == hexData[item].id) {
         console.log("Match!")
         result = item
