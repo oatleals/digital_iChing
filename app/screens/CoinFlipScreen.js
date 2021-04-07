@@ -239,19 +239,19 @@ function CoinFlipScreen(props) {
 
     if (numFlip == 1) {//building the lower trigram
       setLine1(lineOutcome[result])
-      line1 = (outcomes[result])
+      line1 = (lineOutcome[result])
       genLowerTri += outcomes[result].toString()
       coinHandler = result
     }
     else if (numFlip == 2) {
       setLine2(lineOutcome[result])
-      line2 = (outcomes[result])
+      line2 = (lineOutcome[result])
       genLowerTri += outcomes[result].toString()
       coinHandler = result
     }
     else if (numFlip == 3) {
       setLine3(lineOutcome[result]) //set line
-      line3 = (outcomes[result])
+      line3 = (lineOutcome[result])
       genLowerTri += outcomes[result].toString() //give id #
 
       LowerTrigram = trigramGenerator(genLowerTri).png //generate png 
@@ -266,21 +266,21 @@ function CoinFlipScreen(props) {
     }
     else if (numFlip == 4) { //building the upper trigram
       setLine4(lineOutcome[result])
-      line4 = (outcomes[result])
+      line4 = (lineOutcome[result])
       genUpperTri += outcomes[result].toString()
       coinHandler = result
 
     }
     else if (numFlip == 5) {
       setLine5(lineOutcome[result])
-      line5 = (outcomes[result])
+      line5 = (lineOutcome[result])
       genUpperTri += outcomes[result].toString()
       coinHandler = result
 
     }
     else if (numFlip == 6) { //finish and now set the hexagram
       setLine6(lineOutcome[result])
-      line6 = (outcomes[result])
+      line6 = (lineOutcome[result])
       genUpperTri += outcomes[result].toString()
 
       setUpperTrigram(UpperTrigram) //update png image state
