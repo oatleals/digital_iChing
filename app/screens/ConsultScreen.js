@@ -25,7 +25,7 @@ function ConsultScreen(props) {
           value={value}
         />
 
-        <Button title="Throw coins" color="#008b8b" onPress={() => props.navigation.navigate("CoinFlip", value)} />
+        <Button title="Throw coins" color="#00ced1" onPress={() => props.navigation.navigate("CoinFlip", value)} />
       </View>
     </ImageBackground>
   );

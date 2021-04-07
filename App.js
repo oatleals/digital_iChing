@@ -49,14 +49,14 @@ function HomeScreen({ navigation }) {
         <Image source={require('./app/assets/logo/IchingKoiLogo.png')} style={styles.logo} />
         <View>
           <Button
-            color="#008b8b"
+            color="#00ced1"
             title="Consult"
             onPress={() => navigation.navigate("Consult")} options={{ headerShown: false }} />
-          <Button color="#008b8b"
+          <Button color="#00ced1"
             title="Tutorial"
             onPress={() => navigation.navigate("Tutorial")} options={{ headerShown: false }} />
           <Button
-            color="#008b8b"
+            color="#00ced1"
             title="Library"
             onPress={() => navigation.navigate("Library")} options={{ headerShown: false }} />
         </View>

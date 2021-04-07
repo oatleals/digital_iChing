@@ -147,18 +147,21 @@ function AnalysisScreen(props) {
     <SafeAreaView style={{ flex: 1, justifyContent: "center", alignItems: "center", fontFamily: 'futura-regular' }}>
       <ImageBackground source={trigramBg} style={styles.backgroundImage}>
 
-        <View style={{ flex: 0.5, paddingHorizontal: 20 }}>
+
+        <Text style={styles.questionTitle}> {question} </Text>
+        <Image source={hexCharacter} style={styles.hexChar} />
+        <Image source={tricolors} style={{ height: 20, width: 390, paddingBottom: 10, paddingTop: 15 }} />
+
+
+        <View style={{ flex: 0.5, flexDirection: 'row', paddingHorizontal: 25, paddingTop: 30 }}>
           <View style={{ flex: 1, alignItems: "flex-start" }}>
-            <Text style={styles.questionTitle}> {question} </Text>
-            <Image source={hexCharacter} style={styles.hexChar} />
 
-            <Image source={tricolors} style={{ height: 20, width: 390, paddingBottom: 10, paddingTop: 15 }} />
 
-            <Text style={{ color: "#000000", fontFamily: 'futura-med', fontSize: 20, paddingLeft: 3, paddingTop: 10 }}>{chinaHexagram + ' - ' + hexagram + '  -  ' + UpperTriMeaning}</Text>
-            <Text style={{ color: "#000000", fontFamily: 'futura-med', fontSize: 20 }}> {'Above:  ' + UpperTriName + '  -  ' + UpperTriMeaning}</Text>
-            <Text style={{ color: "#000000", fontFamily: 'futura-med', fontSize: 20 }}> {'Below:  ' + LowerTriName + '  -  ' + LowerTriMeaning}</Text>
+            <Text style={{ color: "#000000", fontFamily: 'futura-med', fontSize: 22 }}>{' ' + chinaHexagram + ' - ' + hexagram + '  -  ' + UpperTriMeaning}</Text>
+            <Text style={{ color: "#000000", fontFamily: 'futura-med', fontSize: 22 }}> {'Above:  ' + UpperTriName + '  -  ' + UpperTriMeaning}</Text>
+            <Text style={{ color: "#000000", fontFamily: 'futura-med', fontSize: 22 }}> {'Below:  ' + LowerTriName + '  -  ' + LowerTriMeaning}</Text>
           </View>
-          <View style={{ flex: 0.5, alignItems: "flex-end", paddingRight: 22 }}>
+          <View style={{ flex: 0.5, alignItems: "flex-end" }}>
             <Image source={line6State} style={styles.hexLine} />
             <Image source={line5State} style={styles.hexLine} />
             <Image source={line4State} style={styles.hexLine} />
@@ -169,10 +172,9 @@ function AnalysisScreen(props) {
         </View>
 
         <View style={{
-          flex: 0.8,
-          paddingTop: 40,
+          flex: 1.5,
           padding: 25,
-          paddingBottom: 70,
+          paddingBottom: 50,
           justifyContent: "center",
           alignItems: "baseline",
           fontFamily: 'futura-regular'
@@ -196,10 +198,12 @@ function AnalysisScreen(props) {
         </View>
 
         <View style={styles.buttonContainer}>
-          <Button
-            color="#008b8b"
-            title="Home"
-            onPress={() => props.navigation.navigate("Home")} />
+          <IconButton
+            icon="home"
+            color="#00ced1"
+            size={50}
+            onPress={() => props.navigation.navigate("Home")}
+          />
 
         </View>
       </ImageBackground>
@@ -213,7 +217,7 @@ function AnalysisScreen(props) {
   )
 }
 
-// <Button style = {styles.buttonContainer} title="Save to Journal" color = "#008080" onPress = { 
+// <Button style = {styles.buttonContainer} title="Save to Journal" color = "#00ced1" onPress = { 
 //  () => (saveData(hexagram,question,hexagramLines), alert("Saved hex: " + hexagram + " to Journal"))} />
 
 
@@ -260,7 +264,7 @@ const styles = StyleSheet.create({
     fontFamily: 'futura-regular'
   },
   item: {
-    backgroundColor: '#008080',
+    backgroundColor: '#00ced1',
     padding: 15,
     marginVertical: 8,
     marginHorizontal: 10,
@@ -271,11 +275,11 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   hexChar: {
-    paddingLeft: 5,
+    paddingLeft: 80,
     paddingTop: 10,
     paddingBottom: 40,
-    width: 50,
-    height: 50,
+    width: 60,
+    height: 60,
     resizeMode: "contain",
     justifyContent: "flex-start"
   },
@@ -295,9 +299,9 @@ const styles = StyleSheet.create({
     padding: 10
   },
   hexLine: {
-
-    width: 100,
-    height: 15,
+    paddingTop: 10,
+    width: 70,
+    height: 12,
   }
 })
 

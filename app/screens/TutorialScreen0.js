@@ -8,6 +8,7 @@ import {
   TouchableOpacity
 } from 'react-native';
 import { color } from 'react-native-reanimated';
+import { IconButton } from "react-native-paper";
 
 import tricolors from '../assets/trigrams/Asset_ColoredTrigrams.png' //trigram bar
 import triHexRow from '../assets/trigrams/Bottom_hex_row.jpg' //trigram bar
@@ -218,21 +219,40 @@ function TutorialScreen(props) {
         <View style={styles.buttonContainer}>
           <Button
             fontColor="#000000"
-            color="#008b8b"
+            color="#00ced1"
             title="Library"
-            onPress={() => props.navigation.navigate("Search")} />
+            onPress={() => props.navigation.navigate("Library")} />
         </View>
 
         <View style={styles.buttonContainer}>
-          <Button
-            fontColor="#000000"
-            color="#008b8b"
+          <Button fontColor="#000000"
+            color="#00ced1"
             title="Flip Coins"
-            onPress={() => props.navigation.navigate("Consult")} />
+            onPress={() => props.navigation.navigate("Consult")}>
+
+
+          </Button>
 
         </View>
 
-        <View style={{ paddingTop: 120 }}>
+        <View style={{
+          justifyContent: 'center',
+          alignSelf: 'center',
+          width: 100,
+          padding: 5
+        }}>
+          <IconButton
+            icon="home"
+            color="#00ced1"
+            size={50}
+            onPress={() => props.navigation.navigate("Home")}
+          />
+        </View>
+
+
+
+
+        <View style={{ justifyContent: 'flex-end', paddingTop: 5 }}>
           <Image source={tricolors} style={{ height: 20, width: 390, paddingBottom: 10, paddingTop: 15 }} />
         </View>
       </ImageBackground>
@@ -318,7 +338,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     justifyContent: 'center',
     alignSelf: 'center',
-    width: 200,
+    width: 150,
     padding: 5
   },
 
