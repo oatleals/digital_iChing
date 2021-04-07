@@ -223,33 +223,34 @@ function CoinFlipScreen(props) {
       result.meaning = "Lake"
 
     }
-
+    console.log("Trigram Result: " + result.name + " " + Trigram)
     trigramBg = resultBg
     return result
   }
 
   const eventHandler = () => {
     coinAnimator()
-    const outcomes = [Yin, Yang] //yin = 4 & yang = 3 this is due to the math.floor function
+    const outcomes = [4, 3] //yin = 4 & yang = 3 this is due to the math.floor function
+    const lineOutcome = [Yin, Yang]
 
     let result = Math.floor(Math.random() * outcomes.length) //pick from the list of outcomes
 
-
+    console.log("Coin Flip Result: " + outcomes[result])
 
     if (numFlip == 1) {//building the lower trigram
-      setLine1(outcomes[result])
+      setLine1(lineOutcome[result])
       line1 = (outcomes[result])
       genLowerTri += outcomes[result].toString()
       coinHandler = result
     }
     else if (numFlip == 2) {
-      setLine2(outcomes[result])
+      setLine2(lineOutcome[result])
       line2 = (outcomes[result])
       genLowerTri += outcomes[result].toString()
       coinHandler = result
     }
     else if (numFlip == 3) {
-      setLine3(outcomes[result]) //set line
+      setLine3(lineOutcome[result]) //set line
       line3 = (outcomes[result])
       genLowerTri += outcomes[result].toString() //give id #
 
@@ -264,21 +265,21 @@ function CoinFlipScreen(props) {
 
     }
     else if (numFlip == 4) { //building the upper trigram
-      setLine4(outcomes[result])
+      setLine4(lineOutcome[result])
       line4 = (outcomes[result])
       genUpperTri += outcomes[result].toString()
       coinHandler = result
 
     }
     else if (numFlip == 5) {
-      setLine5(outcomes[result])
+      setLine5(lineOutcome[result])
       line5 = (outcomes[result])
       genUpperTri += outcomes[result].toString()
       coinHandler = result
 
     }
     else if (numFlip == 6) { //finish and now set the hexagram
-      setLine6(outcomes[result])
+      setLine6(lineOutcome[result])
       line6 = (outcomes[result])
       genUpperTri += outcomes[result].toString()
 
