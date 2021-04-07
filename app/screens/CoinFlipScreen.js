@@ -115,9 +115,7 @@ function CoinFlipScreen(props) {
 
 
     for (var item in hexData) { //search the hexagram dictionary
-      //console.log("...searching for hexagram " + hex)
-
-
+      console.log("...searching for hexagram " + hex)
       if (hex == hexData[item].id) {
         console.log("Match!")
         result = item
@@ -230,35 +228,35 @@ function CoinFlipScreen(props) {
       result.meaning = "Lake"
 
     }
-
+    console.log("Trigram Result: " + result.name + " " + Trigram)
     trigramBg = resultBg
     return result
-
   }
 
   const eventHandler = () => {
     coinAnimator()
-    const outcomes = [Yin, Yang] //yin = 4 & yang = 3 this is due to the math.floor function
+    const outcomes = [4, 3] //yin = 4 & yang = 3 this is due to the math.floor function
+    const lineOutcome = [Yin, Yang]
 
     let result = Math.floor(Math.random() * outcomes.length) //pick from the list of outcomes
 
-
+    console.log("Coin Flip Result: " + outcomes[result])
 
     if (numFlip == 1) {//building the lower trigram
-      setLine1(outcomes[result])
-      line1 = (outcomes[result])
+      setLine1(lineOutcome[result])
+      line1 = (lineOutcome[result])
       genLowerTri += outcomes[result].toString()
       coinHandler = result
     }
     else if (numFlip == 2) {
-      setLine2(outcomes[result])
-      line2 = (outcomes[result])
+      setLine2(lineOutcome[result])
+      line2 = (lineOutcome[result])
       genLowerTri += outcomes[result].toString()
       coinHandler = result
     }
     else if (numFlip == 3) {
-      setLine3(outcomes[result]) //set line
-      line3 = (outcomes[result])
+      setLine3(lineOutcome[result]) //set line
+      line3 = (lineOutcome[result])
       genLowerTri += outcomes[result].toString() //give id #
 
       LowerTrigram = trigramGenerator(genLowerTri).png //generate png 
@@ -267,31 +265,31 @@ function CoinFlipScreen(props) {
 
 
       setLowerTrigram(LowerTrigram)
-      console.log("Finished Building Lower Trigram" + LowerTrigram)
+      console.log("Finished Building Lower Trigram " + LowerTrigram)
       coinHandler = result
 
     }
     else if (numFlip == 4) { //building the upper trigram
-      setLine4(outcomes[result])
-      line4 = (outcomes[result])
+      setLine4(lineOutcome[result])
+      line4 = (lineOutcome[result])
       genUpperTri += outcomes[result].toString()
       coinHandler = result
 
     }
     else if (numFlip == 5) {
-      setLine5(outcomes[result])
-      line5 = (outcomes[result])
+      setLine5(lineOutcome[result])
+      line5 = (lineOutcome[result])
       genUpperTri += outcomes[result].toString()
       coinHandler = result
 
     }
     else if (numFlip == 6) { //finish and now set the hexagram
-      setLine6(outcomes[result])
-      line6 = (outcomes[result])
+      setLine6(lineOutcome[result])
+      line6 = (lineOutcome[result])
       genUpperTri += outcomes[result].toString()
 
       setUpperTrigram(UpperTrigram) //update png image state
-      console.log("Finished Building Upper Trigram" + UpperTrigram)
+
       setHexagram(hexagramGenerator(genHex.concat(genLowerTri + genUpperTri)))
 
       console.log(UpperTrigram)
@@ -301,8 +299,6 @@ function CoinFlipScreen(props) {
       coinHandler = result
 
     }
-
-    setNumFlip(numFlip + 1) // make sure we only flip the coin 6 times
   }
 
 
@@ -329,6 +325,7 @@ function CoinFlipScreen(props) {
 
   const showFlipCoin = (props) => { //after 6 flips turn off the button
     if (numFlip <= 6) {
+
       return <Button title="Flip coin" color="#008080" onPress={eventHandler} />
     }
   }
@@ -339,7 +336,7 @@ function CoinFlipScreen(props) {
 
 
   const coinAnimator = () => {
-
+    setNumFlip(numFlip + 1) // make sure we only flip the coin 6 times
     if (isAnimating == false) {
 
       setAnimating(true) //bool for showing animation

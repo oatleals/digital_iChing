@@ -1,8 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useRef, useEffect } from 'react';
 
-
-
 import {
   StyleSheet, Text, Animated, View,
   Image, ImageBackground, Button,
@@ -14,6 +12,7 @@ import { color } from 'react-native-reanimated';
 import tricolors from '../assets/trigrams/Asset_ColoredTrigrams.png' //trigram bar
 import triHexRow from '../assets/trigrams/Bottom_hex_row.jpg' //trigram bar
 
+/*
 const Anime = (props) => {
   const position = new Animated.ValueXY({ x: 0, y: 700 })
   React.useEffect(() => {
@@ -117,6 +116,7 @@ const FadeInOut = (props) => {
     </Animated.View>
   );
 }
+*/
 
 /*
 <SafeAreaView style={styles.backBtn} >
@@ -173,14 +173,16 @@ function TutorialScreen(props) {
   return (
 
 
-    <SafeAreaView styles={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1, justifyContent: "center", alignItems: "center", fontFamily: 'futura-regular' }} >
       <ImageBackground source={require('../assets/trigrams/Ken_Mountain.jpg')} style={{
-        paddingBottom: 125,
-        resizeMode: "contain",
+        flex: 1,
+        resizeMode: "cover",
         justifyContent: "center",
 
       }}>
-        <Image source={tricolors} style={{ flex: 1, height: 20, width: 390, paddingBottom: 10, paddingTop: 15 }} />
+        <View style={{ paddingBottom: 10 }}>
+          <Image source={tricolors} style={{ height: 20, width: 390, paddingBottom: 10, paddingTop: 15 }} />
+        </View>
 
 
         <View>
@@ -213,15 +215,15 @@ function TutorialScreen(props) {
 
         </View>
 
-        <View styles={styles.container}>
-
+        <View style={styles.buttonContainer}>
           <Button
             fontColor="#000000"
             color="#008b8b"
             title="Library"
             onPress={() => props.navigation.navigate("Search")} />
+        </View>
 
-
+        <View style={styles.buttonContainer}>
           <Button
             fontColor="#000000"
             color="#008b8b"
@@ -230,8 +232,9 @@ function TutorialScreen(props) {
 
         </View>
 
-        <Image source={tricolors} style={{ flex: 1, height: 20, width: 390, paddingBottom: 10, paddingTop: 15 }} />
-
+        <View style={{ paddingTop: 120 }}>
+          <Image source={tricolors} style={{ height: 20, width: 390, paddingBottom: 10, paddingTop: 15 }} />
+        </View>
       </ImageBackground>
     </SafeAreaView>
 
@@ -245,6 +248,7 @@ const styles = StyleSheet.create({
   tutorialBody: {
     paddingHorizontal: 30,
     padding: 10,
+    fontSize: 12,
     justifyContent: "center",
     alignItems: "center",
     fontFamily: 'futura-book'
@@ -310,7 +314,13 @@ const styles = StyleSheet.create({
 
   image: {
     flex: 1
-  }
+  },
+  buttonContainer: {
+    justifyContent: 'center',
+    alignSelf: 'center',
+    width: 200,
+    padding: 5
+  },
 
 });
 

@@ -58,7 +58,7 @@ function HomeScreen({ navigation }) {
           <Button
             color="#008b8b"
             title="Library"
-            onPress={() => navigation.navigate("Search")} options={{ headerShown: false }} />
+            onPress={() => navigation.navigate("Library")} options={{ headerShown: false }} />
         </View>
       </View>
     </ImageBackground>
@@ -77,15 +77,14 @@ const createTutorialStack = () =>  //Navigation for tutorial screens
   <tutorialStack.Navigator>
     <consultStack.Screen name="Tutorial" component={TutorialScreen0} options={{ headerShown: false }} />
 
-
   </tutorialStack.Navigator>
-
 
 const createSearchStack = () => // Navigation for Search screen
   <searchStack.Navigator>
-    <searchStack.Screen name="Search" component={SearchScreen} options={{ headerShown: false }} />
+    <searchStack.Screen name="Library" component={SearchScreen} options={{ headerShown: false }} />
     <searchStack.Screen name="Hexagram" component={HexagramScreen} options={{ headerShown: false }} />
   </searchStack.Navigator>
+
 
 
 function App() {
@@ -99,7 +98,7 @@ function App() {
           <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
           <Stack.Screen name="Consult" children={createConsultStack} options={{ headerShown: false }} />
           <Stack.Screen name="Tutorial" children={createTutorialStack} options={{ headerShown: false }} />
-          <Stack.Screen name="Search" children={createSearchStack} options={{ headerShown: false }} />
+          <Stack.Screen name="Library" children={createSearchStack} options={{ headerShown: false }} />
         </Stack.Navigator>
       </NavigationContainer>
 
