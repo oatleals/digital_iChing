@@ -82,7 +82,7 @@ const createTutorialStack = () =>  //Navigation for tutorial screens
 const createSearchStack = () => // Navigation for Search screen
   <searchStack.Navigator>
     <searchStack.Screen name="Library" component={SearchScreen} options={{ headerShown: false }} />
-    <searchStack.Screen name="Hexagram" component={HexagramScreen} options={{ headerShown: false }} />
+    <searchStack.Screen name="HexagramScreen" component={HexagramScreen} options={{ headerShown: false }} />
   </searchStack.Navigator>
 
 
