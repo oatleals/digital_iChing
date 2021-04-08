@@ -22,7 +22,7 @@ import Yang from '../assets/trigrams/Yang_Nine_Line.png' //9
 import Yin from '../assets/trigrams/Yin_Six_Line.png' //6
 
 
-function HexagramScreen(props) {
+function AnalysisScreen(props) {
 
 
   //create the hexagram text
@@ -32,6 +32,8 @@ function HexagramScreen(props) {
   const [hexagramIMG, setHexagramIMG] = useState()
   const [hexagramJudgement, setHexagramJudgement] = useState()
   const [chinaHexagram, setChinaHexagram] = useState("1. Creativity")
+
+  const [question, setQuestion] = useState()
 
 
   //generate Trigram texts and meaning
@@ -56,6 +58,32 @@ function HexagramScreen(props) {
 
   const outcomes = [Yin, Yang]
 
+  /*const saveData = async (hexagram, question, hexagramLines) => {
+    try {
+
+      let id = Math.floor(Math.random() * 1000000)
+
+      let hexData = { hexagram, question, hexagramLines, id }
+      let hexArray = []
+
+      let storedData = await AsyncStorage.getItem('hexList')
+      if (storedData !== null) {
+        hexArray = JSON.parse(storedData)
+      }
+
+      hexArray.push(hexData)
+
+      await AsyncStorage.setItem('hexList', JSON.stringify(hexArray))
+
+
+      console.log("Saving hexagram to journal")
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  */
+
   var { hexObj } = props.route.params
   var { lineObj } = props.route.params
 
@@ -63,6 +91,7 @@ function HexagramScreen(props) {
 
 
     setHexagram(hexObj.hexName)
+    setQuestion(hexObj.question)
     setHexagramLines(hexObj.HexagramText)
     setHexagramIMG(hexObj.HexagramIMG)
     setHexagramJudgement(hexObj.HexagramJudgment)
@@ -120,6 +149,7 @@ function HexagramScreen(props) {
 
         <View style={{ flex: 0.5, paddingHorizontal: 20 }}>
           <View style={{ flex: 1, alignItems: "flex-start" }}>
+            <Text style={styles.questionTitle}> {question} </Text>
             <Image source={hexCharacter} style={styles.hexChar} />
 
             <Image source={tricolors} style={{ height: 20, width: 390, paddingBottom: 10, paddingTop: 15 }} />
@@ -164,15 +194,25 @@ function HexagramScreen(props) {
             </Text>
           </ScrollView>
         </View>
+
         <View style={styles.buttonContainer}>
           <IconButton icon="home" color="#008b8b" onPress={() => (props.navigation.navigate("Home"))} />
         </View>
+
       </ImageBackground>
       <Image source={triHexRow} style={{ height: 30, width: 400, paddingBottom: 10, paddingTop: 10 }} />
 
     </SafeAreaView>
+
+
+
+
   )
 }
+
+// <Button style = {styles.buttonContainer} title="Save to Journal" color = "#008080" onPress = { 
+//  () => (saveData(hexagram,question,hexagramLines), alert("Saved hex: " + hexagram + " to Journal"))} />
+
 
 const styles = StyleSheet.create({
   container: {
@@ -202,6 +242,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     fontFamily: 'futura-book'
+  },
+  questionTitle: {
+    fontFamily: 'futura-book',
+    fontSize: 15,
+    marginBottom: 15
+
   },
   hexText: {
     flex: 1,
@@ -253,4 +299,4 @@ const styles = StyleSheet.create({
 })
 
 
-export default HexagramScreen
+export default AnalysisScreen
