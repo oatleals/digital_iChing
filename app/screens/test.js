@@ -1,4 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
+//import { StatusBar } from 'expo-status-bar';
 import React, { useRef, useEffect }  from 'react';
 
 import { StyleSheet, Text, Animated, View, 
