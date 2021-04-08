@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { IconButton } from "react-native-paper";
-import { SearchBar } from "react-native-elements";
+//import { SearchBar } from "react-native-elements";
 
 //Lines
 import Yang from "../assets/trigrams/Yang_Nine_Line.png"; //9
@@ -245,12 +245,13 @@ function SearchScreen(props) {
     genHex;
 
     console.log(item.id);
-    genLowerTri += item.line1.toString();
-    genLowerTri += item.line2.toString();
-    genLowerTri += item.line3.toString();
-    genUpperTri += item.line4.toString();
-    genUpperTri += item.line5.toString();
-    genUpperTri += item.line6.toString();
+
+    genLowerTri += line1.toString();
+    genLowerTri += line2.toString();
+    genLowerTri += line3.toString();
+    genUpperTri += line4.toString();
+    genUpperTri += line5.toString();
+    genUpperTri += line6.toString();
 
     LowerTrigram = trigramGenerator(genLowerTri).png;
     LowerTriName = trigramGenerator(genLowerTri).name;
@@ -260,7 +261,7 @@ function SearchScreen(props) {
     UpperTriName = trigramGenerator(genUpperTri).name;
     UpperTriMeaning = trigramGenerator(genUpperTri).meaning;
 
-    setHexagram(hexagramGenerator(genHex.concat(genLowerTri + genUpperTri)));
+    hexagramGenerator(genHex.concat(genLowerTri + genUpperTri));
   }
 
   const pressHandler = (item) => {
@@ -279,7 +280,7 @@ function SearchScreen(props) {
           data={hexName}
           renderItem={({ item }) => (
             <TouchableOpacity onPress={() => pressHandler(item)}>
-              <Image source = {hexCharacter} style = {styles.hexChar} /> 
+              <Image source = {item.png} style = {styles.hexChar} /> 
               <Text>{item.name}</Text>
             </TouchableOpacity>
           )}
