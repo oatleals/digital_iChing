@@ -195,13 +195,10 @@ function AnalysisScreen(props) {
           </ScrollView>
         </View>
 
-        <View style={styles.buttonContainer}>
-          <Button
-            color="#008b8b"
-            title="Home"
-            onPress={() => props.navigation.navigate("Home")} />
+      <View style={styles.buttonContainer}>
+          <IconButton icon="home" color="#008b8b" onPress={() => (props.navigation.navigate("Home"))} />
+      </View>
 
-        </View>
       </ImageBackground>
       <Image source={triHexRow} style={{ height: 30, width: 400, paddingBottom: 10, paddingTop: 10 }} />
 

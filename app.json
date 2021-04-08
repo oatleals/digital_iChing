@@ -6,7 +6,7 @@
     "orientation": "portrait",
     "icon": "./app/assets/logo/icon.png",
     "splash": {
-      "image": "./app/assets/logo/IchingKoiLogo_512.png",
+      "image": "./app/assets/logo/IchingKoiLogo.png",
       "resizeMode": "contain",
       "width": 100,
       "height": 100,

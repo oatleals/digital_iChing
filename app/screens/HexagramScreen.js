@@ -1,6 +1,8 @@
-import React, {useState, useEffect} from "react";
-import { SafeAreaView, ImageBackground, Button, Text, StyleSheet, Image, View, ScrollView} from "react-native";
-import { IconButton, Colors } from 'react-native-paper';
+import React, { useState, useEffect } from "react";
+import { SafeAreaView, ImageBackground, Button, Text, StyleSheet, Image, View, ScrollView } from "react-native";
+import { IconButton } from "react-native-paper";
+import AsyncStorage from '@react-native-community/async-storage';
+//import uuid from 'uuid/v4'
 
 //trigrams
 import chien_Heaven from '../assets/trigrams/chien_Heaven.jpg'
@@ -12,15 +14,17 @@ import li_Fire from '../assets/trigrams/Li_Fire.jpg'
 import sun_Wind from '../assets/trigrams/Sun_Wind.jpg'
 import tui_Lake from '../assets/trigrams/Tui_Lake.jpg'
 
-import {hexChar} from '../assets/hex/hex' //hexagram character images
+import { hexChar } from '../assets/hex/hex' //hexagram character images
 import tricolors from '../assets/trigrams/Asset_ColoredTrigrams.png' //trigram bar
+import triHexRow from '../assets/trigrams/Bottom_hex_row.jpg' //trigram bar
 
 import Yang from '../assets/trigrams/Yang_Nine_Line.png' //9
 import Yin from '../assets/trigrams/Yin_Six_Line.png' //6
 
+
 function HexagramScreen(props) {
 
-  
+
   //create the hexagram text
 
   const [hexagram, setHexagram] = useState()
@@ -29,20 +33,21 @@ function HexagramScreen(props) {
   const [hexagramJudgement, setHexagramJudgement] = useState()
   const [chinaHexagram, setChinaHexagram] = useState("1. Creativity")
 
-  //background generated from the trigrams
-  const [trigramBg, setTrigramBg] = useState(chien_Heaven)
-  
+
   //generate Trigram texts and meaning
   const [LowerTriName, setLowerTriName] = useState('Chien')
   const [LowerTriMeaning, setLowerTriMeaning] = useState('heaven')
   const [UpperTriMeaning, setUpperTriMeaning] = useState('heaven')
   const [UpperTriName, setUpperTriName] = useState('Chien')
+  //background generated from the trigrams
+  const [trigramBg, setTrigramBg] = useState(chien_Heaven)
+
 
   //character png at the top
-  const [hexCharacter, setHexCharacter] =  useState()
+  const [hexCharacter, setHexCharacter] = useState()
 
   //hooks for lines
-  const [line1State, setLine1] = useState()  
+  const [line1State, setLine1] = useState()
   const [line2State, setLine2] = useState()
   const [line3State, setLine3] = useState()
   const [line4State, setLine4] = useState()
@@ -51,13 +56,11 @@ function HexagramScreen(props) {
 
   const outcomes = [Yin, Yang]
 
-  var {hexObj} = props.route.params
-  var {lineObj} = props.route.params
+  var { hexObj } = props.route.params
+  var { lineObj } = props.route.params
 
   const eventHandler = () => {
 
-    console.log(hexObj)
-    
 
     setHexagram(hexObj.hexName)
     setHexagramLines(hexObj.HexagramText)
@@ -71,110 +74,105 @@ function HexagramScreen(props) {
     setUpperTriName(hexObj.UpperTriName)
     setUpperTriMeaning(hexObj.UpperTriMeaning)
 
-    //set the lines from the previous screen
     setLine1(lineObj.line1)
     setLine2(lineObj.line2)
     setLine3(lineObj.line3)
     setLine4(lineObj.line4)
     setLine5(lineObj.line5)
     setLine6(lineObj.line6)
-    
-    //Determine which background to use
-    if(hexObj.trigramBg == "chien_Heaven")
+
+    if (hexObj.trigramBg == "chien_Heaven")
       setTrigramBg(chien_Heaven)
-    else if(hexObj.trigramBg == "chen_Thunder")
+    else if (hexObj.trigramBg == "chen_Thunder")
       setTrigramBg(chen_Thunder)
-    else if(hexObj.trigramBg == "kan_Water")
+    else if (hexObj.trigramBg == "kan_Water")
       setTrigramBg(kan_Water)
-    else if(hexObj.trigramBg == "kun_Earth")
+    else if (hexObj.trigramBg == "kun_Earth")
       setTrigramBg(kun_Earth)
-    else if(hexObj.trigramBg == "ken_Mountain")
+    else if (hexObj.trigramBg == "ken_Mountain")
       setTrigramBg(ken_Mountain)
-    else if(hexObj.trigramBg == "li_Fire")
+    else if (hexObj.trigramBg == "li_Fire")
       setTrigramBg(li_Fire)
-    else if(hexObj.trigramBg == "sun_wind")
+    else if (hexObj.trigramBg == "sun_wind")
       setTrigramBg(sun_Wind)
-    else if(hexObj.trigramBg == "tui_Lake")
+    else if (hexObj.trigramBg == "tui_Lake")
       setTrigramBg(tui_Lake)
-    
-  
-    for(var item in hexChar) { //search the hexagram dictionary
-      if(hexObj.Hexagram == item){
+
+
+    for (var item in hexChar) { //search the hexagram dictionary
+      if (hexObj.Hexagram == item) {
         setHexCharacter(hexChar[item])
-        
+
       }
     }
 
-    console.log(hexCharacter)
   }
 
   useEffect(() => {
-    eventHandler() //Place everything on the screen before it loads
+    eventHandler()
   }, [])
-  
 
   return (
 
-    <SafeAreaView style = {{flex: 1, justifyContent: "center", alignItems: "center", fontFamily: 'futura-regular'}}>
-    <ImageBackground source = {trigramBg}  style = {styles.backgroundImage}>
 
-      <View style = {{flex: 0.5, paddingHorizontal: 10}}>
-          <View style = {{flex:1, alignItems: "flex-start"}}>
-            <Image source = {hexCharacter} style = {styles.hexChar} /> 
+    <SafeAreaView style={{ flex: 1, justifyContent: "center", alignItems: "center", fontFamily: 'futura-regular' }}>
+      <ImageBackground source={trigramBg} style={styles.backgroundImage}>
 
-            <Image source = {tricolors} style = {{height: 20, width: 175, paddingBottom: 10, paddingTop: 10, paddingLeft: 10}}/>
+        <View style={{ flex: 0.5, paddingHorizontal: 20 }}>
+          <View style={{ flex: 1, alignItems: "flex-start" }}>
+            <Image source={hexCharacter} style={styles.hexChar} />
 
-            <Text style = {{color: "#000000",  fontFamily: 'futura-bold', fontSize: 20, paddingLeft: 5, paddingTop:10}}>{chinaHexagram + ' - ' + hexagram + '  -  ' + UpperTriMeaning}</Text>
-            <Text style = {{color: "#000000", fontFamily: 'futura-bold', fontSize: 20}}> {'Above:  '+ UpperTriName + '  -  ' + UpperTriMeaning}</Text>
-            <Text style = {{color: "#000000", fontFamily: 'futura-bold', fontSize: 20}}> {'Below:  '+LowerTriName +  '  -  ' + LowerTriMeaning}</Text>  
+            <Image source={tricolors} style={{ height: 20, width: 390, paddingBottom: 10, paddingTop: 15 }} />
+
+            <Text style={{ color: "#000000", fontFamily: 'futura-med', fontSize: 20, paddingLeft: 3, paddingTop: 10 }}>{chinaHexagram + ' - ' + hexagram + '  -  ' + UpperTriMeaning}</Text>
+            <Text style={{ color: "#000000", fontFamily: 'futura-med', fontSize: 20 }}> {'Above:  ' + UpperTriName + '  -  ' + UpperTriMeaning}</Text>
+            <Text style={{ color: "#000000", fontFamily: 'futura-med', fontSize: 20 }}> {'Below:  ' + LowerTriName + '  -  ' + LowerTriMeaning}</Text>
           </View>
-          <View style = {{flex:1, alignItems: "flex-end", paddingRight: 10}}>    
-            <Image source = {line6State} style={styles.hexLine} /> 
-            <Image source = {line5State} style={styles.hexLine} />
-            <Image source = {line4State} style={styles.hexLine} />
-            <Image source = {line3State} style={styles.hexLine} />
-            <Image source = {line2State} style={styles.hexLine} />
-            <Image source = {line1State} style={styles.hexLine} />
-          </View> 
-      </View>
+          <View style={{ flex: 0.5, alignItems: "flex-end", paddingRight: 22 }}>
+            <Image source={line6State} style={styles.hexLine} />
+            <Image source={line5State} style={styles.hexLine} />
+            <Image source={line4State} style={styles.hexLine} />
+            <Image source={line3State} style={styles.hexLine} />
+            <Image source={line2State} style={styles.hexLine} />
+            <Image source={line1State} style={styles.hexLine} />
+          </View>
+        </View>
 
-  
-    <SafeAreaView style = {styles.container}>
-
-      <View style = {{
-        flex: 0.9,
-        padding: 10,
-        paddingBottom: 30,
-        justifyContent: "center",
-        alignItems: "baseline",
-        fontFamily: 'futura-regular'
+        <View style={{
+          flex: 0.8,
+          paddingTop: 40,
+          padding: 25,
+          paddingBottom: 70,
+          justifyContent: "center",
+          alignItems: "baseline",
+          fontFamily: 'futura-regular'
         }}>
-        <ScrollView>
-        <Text style = {styles.hexTitle}>The Judgement</Text>
-          <Text style = {styles.container}>
-            {hexagramJudgement}
-          </Text>
-          
-        <Text style = {styles.hexTitle}>The Image</Text>
-          <Text style = {styles.container}>
-            {hexagramIMG}
-          </Text>
+          <ScrollView>
+            <Text style={styles.hexTitle}>The Judgement</Text>
+            <Text style={styles.hexBody}>
+              {hexagramJudgement}
+            </Text>
 
-        <Text style = {styles.hexTitle}>The Lines</Text>
-          <Text style = {styles.container}>
-            {hexagramLines}
-          </Text>
-        </ScrollView>
-        <Button icon="home" color = "#008b8b" onPress={() => (props.navigation.navigate("Home"))} />
+            <Text style={styles.hexTitle}>The Image</Text>
+            <Text style={styles.hexBody}>
+              {hexagramIMG}
+            </Text>
+
+            <Text style={styles.hexTitle}>The Lines</Text>
+            <Text style={styles.hexBody}>
+              {hexagramLines}
+            </Text>
+          </ScrollView>
+        </View>
+      <View style={styles.buttonContainer}>
+        <IconButton icon="home" color="#008b8b" onPress={() => (props.navigation.navigate("Home"))} />
       </View>
+      </ImageBackground>
+      <Image source={triHexRow} style={{ height: 30, width: 400, paddingBottom: 10, paddingTop: 10 }} />
 
-     
     </SafeAreaView>
-  </ImageBackground>
-  </SafeAreaView>
-    
   )
-}   
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -191,6 +189,20 @@ const styles = StyleSheet.create({
     marginTop: 1,
     color: "#e0ffff"
   },
+  buttonContainer: {
+    padding: 20,
+    paddingBottom: 100,
+    alignItems: "center",
+    width: 150,
+  },
+  hexBody: {
+    flex: 1,
+    padding: 10,
+    fontSize: 15,
+    justifyContent: "center",
+    alignItems: "center",
+    fontFamily: 'futura-book'
+  },
   hexText: {
     flex: 1,
     padding: 15,
@@ -205,7 +217,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
   },
   backgroundImage: {
-    paddingBottom: 100,
     flex: 1,
     resizeMode: "contain",
     justifyContent: "center"
@@ -229,12 +240,15 @@ const styles = StyleSheet.create({
   },
 
   buttonContainer: {
+    justifyContent: 'center',
+    alignSelf: 'center',
+    width: 100,
     padding: 10
   },
-
   hexLine: {
+
     width: 100,
-    height: 18,
+    height: 15,
   }
 })
 
