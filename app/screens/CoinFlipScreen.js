@@ -317,7 +317,7 @@ function CoinFlipScreen(props) {
       //HexagramIMG = ""
 
 
-      return <Button title="Read your hexagram" color="#00ced1" onPress=
+      return <Button title="Read your hexagram" color="#3cb371" onPress=
         {() => props.navigation.navigate("Analysis", { hexObj, lineObj })} /> //pass in the results
     }
 
@@ -326,7 +326,7 @@ function CoinFlipScreen(props) {
   const showFlipCoin = (props) => { //after 6 flips turn off the button
     if (numFlip <= 6) {
 
-      return <Button title="Flip coins" color="#00ced1" onPress={eventHandler} />
+      return <Button title="Flip coins" color="#3cb371" onPress={eventHandler} />
     }
   }
 

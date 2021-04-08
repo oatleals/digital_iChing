@@ -189,7 +189,7 @@ function TutorialScreen(props) {
         <View>
           <Text style={{
             paddingHorizontal: 30,
-            padding: 10,
+            padding: 15,
             fontFamily: 'futura-book',
             fontSize: 20,
             color: "#e0ffff"
@@ -219,14 +219,14 @@ function TutorialScreen(props) {
         <View style={styles.buttonContainer}>
           <Button
             fontColor="#000000"
-            color="#00ced1"
+            color="#3cb371"
             title="Library"
             onPress={() => props.navigation.navigate("Library")} />
         </View>
 
         <View style={styles.buttonContainer}>
           <Button fontColor="#000000"
-            color="#00ced1"
+            color="#3cb371"
             title="Flip Coins"
             onPress={() => props.navigation.navigate("Consult")}>
 
@@ -243,7 +243,7 @@ function TutorialScreen(props) {
         }}>
           <IconButton
             icon="home"
-            color="#00ced1"
+            color="#3cb371"
             size={50}
             onPress={() => props.navigation.navigate("Home")}
           />
@@ -266,8 +266,9 @@ function TutorialScreen(props) {
 const styles = StyleSheet.create({
 
   tutorialBody: {
-    paddingHorizontal: 30,
-    padding: 10,
+    paddingHorizontal: 35,
+    paddingBottom: 10,
+    padding: 12,
     fontSize: 12,
     justifyContent: "center",
     alignItems: "center",

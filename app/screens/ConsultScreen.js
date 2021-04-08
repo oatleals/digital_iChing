@@ -20,12 +20,15 @@ function ConsultScreen(props) {
         <Text style={{ color: "#e0ffff", fontFamily: 'futura-bold', fontSize: 25, textAlign: "center", alignContent: 'center' }}>What would you like to ask the IChing?</Text>
         <TextInput style={styles.input}
           placeholder="Enter a question here"
-
+          placeholderTextColor="white"
+          color="white"
           onChangeText={question => onChangeText(question)}
+          onChangeTextColor="white"
+          maxLength={45}
           value={value}
         />
 
-        <Button title="Throw coins" color="#00ced1" onPress={() => props.navigation.navigate("CoinFlip", value)} />
+        <Button title="Throw coins" color="#3cb371" onPress={() => props.navigation.navigate("CoinFlip", value)} />
       </View>
     </ImageBackground>
   );
@@ -49,8 +52,8 @@ const styles = StyleSheet.create({
   },
   input: {
     borderWidth: 1,
-    borderColor: '#777',
-    padding: 8,
+    borderColor: '#e0ffff',
+    padding: 10,
     margin: 10
   }
 });

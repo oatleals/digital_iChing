@@ -200,7 +200,7 @@ function AnalysisScreen(props) {
         <View style={styles.buttonContainer}>
           <IconButton
             icon="home"
-            color="#00ced1"
+            color="#3cb371"
             size={50}
             onPress={() => props.navigation.navigate("Home")}
           />

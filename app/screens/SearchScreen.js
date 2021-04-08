@@ -344,7 +344,7 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start"
   },
   item: {
-    marginTop: 24,
+    marginTop: 30,
     padding: 10,
     backgroundColor: '#008080',
     fontSize: 20,

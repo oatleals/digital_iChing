@@ -44,22 +44,30 @@ function HomeScreen({ navigation }) {
 
   return (
     <ImageBackground source={require('./app/assets/background/Alternate_screen.jpg')} style={styles.image}>
-      <Text style={{ fontSize: 40, fontFamily: 'futura-bold', color: "#e0ffff", alignSelf: "center", padding: 40 }}>I Ching</Text>
+      <Text style={{ fontSize: 45, fontFamily: 'futura-bold', color: "#e0ffff", alignSelf: "center", padding: 40 }}>I Ching</Text>
       <View style={styles.home}>
         <Image source={require('./app/assets/logo/IchingKoiLogo.png')} style={styles.logo} />
-        <View>
+        <View style={{ width: 110, padding: 5 }}>
           <Button
-            color="#00ced1"
+            color="#3cb371"
             title="Consult"
             onPress={() => navigation.navigate("Consult")} options={{ headerShown: false }} />
-          <Button color="#00ced1"
+        </View>
+
+        <View style={{ width: 110, padding: 5 }}>
+          <Button color="#3cb371"
             title="Tutorial"
             onPress={() => navigation.navigate("Tutorial")} options={{ headerShown: false }} />
+        </View>
+
+        <View style={{ width: 110, padding: 5 }}>
           <Button
-            color="#00ced1"
+            color="#3cb371"
             title="Library"
             onPress={() => navigation.navigate("Library")} options={{ headerShown: false }} />
+
         </View>
+
       </View>
     </ImageBackground>
   );
@@ -82,7 +90,7 @@ const createTutorialStack = () =>  //Navigation for tutorial screens
 const createSearchStack = () => // Navigation for Search screen
   <searchStack.Navigator>
     <searchStack.Screen name="Library" component={SearchScreen} options={{ headerShown: false }} />
-    <searchStack.Screen name="Hexagram" component={HexagramScreen} options={{ headerShown: false }} />
+    <searchStack.Screen name="HexagramScreen" component={HexagramScreen} options={{ headerShown: false }} />
   </searchStack.Navigator>
 
 
@@ -118,6 +126,7 @@ function App() {
 const styles = StyleSheet.create({
   home: {
     flex: 1,
+    flexDirection: 'column',
     justifyContent: "center",
     alignItems: "center"
   },
