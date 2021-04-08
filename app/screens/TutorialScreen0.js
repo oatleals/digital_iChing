@@ -175,7 +175,7 @@ function TutorialScreen(props) {
 
 
     <SafeAreaView style={{ flex: 1, justifyContent: "center", alignItems: "center", fontFamily: 'futura-regular' }} >
-      <ImageBackground source={require('../assets/trigrams/Ken_Mountain.jpg')} style={{
+      <ImageBackground source={require('../assets/trigrams/chien_Heaven.jpg')} style={{
         flex: 1,
         resizeMode: "cover",
         justifyContent: "center",
@@ -219,14 +219,14 @@ function TutorialScreen(props) {
         <View style={styles.buttonContainer}>
           <Button
             fontColor="#000000"
-            color="#3cb371"
+            color="#008b8b"
             title="Library"
             onPress={() => props.navigation.navigate("Library")} />
         </View>
 
         <View style={styles.buttonContainer}>
           <Button fontColor="#000000"
-            color="#3cb371"
+            color="#008b8b"
             title="Flip Coins"
             onPress={() => props.navigation.navigate("Consult")}>
 
@@ -243,7 +243,7 @@ function TutorialScreen(props) {
         }}>
           <IconButton
             icon="home"
-            color="#3cb371"
+            color="#008b8b"
             size={50}
             onPress={() => props.navigation.navigate("Home")}
           />
@@ -267,9 +267,9 @@ const styles = StyleSheet.create({
 
   tutorialBody: {
     paddingHorizontal: 35,
-    paddingBottom: 10,
+    paddingBottom: 5,
     padding: 12,
-    fontSize: 12,
+    fontSize: 13,
     justifyContent: "center",
     alignItems: "center",
     fontFamily: 'futura-book'

@@ -17,8 +17,9 @@ function ConsultScreen(props) {
       <View style={styles.container}>
 
 
-        <Text style={{ color: "#e0ffff", fontFamily: 'futura-bold', fontSize: 25, textAlign: "center", alignContent: 'center' }}>What would you like to ask the IChing?</Text>
+        <Text style={{ color: "#e0ffff", fontFamily: 'futura-book', fontSize: 21, textAlign: "center", alignContent: 'center' }}>What would you like to ask the I Ching?</Text>
         <TextInput style={styles.input}
+          fontFamily="futura-book"
           placeholder="Enter a question here"
           placeholderTextColor="white"
           color="white"
@@ -28,7 +29,7 @@ function ConsultScreen(props) {
           value={value}
         />
 
-        <Button title="Throw coins" color="#3cb371" onPress={() => props.navigation.navigate("CoinFlip", value)} />
+        <Button title="Throw coins" color="#008b8b" onPress={() => props.navigation.navigate("CoinFlip", value)} />
       </View>
     </ImageBackground>
   );

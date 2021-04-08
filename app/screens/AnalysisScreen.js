@@ -89,7 +89,6 @@ function AnalysisScreen(props) {
 
   const eventHandler = () => {
 
-
     setHexagram(hexObj.hexName)
     setQuestion(hexObj.question)
     setHexagramLines(hexObj.HexagramText)
@@ -148,8 +147,16 @@ function AnalysisScreen(props) {
       <ImageBackground source={trigramBg} style={styles.backgroundImage}>
 
 
-        <Text style={styles.questionTitle}> {question} </Text>
-        <Image source={hexCharacter} style={styles.hexChar} />
+
+
+        <View style={{ paddingTop: 30, paddingBottom: 10, flexDirection: "row" }}>
+
+          <Image source={hexCharacter} style={styles.hexChar} />
+          <Text style={styles.questionTitle}> {question} </Text>
+
+
+        </View>
+
         <Image source={tricolors} style={{ height: 20, width: 390, paddingBottom: 10, paddingTop: 15 }} />
 
 
@@ -157,9 +164,9 @@ function AnalysisScreen(props) {
           <View style={{ flex: 1, alignItems: "flex-start" }}>
 
 
-            <Text style={{ color: "#000000", fontFamily: 'futura-med', fontSize: 22 }}>{' ' + chinaHexagram + ' - ' + hexagram + '  -  ' + UpperTriMeaning}</Text>
-            <Text style={{ color: "#000000", fontFamily: 'futura-med', fontSize: 22 }}> {'Above:  ' + UpperTriName + '  -  ' + UpperTriMeaning}</Text>
-            <Text style={{ color: "#000000", fontFamily: 'futura-med', fontSize: 22 }}> {'Below:  ' + LowerTriName + '  -  ' + LowerTriMeaning}</Text>
+            <Text style={{ color: "#000000", fontFamily: 'futura-book', fontSize: 15 }}>{' ' + chinaHexagram + ' - ' + hexagram + '  -  ' + UpperTriMeaning}</Text>
+            <Text style={{ color: "#000000", fontFamily: 'futura-book', fontSize: 15 }}> {'Above:  ' + UpperTriName + '  -  ' + UpperTriMeaning}</Text>
+            <Text style={{ color: "#000000", fontFamily: 'futura-book', fontSize: 15 }}> {'Below:  ' + LowerTriName + '  -  ' + LowerTriMeaning}</Text>
           </View>
           <View style={{ flex: 0.5, alignItems: "flex-end" }}>
             <Image source={line6State} style={styles.hexLine} />
@@ -172,12 +179,12 @@ function AnalysisScreen(props) {
         </View>
 
         <View style={{
-          flex: 1.5,
+          flex: 3,
           padding: 25,
           paddingBottom: 50,
           justifyContent: "center",
           alignItems: "baseline",
-          fontFamily: 'futura-regular'
+          fontFamily: 'futura-book'
         }}>
           <ScrollView>
             <Text style={styles.hexTitle}>The Judgement</Text>
@@ -197,9 +204,10 @@ function AnalysisScreen(props) {
           </ScrollView>
         </View>
 
-        <View style={styles.buttonContainer}>
-          <IconButton icon="home" color="#008b8b" onPress={() => (props.navigation.navigate("Home"))} />
-        </View>
+
+
+        <IconButton icon="home" color="#008b8b" size={50} onPress={() => (props.navigation.navigate("Home"))} />
+
 
       </ImageBackground>
       <Image source={triHexRow} style={{ height: 30, width: 400, paddingBottom: 10, paddingTop: 10 }} />
@@ -226,7 +234,7 @@ const styles = StyleSheet.create({
   },
   hexTitle: {
     fontSize: 20,
-    fontFamily: 'futura-bold',
+    fontFamily: 'futura-book',
     marginBottom: 1,
     marginTop: 1,
     color: "#e0ffff"
@@ -239,7 +247,7 @@ const styles = StyleSheet.create({
   },
   hexBody: {
     flex: 1,
-    padding: 10,
+    paddingVertical: 12,
     fontSize: 15,
     justifyContent: "center",
     alignItems: "center",
@@ -248,7 +256,7 @@ const styles = StyleSheet.create({
   questionTitle: {
     fontFamily: 'futura-book',
     fontSize: 15,
-    marginBottom: 15
+    paddingTop: 10
 
   },
   hexText: {
@@ -271,12 +279,10 @@ const styles = StyleSheet.create({
   },
   hexChar: {
     paddingLeft: 80,
-    paddingTop: 10,
-    paddingBottom: 40,
-    width: 60,
-    height: 60,
+    padding: 10,
+    width: 40,
+    height: 40,
     resizeMode: "contain",
-    justifyContent: "flex-start"
   },
 
   Header: {
@@ -294,9 +300,9 @@ const styles = StyleSheet.create({
     padding: 10
   },
   hexLine: {
-    paddingTop: 10,
-    width: 70,
-    height: 12,
+    paddingTop: 12,
+    width: 65,
+    height: 10,
   }
 })
 

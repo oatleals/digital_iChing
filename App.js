@@ -44,25 +44,26 @@ function HomeScreen({ navigation }) {
 
   return (
     <ImageBackground source={require('./app/assets/background/Alternate_screen.jpg')} style={styles.image}>
-      <Text style={{ fontSize: 45, fontFamily: 'futura-bold', color: "#e0ffff", alignSelf: "center", padding: 40 }}>I Ching</Text>
+      <Text style={{ fontSize: 45, fontFamily: 'futura-book', color: "#000000", alignSelf: "center", padding: 40, paddingBottom: 20 }}>I Ching</Text>
       <View style={styles.home}>
         <Image source={require('./app/assets/logo/IchingKoiLogo.png')} style={styles.logo} />
         <View style={{ width: 110, padding: 5 }}>
           <Button
-            color="#3cb371"
+            fontFamily="futura-book"
+            color="#008b8b"
             title="Consult"
             onPress={() => navigation.navigate("Consult")} options={{ headerShown: false }} />
         </View>
 
         <View style={{ width: 110, padding: 5 }}>
-          <Button color="#3cb371"
+          <Button color="#008b8b"
             title="Tutorial"
             onPress={() => navigation.navigate("Tutorial")} options={{ headerShown: false }} />
         </View>
 
         <View style={{ width: 110, padding: 5 }}>
           <Button
-            color="#3cb371"
+            color="#008b8b"
             title="Library"
             onPress={() => navigation.navigate("Library")} options={{ headerShown: false }} />
 
@@ -90,7 +91,7 @@ const createTutorialStack = () =>  //Navigation for tutorial screens
 const createSearchStack = () => // Navigation for Search screen
   <searchStack.Navigator>
     <searchStack.Screen name="Library" component={SearchScreen} options={{ headerShown: false }} />
-    <searchStack.Screen name="HexagramScreen" component={HexagramScreen} options={{ headerShown: false }} />
+    <searchStack.Screen name="HexagramScreen" component={AnalysisScreen} options={{ headerShown: false }} />
   </searchStack.Navigator>
 
 
