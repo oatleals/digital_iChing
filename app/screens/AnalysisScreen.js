@@ -204,8 +204,9 @@ function AnalysisScreen(props) {
             size={50}
             onPress={() => props.navigation.navigate("Home")}
           />
-
         </View>
+
+
       </ImageBackground>
       <Image source={triHexRow} style={{ height: 30, width: 400, paddingBottom: 10, paddingTop: 10 }} />
 
@@ -217,7 +218,7 @@ function AnalysisScreen(props) {
   )
 }
 
-// <Button style = {styles.buttonContainer} title="Save to Journal" color = "#00ced1" onPress = { 
+// <Button style={styles.buttonContainer} title="Save to Journal" color="#00ced1" onPress={
 //  () => (saveData(hexagram,question,hexagramLines), alert("Saved hex: " + hexagram + " to Journal"))} />
 
 
