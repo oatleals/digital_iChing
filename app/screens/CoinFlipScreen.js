@@ -382,14 +382,14 @@ function CoinFlipScreen(props) {
             }} />
           </View>
           <View style={{ paddingBottom: 40, width: 100, height: 100, overflow: "hidden", flexDirection: 'row' }}>
-            <Image source={h2t} style={{
+            <Image source={h2h} style={{
               width: 2000,
               height: 100,
               transform: [{ translateX: -100 * currentFrameIndex }]
             }} />
           </View>
           <View style={{ paddingBottom: 40, width: 100, height: 100, overflow: "hidden", flexDirection: 'row' }}>
-            <Image source={t2h} style={{
+            <Image source={h2h} style={{
               width: 2000,
               height: 100,
               transform: [{ translateX: -100 * currentFrameIndex }]
