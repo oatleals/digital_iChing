@@ -25,7 +25,7 @@ function ConsultScreen(props) {
           color="white"
           onChangeText={question => onChangeText(question)}
           onChangeTextColor="white"
-          maxLength={45}
+          maxLength={20}
           value={value}
         />
 
