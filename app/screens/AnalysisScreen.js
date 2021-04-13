@@ -37,12 +37,7 @@ function AnalysisScreen(props) {
   const [LowerTriMeaning, setLowerTriMeaning] = useState('heaven')
   const [UpperTriMeaning, setUpperTriMeaning] = useState('heaven')
   const [UpperTriName, setUpperTriName] = useState('Chien')
-<<<<<<< HEAD
-  //background generated from the trigrams
-  const [trigramBg, setTrigramBg] = useState(chien_Heaven)
 
-=======
->>>>>>> d698009ab20d1d0d90b527c0f9523fbd7782ba6d
 
   //character png at the top
   const [hexCharacter, setHexCharacter] =  useState()
@@ -60,12 +55,6 @@ function AnalysisScreen(props) {
 
   const eventHandler = () => {
 
-<<<<<<< HEAD
-=======
-    console.log(hexObj)
-    
-
->>>>>>> d698009ab20d1d0d90b527c0f9523fbd7782ba6d
     setHexagram(hexObj.hexName)
     setQuestion(hexObj.question)
     setHexagramLines(hexObj.HexagramText)
@@ -119,10 +108,6 @@ function AnalysisScreen(props) {
   useEffect(() => {
     eventHandler() //Place everything on the screen before it loads
   }, [])
-<<<<<<< HEAD
-=======
-  
->>>>>>> d698009ab20d1d0d90b527c0f9523fbd7782ba6d
 
   return (
     <ImageBackground source = {trigramBg}  style = {styles.backgroundImage}>

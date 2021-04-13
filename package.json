@@ -32,7 +32,8 @@
     "react-native-webview": "11.0.0",
     "react-navigation": "^4.4.2",
     "react-navigator": "0.0.0-0",
-    "semver": "^7.3.2"
+    "semver": "^7.3.2",
+    "yarn": "^1.22.10"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0"
@@ -45,5 +46,6 @@
       ]
     }
   },
-  "private": true
+  "private": true,
+  "name": "digital_i_ching"
 }

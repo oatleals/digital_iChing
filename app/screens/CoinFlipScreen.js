@@ -112,19 +112,8 @@ function CoinFlipScreen(props) {
     let resultTextIMG = "";
     let resultTextJudgement = "";
 
-<<<<<<< HEAD
-    let result = hexChar.one //placeholder
-    let resultText = ""
-    let resultTextIMG = ""
-    let resultTextJudgement = ""
-
     for (var item in hexData) { //search the hexagram dictionary
       console.log("...searching for hexagram " + hex)
-=======
-    for (var item in hexData) {
-      //search the hexagram dictionary
-      //console.log("...searching for hexagram " + hex)
->>>>>>> d698009ab20d1d0d90b527c0f9523fbd7782ba6d
       if (hex == hexData[item].id) {
         console.log("Match!");
         result = item;

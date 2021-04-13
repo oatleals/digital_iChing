@@ -121,16 +121,10 @@ function TutorialScreen(props) {
     <ImageBackground source={require('../assets/background/background.png')} style={styles.image}>
 
       <SafeAreaView style={styles.backBtn} >
-<<<<<<< HEAD
         <Button title="←" color="#008080" onPress={() => props.navigation.navigate("Home")} />
-=======
-          <Button title="←" color = "#008080" onPress={() => props.navigation.navigate("Home")}/>
-          <Text>Page 0</Text>
->>>>>>> d698009ab20d1d0d90b527c0f9523fbd7782ba6d
       </SafeAreaView>
 
       <SafeAreaView style={styles.container}>
-<<<<<<< HEAD
         <Anime time='1000'>
           <Image source={require('../assets/Asset_Mountains_Moon1.png')} style={styles.mount} />
         </Anime>
@@ -155,27 +149,6 @@ function TutorialScreen(props) {
           onPress={() => props.navigation.navigate("Page1")}
           style={{ flex: 1 }}
         />
-=======
-          <Anime time='1000'>
-            <Image source = {require('../assets/Asset_Mountains_Moon1.png')} style={styles.mount}/>
-          </Anime>
-
-          <Anime time='1500'>
-            <Image source = {require('../assets/Asset_Mountains_Moon2.png')} style={styles.mount}/>
-          </Anime>
-
-          <Anime time='1200'>
-            <Image source = {require('../assets/Asset_Mountains_Moon3.png')} style={styles.mount}/>
-          </Anime>
-
-          <FadeInView time = '8000' op = '0.5' style={styles.bottom}>
-            
-            <TouchableOpacity onPress={() => props.navigation.navigate("Page1")}>
-              < Text style={styles.fwrdBtn}>→</Text>
-            </TouchableOpacity>
-            
-          </FadeInView>
->>>>>>> d698009ab20d1d0d90b527c0f9523fbd7782ba6d
       </SafeAreaView>
 
       <FadeInOut time='1000' >
