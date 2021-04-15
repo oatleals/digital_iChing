@@ -18,8 +18,6 @@ import ConsultScreen from './app/screens/ConsultScreen';
 import CoinFlipScreen from './app/screens/CoinFlipScreen';
 import AnalysisScreen from './app/screens/AnalysisScreen';
 import SearchScreen from './app/screens/SearchScreen';
-import HexagramScreen from './app/screens/HexagramScreen';
-
 
 import { useState } from "react/cjs/react.development";
 
@@ -82,7 +80,7 @@ const createTutorialStack = () =>  //Navigation for tutorial screens
 const createSearchStack = () => // Navigation for Search screen
   <searchStack.Navigator>
     <searchStack.Screen name="Library" component={SearchScreen} options={{ headerShown: false }} />
-    <searchStack.Screen name="HexagramScreen" component={HexagramScreen} options={{ headerShown: false }} />
+    <searchStack.Screen name="HexagramScreen" component={AnalysisScreen} options={{ headerShown: false }} />
   </searchStack.Navigator>
 
 

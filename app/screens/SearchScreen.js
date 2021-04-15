@@ -1,14 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { IconButton } from "react-native-paper";
-//import { SearchBar } from "react-native-elements";
-
-//Lines
-import Yang from "../assets/trigrams/Yang_Nine_Line.png"; //9
-import Yin from "../assets/trigrams/Yin_Six_Line.png"; //6
-
-//coins
-import Yang_heads from "../assets/coins/Yang_heads.png";
-import Yin_tails from "../assets/coins/Yin_Tails.png";
+import { ListItem, SearchBar } from "react-native-elements";
 
 //trigrams pictures
 import Chien from "../assets/trigrams/chien.png";
@@ -33,8 +25,6 @@ import tui_Lake from "../assets/trigrams/Tui_Lake.jpg";
 import {
   Image,
   ImageBackground,
-  SafeAreaView,
-  Button,
   StyleSheet,
   View,
   Text,
@@ -45,15 +35,8 @@ import {
 import { hexData } from "../assets/dictionary/HexagramDatabase";
 import { hexChar } from "../assets/hex/hex";
 
-//animations
-import h2h from "../assets/animations/CoinSpin/H2H.png";
-import h2t from "../assets/animations/CoinSpin/H2T.png";
-import t2h from "../assets/animations/CoinSpin/T2H.png";
-import t2t from "../assets/animations/CoinSpin/T2T.png";
 //import { styles } from "../assets/styles/styles";
-import { LongPressGestureHandler, TouchableOpacity } from "react-native-gesture-handler";
-
-var Hexagram = null;
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 //pulled from data base
 var HexagramText = "";
@@ -77,15 +60,15 @@ var LowerTriMeaning = null;
 var HexagramName = "";
 var ChinaName = "";
 
-var line6 = Yin;
-var line5 = Yin;
-var line4 = Yin;
-var line3 = Yin;
-var line2 = Yin;
-var line1 = Yin;
+var line6; 
+var line5; 
+var line4; 
+var line3;
+var line2;
+var line1;
 
 function SearchScreen(props) {
-  const [hexName, setHex] = useState([
+  const hexList = [
     { name: "one", png: hexChar.one, id: '1', line1: 4, line2: 4, line3: 4, line4: 4, line5: 4, line6: 4 },
     { name: "two", png: hexChar.two, id: '2', line1: 3, line2: 3, line3: 3, line4: 3, line5: 3, line6: 3 },
     { name: "three", png: hexChar.three, id: "3", line1: 3, line2: 4, line3: 3, line4: 4, line5: 3, line6: 4 },
@@ -150,9 +133,7 @@ function SearchScreen(props) {
     { name: "sixtyTwo", png: hexChar.sixtyTwo, id: "62", line1: 3, line2: 3, line3: 4, line4: 4, line5: 3, line6: 3 },
     { name: "sixtyThree", png: hexChar.sixtyThree, id: "63", line1: 3, line2: 4, line3: 3, line4: 4, line5: 3, line6: 4 },
     { name: "sixtyFour", png: hexChar.sixtyFour, id: "64", line1: 4, line2: 3, line3: 4, line4: 3, line5: 4, line6: 3 }
-  ]);
-
-
+  ]
 
   //=====================Trigram Generator=====================
 
@@ -285,6 +266,10 @@ function SearchScreen(props) {
     props.navigation.navigate("HexagramScreen", { hexObj, lineObj })
   }
 
+  renderHeader = () => {
+    return <SearchBar placeholder="Type Here..." lightTheme round />;
+  };
+
   return (
     <ImageBackground
       source={require("../assets/background/backgroundGradient.png")}
@@ -296,16 +281,20 @@ function SearchScreen(props) {
         <View style={styles.item}>
           <FlatList
             style={styles.flatlist}
-            keyExtractor={(item) => item.id}
-            data={hexName}
+            keyExtractor={(item) => item.id + item.name}
+            data={hexList}
             renderItem={({ item }) => (
 
               <TouchableOpacity onPress={() => pressHandler(item)}>
-                <Image source={item.png} style={styles.hexChar} />
-                <Text>{item.name}</Text>
+                <ListItem 
+                  title={'${item.id} ${item.name}'}
+                  avatar={{ uri: item.png }}
+                />
               </TouchableOpacity>
 
             )}
+
+            ListHeaderComponent={this.renderHeader}
           />
         </View>
         <View style={styles.buttonContainer}>

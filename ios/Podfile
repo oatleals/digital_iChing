@@ -21,6 +21,8 @@ target 'IChing' do
 
   pod 'react-native-image-sequence', :path => '../node_modules/react-native-image-sequence'
 
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
   post_install do |installer|
     flipper_post_install(installer)
   end
