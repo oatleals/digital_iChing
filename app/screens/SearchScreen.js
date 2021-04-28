@@ -286,13 +286,13 @@ function SearchScreen(props) {
 
 const styles = StyleSheet.create({
   flatlist: {
+    flex: 1,
     paddingTop: 20
 
   },
 
   container: {
     paddingTop: 10,
-    flex: 0.8,
     alignItems: "center",
     justifyContent: "center",
   },
