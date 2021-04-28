@@ -273,7 +273,7 @@ function SearchScreen(props) {
         </View>
         <View style={styles.buttonContainer}>
           <IconButton
-            icon="home"
+            icon="arrow-left"
             color="#008b8b"
             size={50}
             onPress={() => props.navigation.navigate("Home")}

@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { SafeAreaView, ImageBackground, Button, Text, StyleSheet, Image, View, ScrollView } from "react-native";
 import { IconButton } from "react-native-paper";
-import AsyncStorage from '@react-native-community/async-storage';
-//import uuid from 'uuid/v4'
 
 //trigrams
 import chien_Heaven from '../assets/trigrams/chien_Heaven.jpg'
@@ -206,7 +204,7 @@ function AnalysisScreen(props) {
 
 
 
-        <IconButton icon="home" color="#008b8b" size={50} onPress={() => (props.navigation.navigate("Home"))} />
+        <IconButton icon="arrow-left" color="#008b8b" size={50} onPress={() => (props.navigation.navigate("Home"))} />
 
 
       </ImageBackground>

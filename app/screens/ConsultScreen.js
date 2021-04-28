@@ -3,6 +3,7 @@ import { View, Button, Alert, ImageBackground, StyleSheet, Text } from "react-na
 import { TextInput } from "react-native-gesture-handler";
 import { hexData } from '../assets/dictionary/HexagramDatabase'
 
+import { IconButton } from "react-native-paper";
 
 function ConsultScreen(props) {
 
@@ -22,7 +23,6 @@ function ConsultScreen(props) {
           fontFamily="futura-book"
           placeholder="Enter a question here"
           placeholderTextColor="white"
-          color="white"
           onChangeText={question => onChangeText(question)}
           onChangeTextColor="white"
           maxLength={20}
@@ -30,6 +30,10 @@ function ConsultScreen(props) {
         />
 
         <Button title="Throw coins" color="#008b8b" onPress={() => props.navigation.navigate("CoinFlip", value)} />
+
+        <IconButton icon="arrow-left" color="#008b8b" size={50} onPress={() => (props.navigation.navigate("Home"))} />
+
+
       </View>
     </ImageBackground>
   );

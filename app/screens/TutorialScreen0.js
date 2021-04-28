@@ -1,5 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
-import React, { useRef, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 import {
   StyleSheet, Text, Animated, View,
@@ -7,7 +6,6 @@ import {
   ScrollView, SafeAreaView,
   TouchableOpacity
 } from 'react-native';
-import { color } from 'react-native-reanimated';
 import { IconButton } from "react-native-paper";
 
 import tricolors from '../assets/trigrams/Asset_ColoredTrigrams.png' //trigram bar
@@ -242,15 +240,12 @@ function TutorialScreen(props) {
           padding: 5
         }}>
           <IconButton
-            icon="home"
+            icon="arrow-left"
             color="#008b8b"
             size={50}
             onPress={() => props.navigation.navigate("Home")}
           />
         </View>
-
-
-
 
         <View style={{ justifyContent: 'flex-end', paddingTop: 5 }}>
           <Image source={tricolors} style={{ height: 20, width: 390, paddingBottom: 10, paddingTop: 15 }} />
