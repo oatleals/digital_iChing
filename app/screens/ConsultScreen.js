@@ -1,26 +1,38 @@
-import React, {useState, useContext} from "react";
+import React, { useState, useContext } from "react";
 import { View, Button, Alert, ImageBackground, StyleSheet, Text } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
-//import {hexData} from '../assets/dictionary/HexagramDatabase'
+import { hexData } from '../assets/dictionary/HexagramDatabase'
 
+import { IconButton } from "react-native-paper";
 
 function ConsultScreen(props) {
 
   const [value, onChangeText] = useState()
+  const [bg, setbgImage] = useState(require('../assets/background/Opening.jpg'))
 
+  eventhandler = () => {
+
+  }
   return (
-    <ImageBackground source={require('../assets/background/backgroundGradient.png')} style={styles.image}>
+    <ImageBackground source={bg} style={styles.image}>
       <View style={styles.container}>
 
-        <Text style = {{fontFamily: 'futura-bold', fontSize: 30,textAlign: "center", alignContent: 'center'}}>What would you like to ask the I-Ching?</Text>
-            <TextInput style = {styles.input}
-            placeholder = "Enter a question here"
 
-            onChangeText={question => onChangeText(question)}
-            value = {value}
-          />
+        <Text style={{ color: "#e0ffff", fontFamily: 'futura-book', fontSize: 21, textAlign: "center", alignContent: 'center' }}>What would you like to ask the I Ching?</Text>
+        <TextInput style={styles.input}
+          placeholder="Enter a question here"
+          placeholderTextColor="white"
+          onChangeText={question => onChangeText(question)}
+          onChangeTextColor="white"
+          maxLength={20}
+          value={value}
+        />
 
-        <Button title="Throw coins" color = "#008b8b" onPress={() => props.navigation.navigate("CoinFlip", value)} />
+        <Button title="Throw coins" color="#008b8b" onPress={() => props.navigation.navigate("CoinFlip", value)} />
+
+        <IconButton icon="arrow-left" color="#008b8b" size={50} onPress={() => (props.navigation.navigate("Home"))} />
+
+
       </View>
     </ImageBackground>
   );
@@ -29,8 +41,8 @@ function ConsultScreen(props) {
 const styles = StyleSheet.create({
 
   container: {
-    flex: 1, 
-    alignItems: "center", 
+    flex: 1,
+    alignItems: "center",
     justifyContent: "center"
   },
   buttonContainer: {
@@ -44,8 +56,8 @@ const styles = StyleSheet.create({
   },
   input: {
     borderWidth: 1,
-    borderColor: '#777',
-    padding: 8,
+    borderColor: '#e0ffff',
+    padding: 10,
     margin: 10
   }
 });
