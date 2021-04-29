@@ -112,7 +112,7 @@ function App() {
       </NavigationContainer>
 
     )
-  } else {
+  } else if (!fontsLoaded) {
     return (
       <AppLoading
         startAsync={getFonts}
