@@ -251,26 +251,9 @@ function SearchScreen(props) {
   return (
     <ImageBackground
       source={require("../assets/background/backgroundGradient.png")}
-      style={styles.image}
-    >
+      style={styles.image}>
       <View style={styles.container}>
 
-
-        <View style={styles.item}>
-          <FlatList
-            style={styles.flatlist}
-            keyExtractor={(item) => item.id}
-            data={hexName}
-            renderItem={({ item }) => (
-
-              <TouchableOpacity onPress={() => pressHandler(item)}>
-                <Image source={item.png} style={styles.hexChar} />
-                <Text>{item.name}</Text>
-              </TouchableOpacity>
-
-            )}
-          />
-        </View>
         <View style={styles.buttonContainer}>
           <IconButton
             icon="arrow-left"
@@ -278,22 +261,58 @@ function SearchScreen(props) {
             size={50}
             onPress={() => props.navigation.navigate("Home")}
           />
+
+          <Text style={styles.textHeader}>Hexagrams</Text>
+
+
         </View>
+
+        <View style={styles.item}>
+
+
+          <FlatList
+            keyExtractor={(item) => item.id}
+            data={hexName}
+            renderItem={({ item }) => (
+
+              <TouchableOpacity onPress={() => pressHandler(item)}>
+                <View style={styles.flatList}>
+                  <Image source={item.png} style={styles.hexChar} />
+                  <Text style={styles.textStyle}>{item.name}</Text>
+                </View>
+
+              </TouchableOpacity>
+            )}
+          />
+        </View>
+
+
+
+
       </View>
     </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
-  flatlist: {
-    flex: 1,
-    paddingTop: 20
+
+  flatList: {
+    flex: 1, flexDirection: 'row', paddingVertical: 10, borderWidth: 1, borderColor: '#c8eae4', paddingLeft: 20
+  },
+
+  textHeader: {
+    padding: 10, paddingLeft: 40, paddingTop: 30, fontSize: 28, color: "black", fontFamily: 'futura-book'
+
+  },
+  textStyle: {
+    paddingTop: 10, paddingLeft: 10, fontSize: 20, color: "#c8eae4"
 
   },
 
   container: {
-    paddingTop: 10,
-    alignItems: "center",
+    paddingTop: 75,
+    flex: 1,
+    resizeMode: "contain",
     justifyContent: "center",
   },
   image: {
@@ -301,11 +320,11 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
     justifyContent: "center",
   },
+
+
   buttonContainer: {
-    padding: 20,
-    paddingBottom: 100,
-    alignItems: "center",
-    width: 150,
+    flexDirection: 'row',
+    width: 200,
   },
   hexChar: {
     paddingLeft: 5,
@@ -317,11 +336,10 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start"
   },
   item: {
-    width: 150,
-    marginTop: 24,
-    padding: 10,
+    marginVertical: 8,
+    marginHorizontal: 20,
     backgroundColor: '#008080',
-    fontSize: 20,
+    fontSize: 25,
     fontFamily: 'futura-book'
   }
 });

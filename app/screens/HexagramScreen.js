@@ -204,7 +204,7 @@ function AnalysisScreen(props) {
 
 
 
-        <IconButton icon="home" color="#008b8b" size={50} onPress={() => (props.navigation.navigate("Home"))} />
+        <IconButton icon="arrow-left" color="#008b8b" size={50} onPress={() => (props.navigation.navigate("Home"))} />
 
 
       </ImageBackground>
