@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { IconButton } from "react-native-paper";
-//import { SearchBar } from "react-native-elements";
+import { ListItem, SearchBar } from "react-native-elements";
+//import filter from 'lodash.filter';
 
 //Lines
 import Yang from "../assets/trigrams/Yang_Nine_Line.png"; //9
@@ -86,6 +87,7 @@ var line2 = Yin;
 var line1 = Yin;
 
 function SearchScreen(props) {
+
   const hexList = [
     { name: "one", png: hexChar.one, id: '1', line1: 4, line2: 4, line3: 4, line4: 4, line5: 4, line6: 4, display: "Ch'ien" },
     { name: "two", png: hexChar.two, id: '2', line1: 3, line2: 3, line3: 3, line4: 3, line5: 3, line6: 3, display: "K'un" },
@@ -152,8 +154,6 @@ function SearchScreen(props) {
     { name: "sixtyThree", png: hexChar.sixtyThree, id: "63", line1: 3, line2: 4, line3: 3, line4: 4, line5: 3, line6: 4, display: "Chi Chi" },
     { name: "sixtyFour", png: hexChar.sixtyFour, id: "64", line1: 4, line2: 3, line3: 4, line4: 3, line5: 4, line6: 3, display: "Wei Chi" }
   ]
-
-
 
   //=====================Trigram Generator=====================
 
@@ -291,14 +291,11 @@ function SearchScreen(props) {
           />
 
           <Text style={styles.textHeader}>Hexagrams</Text>
-
-
         </View>
 
+        <SearchBar placeholder="Type Here..." lightTheme round />
         <View style={styles.item}>
-
-
-          <FlatList
+        <FlatList
             keyExtractor={(item) => item.id}
             data={hexList}
             renderItem={({ item }) => (
@@ -311,12 +308,9 @@ function SearchScreen(props) {
 
               </TouchableOpacity>
             )}
+            
           />
         </View>
-
-
-
-
       </View>
     </ImageBackground>
   );
@@ -340,7 +334,7 @@ const styles = StyleSheet.create({
   container: {
     paddingTop: 75,
     flex: 1,
-    paddingBottom: 50,
+    paddingBottom: 75,
     resizeMode: "contain",
     justifyContent: "center",
   },

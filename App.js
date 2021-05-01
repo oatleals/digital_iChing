@@ -7,8 +7,8 @@ import { StyleSheet, View, Button, Image, ImageBackground, Text } from "react-na
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import { IconButton } from 'react-native-paper';
-import { Provider as PaperProvider } from 'react-native-paper';
+// import { IconButton } from 'react-native-paper';
+// import { Provider as PaperProvider } from 'react-native-paper';
 
 
 import TutorialScreen0 from './app/screens/TutorialScreen0';
