@@ -72,12 +72,12 @@ function HexagramScreen(props) {
     setUpperTriName(hexObj.UpperTriName)
     setUpperTriMeaning(hexObj.UpperTriMeaning)
 
-    setLine1(lineObj.line1)
-    setLine2(lineObj.line2)
-    setLine3(lineObj.line3)
-    setLine4(lineObj.line4)
-    setLine5(lineObj.line5)
-    setLine6(lineObj.line6)
+    setLine1(lineChanger(lineObj.line1))
+    setLine2(lineChanger(lineObj.line2))
+    setLine3(lineChanger(lineObj.line3))
+    setLine4(lineChanger(lineObj.line4))
+    setLine5(lineChanger(lineObj.line5))
+    setLine6(lineChanger(lineObj.line6))
 
     if (hexObj.trigramBg == "chien_Heaven")
       setTrigramBg(chien_Heaven)
@@ -104,6 +104,14 @@ function HexagramScreen(props) {
       }
     }
 
+  }
+
+  //distinguish if the line is yin or yang
+  const lineChanger = (line) => {
+    if(line == 4){
+      return Yang;
+    }
+    return Yin;
   }
 
   useEffect(() => {

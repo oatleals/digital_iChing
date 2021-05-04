@@ -39,7 +39,7 @@ import {
   StyleSheet,
   View,
   Text,
-  FlatList
+  FlatList,
 } from "react-native";
 
 //import { styles } from "../assets/styles/styles";
@@ -52,7 +52,10 @@ import h2t from "../assets/animations/CoinSpin/H2T.png";
 import t2h from "../assets/animations/CoinSpin/T2H.png";
 import t2t from "../assets/animations/CoinSpin/T2T.png";
 //import { styles } from "../assets/styles/styles";
-import { LongPressGestureHandler, TouchableOpacity } from "react-native-gesture-handler";
+import {
+  LongPressGestureHandler,
+  TouchableOpacity,
+} from "react-native-gesture-handler";
 
 var Hexagram = null;
 
@@ -77,7 +80,7 @@ var UpperTriMeaning = null;
 var LowerTriMeaning = null;
 var HexagramName = "";
 var ChinaName = "";
-var hexName = ""
+var hexName = "";
 
 var line6 = Yin;
 var line5 = Yin;
@@ -87,10 +90,8 @@ var line2 = Yin;
 var line1 = Yin;
 
 function SearchScreen(props) {
-
   const [data, setData] = useState([]);
-  const [fullData, setFullData] = useState([]);
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
 
   const hexList = [
     { name: "one", png: hexChar.one, id: "1", line1: 4, line2: 4, line3: 4, line4: 4, line5: 4, line6: 4, display: "1. Ch'ien" },
@@ -232,16 +233,13 @@ function SearchScreen(props) {
     return result;
   };
 
-
-
   const pressHandler = (item) => {
-
-    line1 = item.line1
-    line2 = item.line2
-    line3 = item.line3
-    line4 = item.line4
-    line5 = item.line5
-    line6 = item.line6
+    line1 = item.line1;
+    line2 = item.line2;
+    line3 = item.line3;
+    line4 = item.line4;
+    line5 = item.line5;
+    line6 = item.line6;
 
     genLowerTri;
     genUpperTri;
@@ -255,78 +253,69 @@ function SearchScreen(props) {
     genUpperTri += item.line5.toString();
     genUpperTri += item.line6.toString();
 
-    console.log("Trigram" + genLowerTri)
+    console.log("Trigram" + genLowerTri);
 
-    LowerTrigram = trigramGenerator(genLowerTri).png
-    LowerTriName = trigramGenerator(genLowerTri).name
-    LowerTriMeaning = trigramGenerator(genLowerTri).meaning
+    LowerTrigram = trigramGenerator(genLowerTri).png;
+    LowerTriName = trigramGenerator(genLowerTri).name;
+    LowerTriMeaning = trigramGenerator(genLowerTri).meaning;
 
-    UpperTrigram = trigramGenerator(genUpperTri).png
-    UpperTriName = trigramGenerator(genUpperTri).name
-    UpperTriMeaning = trigramGenerator(genUpperTri).meaning
+    UpperTrigram = trigramGenerator(genUpperTri).png;
+    UpperTriName = trigramGenerator(genUpperTri).name;
+    UpperTriMeaning = trigramGenerator(genUpperTri).meaning;
 
-    HexagramText = hexData[item.name].lines
-    HexagramIMG = hexData[item.name].image
-    HexagramJudgment = hexData[item.name].judgement
-    HexagramName = hexData[item.name].name
-    ChinaName = hexData[item.name].ChinaName
-    hexName = item.name
-    Hexagram = item.name
+    HexagramText = hexData[item.name].lines;
+    HexagramIMG = hexData[item.name].image;
+    HexagramJudgment = hexData[item.name].judgement;
+    HexagramName = hexData[item.name].name;
+    ChinaName = hexData[item.name].ChinaName;
+    hexName = item.name;
+    Hexagram = item.name;
 
-
-    var hexObj = { ChinaName, hexName, Hexagram, HexagramText, HexagramIMG, HexagramJudgment, trigramBg, UpperTriMeaning, UpperTriName, LowerTriMeaning, LowerTriName }
+    var hexObj = {
+      ChinaName,
+      hexName,
+      Hexagram,
+      HexagramText,
+      HexagramIMG,
+      HexagramJudgment,
+      trigramBg,
+      UpperTriMeaning,
+      UpperTriName,
+      LowerTriMeaning,
+      LowerTriName,
+    };
     var lineObj = { line1, line2, line3, line4, line5, line6 };
 
-    props.navigation.navigate("HexagramScreen", { hexObj, lineObj })
-  }
+    props.navigation.navigate("HexagramScreen", { hexObj, lineObj });
+  };
 
+
+  //Searchbar filter
   const searchFilter = (text) => {
-    newData = hexList.filter(item => {
-        const itemData = '${item.display.toUpperCase()}';
-        const textData = text.toUpperCase();
-      if(text.length > 0){
+    //take in the text and using the filter function to compare it to item's display data
+    newData = hexList.filter((item) => {
+      const itemData = item.display.toUpperCase();
+      const textData = text.toUpperCase();
+      if (text.length > 0) {
         return itemData.indexOf(textData) > -1;
       }
     });
 
-    // const textData = text.toUpperCase();
-    // newData = (fullData, item => {
-    //   const itemData = item.display.toUpperCase();
-    //   if(itemData.include(textData)){
-    //     return true;
-    //   }
-    //   return false;
-    // });
-
+    //return everything in the list that is there
     setData(newData);
     setQuery(text);
   };
 
-  const renderSearchBar = () => {
-    return (
-      <SearchBar 
-      placeholder="Search" 
-      lightTheme 
-      round 
-      onChangeText={text => searchFilter(text)}
-      autoCorrect={false}
-      value={query}
-      />
-    );
-  };
-
   useEffect(() => {
     setData(hexList);
-    setFullData(hexList);
-  })
+  }, []);
 
   return (
     <ImageBackground
       source={require("../assets/background/backgroundGradient.png")}
-      style={styles.image}>
-
+      style={styles.image}
+    >
       <View style={styles.container}>
-
         <View style={styles.buttonContainer}>
           <IconButton
             icon="arrow-left"
@@ -336,14 +325,22 @@ function SearchScreen(props) {
           />
 
           <Text style={styles.textHeader}>Hexagrams</Text>
-
         </View>
+
         <View style={styles.item}>
+          <SearchBar
+            placeholder="Search"
+            lightTheme
+            round
+            onChangeText={(text) => searchFilter(text)}
+            autoCorrect={false}
+            value={query}
+            onClear={() => setData(hexList)}
+          />
           <FlatList
             keyExtractor={(item) => item.id}
             data={data}
             renderItem={({ item }) => (
-
               <TouchableOpacity onPress={() => pressHandler(item)}>
                 <View style={styles.flatList}>
                   <Image source={item.png} style={styles.hexChar} />
@@ -351,7 +348,6 @@ function SearchScreen(props) {
                 </View>
               </TouchableOpacity>
             )}
-            ListHeaderComponent={renderSearchBar}
           />
         </View>
       </View>
@@ -360,23 +356,33 @@ function SearchScreen(props) {
 }
 
 const styles = StyleSheet.create({
-
   search: {
     paddingLeft: 20,
-    paddingRight: 20
+    paddingRight: 20,
   },
 
   flatList: {
-    flex: 1, flexDirection: 'row', paddingVertical: 10, borderWidth: 1, borderColor: '#c8eae4', paddingLeft: 20
+    flex: 1,
+    flexDirection: "row",
+    paddingVertical: 10,
+    borderWidth: 1,
+    borderColor: "#c8eae4",
+    paddingLeft: 20,
   },
 
   textHeader: {
-    padding: 10, paddingLeft: 40, paddingTop: 30, fontSize: 28, color: "black", fontFamily: 'futura-book'
-
+    padding: 10,
+    paddingLeft: 40,
+    paddingTop: 30,
+    fontSize: 28,
+    color: "black",
+    fontFamily: "futura-book",
   },
   textStyle: {
-    paddingTop: 10, paddingLeft: 10, fontSize: 20, color: "#c8eae4"
-
+    paddingTop: 10,
+    paddingLeft: 10,
+    fontSize: 20,
+    color: "#c8eae4",
   },
 
   container: {
@@ -392,7 +398,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   buttonContainer: {
-    flexDirection: 'row',
+    flexDirection: "row",
     width: 200,
   },
   hexChar: {
@@ -402,15 +408,15 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     resizeMode: "contain",
-    justifyContent: "flex-start"
+    justifyContent: "flex-start",
   },
   item: {
     marginVertical: 8,
     marginHorizontal: 20,
-    backgroundColor: '#008080',
+    backgroundColor: "#008080",
     fontSize: 25,
-    fontFamily: 'futura-book'
-  }
+    fontFamily: "futura-book",
+  },
 });
 
 export default SearchScreen;

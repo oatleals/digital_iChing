@@ -140,6 +140,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "flex-start"
   },
+  
   image: {
     flex: 1,
     resizeMode: "cover",
