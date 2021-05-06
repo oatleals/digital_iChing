@@ -11,174 +11,19 @@ import { IconButton } from "react-native-paper";
 import tricolors from '../assets/trigrams/Asset_ColoredTrigrams.png' //trigram bar
 import triHexRow from '../assets/trigrams/Bottom_hex_row.jpg' //trigram bar
 
-/*
-const Anime = (props) => {
-  const position = new Animated.ValueXY({ x: 0, y: 700 })
-  React.useEffect(() => {
-    Animated.timing(
-      position,
-      {
-        toValue: { x: -208, y: 0 },
-        duration: props.time,
-        useNativeDriver: true
-      }
-    ).start();
-  }, [position])
-
-  return (
-    <Animated.View
-      style={{
-        ...props.style,
-        transform: [
-          { translateX: position.x },
-          { translateY: position.y }
-        ],
-      }}
-    >
-      {props.children}
-    </Animated.View>
-  );
-}
-
-const FadeInView = (props) => {
-  const fadeAnim = useRef(new Animated.Value(0)).current
-  const shadow = useRef(new Animated.Value(0)).current
-
-  React.useEffect(() => {
-    Animated.sequence([
-      Animated.timing(
-        fadeAnim,
-        {
-          toValue: props.op,
-          duration: props.time,
-          useNativeDriver: true
-        }
-      ),
-      Animated.loop(
-        Animated.timing(
-          shadow,
-          {
-            toValue: props.sh,
-            duration: 1000,
-            useNativeDriver: true
-          }
-
-        )
-      )
-    ]).start();
-  }, [fadeAnim])
-  return (
-    <Animated.View
-      style={{
-        ...props.style,
-        opacity: fadeAnim,
-
-      }}
-    >
-      {props.children}
-    </Animated.View>
-  );
-}
-
-const FadeInOut = (props) => {
-  const fadeAnim = new Animated.Value(0) // Initial value for opacity: 0
-  React.useEffect(() => {
-    Animated.loop(
-      Animated.sequence([
-        Animated.timing(
-          fadeAnim,
-          {
-            toValue: 1,
-            duration: props.time,
-            useNativeDriver: true
-          }
-        ),
-        Animated.timing(
-          fadeAnim,
-          {
-            toValue: 0,
-            duration: props.time,
-            useNativeDriver: true
-          }
-        )
-      ])
-    ).start();
-  }, [fadeAnim])
-  return (
-    <Animated.View
-      style={{
-        ...props.style,
-        opacity: fadeAnim,
-      }}
-    >
-      {props.children}
-    </Animated.View>
-  );
-}
-*/
-
-/*
-<SafeAreaView style={styles.backBtn} >
-          <Button title="←" color = "#008080" onPress={() => props.navigation.navigate("Home")}/>
-      </SafeAreaView>
-        
-      <SafeAreaView style={styles.container}>
-          <Anime time='1000'>
-            <Image source = {require('../assets/Asset_Mountains_Moon1.png')} style={styles.mount}/>
-          </Anime>
-
-          <Anime time='1500'>
-            <Image source = {require('../assets/Asset_Mountains_Moon2.png')} style={styles.mount}/>
-          </Anime>
-
-          <Anime time='1200'>
-            <Image source = {require('../assets/Asset_Mountains_Moon3.png')} style={styles.mount}/>
-          </Anime>
-
-          <FadeInView time = '8000' op = '0.5' style={styles.bottom}>
-            
-            <TouchableOpacity onPress={() => props.navigation.navigate("Page1")}>
-              <Text style={styles.fwrdBtn}>→</Text>
-            </TouchableOpacity>
-            
-          </FadeInView>
-          <Button
-            title="→" 
-            onPress={() => props.navigation.navigate("Page1")}
-            style = {{flex: 1}}
-          />
-      </SafeAreaView>
-
-<FadeInOut time='1000' >
-      <SafeAreaView style={styles.wordsCont}>
-        <Text style={[{textShadowColor: 'white'}, {textShadowOffset: { width: 0, height: 0}},{textShadowRadius: 10}, styles.words]}>Undestanding</Text>
-        <Text style={[{textShadowColor: 'white'}, {textShadowOffset: { width: 0, height: 0}},{textShadowRadius: 10}, styles.words]}>the</Text>
-        <Text style={[{textShadowColor: 'white'}, {textShadowOffset: { width: 0, height: 0}},{textShadowRadius: 10}, styles.words]}>I-Ching</Text>
-      </SafeAreaView>
-</FadeInOut>
-
-<FadeInView time='1000' >
-
-      <SafeAreaView style={styles.wordsCont}>
-        <Text style={styles.words}>Undestanding</Text>
-        <Text style={styles.words}>the</Text>
-        <Text style={styles.words}>I-Ching</Text>
-        
-      </SafeAreaView>
-</FadeInView>
-*/
 
 function TutorialScreen(props) {
   return (
 
 
-    <SafeAreaView style={{ flex: 1, justifyContent: "center", alignItems: "center", fontFamily: 'futura-regular' }} >
-      <ImageBackground source={require('../assets/trigrams/chien_Heaven.jpg')} style={{
+
+    <ImageBackground source={require('../assets/trigrams/chien_Heaven.jpg')} style={{
         flex: 1,
         resizeMode: "cover",
         justifyContent: "center",
-
       }}>
+
+      <SafeAreaView style={{ flex: 1, justifyContent: "center", alignItems: "center", fontFamily: 'futura-regular' }} >
         <View style={{ paddingBottom: 10 }}>
           <Image source={tricolors} style={{ height: 20, width: 390, paddingBottom: 10, paddingTop: 15 }} />
         </View>
@@ -250,9 +95,8 @@ function TutorialScreen(props) {
         <View style={{ justifyContent: 'flex-end', paddingTop: 5 }}>
           <Image source={tricolors} style={{ height: 20, width: 390, paddingBottom: 10, paddingTop: 15 }} />
         </View>
-      </ImageBackground>
-    </SafeAreaView>
-
+      </SafeAreaView>
+    </ImageBackground>
 
 
   );

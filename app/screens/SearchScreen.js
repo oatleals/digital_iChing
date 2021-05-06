@@ -299,6 +299,10 @@ function SearchScreen(props) {
       if (text.length > 0) {
         return itemData.indexOf(textData) > -1;
       }
+
+      else {
+        return hexList;
+      }
     });
 
     //return everything in the list that is there
@@ -323,21 +327,32 @@ function SearchScreen(props) {
             size={50}
             onPress={() => props.navigation.navigate("Home")}
           />
-
-          <Text style={styles.textHeader}>Hexagrams</Text>
         </View>
+
+        <Text style={styles.textHeader}>Hexagrams</Text>
 
         <View style={styles.item}>
           <SearchBar
-            placeholder="Search"
+            style={{ zIndex: 1}} 
+            placeholder="Search For Hexagram"
             lightTheme
             round
             onChangeText={(text) => searchFilter(text)}
             autoCorrect={false}
             value={query}
             onClear={() => setData(hexList)}
+            containerStyle={{
+              marginBottom: 20,
+              width: "130%",
+              alignSelf: 'center',
+              backgroundColor: 'transparent',
+            }}
+            inputContainerStyle={{
+              backgroundColor: 'transparent',      
+            }}
           />
           <FlatList
+            style={{marginTop: -28}}
             keyExtractor={(item) => item.id}
             data={data}
             renderItem={({ item }) => (
@@ -356,10 +371,6 @@ function SearchScreen(props) {
 }
 
 const styles = StyleSheet.create({
-  search: {
-    paddingLeft: 20,
-    paddingRight: 20,
-  },
 
   flatList: {
     flex: 1,
@@ -368,12 +379,14 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#c8eae4",
     paddingLeft: 20,
+    borderRadius: 40, 
+    overflow: 'hidden',
+    backgroundColor: '#008080',
+    margin: 2,
   },
 
   textHeader: {
-    padding: 10,
-    paddingLeft: 40,
-    paddingTop: 30,
+    marginTop: -20,
     fontSize: 28,
     color: "black",
     fontFamily: "futura-book",
@@ -386,12 +399,13 @@ const styles = StyleSheet.create({
   },
 
   container: {
-    paddingTop: 75,
     flex: 1,
-    paddingBottom: 75,
+    paddingBottom: 20,
     resizeMode: "contain",
     justifyContent: "center",
+    alignItems: 'center',
   },
+
   image: {
     flex: 1,
     resizeMode: "cover",
@@ -399,8 +413,9 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flexDirection: "row",
-    width: 200,
+    alignSelf:'flex-start',
   },
+  
   hexChar: {
     paddingLeft: 5,
     paddingTop: 10,
@@ -412,10 +427,11 @@ const styles = StyleSheet.create({
   },
   item: {
     marginVertical: 8,
-    marginHorizontal: 20,
-    backgroundColor: "#008080",
     fontSize: 25,
     fontFamily: "futura-book",
+    height: '80%',
+    width: '80%',
+
   },
 });
 

@@ -6,8 +6,8 @@
     "orientation": "portrait",
     "icon": "./app/assets/logo/icon.png",
     "splash": {
-      "image": "./app/assets/logo/IchingKoiLogo.png",
-      "resizeMode": "contain",
+      "image": "./app/assets/spinningBG.gif",
+      "resizeMode": "cover",
       "backgroundColor": "#008080"
     },
     "updates": {
