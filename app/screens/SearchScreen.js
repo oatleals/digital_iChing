@@ -1,6 +1,7 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { IconButton } from "react-native-paper";
 import { SearchBar } from "react-native-elements";
+//import filter from 'lodash.filter';
 
 //Lines
 import Yang from "../assets/trigrams/Yang_Nine_Line.png"; //9
@@ -38,15 +39,23 @@ import {
   StyleSheet,
   View,
   Text,
-  FlatList
+  FlatList,
 } from "react-native";
 
 //import { styles } from "../assets/styles/styles";
 import { hexData } from "../assets/dictionary/HexagramDatabase";
 import { hexChar } from "../assets/hex/hex";
 
+//animations
+import h2h from "../assets/animations/CoinSpin/H2H.png";
+import h2t from "../assets/animations/CoinSpin/H2T.png";
+import t2h from "../assets/animations/CoinSpin/T2H.png";
+import t2t from "../assets/animations/CoinSpin/T2T.png";
 //import { styles } from "../assets/styles/styles";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import {
+  LongPressGestureHandler,
+  TouchableOpacity,
+} from "react-native-gesture-handler";
 
 var Hexagram = null;
 
@@ -69,7 +78,9 @@ var UpperTriName = null;
 var LowerTriName = null;
 var UpperTriMeaning = null;
 var LowerTriMeaning = null;
+var HexagramName = "";
 var ChinaName = "";
+var hexName = "";
 
 var line6 = Yin;
 var line5 = Yin;
@@ -79,70 +90,75 @@ var line2 = Yin;
 var line1 = Yin;
 
 function SearchScreen(props) {
-  const [hexName, setHex] = useState([
-    { name: "chienchien", png: hexChar.one, id: '1', line1: Yin, line2: Yin, line3: Yin, line4: Yin, line5: Yin, line6: Yin},
-    { name: "kunkun", png: hexChar.two, id: '2', line1: Yang, line2: Yang, line3: Yang, line4: Yang, line5: Yang, line6: Yang},
-    { name: "kanchen", png: hexChar.three, id: "3", line1: Yang, line2: Yin, line3: Yang, line4: Yang, line5: Yang, line6: Yin },
-    { name: "kenkan", png: hexChar.four, id: "4", line1: Yin, line2: Yang, line3: Yang, line4: Yang, line5: Yin, line6: Yang },
-    { name: "kanchien", png: hexChar.five, id: "5", line1: Yang, line2: Yin, line3: Yang, line4: Yin, line5: Yin, line6: Yin },
-    { name: "chienkan", png: hexChar.six, id: "6", line1: Yin, line2: Yin, line3: Yin, line4: Yang, line5: Yin, line6: Yang },
-    { name: "kunkan", png: hexChar.seven, id: "7", line1: Yang, line2: Yang, line3: Yang, line4: Yang, line5: Yin, line6: Yang },
-    { name: "kankun", png: hexChar.eight, id: "8", line1: Yang, line2: Yin, line3: Yang, line4: Yang, line5: Yang, line6: Yang },
-    { name: "sunchien", png: hexChar.nine, id: "9", line1: Yin, line2: Yin, line3: Yang, line4: Yin, line5: Yin, line6: Yin },
-    { name: "chiensun", png: hexChar.ten, id: "10", line1: Yin, line2: Yin, line3: Yin, line4: Yang, line5: Yin, line6: Yin },
-    { name: "kunchien", png: hexChar.eleven, id: "11", line1: Yang, line2: Yang, line3: Yang, line4: Yin, line5: Yin, line6: Yin },
-    { name: "chienkun", png: hexChar.twelve, id: "12", line1: Yin, line2: Yin, line3: Yin, line4: Yang, line5: Yang, line6: Yang },
-    { name: "chienli", png: hexChar.thirteen, id: "13", line1: Yin, line2: Yin, line3: Yin, line4: Yin, line5: Yang, line6: Yin },
-    { name: "lichien", png: hexChar.fourteen, id: "14", line1: Yin, line2: Yang, line3: Yin, line4: Yin, line5: Yin, line6: Yin },
-    { name: "kunken", png: hexChar.fifteen, id: "15", line1: Yang, line2: Yang, line3: Yang, line4: Yin, line5: Yang, line6: Yang },
-    { name: "chenkun", png: hexChar.sixteen, id: "16", line1: Yang, line2: Yang, line3: Yin, line4: Yang, line5: Yang, line6: Yang },
-    { name: "tuichen", png: hexChar.seventeen, id: "17", line1: Yang, line2: Yin, line3: Yin, line4: Yang, line5: Yang, line6: Yin },
-    { name: "kensun ", png: hexChar.eighteen, id: "18", line1: Yin, line2: Yang, line3: Yang, line4: Yin, line5: Yin, line6: Yang },
-    { name: "kuntui", png: hexChar.nineteen, id: "19", line1: Yang, line2: Yang, line3: Yang, line4: Yang, line5: Yin, line6: Yin },
-    { name: "sunkun", png: hexChar.twenty, id: "20", line1: Yin, line2: Yin, line3: Yang, line4: Yang, line5: Yang, line6: Yang },
-    { name: "lichen", png: hexChar.twentyOne, id: "21", line1: Yin, line2: Yang, line3: Yin, line4: Yang, line5: Yang, line6: Yin },
-    { name: "kenli", png: hexChar.twentyTwo, id: "22", line1: Yin, line2: Yang, line3: Yang, line4: Yin, line5: Yang, line6: Yin },
-    { name: "kenkun", png: hexChar.twentyThree, id: "23", line1: Yin, line2: Yang, line3: Yang, line4: Yang, line5: Yang, line6: Yang },
-    { name: "kunchen", png: hexChar.twentyFour, id: "24", line1: Yang, line2: Yang, line3: Yang, line4: Yang, line5: Yang, line6: Yin },
-    { name: "chienchen", png: hexChar.twentyFive, id: "25", line1: Yin, line2: Yin, line3: Yin, line4: Yang, line5: Yang, line6: Yin },
-    { name: "kenchien", png: hexChar.twentySix, id: "26", line1: Yin, line2: Yang, line3: Yang, line4: Yin, line5: Yin, line6: Yin },
-    { name: "kenchen",  png: hexChar.twentySeven, id: "27", line1: Yin, line2: Yang, line3: Yang, line4: Yang, line5: Yang, line6: Yin },
-  ]);
+  const [data, setData] = useState([]);
+  const [query, setQuery] = useState("");
 
-  const [hexCharacter, setHexCharacter] =  useState()
-  const [hexagramState, setHexagram] = useState();
-
-    //=====================Hexagram Generator=====================
-
-  const hexagramGenerator = (hex) => {
-    let result = hexChar.one; //placeholder
-    let resultText = "";
-    let resultTextIMG = "";
-    let resultTextJudgement = "";
-
-    for (var item in hexData) {
-      //search the hexagram dictionary
-      if (hex == hexData[item].id) {
-        console.log("Match!");
-        result = item;
-        resultText = hexData[item].lines;
-        resultTextIMG = hexData[item].image;
-        resultTextJudgement = hexData[item].judgement;
-        hexName = hexData[item].name;
-        ChinaName = hexData[item].ChinaName;
-
-        break;
-      }
-    }
-    console.log("Your result was " + result);
-
-    Hexagram = result; //assign hexagram
-    HexagramText = resultText; //assign global text
-    HexagramIMG = resultTextIMG;
-    HexagramJudgment = resultTextJudgement;
-
-    return result;
-  };
+  const hexList = [
+    { name: "one", png: hexChar.one, id: "1", line1: 4, line2: 4, line3: 4, line4: 4, line5: 4, line6: 4, display: "1. Ch'ien" },
+    { name: "two", png: hexChar.two, id: "2", line1: 3, line2: 3, line3: 3, line4: 3, line5: 3, line6: 3, display: "2. K'un" },
+    { name: "three", png: hexChar.three, id: "3", line1: 3, line2: 4, line3: 3, line4: 4, line5: 3, line6: 4, display: "3. Chun" },
+    { name: "four", png: hexChar.four, id: "4", line1: 4, line2: 3, line3: 3, line4: 3, line5: 4, line6: 3, display: "4. Meng" },
+    { name: "five", png: hexChar.five, id: "5", line1: 3, line2: 4, line3: 3, line4: 4, line5: 4, line6: 4, display: "5. Chun" },
+    { name: "six", png: hexChar.six, id: "6", line1: 4, line2: 4, line3: 4, line4: 3, line5: 4, line6: 3, display: "6. Sung" },
+    { name: "seven", png: hexChar.seven, id: "7", line1: 3, line2: 3, line3: 3, line4: 3, line5: 4, line6: 3, display: "7. Shih" },
+    { name: "eight", png: hexChar.eight, id: "8", line1: 3, line2: 4, line3: 3, line4: 3, line5: 3, line6: 3, display: "8. Pi" },
+    { name: "nine", png: hexChar.nine, id: "9", line1: 4, line2: 4, line3: 3, line4: 4, line5: 4, line6: 4, display: "9. Hsiao Ch'u" },
+    { name: "ten", png: hexChar.ten, id: "10", line1: 4, line2: 4, line3: 4, line4: 3, line5: 4, line6: 4, display: "10. Lu" },
+    { name: "eleven", png: hexChar.eleven, id: "11", line1: 3, line2: 3, line3: 3, line4: 4, line5: 4, line6: 4, display: "11. T'ai" },
+    { name: "twelve", png: hexChar.twelve, id: "12", line1: 4, line2: 4, line3: 4, line4: 3, line5: 3, line6: 3, display: "12. P'i" },
+    { name: "thirteen", png: hexChar.thirteen, id: "13", line1: 4, line2: 4, line3: 4, line4: 4, line5: 3, line6: 4, display: "13. T'ung Jen" },
+    { name: "fourteen", png: hexChar.fourteen, id: "14", line1: 4, line2: 3, line3: 3, line4: 4, line5: 4, line6: 4, display: "14. Ta Yu" },
+    { name: "fifteen", png: hexChar.fifteen, id: "15", line1: 3, line2: 3, line3: 3, line4: 4, line5: 3, line6: 3, display: "15. Ch'ien" },
+    { name: "sixteen", png: hexChar.sixteen, id: "16", line1: 3, line2: 3, line3: 4, line4: 3, line5: 3, line6: 3, display: "16. Yu" },
+    { name: "seventeen", png: hexChar.seventeen, id: "17", line1: 3, line2: 4, line3: 4, line4: 3, line5: 3, line6: 4, display: "17. Sui" },
+    { name: "eighteen ", png: hexChar.eighteen, id: "18", line1: 4, line2: 3, line3: 3, line4: 4, line5: 4, line6: 3, display: "18. Ku" },
+    { name: "nineteen", png: hexChar.nineteen, id: "19", line1: 3, line2: 3, line3: 3, line4: 3, line5: 4, line6: 4, display: "19. Lin" },
+    { name: "twenty", png: hexChar.twenty, id: "20", line1: 4, line2: 4, line3: 3, line4: 3, line5: 3, line6: 3, display: "20. Kuan" },
+    { name: "twentyOne", png: hexChar.twentyOne, id: "21", line1: 4, line2: 3, line3: 4, line4: 3, line5: 3, line6: 4, display: "21. Shih Ho" },
+    { name: "twentyTwo", png: hexChar.twentyTwo, id: "22", line1: 4, line2: 3, line3: 3, line4: 4, line5: 3, line6: 4, display: "22. Pi" },
+    { name: "twentyThree", png: hexChar.twentyThree, id: "23", line1: 4, line2: 3, line3: 3, line4: 3, line5: 3, line6: 3, display: "23. Po" },
+    { name: "twentyFour", png: hexChar.twentyFour, id: "24", line1: 3, line2: 3, line3: 3, line4: 3, line5: 3, line6: 4, display: "24. Fu" },
+    { name: "twentyFive", png: hexChar.twentyFive, id: "25", line1: 4, line2: 4, line3: 4, line4: 3, line5: 3, line6: 4, display: "25. Wu Wang" },
+    { name: "twentySix", png: hexChar.twentySix, id: "26", line1: 4, line2: 3, line3: 3, line4: 4, line5: 4, line6: 4, display: "26. Ta Ch'u" },
+    { name: "twentySeven", png: hexChar.twentySeven, id: "27", line1: 4, line2: 3, line3: 3, line4: 3, line5: 3, line6: 4, display: "27. I" },
+    { name: "twentyEight", png: hexChar.twentyEight, id: "28", line1: 3, line2: 4, line3: 4, line4: 4, line5: 4, line6: 3, display: "28. Ta Kuo" },
+    { name: "twentyNine", png: hexChar.twentyNine, id: "29", line1: 3, line2: 4, line3: 3, line4: 3, line5: 4, line6: 3, display: "29. K'an" },
+    { name: "thirty", png: hexChar.thirty, id: "30", line1: 4, line2: 3, line3: 4, line4: 4, line5: 3, line6: 4, display: "30. Li" },
+    { name: "thirtyOne", png: hexChar.thirtyOne, id: "31", line1: 3, line2: 4, line3: 4, line4: 4, line5: 3, line6: 3, display: "31. Hsien" },
+    { name: "thirtyTwo", png: hexChar.thirtyTwo, id: "32", line1: 3, line2: 3, line3: 4, line4: 4, line5: 4, line6: 3, display: "32. Heng" },
+    { name: "thirtyThree", png: hexChar.thirtyThree, id: "33", line1: 4, line2: 4, line3: 4, line4: 4, line5: 3, line6: 3, display: "33. Tun" },
+    { name: "thirtyFour", png: hexChar.thirtyFour, id: "34", line1: 3, line2: 3, line3: 4, line4: 4, line5: 4, line6: 4, display: "34. Ta Chuang" },
+    { name: "thirtyFive", png: hexChar.thirtyFive, id: "35", line1: 4, line2: 3, line3: 4, line4: 3, line5: 3, line6: 3, display: "35. Chin" },
+    { name: "thirtySix", png: hexChar.thirtySix, id: "36", line1: 3, line2: 3, line3: 3, line4: 4, line5: 3, line6: 4, display: "36. Ming I" },
+    { name: "thirtySeven", png: hexChar.thirtySeven, id: "37", line1: 4, line2: 4, line3: 3, line4: 4, line5: 3, line6: 4, display: "37. Chia Jen" },
+    { name: "thirtyEight", png: hexChar.thirtyEight, id: "38", line1: 4, line2: 3, line3: 4, line4: 3, line5: 4, line6: 4, display: "38. K'uei" },
+    { name: "thirtyNine", png: hexChar.thirtyNine, id: "39", line1: 3, line2: 4, line3: 3, line4: 4, line5: 3, line6: 3, display: "39. Chien" },
+    { name: "forty", png: hexChar.forty, id: "40", line1: 3, line2: 3, line3: 4, line4: 3, line5: 4, line6: 3, display: "40. Hsieh" },
+    { name: "fortyOne", png: hexChar.fortyOne, id: "41", line1: 4, line2: 3, line3: 3, line4: 3, line5: 4, line6: 4, display: "41. Sun" },
+    { name: "fortyTwo", png: hexChar.fortyTwo, id: "42", line1: 4, line2: 4, line3: 3, line4: 3, line5: 3, line6: 4, display: "42. Kuai" },
+    { name: "fortyThree", png: hexChar.fortyThree, id: "43", line1: 3, line2: 4, line3: 4, line4: 4, line5: 4, line6: 4, display: "43. Kuai" },
+    { name: "fortyFour", png: hexChar.fortyFour, id: "44", line1: 4, line2: 4, line3: 4, line4: 4, line5: 4, line6: 3, display: "44. Kou" },
+    { name: "fortyFive", png: hexChar.fortyFive, id: "45", line1: 3, line2: 4, line3: 4, line4: 3, line5: 3, line6: 3, display: "45. Ts'ui" },
+    { name: "fortySix", png: hexChar.fortySix, id: "46", line1: 3, line2: 3, line3: 3, line4: 4, line5: 4, line6: 3, display: "46. Sheng" },
+    { name: "fortySeven", png: hexChar.fortySeven, id: "47", line1: 3, line2: 4, line3: 4, line4: 3, line5: 4, line6: 3, display: "47. K'un" },
+    { name: "fortyEight", png: hexChar.fortyEight, id: "48", line1: 3, line2: 4, line3: 3, line4: 4, line5: 4, line6: 3, display: "48. Ching" },
+    { name: "fortyNine", png: hexChar.fortyNine, id: "49", line1: 3, line2: 4, line3: 4, line4: 4, line5: 3, line6: 4, display: "49. Ko" },
+    { name: "fifty", png: hexChar.fifty, id: "50", line1: 4, line2: 3, line3: 4, line4: 4, line5: 4, line6: 3, display: "50. Ting" },
+    { name: "fiftyOne", png: hexChar.fiftyOne, id: "51", line1: 3, line2: 3, line3: 4, line4: 3, line5: 3, line6: 4, display: "51. Chen" },
+    { name: "fiftyTwo", png: hexChar.fiftyTwo, id: "52", line1: 4, line2: 3, line3: 3, line4: 4, line5: 3, line6: 3, display: "52. Ken" },
+    { name: "fiftyThree", png: hexChar.fiftyThree, id: "53", line1: 4, line2: 4, line3: 3, line4: 4, line5: 3, line6: 3, display: "53. Chien" },
+    { name: "fiftyFour", png: hexChar.fiftyFour, id: "54", line1: 3, line2: 3, line3: 4, line4: 3, line5: 4, line6: 4, display: "54. Kuei Mei" },
+    { name: "fiftyFive", png: hexChar.fiftyFive, id: "55", line1: 3, line2: 3, line3: 4, line4: 4, line5: 3, line6: 4, display: "55. Feng" },
+    { name: "fiftySix", png: hexChar.fiftySix, id: "56", line1: 4, line2: 3, line3: 4, line4: 4, line5: 3, line6: 3, display: "56. Lu" },
+    { name: "fiftySeven", png: hexChar.fiftySeven, id: "57", line1: 4, line2: 4, line3: 3, line4: 4, line5: 4, line6: 3, display: "57. Sun" },
+    { name: "fiftyEight", png: hexChar.fiftyEight, id: "58", line1: 3, line2: 4, line3: 4, line4: 3, line5: 4, line6: 4, display: "58. Tui" },
+    { name: "fiftyNine", png: hexChar.fiftyNine, id: "59", line1: 4, line2: 4, line3: 3, line4: 3, line5: 4, line6: 3, display: "59. Huan" },
+    { name: "sixty", png: hexChar.sixty, id: "60", line1: 3, line2: 4, line3: 3, line4: 3, line5: 4, line6: 4, display: "60. Chieh" },
+    { name: "sixtyOne", png: hexChar.sixtyOne, id: "61", line1: 4, line2: 4, line3: 3, line4: 3, line5: 4, line6: 4, display: "61. Chung Fu" },
+    { name: "sixtyTwo", png: hexChar.sixtyTwo, id: "62", line1: 3, line2: 3, line3: 4, line4: 4, line5: 3, line6: 3, display: "62. Hsiao Kuo" },
+    { name: "sixtyThree", png: hexChar.sixtyThree, id: "63", line1: 3, line2: 4, line3: 3, line4: 4, line5: 3, line6: 4, display: "63. Chi Chi" },
+    { name: "sixtyFour", png: hexChar.sixtyFour, id: "64", line1: 4, line2: 3, line3: 4, line4: 3, line5: 4, line6: 3, display: "64. Wei Chi" }
+  ]
 
   //=====================Trigram Generator=====================
 
@@ -217,40 +233,27 @@ function SearchScreen(props) {
     return result;
   };
 
-  var hexObj = {
-    ChinaName,
-    hexName,
-    Hexagram,
-    HexagramText,
-    HexagramIMG,
-    HexagramJudgment,
-    trigramBg,
-    UpperTriMeaning,
-    UpperTriName,
-    LowerTriMeaning,
-    LowerTriName,
-  };
-  var lineObj = { line1, line2, line3, line4, line5, line6 };
-
-  const create = (item) => {
-    line1 = item.line1
-    line2 = item.line2
-    line3 = item.line3
-    line4 = item.line4
-    line5 = item.line5
-    line6 = item.line6
+  const pressHandler = (item) => {
+    line1 = item.line1;
+    line2 = item.line2;
+    line3 = item.line3;
+    line4 = item.line4;
+    line5 = item.line5;
+    line6 = item.line6;
 
     genLowerTri;
     genUpperTri;
     genHex;
 
-    console.log(item.id);
     genLowerTri += item.line1.toString();
     genLowerTri += item.line2.toString();
     genLowerTri += item.line3.toString();
+
     genUpperTri += item.line4.toString();
     genUpperTri += item.line5.toString();
     genUpperTri += item.line6.toString();
+
+    console.log("Trigram" + genLowerTri);
 
     LowerTrigram = trigramGenerator(genLowerTri).png;
     LowerTriName = trigramGenerator(genLowerTri).name;
@@ -260,60 +263,159 @@ function SearchScreen(props) {
     UpperTriName = trigramGenerator(genUpperTri).name;
     UpperTriMeaning = trigramGenerator(genUpperTri).meaning;
 
-    setHexagram(hexagramGenerator(genHex.concat(genLowerTri + genUpperTri)));
-  }
+    HexagramText = hexData[item.name].lines;
+    HexagramIMG = hexData[item.name].image;
+    HexagramJudgment = hexData[item.name].judgement;
+    HexagramName = hexData[item.name].name;
+    ChinaName = hexData[item.name].ChinaName;
+    hexName = item.name;
+    Hexagram = item.name;
 
-  const pressHandler = (item) => {
-    create(item);
-    props.navigation.navigate("Hexagram", { hexObj, lineObj })
-  }
+    var hexObj = {
+      ChinaName,
+      hexName,
+      Hexagram,
+      HexagramText,
+      HexagramIMG,
+      HexagramJudgment,
+      trigramBg,
+      UpperTriMeaning,
+      UpperTriName,
+      LowerTriMeaning,
+      LowerTriName,
+    };
+    var lineObj = { line1, line2, line3, line4, line5, line6 };
+
+    props.navigation.navigate("HexagramScreen", { hexObj, lineObj });
+  };
+
+
+  //Searchbar filter
+  const searchFilter = (text) => {
+    //take in the text and using the filter function to compare it to item's display data
+    newData = hexList.filter((item) => {
+      const itemData = item.display.toUpperCase();
+      const textData = text.toUpperCase();
+      if (text.length > 0) {
+        return itemData.indexOf(textData) > -1;
+      }
+
+      else {
+        return hexList;
+      }
+    });
+
+    //return everything in the list that is there
+    setData(newData);
+    setQuery(text);
+  };
+
+  useEffect(() => {
+    setData(hexList);
+  }, []);
+
   return (
     <ImageBackground
       source={require("../assets/background/backgroundGradient.png")}
       style={styles.image}
     >
       <View style={styles.container}>
-      <View style={styles.item}>
-        <FlatList
-          keyExtractor={(item) => item.id}
-          data={hexName}
-          renderItem={({ item }) => (
-            <TouchableOpacity onPress={() => pressHandler(item)}>
-              <Image source = {hexCharacter} style = {styles.hexChar} /> 
-              <Text>{item.name}</Text>
-            </TouchableOpacity>
-          )}
-        />
-      </View>
-      <View style={styles.buttonContainer}>
-        <IconButton
-          icon="home"
-          color="#008b8b"
-          onPress={() => props.navigation.navigate("Home")}
-        />
-      </View>
+        <View style={styles.buttonContainer}>
+          <IconButton
+            icon="arrow-left"
+            color="#008b8b"
+            size={50}
+            onPress={() => props.navigation.navigate("Home")}
+          />
+        </View>
+
+        <Text style={styles.textHeader}>Hexagrams</Text>
+
+        <View style={styles.item}>
+          <SearchBar
+            style={{ zIndex: 1}} 
+            placeholder="Search For Hexagram"
+            lightTheme
+            round
+            onChangeText={(text) => searchFilter(text)}
+            autoCorrect={false}
+            value={query}
+            onClear={() => setData(hexList)}
+            containerStyle={{
+              marginBottom: 20,
+              width: "130%",
+              alignSelf: 'center',
+              backgroundColor: 'transparent',
+            }}
+            inputContainerStyle={{
+              backgroundColor: 'transparent',      
+            }}
+          />
+          <FlatList
+            style={{marginTop: -28}}
+            keyExtractor={(item) => item.id}
+            data={data}
+            renderItem={({ item }) => (
+              <TouchableOpacity onPress={() => pressHandler(item)}>
+                <View style={styles.flatList}>
+                  <Image source={item.png} style={styles.hexChar} />
+                  <Text style={styles.textStyle}>{item.display}</Text>
+                </View>
+              </TouchableOpacity>
+            )}
+          />
+        </View>
       </View>
     </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
+
+  flatList: {
+    flex: 1,
+    flexDirection: "row",
+    paddingVertical: 10,
+    borderWidth: 1,
+    borderColor: "#c8eae4",
+    paddingLeft: 20,
+    borderRadius: 40, 
+    overflow: 'hidden',
+    backgroundColor: '#008080',
+    margin: 2,
+  },
+
+  textHeader: {
+    marginTop: -20,
+    fontSize: 28,
+    color: "black",
+    fontFamily: "futura-book",
+  },
+  textStyle: {
+    paddingTop: 10,
+    paddingLeft: 10,
+    fontSize: 20,
+    color: "#c8eae4",
+  },
+
   container: {
     flex: 1,
-    paddingTop: 10,
-    alignItems: "center",
+    paddingBottom: 20,
+    resizeMode: "contain",
     justifyContent: "center",
+    alignItems: 'center',
   },
+
   image: {
     flex: 1,
     resizeMode: "cover",
     justifyContent: "center",
   },
   buttonContainer: {
-    padding: 20,
-    alignItems: "center",
-    width: 100,
+    flexDirection: "row",
+    alignSelf:'flex-start',
   },
+  
   hexChar: {
     paddingLeft: 5,
     paddingTop: 10,
@@ -321,15 +423,16 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     resizeMode: "contain",
-    justifyContent: "flex-start"
+    justifyContent: "flex-start",
   },
   item: {
-    marginTop: 24,
-    padding: 10,
-    backgroundColor: '#008080',
-    fontSize: 20,
-    fontFamily: 'futura-regular'
-  }
+    marginVertical: 8,
+    fontSize: 25,
+    fontFamily: "futura-book",
+    height: '80%',
+    width: '80%',
+
+  },
 });
 
 export default SearchScreen;
