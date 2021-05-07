@@ -20,13 +20,13 @@ function ConsultScreen(props) {
 
         <Text style={{ color: "#e0ffff", fontFamily: 'futura-book', fontSize: 21, textAlign: "center", alignContent: 'center' }}>What would you like to ask the I Ching?</Text>
         <TextInput style={styles.input}
-          fontFamily="futura-book"
           placeholder="Enter a question here"
           placeholderTextColor="white"
           onChangeText={question => onChangeText(question)}
           onChangeTextColor="white"
-          maxLength={20}
+          maxLength={100}
           value={value}
+          multiline={true}
         />
 
         <Button title="Throw coins" color="#008b8b" onPress={() => props.navigation.navigate("CoinFlip", value)} />

@@ -342,17 +342,25 @@ function SearchScreen(props) {
             value={query}
             onClear={() => setData(hexList)}
             containerStyle={{
-              marginBottom: 20,
-              width: "130%",
+              marginBottom: 2,
+              padding: 0,
+              width: "100%",
               alignSelf: 'center',
               backgroundColor: 'transparent',
+              borderWidth: 1,
+              borderBottomWidth: 1,
+              borderTopWidth: 1,
+              borderTopColor: '#e0ffff',
+              borderBottomColor: '#e0ffff',
+              borderColor: '#e0ffff',
             }}
             inputContainerStyle={{
               backgroundColor: 'transparent',      
             }}
           />
+
           <FlatList
-            style={{marginTop: -28}}
+            style={{marginTop: 30}}
             keyExtractor={(item) => item.id}
             data={data}
             renderItem={({ item }) => (
@@ -375,27 +383,31 @@ const styles = StyleSheet.create({
   flatList: {
     flex: 1,
     flexDirection: "row",
-    paddingVertical: 10,
-    borderWidth: 1,
-    borderColor: "#c8eae4",
+    paddingVertical: 5,
+    borderTopWidth: 0.5,
+    padding: 50,
+    borderColor: "#e0ffff",
     paddingLeft: 20,
-    borderRadius: 40, 
+    borderRadius: 0, 
     overflow: 'hidden',
-    backgroundColor: '#008080',
+    backgroundColor: 'transparent',
     margin: 2,
   },
 
   textHeader: {
     marginTop: -20,
     fontSize: 28,
-    color: "black",
+    color: "#008b8b",
     fontFamily: "futura-book",
   },
+
   textStyle: {
     paddingTop: 10,
     paddingLeft: 10,
     fontSize: 20,
-    color: "#c8eae4",
+    color: "#504a3c",
+    textShadowColor: '#e0ffff',
+    textShadowRadius: 1,
   },
 
   container: {
@@ -411,6 +423,7 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
     justifyContent: "center",
   },
+  
   buttonContainer: {
     flexDirection: "row",
     alignSelf:'flex-start',
@@ -425,13 +438,13 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
     justifyContent: "flex-start",
   },
+
   item: {
     marginVertical: 8,
     fontSize: 25,
     fontFamily: "futura-book",
     height: '80%',
-    width: '80%',
-
+    width: '90%',
   },
 });
 

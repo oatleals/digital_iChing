@@ -62,7 +62,7 @@ export const hexChar = {
     sixtyOne : require('../hex/61.png'),
     sixtyTwo : require('../hex/62.png'),
     sixtyThree : require('../hex/63.png'),
-    SixtyFour : require('../hex/64.png')
+    sixtyFour : require('../hex/64.png')
 
 }
      

@@ -141,8 +141,8 @@ function AnalysisScreen(props) {
   return (
 
 
-    <SafeAreaView style={{ flex: 1, justifyContent: "center", alignItems: "center", fontFamily: 'futura-regular' }}>
-      <ImageBackground source={trigramBg} style={styles.backgroundImage}>
+    <ImageBackground source={trigramBg} style={styles.backgroundImage}>
+      <SafeAreaView style={{ flex: 1, justifyContent: "center", alignItems: "center", fontFamily: 'futura-regular' }}>
 
 
 
@@ -206,11 +206,10 @@ function AnalysisScreen(props) {
 
         <IconButton icon="arrow-left" color="#008b8b" size={50} onPress={() => (props.navigation.navigate("Home"))} />
 
-
-      </ImageBackground>
       <Image source={triHexRow} style={{ height: 30, width: 400, paddingBottom: 10, paddingTop: 10 }} />
 
-    </SafeAreaView>
+      </SafeAreaView>
+    </ImageBackground>
 
 
 
