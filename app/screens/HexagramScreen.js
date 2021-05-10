@@ -151,8 +151,6 @@ function AnalysisScreen(props) {
 
           <Image source={hexCharacter} style={styles.hexChar} />
           <Text style={styles.questionTitle}> {question} </Text>
-
-
         </View>
 
         <Image source={tricolors} style={{ height: 20, width: 390, paddingBottom: 10, paddingTop: 15 }} />
@@ -204,7 +202,7 @@ function AnalysisScreen(props) {
 
 
 
-        <IconButton icon="arrow-left" color="#008b8b" size={50} onPress={() => (props.navigation.navigate("Home"))} />
+        <IconButton icon="arrow-left" color="#008b8b" size={50} onPress={() => (props.navigation.navigate("Library"))} />
 
 
       </ImageBackground>

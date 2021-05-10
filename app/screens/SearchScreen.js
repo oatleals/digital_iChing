@@ -251,8 +251,6 @@ function SearchScreen(props) {
     genUpperTri += item.line5.toString();
     genUpperTri += item.line6.toString();
 
-    console.log("Trigram" + genLowerTri)
-
     LowerTrigram = trigramGenerator(genLowerTri).png
     LowerTriName = trigramGenerator(genLowerTri).name
     LowerTriMeaning = trigramGenerator(genLowerTri).meaning
@@ -286,7 +284,7 @@ function SearchScreen(props) {
     props.navigation.navigate("HexagramScreen", { hexObj, lineObj })
   }
 
-  var initalElements = [
+  var initHex = [
     { name: "one", png: hexChar.one, id: '1', line1: 4, line2: 4, line3: 4, line4: 4, line5: 4, line6: 4 },
     { name: "two", png: hexChar.two, id: '2', line1: 3, line2: 3, line3: 3, line4: 3, line5: 3, line6: 3 },
     { name: "three", png: hexChar.three, id: "3", line1: 3, line2: 4, line3: 3, line4: 4, line5: 3, line6: 4 },
@@ -300,8 +298,7 @@ function SearchScreen(props) {
   ]
 
   const addHex = () => {
-    console.log("Adding more hexagrams")
-    var newArray = [...initialElements, { name: "eleven", png: hexChar.eleven, id: "11", line1: 3, line2: 3, line3: 3, line4: 4, line5: 4, line6: 4 },
+    var newArray = [...initHex, { name: "eleven", png: hexChar.eleven, id: "11", line1: 3, line2: 3, line3: 3, line4: 4, line5: 4, line6: 4 },
     { name: "twelve", png: hexChar.twelve, id: "12", line1: 4, line2: 4, line3: 4, line4: 3, line5: 3, line6: 3 },
     { name: "thirteen", png: hexChar.thirteen, id: "13", line1: 4, line2: 4, line3: 4, line4: 4, line5: 3, line6: 4 },
     { name: "fourteen", png: hexChar.fourteen, id: "14", line1: 4, line2: 3, line3: 3, line4: 4, line5: 4, line6: 4 },
@@ -359,7 +356,7 @@ function SearchScreen(props) {
     setHexState(newArray);
   }
 
-  const [hexState, setHexState] = useState(initalElements); //To show ur remaining Text
+  const [hexState, setHexState] = useState(initHex); //To show ur remaining Text
 
 
   return (
@@ -375,10 +372,7 @@ function SearchScreen(props) {
             size={50}
             onPress={() => props.navigation.navigate("Home")}
           />
-
           <Text style={styles.textHeader}>Hexagrams</Text>
-
-
         </View>
 
         <View style={styles.item}>
@@ -395,11 +389,8 @@ function SearchScreen(props) {
               </TouchableOpacity>
             )}
           />
-          <Button color="#008b8b" title="View more" onPress={() => { addHex }} />
-
-
+          <Button color="#008b8b" title="View more" onPress={addHex} />
         </View>
-
 
       </View>
     </ImageBackground>
@@ -413,7 +404,7 @@ const styles = StyleSheet.create({
   },
 
   textHeader: {
-    padding: 10, paddingLeft: 40, paddingTop: 30, fontSize: 28, color: "black", fontFamily: 'futura-book'
+    padding: 5, paddingLeft: 40, paddingTop: 30, fontSize: 28, color: "black", fontFamily: 'futura-book'
 
   },
   textStyle: {
@@ -422,7 +413,6 @@ const styles = StyleSheet.create({
   },
 
   container: {
-    paddingTop: 5,
     flex: 0.8,
     resizeMode: "contain",
     justifyContent: "center",
