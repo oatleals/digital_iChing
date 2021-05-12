@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { SafeAreaView, ImageBackground, Button, Text, StyleSheet, Image, View, ScrollView } from "react-native";
+import { SafeAreaView, ImageBackground, Text, StyleSheet, Image, View, ScrollView } from "react-native";
 import { IconButton } from "react-native-paper";
 
 //trigrams
@@ -19,28 +19,21 @@ import triHexRow from '../assets/trigrams/Bottom_hex_row.jpg' //trigram bar
 import Yang from '../assets/trigrams/Yang_Nine_Line.png' //9
 import Yin from '../assets/trigrams/Yin_Six_Line.png' //6
 
-
 function HexagramScreen(props) {
-
-
   //create the hexagram text
-
   const [hexagram, setHexagram] = useState()
   const [hexagramLines, setHexagramLines] = useState()
   const [hexagramIMG, setHexagramIMG] = useState()
   const [hexagramJudgement, setHexagramJudgement] = useState()
-  const [chinaHexagram, setChinaHexagram] = useState("1. Creativity")
-
-
+  const [chinaHexagram, setChinaHexagram] = useState()
 
   //generate Trigram texts and meaning
-  const [LowerTriName, setLowerTriName] = useState('Chien')
-  const [LowerTriMeaning, setLowerTriMeaning] = useState('heaven')
-  const [UpperTriMeaning, setUpperTriMeaning] = useState('heaven')
-  const [UpperTriName, setUpperTriName] = useState('Chien')
+  const [LowerTriName, setLowerTriName] = useState()
+  const [LowerTriMeaning, setLowerTriMeaning] = useState()
+  const [UpperTriMeaning, setUpperTriMeaning] = useState()
+  const [UpperTriName, setUpperTriName] = useState()
   //background generated from the trigrams
-  const [trigramBg, setTrigramBg] = useState(chien_Heaven)
-
+  const [trigramBg, setTrigramBg] = useState()
 
   //character png at the top
   const [hexCharacter, setHexCharacter] = useState()
@@ -59,7 +52,6 @@ function HexagramScreen(props) {
   var { lineObj } = props.route.params
 
   const eventHandler = () => {
-
     setHexagram(hexObj.hexName)
     setHexagramLines(hexObj.HexagramText)
     setHexagramIMG(hexObj.HexagramIMG)
@@ -91,7 +83,7 @@ function HexagramScreen(props) {
       setTrigramBg(ken_Mountain)
     else if (hexObj.trigramBg == "li_Fire")
       setTrigramBg(li_Fire)
-    else if (hexObj.trigramBg == "sun_wind")
+    else if (hexObj.trigramBg == "sun_Wind")
       setTrigramBg(sun_Wind)
     else if (hexObj.trigramBg == "tui_Lake")
       setTrigramBg(tui_Lake)
@@ -100,15 +92,13 @@ function HexagramScreen(props) {
     for (var item in hexChar) { //search the hexagram dictionary
       if (hexObj.Hexagram == item) {
         setHexCharacter(hexChar[item])
-
       }
     }
-
   }
 
   //distinguish if the line is yin or yang
   const lineChanger = (line) => {
-    if(line == 4){
+    if(line == 3){
       return Yang;
     }
     return Yin;
@@ -119,27 +109,14 @@ function HexagramScreen(props) {
   }, [])
 
   return (
-
     <ImageBackground source={trigramBg} style={styles.backgroundImage}>
       <SafeAreaView style={{ flex: 1, justifyContent: "center", alignItems: "center", fontFamily: 'futura-regular' }}>
-
-
-
-
         <View style={{ paddingTop: 30, paddingBottom: 10, flexDirection: "row" }}>
-
           <Image source={hexCharacter} style={styles.hexChar} />
-
-
         </View>
-
         <Image source={tricolors} style={{ height: 20, width: 390, paddingBottom: 10, paddingTop: 15 }} />
-
-
         <View style={{ flex: 0.5, flexDirection: 'row', paddingHorizontal: 25, paddingTop: 30 }}>
           <View style={{ flex: 1, alignItems: "flex-start" }}>
-
-
             <Text style={{ color: "#000000", fontFamily: 'futura-book', fontSize: 15 }}>{' ' + chinaHexagram + ' - ' + hexagram + '  -  ' + UpperTriMeaning}</Text>
             <Text style={{ color: "#000000", fontFamily: 'futura-book', fontSize: 15 }}> {'Above:  ' + UpperTriName + '  -  ' + UpperTriMeaning}</Text>
             <Text style={{ color: "#000000", fontFamily: 'futura-book', fontSize: 15 }}> {'Below:  ' + LowerTriName + '  -  ' + LowerTriMeaning}</Text>
@@ -179,22 +156,12 @@ function HexagramScreen(props) {
             </Text>
           </ScrollView>
         </View>
-
-
-
         <IconButton icon="arrow-left" color="#008b8b" size={50} onPress={() => (props.navigation.navigate("Library"))} />
-
       <Image source={triHexRow} style={{ height: 30, width: 400, paddingBottom: 10, paddingTop: 10 }} />
-
-    </SafeAreaView>
-
-     </ImageBackground>
+      </SafeAreaView>
+    </ImageBackground>
   )
 }
-
-// <Button style={styles.buttonContainer} title="Save to Journal" color="#00ced1" onPress={
-//  () => (saveData(hexagram,question,hexagramLines), alert("Saved hex: " + hexagram + " to Journal"))} />
-
 
 const styles = StyleSheet.create({
   container: {
@@ -229,7 +196,6 @@ const styles = StyleSheet.create({
     fontFamily: 'futura-book',
     fontSize: 15,
     paddingTop: 10
-
   },
   hexText: {
     flex: 1,
@@ -256,7 +222,6 @@ const styles = StyleSheet.create({
     height: 40,
     resizeMode: "contain",
   },
-
   Header: {
     fontSize: 20,
     fontFamily: 'futura-bold',
@@ -264,7 +229,6 @@ const styles = StyleSheet.create({
     marginTop: 1,
     color: "#e0ffff"
   },
-
   buttonContainer: {
     justifyContent: 'center',
     alignSelf: 'center',
@@ -277,6 +241,5 @@ const styles = StyleSheet.create({
     height: 10,
   }
 })
-
 
 export default HexagramScreen

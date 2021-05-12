@@ -1,7 +1,6 @@
-import React, { useState, useContext } from "react";
-import { View, Button, Alert, ImageBackground, StyleSheet, Text } from "react-native";
+import React, { useState } from "react";
+import { View, Button, ImageBackground, StyleSheet, Text } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
-import { hexData } from '../assets/dictionary/HexagramDatabase'
 
 import { IconButton } from "react-native-paper";
 

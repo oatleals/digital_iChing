@@ -21,27 +21,23 @@ import Yin from '../assets/trigrams/Yin_Six_Line.png' //6
 
 
 function AnalysisScreen(props) {
-
-
   //create the hexagram text
-
   const [hexagram, setHexagram] = useState()
   const [hexagramLines, setHexagramLines] = useState()
   const [hexagramIMG, setHexagramIMG] = useState()
   const [hexagramJudgement, setHexagramJudgement] = useState()
-  const [chinaHexagram, setChinaHexagram] = useState("1. Creativity")
+  const [chinaHexagram, setChinaHexagram] = useState()
 
   const [question, setQuestion] = useState()
 
-
   //generate Trigram texts and meaning
-  const [LowerTriName, setLowerTriName] = useState('Chien')
-  const [LowerTriMeaning, setLowerTriMeaning] = useState('heaven')
-  const [UpperTriMeaning, setUpperTriMeaning] = useState('heaven')
-  const [UpperTriName, setUpperTriName] = useState('Chien')
-  //background generated from the trigrams
-  const [trigramBg, setTrigramBg] = useState(chien_Heaven)
+  const [LowerTriName, setLowerTriName] = useState()
+  const [LowerTriMeaning, setLowerTriMeaning] = useState()
+  const [UpperTriMeaning, setUpperTriMeaning] = useState()
+  const [UpperTriName, setUpperTriName] = useState()
 
+  //background generated from the trigrams
+  const [trigramBg, setTrigramBg] = useState()
 
   //character png at the top
   const [hexCharacter, setHexCharacter] = useState()
@@ -56,37 +52,10 @@ function AnalysisScreen(props) {
 
   const outcomes = [Yin, Yang]
 
-  /*const saveData = async (hexagram, question, hexagramLines) => {
-    try {
-
-      let id = Math.floor(Math.random() * 1000000)
-
-      let hexData = { hexagram, question, hexagramLines, id }
-      let hexArray = []
-
-      let storedData = await AsyncStorage.getItem('hexList')
-      if (storedData !== null) {
-        hexArray = JSON.parse(storedData)
-      }
-
-      hexArray.push(hexData)
-
-      await AsyncStorage.setItem('hexList', JSON.stringify(hexArray))
-
-
-      console.log("Saving hexagram to journal")
-
-    } catch (error) {
-      console.log(error)
-    }
-  }
-  */
-
   var { hexObj } = props.route.params
   var { lineObj } = props.route.params
 
   const eventHandler = () => {
-
     setHexagram(hexObj.hexName)
     setQuestion(hexObj.question)
     setHexagramLines(hexObj.HexagramText)
@@ -119,7 +88,7 @@ function AnalysisScreen(props) {
       setTrigramBg(ken_Mountain)
     else if (hexObj.trigramBg == "li_Fire")
       setTrigramBg(li_Fire)
-    else if (hexObj.trigramBg == "sun_wind")
+    else if (hexObj.trigramBg == "sun_Wind")
       setTrigramBg(sun_Wind)
     else if (hexObj.trigramBg == "tui_Lake")
       setTrigramBg(tui_Lake)
@@ -139,29 +108,15 @@ function AnalysisScreen(props) {
   }, [])
 
   return (
-
-
     <ImageBackground source={trigramBg} style={styles.backgroundImage}>
       <SafeAreaView style={{ flex: 1, justifyContent: "center", alignItems: "center", fontFamily: 'futura-regular' }}>
-
-
-
-
         <View style={{ paddingTop: 30, paddingBottom: 10, flexDirection: "row" }}>
-
           <Image source={hexCharacter} style={styles.hexChar} />
           <Text style={styles.questionTitle}> {question} </Text>
-
-
         </View>
-
         <Image source={tricolors} style={{ height: 20, width: 390, paddingBottom: 10, paddingTop: 15 }} />
-
-
         <View style={{ flex: 0.5, flexDirection: 'row', paddingHorizontal: 25, paddingTop: 30 }}>
           <View style={{ flex: 1, alignItems: "flex-start" }}>
-
-
             <Text style={{ color: "#000000", fontFamily: 'futura-book', fontSize: 15 }}>{' ' + chinaHexagram + ' - ' + hexagram + '  -  ' + UpperTriMeaning}</Text>
             <Text style={{ color: "#000000", fontFamily: 'futura-book', fontSize: 15 }}> {'Above:  ' + UpperTriName + '  -  ' + UpperTriMeaning}</Text>
             <Text style={{ color: "#000000", fontFamily: 'futura-book', fontSize: 15 }}> {'Below:  ' + LowerTriName + '  -  ' + LowerTriMeaning}</Text>
@@ -201,25 +156,12 @@ function AnalysisScreen(props) {
             </Text>
           </ScrollView>
         </View>
-
-
-
         <IconButton icon="arrow-left" color="#008b8b" size={50} onPress={() => (props.navigation.navigate("Home"))} />
-
       <Image source={triHexRow} style={{ height: 30, width: 400, paddingBottom: 10, paddingTop: 10 }} />
-
       </SafeAreaView>
     </ImageBackground>
-
-
-
-
   )
 }
-
-// <Button style={styles.buttonContainer} title="Save to Journal" color="#00ced1" onPress={
-//  () => (saveData(hexagram,question,hexagramLines), alert("Saved hex: " + hexagram + " to Journal"))} />
-
 
 const styles = StyleSheet.create({
   container: {
@@ -254,7 +196,6 @@ const styles = StyleSheet.create({
     fontFamily: 'futura-book',
     fontSize: 15,
     paddingTop: 10
-
   },
   hexText: {
     flex: 1,
@@ -281,7 +222,6 @@ const styles = StyleSheet.create({
     height: 40,
     resizeMode: "contain",
   },
-
   Header: {
     fontSize: 20,
     fontFamily: 'futura-bold',
@@ -289,7 +229,6 @@ const styles = StyleSheet.create({
     marginTop: 1,
     color: "#e0ffff"
   },
-
   buttonContainer: {
     justifyContent: 'center',
     alignSelf: 'center',
@@ -302,6 +241,5 @@ const styles = StyleSheet.create({
     height: 10,
   }
 })
-
 
 export default AnalysisScreen

@@ -1,15 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import {
-  StyleSheet, Text, Animated, View,
-  Image, ImageBackground, Button,
-  ScrollView, SafeAreaView,
-  TouchableOpacity
+  StyleSheet, Text, View,
+  Image, ImageBackground, Button, SafeAreaView
 } from 'react-native';
 import { IconButton } from "react-native-paper";
 
 import tricolors from '../assets/trigrams/Asset_ColoredTrigrams.png' //trigram bar
-import triHexRow from '../assets/trigrams/Bottom_hex_row.jpg' //trigram bar
 
 
 function TutorialScreen(props) {

@@ -1,15 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { IconButton } from "react-native-paper";
 import { SearchBar } from "react-native-elements";
-//import filter from 'lodash.filter';
-
-//Lines
-import Yang from "../assets/trigrams/Yang_Nine_Line.png"; //9
-import Yin from "../assets/trigrams/Yin_Six_Line.png"; //6
-
-//coins
-import Yang_heads from "../assets/coins/Yang_heads.png";
-import Yin_tails from "../assets/coins/Yin_Tails.png";
 
 //trigrams pictures
 import Chien from "../assets/trigrams/chien.png";
@@ -21,141 +12,122 @@ import Li from "../assets/trigrams/Li.png";
 import Sun from "../assets/trigrams/Sun.png";
 import Tui from "../assets/trigrams/Tui.png";
 
-//bg for trigrams
-import chien_Heaven from "../assets/trigrams/chien_Heaven.jpg";
-import chen_Thunder from "../assets/trigrams/chen_Thunder.jpg";
-import kan_Water from "../assets/trigrams/Kan_Water.jpg";
-import ken_Mountain from "../assets/trigrams/Ken_Mountain.jpg";
-import kun_Earth from "../assets/trigrams/Kun_Earth.jpg";
-import li_Fire from "../assets/trigrams/Li_Fire.jpg";
-import sun_Wind from "../assets/trigrams/Sun_Wind.jpg";
-import tui_Lake from "../assets/trigrams/Tui_Lake.jpg";
-
 import {
   Image,
   ImageBackground,
-  SafeAreaView,
-  Button,
   StyleSheet,
   View,
   Text,
   FlatList,
 } from "react-native";
 
-//import { styles } from "../assets/styles/styles";
 import { hexData } from "../assets/dictionary/HexagramDatabase";
 import { hexChar } from "../assets/hex/hex";
 
-//animations
-import h2h from "../assets/animations/CoinSpin/H2H.png";
-import h2t from "../assets/animations/CoinSpin/H2T.png";
-import t2h from "../assets/animations/CoinSpin/T2H.png";
-import t2t from "../assets/animations/CoinSpin/T2T.png";
-//import { styles } from "../assets/styles/styles";
 import {
-  LongPressGestureHandler,
-  TouchableOpacity,
+  TouchableOpacity
 } from "react-native-gesture-handler";
 
-var Hexagram = null;
+var newData
+var Hexagram
 
 //pulled from data base
-var HexagramText = "";
-var HexagramIMG = "";
-var HexagramJudgment = "";
+var HexagramText
+var HexagramIMG
+var HexagramJudgment
 
-var UpperTrigram = null;
-var LowerTrigram = null;
+var UpperTrigram
+var LowerTrigram
 
-var genHex = "";
-var genLowerTri = "";
-var genUpperTri = "";
+var genHex
+var genLowerTri
+var genUpperTri
 
-var trigramBg = chien_Heaven;
+var trigramBg;
 
 //Pull the labels out of Trigram database
-var UpperTriName = null;
-var LowerTriName = null;
-var UpperTriMeaning = null;
-var LowerTriMeaning = null;
-var HexagramName = "";
-var ChinaName = "";
-var hexName = "";
+var UpperTriName
+var LowerTriName
+var UpperTriMeaning
+var LowerTriMeaning
+var HexagramName
+var ChinaName
+var hexName
 
-var line6 = Yin;
-var line5 = Yin;
-var line4 = Yin;
-var line3 = Yin;
-var line2 = Yin;
-var line1 = Yin;
+var line6
+var line5
+var line4
+var line3
+var line2
+var line1
 
 function SearchScreen(props) {
   const [data, setData] = useState([]);
   const [query, setQuery] = useState("");
 
   const hexList = [
-    { name: "one", png: hexChar.one, id: "1", line1: 4, line2: 4, line3: 4, line4: 4, line5: 4, line6: 4, display: "1. Ch'ien" },
-    { name: "two", png: hexChar.two, id: "2", line1: 3, line2: 3, line3: 3, line4: 3, line5: 3, line6: 3, display: "2. K'un" },
-    { name: "three", png: hexChar.three, id: "3", line1: 3, line2: 4, line3: 3, line4: 4, line5: 3, line6: 4, display: "3. Chun" },
-    { name: "four", png: hexChar.four, id: "4", line1: 4, line2: 3, line3: 3, line4: 3, line5: 4, line6: 3, display: "4. Meng" },
-    { name: "five", png: hexChar.five, id: "5", line1: 3, line2: 4, line3: 3, line4: 4, line5: 4, line6: 4, display: "5. Chun" },
-    { name: "six", png: hexChar.six, id: "6", line1: 4, line2: 4, line3: 4, line4: 3, line5: 4, line6: 3, display: "6. Sung" },
-    { name: "seven", png: hexChar.seven, id: "7", line1: 3, line2: 3, line3: 3, line4: 3, line5: 4, line6: 3, display: "7. Shih" },
-    { name: "eight", png: hexChar.eight, id: "8", line1: 3, line2: 4, line3: 3, line4: 3, line5: 3, line6: 3, display: "8. Pi" },
-    { name: "nine", png: hexChar.nine, id: "9", line1: 4, line2: 4, line3: 3, line4: 4, line5: 4, line6: 4, display: "9. Hsiao Ch'u" },
-    { name: "ten", png: hexChar.ten, id: "10", line1: 4, line2: 4, line3: 4, line4: 3, line5: 4, line6: 4, display: "10. Lu" },
+    { name: "one", png: hexChar.one, id: "1", line1: 3, line2: 3, line3: 3, line4: 3, line5: 3, line6: 3, display: "1. Ch'ien" },
+    { name: "two", png: hexChar.two, id: "2", line1: 4, line2: 4, line3: 4, line4: 4, line5: 4, line6: 4, display: "2. K'un" },
+    { name: "three", png: hexChar.three, id: "3", line1: 3, line2: 4, line3: 4, line4: 4, line5: 3, line6: 4, display: "3. Chun" },
+    { name: "four", png: hexChar.four, id: "4", line1: 4, line2: 3, line3: 4, line4: 4, line5: 4, line6: 3, display: "4. Meng" },
+    { name: "five", png: hexChar.five, id: "5", line1: 3, line2: 3, line3: 3, line4: 4, line5: 3, line6: 4, display: "5. Chun" },
+    { name: "six", png: hexChar.six, id: "6", line1: 4, line2: 3, line3: 4, line4: 3, line5: 3, line6: 3, display: "6. Sung" },
+    { name: "seven", png: hexChar.seven, id: "7", line1: 4, line2: 3, line3: 4, line4: 4, line5: 4, line6: 4, display: "7. Shih" },
+    { name: "eight", png: hexChar.eight, id: "8", line1: 4, line2: 4, line3: 4, line4: 4, line5: 3, line6: 4, display: "8. Pi" },
+    { name: "nine", png: hexChar.nine, id: "9", line1: 3, line2: 3, line3: 3, line4: 4, line5: 3, line6: 3, display: "9. Hsiao Ch'u" },
+    { name: "ten", png: hexChar.ten, id: "10", line1: 3, line2: 3, line3: 4, line4: 3, line5: 3, line6: 3, display: "10. Lu" },
     { name: "eleven", png: hexChar.eleven, id: "11", line1: 3, line2: 3, line3: 3, line4: 4, line5: 4, line6: 4, display: "11. T'ai" },
     { name: "twelve", png: hexChar.twelve, id: "12", line1: 4, line2: 4, line3: 4, line4: 3, line5: 3, line6: 3, display: "12. P'i" },
-    { name: "thirteen", png: hexChar.thirteen, id: "13", line1: 4, line2: 4, line3: 4, line4: 4, line5: 3, line6: 4, display: "13. T'ung Jen" },
-    { name: "fourteen", png: hexChar.fourteen, id: "14", line1: 4, line2: 3, line3: 3, line4: 4, line5: 4, line6: 4, display: "14. Ta Yu" },
-    { name: "fifteen", png: hexChar.fifteen, id: "15", line1: 3, line2: 3, line3: 3, line4: 4, line5: 3, line6: 3, display: "15. Ch'ien" },
-    { name: "sixteen", png: hexChar.sixteen, id: "16", line1: 3, line2: 3, line3: 4, line4: 3, line5: 3, line6: 3, display: "16. Yu" },
+    { name: "thirteen", png: hexChar.thirteen, id: "13", line1: 3, line2: 4, line3: 3, line4: 3, line5: 3, line6: 3, display: "13. T'ung Jen" },
+    { name: "fourteen", png: hexChar.fourteen, id: "14", line1: 3, line2: 3, line3: 3, line4: 3, line5: 4, line6: 3, display: "14. Ta Yu" },
+    { name: "fifteen", png: hexChar.fifteen, id: "15", line1: 4, line2: 4, line3: 3, line4: 4, line5: 4, line6: 4, display: "15. Ch'ien" },
+    { name: "sixteen", png: hexChar.sixteen, id: "16", line1: 4, line2: 4, line3: 4, line4: 3, line5: 4, line6: 4, display: "16. Yu" },
     { name: "seventeen", png: hexChar.seventeen, id: "17", line1: 3, line2: 4, line3: 4, line4: 3, line5: 3, line6: 4, display: "17. Sui" },
-    { name: "eighteen ", png: hexChar.eighteen, id: "18", line1: 4, line2: 3, line3: 3, line4: 4, line5: 4, line6: 3, display: "18. Ku" },
-    { name: "nineteen", png: hexChar.nineteen, id: "19", line1: 3, line2: 3, line3: 3, line4: 3, line5: 4, line6: 4, display: "19. Lin" },
-    { name: "twenty", png: hexChar.twenty, id: "20", line1: 4, line2: 4, line3: 3, line4: 3, line5: 3, line6: 3, display: "20. Kuan" },
-    { name: "twentyOne", png: hexChar.twentyOne, id: "21", line1: 4, line2: 3, line3: 4, line4: 3, line5: 3, line6: 4, display: "21. Shih Ho" },
-    { name: "twentyTwo", png: hexChar.twentyTwo, id: "22", line1: 4, line2: 3, line3: 3, line4: 4, line5: 3, line6: 4, display: "22. Pi" },
-    { name: "twentyThree", png: hexChar.twentyThree, id: "23", line1: 4, line2: 3, line3: 3, line4: 3, line5: 3, line6: 3, display: "23. Po" },
-    { name: "twentyFour", png: hexChar.twentyFour, id: "24", line1: 3, line2: 3, line3: 3, line4: 3, line5: 3, line6: 4, display: "24. Fu" },
-    { name: "twentyFive", png: hexChar.twentyFive, id: "25", line1: 4, line2: 4, line3: 4, line4: 3, line5: 3, line6: 4, display: "25. Wu Wang" },
-    { name: "twentySix", png: hexChar.twentySix, id: "26", line1: 4, line2: 3, line3: 3, line4: 4, line5: 4, line6: 4, display: "26. Ta Ch'u" },
-    { name: "twentySeven", png: hexChar.twentySeven, id: "27", line1: 4, line2: 3, line3: 3, line4: 3, line5: 3, line6: 4, display: "27. I" },
-    { name: "twentyEight", png: hexChar.twentyEight, id: "28", line1: 3, line2: 4, line3: 4, line4: 4, line5: 4, line6: 3, display: "28. Ta Kuo" },
-    { name: "twentyNine", png: hexChar.twentyNine, id: "29", line1: 3, line2: 4, line3: 3, line4: 3, line5: 4, line6: 3, display: "29. K'an" },
-    { name: "thirty", png: hexChar.thirty, id: "30", line1: 4, line2: 3, line3: 4, line4: 4, line5: 3, line6: 4, display: "30. Li" },
-    { name: "thirtyOne", png: hexChar.thirtyOne, id: "31", line1: 3, line2: 4, line3: 4, line4: 4, line5: 3, line6: 3, display: "31. Hsien" },
-    { name: "thirtyTwo", png: hexChar.thirtyTwo, id: "32", line1: 3, line2: 3, line3: 4, line4: 4, line5: 4, line6: 3, display: "32. Heng" },
-    { name: "thirtyThree", png: hexChar.thirtyThree, id: "33", line1: 4, line2: 4, line3: 4, line4: 4, line5: 3, line6: 3, display: "33. Tun" },
-    { name: "thirtyFour", png: hexChar.thirtyFour, id: "34", line1: 3, line2: 3, line3: 4, line4: 4, line5: 4, line6: 4, display: "34. Ta Chuang" },
-    { name: "thirtyFive", png: hexChar.thirtyFive, id: "35", line1: 4, line2: 3, line3: 4, line4: 3, line5: 3, line6: 3, display: "35. Chin" },
-    { name: "thirtySix", png: hexChar.thirtySix, id: "36", line1: 3, line2: 3, line3: 3, line4: 4, line5: 3, line6: 4, display: "36. Ming I" },
-    { name: "thirtySeven", png: hexChar.thirtySeven, id: "37", line1: 4, line2: 4, line3: 3, line4: 4, line5: 3, line6: 4, display: "37. Chia Jen" },
-    { name: "thirtyEight", png: hexChar.thirtyEight, id: "38", line1: 4, line2: 3, line3: 4, line4: 3, line5: 4, line6: 4, display: "38. K'uei" },
-    { name: "thirtyNine", png: hexChar.thirtyNine, id: "39", line1: 3, line2: 4, line3: 3, line4: 4, line5: 3, line6: 3, display: "39. Chien" },
-    { name: "forty", png: hexChar.forty, id: "40", line1: 3, line2: 3, line3: 4, line4: 3, line5: 4, line6: 3, display: "40. Hsieh" },
-    { name: "fortyOne", png: hexChar.fortyOne, id: "41", line1: 4, line2: 3, line3: 3, line4: 3, line5: 4, line6: 4, display: "41. Sun" },
-    { name: "fortyTwo", png: hexChar.fortyTwo, id: "42", line1: 4, line2: 4, line3: 3, line4: 3, line5: 3, line6: 4, display: "42. Kuai" },
-    { name: "fortyThree", png: hexChar.fortyThree, id: "43", line1: 3, line2: 4, line3: 4, line4: 4, line5: 4, line6: 4, display: "43. Kuai" },
-    { name: "fortyFour", png: hexChar.fortyFour, id: "44", line1: 4, line2: 4, line3: 4, line4: 4, line5: 4, line6: 3, display: "44. Kou" },
-    { name: "fortyFive", png: hexChar.fortyFive, id: "45", line1: 3, line2: 4, line3: 4, line4: 3, line5: 3, line6: 3, display: "45. Ts'ui" },
-    { name: "fortySix", png: hexChar.fortySix, id: "46", line1: 3, line2: 3, line3: 3, line4: 4, line5: 4, line6: 3, display: "46. Sheng" },
-    { name: "fortySeven", png: hexChar.fortySeven, id: "47", line1: 3, line2: 4, line3: 4, line4: 3, line5: 4, line6: 3, display: "47. K'un" },
-    { name: "fortyEight", png: hexChar.fortyEight, id: "48", line1: 3, line2: 4, line3: 3, line4: 4, line5: 4, line6: 3, display: "48. Ching" },
-    { name: "fortyNine", png: hexChar.fortyNine, id: "49", line1: 3, line2: 4, line3: 4, line4: 4, line5: 3, line6: 4, display: "49. Ko" },
-    { name: "fifty", png: hexChar.fifty, id: "50", line1: 4, line2: 3, line3: 4, line4: 4, line5: 4, line6: 3, display: "50. Ting" },
-    { name: "fiftyOne", png: hexChar.fiftyOne, id: "51", line1: 3, line2: 3, line3: 4, line4: 3, line5: 3, line6: 4, display: "51. Chen" },
-    { name: "fiftyTwo", png: hexChar.fiftyTwo, id: "52", line1: 4, line2: 3, line3: 3, line4: 4, line5: 3, line6: 3, display: "52. Ken" },
+    { name: "eighteen", png: hexChar.eighteen, id: "18", line1: 4, line2: 3, line3: 3, line4: 4, line5: 4, line6: 3, display: "18. Ku" },
+    { name: "nineteen", png: hexChar.nineteen, id: "19", line1: 3, line2: 3, line3: 4, line4: 4, line5: 4, line6: 4, display: "19. Lin" },
+    { name: "twenty", png: hexChar.twenty, id: "20", line1: 4, line2: 4, line3: 4, line4: 4, line5: 3, line6: 3, display: "20. Kuan" },
+    { name: "twentyOne", png: hexChar.twentyOne, id: "21", line1: 3, line2: 4, line3: 4, line4: 3, line5: 4, line6: 3, display: "21. Shih Ho" },
+    { name: "twentyTwo", png: hexChar.twentyTwo, id: "22", line1: 3, line2: 4, line3: 3, line4: 4, line5: 4, line6: 3, display: "22. Pi" },
+    { name: "twentyThree", png: hexChar.twentyThree, id: "23", line1: 4, line2: 4, line3: 4, line4: 4, line5: 4, line6: 3, display: "23. Po" },
+    { name: "twentyFour", png: hexChar.twentyFour, id: "24", line1: 3, line2: 4, line3: 4, line4: 4, line5: 4, line6: 4, display: "24. Fu" },
+    { name: "twentyFive", png: hexChar.twentyFive, id: "25", line1: 3, line2: 4, line3: 4, line4: 3, line5: 3, line6: 3, display: "25. Wu Wang" },
+    { name: "twentySix", png: hexChar.twentySix, id: "26", line1: 3, line2: 3, line3: 3, line4: 4, line5: 4, line6: 3, display: "26. Ta Ch'u" },
+    { name: "twentySeven", png: hexChar.twentySeven, id: "27", line1: 3, line2: 4, line3: 4, line4: 4, line5: 4, line6: 3, display: "27. I" },
+    { name: "twentyEight", png: hexChar.twentyEight, id: "28", line1: 4, line2: 3, line3: 3, line4: 3, line5: 3, line6: 4, display: "28. Ta Kuo" },
+    { name: "twentyNine", png: hexChar.twentyNine, id: "29", line1: 4, line2: 3, line3: 4, line4: 4, line5: 3, line6: 4, display: "29. K'an" },
+    { name: "thirty", png: hexChar.thirty, id: "30", line1: 3, line2: 4, line3: 3, line4: 3, line5: 4, line6: 3, display: "30. Li" },
+    { name: "thirtyOne", png: hexChar.thirtyOne, id: "31", line1: 4, line2: 4, line3: 3, line4: 3, line5: 3, line6: 4, display: "31. Hsien" },
+    { name: "thirtyTwo", png: hexChar.thirtyTwo, id: "32", line1: 4, line2: 3, line3: 3, line4: 3, line5: 4, line6: 4, display: "32. Heng" },
+    { name: "thirtyThree", png: hexChar.thirtyThree, id: "33", line1: 4, line2: 4, line3: 3, line4: 3, line5: 3, line6: 3, display: "33. Tun" },
+    { name: "thirtyFour", png: hexChar.thirtyFour, id: "34", line1: 3, line2: 3, line3: 3, line4: 3, line5: 4, line6: 4, display: "34. Ta Chuang" },
+    { name: "thirtyFive", png: hexChar.thirtyFive, id: "35", line1: 4, line2: 4, line3: 4, line4: 3, line5: 4, line6: 3, display: "35. Chin" },
+    { name: "thirtySix", png: hexChar.thirtySix, id: "36", line1: 3, line2: 4, line3: 3, line4: 4, line5: 4, line6: 4, display: "36. Ming I" },
+    { name: "thirtySeven", png: hexChar.thirtySeven, id: "37", line1: 3, line2: 4, line3: 3, line4: 4, line5: 3, line6: 3, display: "37. Chia Jen" },
+    { name: "thirtyEight", png: hexChar.thirtyEight, id: "38", line1: 3, line2: 3, line3: 4, line4: 3, line5: 4, line6: 3, display: "38. K'uei" },
+    { name: "thirtyNine", png: hexChar.thirtyNine, id: "39", line1: 4, line2: 4, line3: 3, line4: 4, line5: 3, line6: 4, display: "39. Chien" },
+    { name: "forty", png: hexChar.forty, id: "40", line1: 4, line2: 3, line3: 4, line4: 3, line5: 4, line6: 4, display: "40. Hsieh" },
+    { name: "fortyOne", png: hexChar.fortyOne, id: "41", line1: 3, line2: 3, line3: 4, line4: 4, line5: 4, line6: 3, display: "41. Sun" },
+    { name: "fortyTwo", png: hexChar.fortyTwo, id: "42", line1: 3, line2: 4, line3: 4, line4: 4, line5: 3, line6: 3, display: "42. Kuai" },
+    { name: "fortyThree", png: hexChar.fortyThree, id: "43", line1: 3, line2: 3, line3: 3, line4: 3, line5: 3, line6: 4, display: "43. Kuai" },
+    { name: "fortyFour", png: hexChar.fortyFour, id: "44", line1: 4, line2: 3, line3: 3, line4: 3, line5: 3, line6: 3, display: "44. Kou" },
+    { name: "fortyFive", png: hexChar.fortyFive, id: "45", line1: 4, line2: 4, line3: 4, line4: 3, line5: 3, line6: 4, display: "45. Ts'ui" },
+    { name: "fortySix", png: hexChar.fortySix, id: "46", line1: 4, line2: 3, line3: 3, line4: 4, line5: 4, line6: 4, display: "46. Sheng" },
+    { name: "fortySeven", png: hexChar.fortySeven, id: "47", line1: 4, line2: 3, line3: 4, line4: 3, line5: 3, line6: 4, display: "47. K'un" },
+    { name: "fortyEight", png: hexChar.fortyEight, id: "48", line1: 4, line2: 3, line3: 3, line4: 4, line5: 3, line6: 4, display: "48. Ching" },
+    { name: "fortyNine", png: hexChar.fortyNine, id: "49", line1: 3, line2: 4, line3: 3, line4: 3, line5: 3, line6: 4, display: "49. Ko" },
+    { name: "fifty", png: hexChar.fifty, id: "50", line1: 4, line2: 3, line3: 3, line4: 3, line5: 4, line6: 3, display: "50. Ting" },
+    { name: "fiftyOne", png: hexChar.fiftyOne, id: "51", line1: 3, line2: 4, line3: 4, line4: 3, line5: 4, line6: 4, display: "51. Chen" },
+    { name: "fiftyTwo", png: hexChar.fiftyTwo, id: "52", line1: 4, line2: 4, line3: 3, line4: 4, line5: 4, line6: 3, display: "52. Ken" },
     { name: "fiftyThree", png: hexChar.fiftyThree, id: "53", line1: 4, line2: 4, line3: 3, line4: 4, line5: 3, line6: 3, display: "53. Chien" },
     { name: "fiftyFour", png: hexChar.fiftyFour, id: "54", line1: 3, line2: 3, line3: 4, line4: 3, line5: 4, line6: 4, display: "54. Kuei Mei" },
-    { name: "fiftyFive", png: hexChar.fiftyFive, id: "55", line1: 3, line2: 3, line3: 4, line4: 4, line5: 3, line6: 4, display: "55. Feng" },
-    { name: "fiftySix", png: hexChar.fiftySix, id: "56", line1: 4, line2: 3, line3: 4, line4: 4, line5: 3, line6: 3, display: "56. Lu" },
-    { name: "fiftySeven", png: hexChar.fiftySeven, id: "57", line1: 4, line2: 4, line3: 3, line4: 4, line5: 4, line6: 3, display: "57. Sun" },
-    { name: "fiftyEight", png: hexChar.fiftyEight, id: "58", line1: 3, line2: 4, line3: 4, line4: 3, line5: 4, line6: 4, display: "58. Tui" },
-    { name: "fiftyNine", png: hexChar.fiftyNine, id: "59", line1: 4, line2: 4, line3: 3, line4: 3, line5: 4, line6: 3, display: "59. Huan" },
-    { name: "sixty", png: hexChar.sixty, id: "60", line1: 3, line2: 4, line3: 3, line4: 3, line5: 4, line6: 4, display: "60. Chieh" },
-    { name: "sixtyOne", png: hexChar.sixtyOne, id: "61", line1: 4, line2: 4, line3: 3, line4: 3, line5: 4, line6: 4, display: "61. Chung Fu" },
-    { name: "sixtyTwo", png: hexChar.sixtyTwo, id: "62", line1: 3, line2: 3, line3: 4, line4: 4, line5: 3, line6: 3, display: "62. Hsiao Kuo" },
+    { name: "fiftyFive", png: hexChar.fiftyFive, id: "55", line1: 3, line2: 4, line3: 3, line4: 3, line5: 4, line6: 4, display: "55. Feng" },
+    { name: "fiftySix", png: hexChar.fiftySix, id: "56", line1: 4, line2: 4, line3: 3, line4: 3, line5: 4, line6: 3, display: "56. Lu" },
+    { name: "fiftySeven", png: hexChar.fiftySeven, id: "57", line1: 4, line2: 3, line3: 3, line4: 4, line5: 3, line6: 3, display: "57. Sun" },
+    { name: "fiftyEight", png: hexChar.fiftyEight, id: "58", line1: 3, line2: 3, line3: 4, line4: 3, line5: 3, line6: 4, display: "58. Tui" },
+    { name: "fiftyNine", png: hexChar.fiftyNine, id: "59", line1: 4, line2: 3, line3: 4, line4: 4, line5: 3, line6: 3, display: "59. Huan" },
+    { name: "sixty", png: hexChar.sixty, id: "60", line1: 3, line2: 3, line3: 4, line4: 4, line5: 3, line6: 4, display: "60. Chieh" },
+    { name: "sixtyOne", png: hexChar.sixtyOne, id: "61", line1: 3, line2: 3, line3: 4, line4: 4, line5: 3, line6: 3, display: "61. Chung Fu" },
+    { name: "sixtyTwo", png: hexChar.sixtyTwo, id: "62", line1: 4, line2: 4, line3: 3, line4: 3, line5: 4, line6: 4, display: "62. Hsiao Kuo" },
     { name: "sixtyThree", png: hexChar.sixtyThree, id: "63", line1: 3, line2: 4, line3: 3, line4: 4, line5: 3, line6: 4, display: "63. Chi Chi" },
     { name: "sixtyFour", png: hexChar.sixtyFour, id: "64", line1: 4, line2: 3, line3: 4, line4: 3, line5: 4, line6: 3, display: "64. Wei Chi" }
   ]
@@ -179,54 +151,60 @@ function SearchScreen(props) {
     let resultBg = "";
 
     //code can be simplified into a For Loop
-    if (Trigram == trigramDict.Chien) {
-      //chien
-      result.png = Chien;
-      resultBg = "chien_Heaven";
-      result.name = "Chien";
-      result.meaning = "Heaven";
-    } else if (Trigram == trigramDict.Chen) {
-      //chen
-      result.png = Chen;
-      resultBg = "chen_Thunder";
-      result.name = "Chen";
-      result.meaning = "Thunder";
-    } else if (Trigram == trigramDict.Kan) {
-      //Kan
-      result.png = Kan;
-      resultBg = "kan_Water";
-      result.name = "Kan";
-      result.meaning = "Water";
-    } else if (Trigram == trigramDict.Ken) {
-      //Ken
-      result.png = Ken;
-      resultBg = "ken_Mountain";
-      result.name = "Ken";
-      result.meaning = "Mountain";
-    } else if (Trigram == trigramDict.Kun) {
-      //Kun
-      result.png = Kun;
-      resultBg = "kun_Earth";
-      result.name = "Kun";
-      result.meaning = "Earth";
-    } else if (Trigram == trigramDict.Li) {
-      //Li
-      result.png = Li;
-      resultBg = "li_Fire";
-      result.name = "Li";
-      result.meaning = "Fire";
-    } else if (Trigram == trigramDict.Sun) {
-      //Sun
-      result.png = Sun;
-      resultBg = "sun_Wind";
-      result.name = "Sun";
-      result.meaning = "Wind";
-    } else if (Trigram == trigramDict.Tui) {
-      //Tui
-      result.png = Tui;
-      resultBg = "tui_Lake";
-      result.name = "Tui";
-      result.meaning = "Lake";
+    if (Trigram == trigramDict.Chien) //chien
+    {
+      result.png = Chien
+      resultBg = "chien_Heaven"
+      result.name = "Chien"
+      result.meaning = "Heaven"
+    }
+    else if (Trigram == trigramDict.Chen) { //chen
+      result.png = Chen
+      resultBg = "chen_Thunder"
+      result.name = "Chen"
+      result.meaning = "Thunder"
+    }
+    else if (Trigram == trigramDict.Kan) //Kan
+    {
+      result.png = Kan
+      resultBg = "kan_Water"
+      result.name = "Kan"
+      result.meaning = "Water"
+    }
+    else if (Trigram == trigramDict.Ken) //Ken
+    {
+      result.png = Ken
+      resultBg = "ken_Mountain"
+      result.name = "Ken"
+      result.meaning = "Mountain"
+    }
+    else if (Trigram == trigramDict.Kun) //Kun
+    {
+      result.png = Kun
+      resultBg = "kun_Earth"
+      result.name = "Kun"
+      result.meaning = "Earth"
+    }
+    else if (Trigram == trigramDict.Li) //Li
+    {
+      result.png = Li
+      resultBg = "li_Fire"
+      result.name = "Li"
+      result.meaning = "Fire"
+    }
+    else if (Trigram == trigramDict.Sun) //Sun
+    {
+      result.png = Sun
+      resultBg = "sun_Wind"
+      result.name = "Sun"
+      result.meaning = "Wind"
+    }
+    else if (Trigram == trigramDict.Tui) //Tui
+    {
+      result.png = Tui
+      resultBg = "tui_Lake"
+      result.name = "Tui"
+      result.meaning = "Lake"
     }
 
     trigramBg = resultBg;
@@ -241,8 +219,8 @@ function SearchScreen(props) {
     line5 = item.line5;
     line6 = item.line6;
 
-    genLowerTri;
-    genUpperTri;
+    genLowerTri = '';
+    genUpperTri = '';
     genHex;
 
     genLowerTri += item.line1.toString();
@@ -252,8 +230,6 @@ function SearchScreen(props) {
     genUpperTri += item.line4.toString();
     genUpperTri += item.line5.toString();
     genUpperTri += item.line6.toString();
-
-    console.log("Trigram" + genLowerTri);
 
     LowerTrigram = trigramGenerator(genLowerTri).png;
     LowerTriName = trigramGenerator(genLowerTri).name;
@@ -268,7 +244,7 @@ function SearchScreen(props) {
     HexagramJudgment = hexData[item.name].judgement;
     HexagramName = hexData[item.name].name;
     ChinaName = hexData[item.name].ChinaName;
-    hexName = item.name;
+    hexName = hexData[item.name].name;
     Hexagram = item.name;
 
     var hexObj = {
@@ -288,7 +264,6 @@ function SearchScreen(props) {
 
     props.navigation.navigate("HexagramScreen", { hexObj, lineObj });
   };
-
 
   //Searchbar filter
   const searchFilter = (text) => {
@@ -328,9 +303,7 @@ function SearchScreen(props) {
             onPress={() => props.navigation.navigate("Home")}
           />
         </View>
-
         <Text style={styles.textHeader}>Hexagrams</Text>
-
         <View style={styles.item}>
           <SearchBar
             style={{ zIndex: 1}} 
@@ -379,7 +352,6 @@ function SearchScreen(props) {
 }
 
 const styles = StyleSheet.create({
-
   flatList: {
     flex: 1,
     flexDirection: "row",
@@ -393,14 +365,12 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     margin: 2,
   },
-
   textHeader: {
     marginTop: -20,
     fontSize: 28,
     color: "#008b8b",
     fontFamily: "futura-book",
   },
-
   textStyle: {
     paddingTop: 10,
     paddingLeft: 10,
@@ -409,7 +379,6 @@ const styles = StyleSheet.create({
     textShadowColor: '#e0ffff',
     textShadowRadius: 1,
   },
-
   container: {
     flex: 1,
     paddingBottom: 20,
@@ -417,18 +386,15 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: 'center',
   },
-
   image: {
     flex: 1,
     resizeMode: "cover",
     justifyContent: "center",
   },
-  
   buttonContainer: {
     flexDirection: "row",
     alignSelf:'flex-start',
   },
-  
   hexChar: {
     paddingLeft: 5,
     paddingTop: 10,
@@ -438,7 +404,6 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
     justifyContent: "flex-start",
   },
-
   item: {
     marginVertical: 8,
     fontSize: 25,
